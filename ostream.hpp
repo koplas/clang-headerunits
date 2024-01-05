@@ -1,105 +1,92 @@
-namespace std { inline namespace __1 {
-template <class _CharT>
-struct char_traits;
-}}
+namespace std {
+inline namespace __1 {
+template <class _CharT> struct char_traits;
+}
+} // namespace std
 
-namespace std { inline namespace __1 {
+namespace std {
+inline namespace __1 {
 class ios_base;
 
-template <class _CharT, class _Traits = char_traits<_CharT> >
-    class basic_ios;
+template <class _CharT, class _Traits = char_traits<_CharT>> class basic_ios;
 
-template <class _CharT, class _Traits = char_traits<_CharT> >
-    class basic_ostream;
+template <class _CharT, class _Traits = char_traits<_CharT>>
+class basic_ostream;
 
+typedef basic_ios<char> ios;
+typedef basic_ios<wchar_t> wios;
 
-typedef basic_ios<char>              ios;
-typedef basic_ios<wchar_t>           wios;
+typedef basic_ostream<char> ostream;
 
-typedef basic_ostream<char>          ostream;
-
-typedef basic_ostream<wchar_t>       wostream;
+typedef basic_ostream<wchar_t> wostream;
 
 template <class _CharT, class _Traits>
-    class __attribute__((__preferred_name__(ios))) __attribute__((__preferred_name__(wios))) basic_ios;
-}}
+class __attribute__((__preferred_name__(ios)))
+__attribute__((__preferred_name__(wios))) basic_ios;
+} // namespace __1
+} // namespace std
 
+namespace std {
+inline namespace __1 {
 
-namespace std { inline namespace __1 {
-
-class ios_base
-{
+class ios_base {
 public:
-    class failure;
+  class failure;
 
-    virtual ~ios_base();
+  virtual ~ios_base();
 
 protected:
-    ios_base() {}
+  ios_base() {}
 
-    void init(void* __sb);
- };
+  void init(void *__sb);
+};
 
-
-template <class _CharT, class _Traits>
-class basic_ios
-    : public ios_base
-{
+template <class _CharT, class _Traits> class basic_ios : public ios_base {
 public:
+  typedef _Traits traits_type;
 
-    typedef _Traits traits_type;
-
-    explicit basic_ios(void* __sb);
-    ~basic_ios() override;
+  explicit basic_ios(void *__sb);
+  ~basic_ios() override;
 
 protected:
-    basic_ios() {
-                }
-    void init(void* __sb);
+  basic_ios() {}
+  void init(void *__sb);
 };
 
 template <class _CharT, class _Traits>
-inline
-basic_ios<_CharT, _Traits>::basic_ios(void* __sb)
-{
-    init(__sb);
+inline basic_ios<_CharT, _Traits>::basic_ios(void *__sb) {
+  init(__sb);
 }
 
 template <class _CharT, class _Traits>
-basic_ios<_CharT, _Traits>::~basic_ios()
-{
-}
+basic_ios<_CharT, _Traits>::~basic_ios() {}
 
 template <class _CharT, class _Traits>
-inline
-void
-basic_ios<_CharT, _Traits>::init(void* __sb)
-{
-}
-}}
+inline void basic_ios<_CharT, _Traits>::init(void *__sb) {}
+} // namespace __1
+} // namespace std
 
-namespace std { inline namespace __1 {
+namespace std {
+inline namespace __1 {
 extern template class basic_ios<char>;
-}}
+}
+} // namespace std
 
-namespace std { inline namespace __1 {
+namespace std {
+inline namespace __1 {
 
 template <class _CharT, class _Traits>
 class __attribute__((__type_visibility__("default"))) basic_ostream
-    : virtual public basic_ios<_CharT, _Traits>
-{
+    : virtual public basic_ios<_CharT, _Traits> {
 public:
-
-    inline 
-    explicit basic_ostream(void* __sb)
-    { this->init(__sb); }
-    ~basic_ostream() override;
-protected:
-    inline
-    basic_ostream(basic_ostream&& __rhs);
+  inline explicit basic_ostream(void *__sb) { this->init(__sb); }
+  ~basic_ostream() override;
 
 protected:
-    basic_ostream() {}
+  inline basic_ostream(basic_ostream &&__rhs);
+
+protected:
+  basic_ostream() {}
 };
-}
-}
+} // namespace __1
+} // namespace std
