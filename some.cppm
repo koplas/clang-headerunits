@@ -1,5 +1,5 @@
 export module some;
 
 export namespace some {
-std::string some_string() { return "some string"; }
+void function() { using result = std::__promote<int, float, long>::type; }
 } // namespace some

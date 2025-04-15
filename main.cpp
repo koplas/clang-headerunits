@@ -1,3 +1,6 @@
 import some;
 
-int main() { std::cout << some::some_string(); }
+int main() {
+  using result = std::__promote<int, float, long>::type;
+  some::function();
+}
