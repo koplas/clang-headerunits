@@ -1,8 +1,3 @@
-import "a.hpp";
-import "b.hpp";
+import some;
 
-
-std::basic_ostream<char> test()
-{
-    return std::basic_ostream<char>(nullptr);
-}
+int main() { std::cout << some::some_string(); }
