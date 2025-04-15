@@ -1,6 +1,6 @@
 import some;
 
 int main() {
-  using result = std::__promote<int, float, long>::type;
+  using result = std::__promote<int>::type;
   some::function();
 }
