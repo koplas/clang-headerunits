@@ -1,3 +1,3 @@
 import some;
 
-int main() { std::cout << some::some_string(); }
+int main() { some::some_string(); }
