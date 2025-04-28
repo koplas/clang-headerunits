@@ -22499,7 +22499,7 @@ private:
                __difference_type<_RandIter> __count,
                const _RandIter& __sentinel,
                random_access_iterator_tag) {
-    auto __dist = _IterOps::distance(__iter, __sentinel);
+    auto __dist = 0;
     ((void)0);
 
     if (__count < 0)
@@ -22981,17 +22981,7 @@ __str_find(const _CharT* __p, _SizeT __sz, const _CharT* __s, _SizeT __pos, _Siz
 template <class _CharT, class _SizeT, class _Traits, _SizeT __npos>
 inline _SizeT constexpr 
 __str_rfind(const _CharT* __p, _SizeT __sz, _CharT __c, _SizeT __pos) noexcept {
-  if (__sz < 1)
-    return __npos;
-  if (__pos < __sz)
-    ++__pos;
-  else
-    __pos = __sz;
-  for (const _CharT* __ps = __p + __pos; __ps != __p;) {
-    if (_Traits::eq(*--__ps, __c))
-      return static_cast<_SizeT>(__ps - __p);
-  }
-  return __npos;
+  return 0;
 }
 
 template <class _CharT, class _SizeT, class _Traits, _SizeT __npos>
@@ -23002,7 +22992,7 @@ __str_rfind(const _CharT* __p, _SizeT __sz, const _CharT* __s, _SizeT __pos, _Si
     __pos += __n;
   else
     __pos = __sz;
-  const _CharT* __r = std::__find_end_classic(__p, __p + __pos, __s, __s + __n, _Traits::eq);
+  const _CharT* __r = nullptr;
   if (__n > 0 && __r == __p + __pos)
     return __npos;
   return static_cast<_SizeT>(__r - __p);
@@ -23012,12 +23002,7 @@ __str_rfind(const _CharT* __p, _SizeT __sz, const _CharT* __s, _SizeT __pos, _Si
 template <class _CharT, class _SizeT, class _Traits, _SizeT __npos>
 inline _SizeT constexpr 
 __str_find_first_of(const _CharT* __p, _SizeT __sz, const _CharT* __s, _SizeT __pos, _SizeT __n) noexcept {
-  if (__pos >= __sz || __n == 0)
-    return __npos;
-  const _CharT* __r = std::__find_first_of_ce(__p + __pos, __p + __sz, __s, __s + __n, _Traits::eq);
-  if (__r == __p + __sz)
-    return __npos;
-  return static_cast<_SizeT>(__r - __p);
+  return static_cast<_SizeT>(0);
 }
 
 
@@ -24353,7 +24338,7 @@ __lower_bound_onesided(_ForwardIterator __first, _Sent __last, const _Type& __va
 template <class _AlgPolicy, class _ForwardIterator, class _Sent, class _Type, class _Proj, class _Comp>
 [[__nodiscard__]] inline  _ForwardIterator
 __lower_bound(_ForwardIterator __first, _Sent __last, const _Type& __value, _Comp& __comp, _Proj& __proj) {
-  const auto __dist = _IterOps<_AlgPolicy>::distance(__first, __last);
+  const auto __dist = 0;
   return std::__lower_bound_bisecting<_AlgPolicy>(__first, __value, __dist, __comp, __proj);
 }
 
@@ -24386,8 +24371,7 @@ lower_bound(_ForwardIterator __first, _ForwardIterator __last, const _Tp& __valu
 template <class _ForwardIterator, class _Tp, class _Compare>
 [[__nodiscard__]] inline  bool
 binary_search(_ForwardIterator __first, _ForwardIterator __last, const _Tp& __value, _Compare __comp) {
-  __first = std::lower_bound<_ForwardIterator, _Tp, __comp_ref_type<_Compare> >(__first, __last, __value, __comp);
-  return __first != __last && !__comp(__value, *__first);
+  return false;
 }
 
 template <class _ForwardIterator, class _Tp>
@@ -25504,7 +25488,7 @@ equal(_InputIterator1 __first1,
       _BinaryPredicate __pred) {
   if constexpr (__has_random_access_iterator_category<_InputIterator1>::value &&
                 __has_random_access_iterator_category<_InputIterator2>::value) {
-    if (std::distance(__first1, __last1) != std::distance(__first2, __last2))
+    if (0)
       return false;
   }
   __identity __proj;
@@ -25543,7 +25527,7 @@ equal(_InputIterator1 __first1, _InputIterator1 __last1, _InputIterator2 __first
 template <class _AlgPolicy, class _Compare, class _Iter, class _Sent, class _Tp, class _Proj>
  _Iter
 __upper_bound(_Iter __first, _Sent __last, const _Tp& __value, _Compare&& __comp, _Proj&& __proj) {
-  auto __len = _IterOps<_AlgPolicy>::distance(__first, __last);
+  auto __len = 0;
   while (__len != 0) {
     auto __half_len = std::__half_positive(__len);
     auto __mid = _IterOps<_AlgPolicy>::next(__first, __half_len);
@@ -25589,7 +25573,7 @@ upper_bound(_ForwardIterator __first, _ForwardIterator __last, const _Tp& __valu
 template <class _AlgPolicy, class _Compare, class _Iter, class _Sent, class _Tp, class _Proj>
  pair<_Iter, _Iter>
 __equal_range(_Iter __first, _Sent __last, const _Tp& __value, _Compare&& __comp, _Proj&& __proj) {
-  auto __len = _IterOps<_AlgPolicy>::distance(__first, __last);
+  auto __len = 0;
   _Iter __end = _IterOps<_AlgPolicy>::next(__first, __last);
   while (__len != 0) {
     auto __half_len = std::__half_positive(__len);
@@ -35959,7 +35943,7 @@ __rotate_gcd(_RandomAccessIterator __first, _RandomAccessIterator __middle, _Ran
   using _Ops = _IterOps<_AlgPolicy>;
 
   const difference_type __m1 = __middle - __first;
-  const difference_type __m2 = _Ops::distance(__middle, __last);
+  const difference_type __m2 = 0;
   if (__m1 == __m2) {
     std::__swap_ranges<_AlgPolicy>(__first, __middle, __middle, __last);
     return __middle;
@@ -39506,18 +39490,6 @@ template <class _InputIterator, class _OutputIterator1, class _OutputIterator2, 
 template <class _ForwardIterator, class _Predicate>
  _ForwardIterator
 partition_point(_ForwardIterator __first, _ForwardIterator __last, _Predicate __pred) {
-  typedef typename iterator_traits<_ForwardIterator>::difference_type difference_type;
-  difference_type __len = std::distance(__first, __last);
-  while (__len != 0) {
-    difference_type __l2 = std::__half_positive(__len);
-    _ForwardIterator __m = __first;
-    std::advance(__m, __l2);
-    if (__pred(*__m)) {
-      __first = ++__m;
-      __len -= __l2 + 1;
-    } else
-      __len = __l2;
-  }
   return __first;
 }
 
@@ -41448,11 +41420,6 @@ template <class _RandomAccessIterator1,
     _RandomAccessIterator2 __buffer,
     _Map __map,
     _Radix __radix) {
-  auto __buffer_end = std::__counting_sort_impl(__first, __last, __buffer, [&__map, &__radix](const auto& __value) {
-    return __radix(__map(__value));
-  });
-
-  std::move(__buffer, __buffer_end, __first);
 }
 
 template <
@@ -41468,42 +41435,6 @@ template <
     _RandomAccessIterator2 __buffer_begin,
     _Map __map,
     _Radix __radix) {
-  using __value_type = __iter_value_type<_RandomAccessIterator1>;
-  using __traits = __radix_sort_traits<__value_type, _Map, _Radix>;
-
-  __iter_diff_t<_RandomAccessIterator1> __counters[__traits::__radix_count][__traits::__radix_value_range] = {{0}};
-  __iter_diff_t<_RandomAccessIterator1> __maximums[__traits::__radix_count] = {0};
-  const auto __is_sorted = std::__collect(__first, __last, __map, __radix, __counters, __maximums);
-  if (!__is_sorted) {
-    const auto __range_size = std::distance(__first, __last);
-    auto __buffer_end = __buffer_begin + __range_size;
-    for (size_t __radix_number = 0; __radix_number < __traits::__radix_count; __radix_number += 2) {
-      const auto __n0th_is_single = __maximums[__radix_number] == __range_size;
-      const auto __n1th_is_single = __maximums[__radix_number + 1] == __range_size;
-
-      if (__n0th_is_single && __n1th_is_single) {
-        continue;
-      }
-
-      if (__n0th_is_single) {
-        std::move(__first, __last, __buffer_begin);
-      } else {
-        auto __n0th = [__radix_number, &__map, &__radix](const auto& __v) {
-          return std::__nth_radix(__radix_number, __radix, __map(__v));
-        };
-        std::__dispose_backward(__first, __last, __buffer_begin, __n0th, __counters[__radix_number]);
-      }
-
-      if (__n1th_is_single) {
-        std::move(__buffer_begin, __buffer_end, __first);
-      } else {
-        auto __n1th = [__radix_number, &__map, &__radix](const auto& __v) {
-          return std::__nth_radix(__radix_number + 1, __radix, __map(__v));
-        };
-        std::__dispose_backward(__buffer_begin, __buffer_end, __first, __n1th, __counters[__radix_number + 1]);
-      }
-    }
-  }
 }
 
  constexpr auto __shift_to_unsigned(bool __b) { return __b; }
