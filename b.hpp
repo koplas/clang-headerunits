@@ -1343,9 +1343,9 @@ extern int sscanf (const char *__restrict __s,
 
 # 1 "/usr/include/bits/floatn.h" 1 3 4
 # 83 "/usr/include/bits/floatn.h" 3 4
-typedef _Complex float __cfloat128 __attribute__ ((__mode__ (__TC__)));
+typedef _Complex float __cfloat128;
 # 97 "/usr/include/bits/floatn.h" 3 4
-typedef __float128 _Float128;
+typedef short _Float128;
 # 131 "/usr/include/bits/floatn.h" 3 4
 # 1 "/usr/include/bits/floatn-common.h" 1 3 4
 # 24 "/usr/include/bits/floatn-common.h" 3 4
