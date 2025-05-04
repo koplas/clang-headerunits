@@ -1035,8 +1035,8 @@ extern int sscanf (const char *__restrict __s,
 
 
 
-typedef _Complex float __cfloat128 __attribute__ ((__mode__ (__TC__)));
-typedef __float128 _Float128;
+typedef _Complex float __cfloat128;
+typedef int _Float128;
 typedef float _Float32;
 typedef double _Float64;
 typedef double _Float32x;
