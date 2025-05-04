@@ -9806,8 +9806,8 @@ protected:
   static constexpr const int digits = 64;
   static constexpr const int digits10 = 18;
   static constexpr const int max_digits10 = 2 + (digits * 30103l) / 100000l;
-  [[__nodiscard__]]  static constexpr type min() noexcept { return 3.36210314311209350626e-4932L; }
-  [[__nodiscard__]]  static constexpr type max() noexcept { return 1.18973149535723176502e+4932L; }
+  [[__nodiscard__]]  static constexpr type min() noexcept { return 0L; }
+  [[__nodiscard__]]  static constexpr type max() noexcept { return 0L; }
   [[__nodiscard__]]  static constexpr type lowest() noexcept { return -max(); }
 
   static constexpr const bool is_integer = false;
@@ -9836,7 +9836,7 @@ protected:
     return __builtin_nansl("");
   }
   [[__nodiscard__]]  static constexpr type denorm_min() noexcept {
-    return 3.64519953188247460253e-4951L;
+    return 0L;
   }
 
 
