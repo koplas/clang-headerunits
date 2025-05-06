@@ -15003,23 +15003,19 @@ public:
   constexpr __tuple_leaf& operator=(const __tuple_leaf&) = delete;
 
    constexpr __tuple_leaf() noexcept(is_nothrow_default_constructible<_Hp>::value) : __value_() {
-    static_assert(!is_reference<_Hp>::value, "Attempted to default construct a reference element in a tuple");
   }
 
   template <class _Alloc>
    constexpr __tuple_leaf(integral_constant<int, 0>, const _Alloc&) : __value_() {
-    static_assert(!is_reference<_Hp>::value, "Attempted to default construct a reference element in a tuple");
   }
 
   template <class _Alloc>
    constexpr __tuple_leaf(integral_constant<int, 1>, const _Alloc& __a)
       : __value_(allocator_arg_t(), __a) {
-    static_assert(!is_reference<_Hp>::value, "Attempted to default construct a reference element in a tuple");
   }
 
   template <class _Alloc>
    constexpr __tuple_leaf(integral_constant<int, 2>, const _Alloc& __a) : __value_(__a) {
-    static_assert(!is_reference<_Hp>::value, "Attempted to default construct a reference element in a tuple");
   }
 
   template <
@@ -15028,30 +15024,24 @@ public:
   
   constexpr explicit __tuple_leaf(_Tp&& __t) noexcept(is_nothrow_constructible<_Hp, _Tp>::value)
       : __value_(std::forward<_Tp>(__t)) {
-    static_assert(__can_bind_reference<_Tp&&>(),
-                  "Attempted construction of reference element binds to a temporary whose lifetime has ended");
   }
 
   template <class _Tp, class _Alloc>
   
   constexpr explicit __tuple_leaf(integral_constant<int, 0>, const _Alloc&, _Tp&& __t)
       : __value_(std::forward<_Tp>(__t)) {
-    static_assert(__can_bind_reference<_Tp&&>(),
-                  "Attempted construction of reference element binds to a temporary whose lifetime has ended");
   }
 
   template <class _Tp, class _Alloc>
   
   constexpr explicit __tuple_leaf(integral_constant<int, 1>, const _Alloc& __a, _Tp&& __t)
       : __value_(allocator_arg_t(), __a, std::forward<_Tp>(__t)) {
-    static_assert(!is_reference<_Hp>::value, "Attempted to uses-allocator construct a reference element in a tuple");
   }
 
   template <class _Tp, class _Alloc>
   
   constexpr explicit __tuple_leaf(integral_constant<int, 2>, const _Alloc& __a, _Tp&& __t)
       : __value_(std::forward<_Tp>(__t), __a) {
-    static_assert(!is_reference<_Hp>::value, "Attempted to uses-allocator construct a reference element in a tuple");
   }
 
    __tuple_leaf(const __tuple_leaf& __t) = default;
@@ -21720,7 +21710,6 @@ public:
    allocator(const allocator<_Up>&) noexcept {}
 
   [[__nodiscard__]]  _Tp* allocate(size_t __n) {
-    static_assert(sizeof(_Tp) >= 0, "cannot allocate memory for an incomplete type");
     if (__n > allocator_traits<allocator>::max_size(*this))
       std::__throw_bad_array_new_length();
     if (__libcpp_is_constant_evaluated()) {
@@ -33269,8 +33258,6 @@ struct default_delete {
    default_delete(const default_delete<_Up>&) noexcept {}
 
    void operator()(_Tp* __ptr) const noexcept {
-    static_assert(sizeof(_Tp) >= 0, "cannot delete an incomplete type");
-    static_assert(!is_void<_Tp>::value, "cannot delete an incomplete type");
     delete __ptr;
   }
 };
