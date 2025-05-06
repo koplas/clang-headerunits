@@ -67,7 +67,7 @@ inline const bool __desugars_to_v<_CanonicalTag, _Operation&&, _Args...> =
  namespace  std { inline namespace __1 {
 
 template <class _Tp, _Tp __v>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] integral_constant {
+struct  integral_constant {
   static inline constexpr const _Tp value = __v;
   typedef _Tp value_type;
   typedef integral_constant type;
@@ -101,7 +101,7 @@ using bool_constant = integral_constant<bool, __b>;
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] remove_cv {
+struct  remove_cv {
   using type [[__gnu__::__nodebug__]] = __remove_cv(_Tp);
 };
 
@@ -161,11 +161,11 @@ template <> struct __libcpp_is_integral<__uint128_t> { enum { value = 1 }; };
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_integral : _BoolConstant<__is_integral(_Tp)> {};
+struct  is_integral : _BoolConstant<__is_integral(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_integral_v = __is_integral(_Tp);
+ inline constexpr bool is_integral_v = __is_integral(_Tp);
 } }
 #pragma clang diagnostic pop
 
@@ -325,12 +325,12 @@ template <> struct __libcpp_is_floating_point<long double> : public true_type {}
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_floating_point
+struct  is_floating_point
     : public __libcpp_is_floating_point<__remove_cv_t<_Tp> > {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_floating_point_v = is_floating_point<_Tp>::value;
+ inline constexpr bool is_floating_point_v = is_floating_point<_Tp>::value;
 
 
 } }
@@ -347,12 +347,12 @@ template <class _Tp>
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_arithmetic
+struct  is_arithmetic
     : public integral_constant<bool, is_integral<_Tp>::value || is_floating_point<_Tp>::value> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_arithmetic_v = is_arithmetic<_Tp>::value;
+ inline constexpr bool is_arithmetic_v = is_arithmetic<_Tp>::value;
 
 
 } }
@@ -370,11 +370,11 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_signed : _BoolConstant<__is_signed(_Tp)> {};
+struct  is_signed : _BoolConstant<__is_signed(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_signed_v = __is_signed(_Tp);
+ inline constexpr bool is_signed_v = __is_signed(_Tp);
 } }
 #pragma clang diagnostic pop
 
@@ -447,12 +447,12 @@ template <> struct __libcpp_is_unsigned_integer<__uint128_t> : public true_type 
  namespace  std { inline namespace __1 {
 
 template <class _T1, class _T2>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_convertible
+struct  is_convertible
     : public integral_constant<bool, __is_convertible(_T1, _T2)> {};
 
 
 template <class _From, class _To>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_convertible_v = __is_convertible(_From, _To);
+ inline constexpr bool is_convertible_v = __is_convertible(_From, _To);
 
 
 } }
@@ -494,11 +494,11 @@ using size_t = decltype(sizeof(int));
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_function : integral_constant<bool, __is_function(_Tp)> {};
+struct  is_function : integral_constant<bool, __is_function(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_function_v = __is_function(_Tp);
+ inline constexpr bool is_function_v = __is_function(_Tp);
 
 
 } }
@@ -514,28 +514,28 @@ template <class _Tp>
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_reference : _BoolConstant<__is_reference(_Tp)> {};
+struct  is_reference : _BoolConstant<__is_reference(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_reference_v = __is_reference(_Tp);
+ inline constexpr bool is_reference_v = __is_reference(_Tp);
 
 
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_lvalue_reference : _BoolConstant<__is_lvalue_reference(_Tp)> {
+struct  is_lvalue_reference : _BoolConstant<__is_lvalue_reference(_Tp)> {
 };
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_rvalue_reference : _BoolConstant<__is_rvalue_reference(_Tp)> {
+struct  is_rvalue_reference : _BoolConstant<__is_rvalue_reference(_Tp)> {
 };
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_lvalue_reference_v = __is_lvalue_reference(_Tp);
+ inline constexpr bool is_lvalue_reference_v = __is_lvalue_reference(_Tp);
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_rvalue_reference_v = __is_rvalue_reference(_Tp);
+ inline constexpr bool is_rvalue_reference_v = __is_rvalue_reference(_Tp);
 } }
 #pragma clang diagnostic pop
 
@@ -550,7 +550,7 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] remove_all_extents {
+struct  remove_all_extents {
   using type [[__gnu__::__nodebug__]] = __remove_all_extents(_Tp);
 };
 
@@ -575,11 +575,11 @@ using remove_all_extents_t = __remove_all_extents_t<_Tp>;
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_destructible : _BoolConstant<__is_destructible(_Tp)> {};
+struct  is_destructible : _BoolConstant<__is_destructible(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_destructible_v = __is_destructible(_Tp);
+ inline constexpr bool is_destructible_v = __is_destructible(_Tp);
 } }
 #pragma clang diagnostic pop
 
@@ -595,10 +595,10 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_nothrow_destructible
+struct  is_nothrow_destructible
     : integral_constant<bool, __is_nothrow_destructible(_Tp)> {};
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_nothrow_destructible_v = is_nothrow_destructible<_Tp>::value;
+ inline constexpr bool is_nothrow_destructible_v = is_nothrow_destructible<_Tp>::value;
 
 
 } }
@@ -668,7 +668,7 @@ inline const bool __is_referenceable_v<_Tp, __void_t<_Tp&> > = true;
 template <class _Tp>
 using __add_lvalue_reference_t [[__gnu__::__nodebug__]] = __add_lvalue_reference(_Tp);
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] add_lvalue_reference {
+struct  add_lvalue_reference {
   using type [[__gnu__::__nodebug__]] = __add_lvalue_reference_t<_Tp>;
 };
 
@@ -694,7 +694,7 @@ using add_lvalue_reference_t = __add_lvalue_reference_t<_Tp>;
 template <class _Tp>
 using __add_rvalue_reference_t [[__gnu__::__nodebug__]] = __add_rvalue_reference(_Tp);
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] add_rvalue_reference {
+struct  add_rvalue_reference {
   using type [[__gnu__::__nodebug__]] = __add_rvalue_reference_t<_Tp>;
 };
 
@@ -716,39 +716,39 @@ using add_rvalue_reference_t = __add_rvalue_reference_t<_Tp>;
  namespace  std { inline namespace __1 {
 
 template <class _Tp, class... _Args>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_constructible
+struct  is_constructible
     : public integral_constant<bool, __is_constructible(_Tp, _Args...)> {};
 
 
 template <class _Tp, class... _Args>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_constructible_v = __is_constructible(_Tp, _Args...);
+ inline constexpr bool is_constructible_v = __is_constructible(_Tp, _Args...);
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_copy_constructible
+struct  is_copy_constructible
     : public integral_constant<bool, __is_constructible(_Tp, __add_lvalue_reference_t<const _Tp>)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_copy_constructible_v = is_copy_constructible<_Tp>::value;
+ inline constexpr bool is_copy_constructible_v = is_copy_constructible<_Tp>::value;
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_move_constructible
+struct  is_move_constructible
     : public integral_constant<bool, __is_constructible(_Tp, __add_rvalue_reference_t<_Tp>)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_move_constructible_v = is_move_constructible<_Tp>::value;
+ inline constexpr bool is_move_constructible_v = is_move_constructible<_Tp>::value;
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_default_constructible
+struct  is_default_constructible
     : public integral_constant<bool, __is_constructible(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_default_constructible_v = __is_constructible(_Tp);
+ inline constexpr bool is_default_constructible_v = __is_constructible(_Tp);
 
 
 } }
@@ -776,11 +776,11 @@ template <class _Tp>
  namespace  std { inline namespace __1 {
 
 template <class _Tp, class _Up>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_same : _BoolConstant<__is_same(_Tp, _Up)> {};
+struct  is_same : _BoolConstant<__is_same(_Tp, _Up)> {};
 
 
 template <class _Tp, class _Up>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_same_v = __is_same(_Tp, _Up);
+ inline constexpr bool is_same_v = __is_same(_Tp, _Up);
 template <class _Tp, class _Up>
 using _IsSame [[__gnu__::__nodebug__]] = _BoolConstant<__is_same(_Tp, _Up)>;
 
@@ -830,19 +830,12 @@ template <bool _Cond, class _IfRes, class _ElseRes>
 using _If [[__gnu__::__nodebug__]] = typename _IfImpl<_Cond>::template _Select<_IfRes, _ElseRes>;
 
 template <bool _Bp, class _If, class _Then>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] conditional {
+struct  conditional {
   using type [[__gnu__::__nodebug__]] = _If;
 };
 
 #pragma clang diagnostic push
 
-#pragma clang diagnostic ignored "-Winvalid-specialization"
-
-template <class _If, class _Then>
-struct conditional<false, _If, _Then> {
-  using type [[__gnu__::__nodebug__]] = _Then;
-};
-#pragma clang diagnostic pop
 
 
 template <bool _Bp, class _IfRes, class _ElseRes>
@@ -866,11 +859,11 @@ using __conditional_t [[__gnu__::__nodebug__]] = typename conditional<_Bp, _If, 
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_void : _BoolConstant<__is_same(__remove_cv(_Tp), void)> {};
+struct  is_void : _BoolConstant<__is_same(__remove_cv(_Tp), void)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_void_v = __is_same(__remove_cv(_Tp), void);
+ inline constexpr bool is_void_v = __is_same(__remove_cv(_Tp), void);
 
 
 } }
@@ -887,7 +880,7 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] remove_reference {
+struct  remove_reference {
   using type [[__gnu__::__nodebug__]] = __remove_reference_t(_Tp);
 };
 
@@ -914,7 +907,7 @@ using remove_reference_t = __libcpp_remove_reference_t<_Tp>;
 template <class _Tp>
 using __add_pointer_t [[__gnu__::__nodebug__]] = __add_pointer(_Tp);
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] add_pointer {
+struct  add_pointer {
   using type [[__gnu__::__nodebug__]] = __add_pointer_t<_Tp>;
 };
 
@@ -940,11 +933,11 @@ using add_pointer_t = __add_pointer_t<_Tp>;
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_array : _BoolConstant<__is_array(_Tp)> {};
+struct  is_array : _BoolConstant<__is_array(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_array_v = __is_array(_Tp);
+ inline constexpr bool is_array_v = __is_array(_Tp);
 } }
 #pragma clang diagnostic pop
 
@@ -962,7 +955,7 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] remove_extent {
+struct  remove_extent {
   using type [[__gnu__::__nodebug__]] = __remove_extent(_Tp);
 };
 
@@ -989,7 +982,7 @@ template <class _Tp>
 using __decay_t [[__gnu__::__nodebug__]] = __decay(_Tp);
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] decay {
+struct  decay {
   using type [[__gnu__::__nodebug__]] = __decay_t<_Tp>;
 };
 template <class _Tp>
@@ -1239,11 +1232,11 @@ forward([[_Clang::__lifetimebound__]] __libcpp_remove_reference_t<_Tp>&& __t) no
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_class : public integral_constant<bool, __is_class(_Tp)> {};
+struct  is_class : public integral_constant<bool, __is_class(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_class_v = __is_class(_Tp);
+ inline constexpr bool is_class_v = __is_class(_Tp);
 
 
 } }
@@ -1259,11 +1252,11 @@ template <class _Tp>
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_enum : public integral_constant<bool, __is_enum(_Tp)> {};
+struct  is_enum : public integral_constant<bool, __is_enum(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_enum_v = __is_enum(_Tp);
+ inline constexpr bool is_enum_v = __is_enum(_Tp);
 } }
 #pragma clang diagnostic pop
 
@@ -1277,11 +1270,11 @@ template <class _Tp>
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_union : public integral_constant<bool, __is_union(_Tp)> {};
+struct  is_union : public integral_constant<bool, __is_union(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_union_v = __is_union(_Tp);
+ inline constexpr bool is_union_v = __is_union(_Tp);
 
 
 } }
@@ -1314,11 +1307,11 @@ template <class _Tp>
 
 
 template <class _Tp, size_t _Dim = 0>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] extent : integral_constant<size_t, __array_extent(_Tp, _Dim)> {};
+struct  extent : integral_constant<size_t, __array_extent(_Tp, _Dim)> {};
 
 
 template <class _Tp, unsigned _Ip = 0>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr size_t extent_v = __array_extent(_Tp, _Ip);
+ inline constexpr size_t extent_v = __array_extent(_Tp, _Ip);
 } }
 #pragma clang diagnostic pop
 
@@ -1332,34 +1325,34 @@ template <class _Tp, unsigned _Ip = 0>
  namespace  std { inline namespace __1 {
 
 template <class _Tp, class _Arg>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_nothrow_assignable
+struct  is_nothrow_assignable
     : public integral_constant<bool, __is_nothrow_assignable(_Tp, _Arg)> {};
 
 
 template <class _Tp, class _Arg>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_nothrow_assignable_v = __is_nothrow_assignable(_Tp, _Arg);
+ inline constexpr bool is_nothrow_assignable_v = __is_nothrow_assignable(_Tp, _Arg);
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_nothrow_copy_assignable
+struct  is_nothrow_copy_assignable
     : public integral_constant<
           bool,
           __is_nothrow_assignable(__add_lvalue_reference_t<_Tp>, __add_lvalue_reference_t<const _Tp>)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_nothrow_copy_assignable_v = is_nothrow_copy_assignable<_Tp>::value;
+ inline constexpr bool is_nothrow_copy_assignable_v = is_nothrow_copy_assignable<_Tp>::value;
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_nothrow_move_assignable
+struct  is_nothrow_move_assignable
     : public integral_constant<bool,
                                __is_nothrow_assignable(__add_lvalue_reference_t<_Tp>, __add_rvalue_reference_t<_Tp>)> {
 };
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_nothrow_move_assignable_v = is_nothrow_move_assignable<_Tp>::value;
+ inline constexpr bool is_nothrow_move_assignable_v = is_nothrow_move_assignable<_Tp>::value;
 
 
 } }
@@ -1375,42 +1368,42 @@ template <class _Tp>
  namespace  std { inline namespace __1 {
 
 template < class _Tp, class... _Args>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_nothrow_constructible
+struct  is_nothrow_constructible
     : public integral_constant<bool, __is_nothrow_constructible(_Tp, _Args...)> {};
 
 
 template <class _Tp, class... _Args>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_nothrow_constructible_v =
+ inline constexpr bool is_nothrow_constructible_v =
     is_nothrow_constructible<_Tp, _Args...>::value;
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_nothrow_copy_constructible
+struct  is_nothrow_copy_constructible
     : public integral_constant< bool, __is_nothrow_constructible(_Tp, __add_lvalue_reference_t<const _Tp>)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_nothrow_copy_constructible_v =
+ inline constexpr bool is_nothrow_copy_constructible_v =
     is_nothrow_copy_constructible<_Tp>::value;
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_nothrow_move_constructible
+struct  is_nothrow_move_constructible
     : public integral_constant<bool, __is_nothrow_constructible(_Tp, __add_rvalue_reference_t<_Tp>)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_nothrow_move_constructible_v =
+ inline constexpr bool is_nothrow_move_constructible_v =
     is_nothrow_move_constructible<_Tp>::value;
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_nothrow_default_constructible
+struct  is_nothrow_default_constructible
     : public integral_constant<bool, __is_nothrow_constructible(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_nothrow_default_constructible_v = __is_nothrow_constructible(_Tp);
+ inline constexpr bool is_nothrow_default_constructible_v = __is_nothrow_constructible(_Tp);
 
 
 } }
@@ -1496,11 +1489,11 @@ inline  _T1 exchange(_T1& __obj, _T2&& __new_value) noexcept(
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_object : _BoolConstant<__is_object(_Tp)> {};
+struct  is_object : _BoolConstant<__is_object(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_object_v = __is_object(_Tp);
+ inline constexpr bool is_object_v = __is_object(_Tp);
 
 
 } }
@@ -1661,11 +1654,10 @@ get(const pair<_T1, _T2>&&) noexcept;
  namespace  std { inline namespace __1 {
 
 template <bool, class _Tp = void>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] enable_if{};
+struct  enable_if{};
 
 #pragma clang diagnostic push
 
-#pragma clang diagnostic ignored "-Winvalid-specialization"
 
 template <class _Tp>
 struct enable_if<true, _Tp> {
@@ -1774,7 +1766,7 @@ struct __find_first<__type_list<_Head, _Tail...>, _Size, false> {
 template <class _Tp>
 using __make_signed_t [[__gnu__::__nodebug__]] = __make_signed(_Tp);
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] make_signed {
+struct  make_signed {
   using type [[__gnu__::__nodebug__]] = __make_signed_t<_Tp>;
 };
 
@@ -1872,10 +1864,10 @@ using _Or [[__gnu__::__nodebug__]] = typename _OrImpl<sizeof...(_Args) != 0>::te
 
 
 template <class... _Args>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] disjunction : _Or<_Args...> {};
+struct  disjunction : _Or<_Args...> {};
 
 template <class... _Args>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool disjunction_v = _Or<_Args...>::value;
+ inline constexpr bool disjunction_v = _Or<_Args...>::value;
 
 
 
@@ -1921,7 +1913,7 @@ struct __nat {
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] remove_const {
+struct  remove_const {
   using type [[__gnu__::__nodebug__]] = __remove_const(_Tp);
 };
 
@@ -2207,7 +2199,7 @@ namespace std
 
 
 template <class _Ep>
-class [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] initializer_list {
+class  initializer_list {
   const _Ep* __begin_;
   size_t __size_;
 
@@ -2519,12 +2511,12 @@ struct __is_identity<reference_wrapper<const __identity> > : true_type {};
  namespace  std { inline namespace __1 {
 
 template <class _Bp, class _Dp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_base_of
+struct  is_base_of
     : public integral_constant<bool, __is_base_of(_Bp, _Dp)> {};
 
 
 template <class _Bp, class _Dp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_base_of_v = __is_base_of(_Bp, _Dp);
+ inline constexpr bool is_base_of_v = __is_base_of(_Bp, _Dp);
 } }
 #pragma clang diagnostic pop
 
@@ -2562,25 +2554,25 @@ struct __is_core_convertible<_Tp, _Up, decltype(static_cast<void (*)(_Up)>(0)(st
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_member_pointer : _BoolConstant<__is_member_pointer(_Tp)> {};
+struct  is_member_pointer : _BoolConstant<__is_member_pointer(_Tp)> {};
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_member_object_pointer
+struct  is_member_object_pointer
     : _BoolConstant<__is_member_object_pointer(_Tp)> {};
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_member_function_pointer
+struct  is_member_function_pointer
     : _BoolConstant<__is_member_function_pointer(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_member_pointer_v = __is_member_pointer(_Tp);
+ inline constexpr bool is_member_pointer_v = __is_member_pointer(_Tp);
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_member_object_pointer_v = __is_member_object_pointer(_Tp);
+ inline constexpr bool is_member_object_pointer_v = __is_member_object_pointer(_Tp);
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_member_function_pointer_v = __is_member_function_pointer(_Tp);
+ inline constexpr bool is_member_function_pointer_v = __is_member_function_pointer(_Tp);
 
 
 } }
@@ -2829,37 +2821,37 @@ template <class _Ret, class... _Args>
 
 
 template <class _Fn, class... _Args>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_invocable : bool_constant<__is_invocable_v<_Fn, _Args...>> {};
+struct  is_invocable : bool_constant<__is_invocable_v<_Fn, _Args...>> {};
 
 template <class _Ret, class _Fn, class... _Args>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_invocable_r
+struct  is_invocable_r
     : bool_constant<__is_invocable_r_v<_Ret, _Fn, _Args...>> {};
 
 template <class _Fn, class... _Args>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_invocable_v = __is_invocable_v<_Fn, _Args...>;
+ inline constexpr bool is_invocable_v = __is_invocable_v<_Fn, _Args...>;
 
 template <class _Ret, class _Fn, class... _Args>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_invocable_r_v = __is_invocable_r_v<_Ret, _Fn, _Args...>;
+ inline constexpr bool is_invocable_r_v = __is_invocable_r_v<_Ret, _Fn, _Args...>;
 
 
 
 template <class _Fn, class... _Args>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_nothrow_invocable
+struct  is_nothrow_invocable
     : bool_constant<__nothrow_invokable<_Fn, _Args...>::value> {};
 
 template <class _Ret, class _Fn, class... _Args>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_nothrow_invocable_r
+struct  is_nothrow_invocable_r
     : bool_constant<__nothrow_invokable_r<_Ret, _Fn, _Args...>::value> {};
 
 template <class _Fn, class... _Args>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_nothrow_invocable_v = is_nothrow_invocable<_Fn, _Args...>::value;
+ inline constexpr bool is_nothrow_invocable_v = is_nothrow_invocable<_Fn, _Args...>::value;
 
 template <class _Ret, class _Fn, class... _Args>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_nothrow_invocable_r_v =
+ inline constexpr bool is_nothrow_invocable_r_v =
     is_nothrow_invocable_r<_Ret, _Fn, _Args...>::value;
 
 template <class _Fn, class... _Args>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] invoke_result : __invoke_result<_Fn, _Args...> {};
+struct  invoke_result : __invoke_result<_Fn, _Args...> {};
 
 template <class _Fn, class... _Args>
 using invoke_result_t = typename invoke_result<_Fn, _Args...>::type;
@@ -3092,11 +3084,10 @@ struct __all : _IsSame<__all_dummy<_Pred...>, __all_dummy<((void)_Pred, true)...
 
 
 template <class...>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] conjunction : true_type {};
+struct  conjunction : true_type {};
 
 #pragma clang diagnostic push
 
-#pragma clang diagnostic ignored "-Winvalid-specialization"
 
 template <class _Arg>
 struct conjunction<_Arg> : _Arg {};
@@ -3106,7 +3097,7 @@ struct conjunction<_Arg, _Args...> : conditional_t<!bool(_Arg::value), _Arg, con
 #pragma clang diagnostic pop
 
 template <class... _Args>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool conjunction_v = conjunction<_Args...>::value;
+ inline constexpr bool conjunction_v = conjunction<_Args...>::value;
 
 
 
@@ -3811,7 +3802,7 @@ class numeric_limits<const volatile _Tp> : public numeric_limits<_Tp> {};
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] add_const {
+struct  add_const {
   using type [[__gnu__::__nodebug__]] = const _Tp;
 };
 
@@ -3821,7 +3812,7 @@ using add_const_t = typename add_const<_Tp>::type;
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] add_cv {
+struct  add_cv {
   using type [[__gnu__::__nodebug__]] = const volatile _Tp;
 };
 
@@ -3831,7 +3822,7 @@ using add_cv_t = typename add_cv<_Tp>::type;
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] add_volatile {
+struct  add_volatile {
   using type [[__gnu__::__nodebug__]] = volatile _Tp;
 };
 
@@ -3903,7 +3894,7 @@ struct __find_max_align<__type_list<_Head, _Tail...>, _Len>
           __select_align<_Len, _Head::value, __find_max_align<__type_list<_Tail...>, _Len>::value>::value> {};
 
 template <size_t _Len, size_t _Align = __find_max_align<__all_types, _Len>::value>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] aligned_storage {
+struct  aligned_storage {
   union alignas(_Align) type {
     unsigned char __data[(_Len + _Align - 1) / _Align * _Align];
   };
@@ -3946,7 +3937,7 @@ struct __static_max<_I0, _I1, _In...> {
 };
 
 template <size_t _Len, class _Type0, class... _Types>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] aligned_union {
+struct  aligned_union {
   static const size_t alignment_value =
       __static_max<__alignof(_Type0), __alignof(_Types)...>::value;
   static const size_t __len = __static_max<_Len, sizeof(_Type0), sizeof(_Types)...>::value;
@@ -3971,12 +3962,12 @@ using aligned_union_t = typename aligned_union<_Len, _Types...>::type;
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] alignment_of
+struct  alignment_of
     : public integral_constant<size_t, alignof(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr size_t alignment_of_v = alignof(_Tp);
+ inline constexpr size_t alignment_of_v = alignof(_Tp);
 
 
 } }
@@ -3997,12 +3988,12 @@ template <class _Tp>
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] has_virtual_destructor
+struct  has_virtual_destructor
     : public integral_constant<bool, __has_virtual_destructor(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool has_virtual_destructor_v = __has_virtual_destructor(_Tp);
+ inline constexpr bool has_virtual_destructor_v = __has_virtual_destructor(_Tp);
 
 
 } }
@@ -4019,12 +4010,12 @@ template <class _Tp>
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_abstract
+struct  is_abstract
     : public integral_constant<bool, __is_abstract(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_abstract_v = __is_abstract(_Tp);
+ inline constexpr bool is_abstract_v = __is_abstract(_Tp);
 
 
 } }
@@ -4042,30 +4033,30 @@ template <class _Tp>
  namespace  std { inline namespace __1 {
 
 template <class _Tp, class _Up>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_assignable : _BoolConstant<__is_assignable(_Tp, _Up)> {};
+struct  is_assignable : _BoolConstant<__is_assignable(_Tp, _Up)> {};
 
 
 template <class _Tp, class _Arg>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_assignable_v = __is_assignable(_Tp, _Arg);
+ inline constexpr bool is_assignable_v = __is_assignable(_Tp, _Arg);
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_copy_assignable
+struct  is_copy_assignable
     : public integral_constant<bool,
                                __is_assignable(__add_lvalue_reference_t<_Tp>, __add_lvalue_reference_t<const _Tp>)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_copy_assignable_v = is_copy_assignable<_Tp>::value;
+ inline constexpr bool is_copy_assignable_v = is_copy_assignable<_Tp>::value;
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_move_assignable
+struct  is_move_assignable
     : public integral_constant<bool, __is_assignable(__add_lvalue_reference_t<_Tp>, __add_rvalue_reference_t<_Tp>)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_move_assignable_v = is_move_assignable<_Tp>::value;
+ inline constexpr bool is_move_assignable_v = is_move_assignable<_Tp>::value;
 
 
 } }
@@ -4087,12 +4078,12 @@ inline const bool __is_null_pointer_v = __is_same(__remove_cv(_Tp), nullptr_t);
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_null_pointer
+struct  is_null_pointer
     : integral_constant<bool, __is_null_pointer_v<_Tp>> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_null_pointer_v = __is_null_pointer_v<_Tp>;
+ inline constexpr bool is_null_pointer_v = __is_null_pointer_v<_Tp>;
 
 
 
@@ -4111,11 +4102,11 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_fundamental : _BoolConstant<__is_fundamental(_Tp)> {};
+struct  is_fundamental : _BoolConstant<__is_fundamental(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_fundamental_v = __is_fundamental(_Tp);
+ inline constexpr bool is_fundamental_v = __is_fundamental(_Tp);
 } }
 #pragma clang diagnostic pop
 
@@ -4131,11 +4122,11 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_compound : _BoolConstant<__is_compound(_Tp)> {};
+struct  is_compound : _BoolConstant<__is_compound(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_compound_v = __is_compound(_Tp);
+ inline constexpr bool is_compound_v = __is_compound(_Tp);
 } }
 #pragma clang diagnostic pop
 
@@ -4151,11 +4142,11 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_const : _BoolConstant<__is_const(_Tp)> {};
+struct  is_const : _BoolConstant<__is_const(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_const_v = __is_const(_Tp);
+ inline constexpr bool is_const_v = __is_const(_Tp);
 } }
 #pragma clang diagnostic pop
 
@@ -4172,11 +4163,11 @@ template <class _Tp>
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_empty : public integral_constant<bool, __is_empty(_Tp)> {};
+struct  is_empty : public integral_constant<bool, __is_empty(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_empty_v = __is_empty(_Tp);
+ inline constexpr bool is_empty_v = __is_empty(_Tp);
 
 
 } }
@@ -4198,12 +4189,12 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct __attribute__((__deprecated__)) [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_literal_type
+struct __attribute__((__deprecated__))  is_literal_type
     : public integral_constant<bool, __is_literal_type(_Tp)> {};
 
 
 template <class _Tp>
-__attribute__((__deprecated__)) [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_literal_type_v = __is_literal_type(_Tp);
+__attribute__((__deprecated__))  inline constexpr bool is_literal_type_v = __is_literal_type(_Tp);
 
 
 
@@ -4226,11 +4217,11 @@ __attribute__((__deprecated__)) [[_Clang::__no_specializations__("Users are not 
 
 template <class _Tp>
 struct
-                            [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_pod : public integral_constant<bool, __is_pod(_Tp)> {};
+                             is_pod : public integral_constant<bool, __is_pod(_Tp)> {};
 
 
 template <class _Tp>
-                            [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_pod_v = __is_pod(_Tp);
+                             inline constexpr bool is_pod_v = __is_pod(_Tp);
 
 
 } }
@@ -4248,11 +4239,11 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_pointer : _BoolConstant<__is_pointer(_Tp)> {};
+struct  is_pointer : _BoolConstant<__is_pointer(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_pointer_v = __is_pointer(_Tp);
+ inline constexpr bool is_pointer_v = __is_pointer(_Tp);
 } }
 #pragma clang diagnostic pop
 
@@ -4266,12 +4257,12 @@ template <class _Tp>
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_polymorphic
+struct  is_polymorphic
     : public integral_constant<bool, __is_polymorphic(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_polymorphic_v = __is_polymorphic(_Tp);
+ inline constexpr bool is_polymorphic_v = __is_polymorphic(_Tp);
 
 
 } }
@@ -4291,11 +4282,11 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_scalar : _BoolConstant<__is_scalar(_Tp)> {};
+struct  is_scalar : _BoolConstant<__is_scalar(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_scalar_v = __is_scalar(_Tp);
+ inline constexpr bool is_scalar_v = __is_scalar(_Tp);
 } }
 #pragma clang diagnostic pop
 
@@ -4310,12 +4301,12 @@ template <class _Tp>
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_standard_layout
+struct  is_standard_layout
     : public integral_constant<bool, __is_standard_layout(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_standard_layout_v = __is_standard_layout(_Tp);
+ inline constexpr bool is_standard_layout_v = __is_standard_layout(_Tp);
 
 
 } }
@@ -4331,12 +4322,12 @@ template <class _Tp>
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_trivial : public integral_constant<bool, __is_trivial(_Tp)> {
+struct  is_trivial : public integral_constant<bool, __is_trivial(_Tp)> {
 };
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_trivial_v = __is_trivial(_Tp);
+ inline constexpr bool is_trivial_v = __is_trivial(_Tp);
 
 
 } }
@@ -4352,35 +4343,35 @@ template <class _Tp>
  namespace  std { inline namespace __1 {
 
 template <class _Tp, class _Arg>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_trivially_assignable
+struct  is_trivially_assignable
     : integral_constant<bool, __is_trivially_assignable(_Tp, _Arg)> {};
 
 
 template <class _Tp, class _Arg>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_trivially_assignable_v = __is_trivially_assignable(_Tp, _Arg);
+ inline constexpr bool is_trivially_assignable_v = __is_trivially_assignable(_Tp, _Arg);
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_trivially_copy_assignable
+struct  is_trivially_copy_assignable
     : public integral_constant<
           bool,
           __is_trivially_assignable(__add_lvalue_reference_t<_Tp>, __add_lvalue_reference_t<const _Tp>)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_trivially_copy_assignable_v =
+ inline constexpr bool is_trivially_copy_assignable_v =
     is_trivially_copy_assignable<_Tp>::value;
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_trivially_move_assignable
+struct  is_trivially_move_assignable
     : public integral_constant<
           bool,
           __is_trivially_assignable(__add_lvalue_reference_t<_Tp>, __add_rvalue_reference_t<_Tp>)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_trivially_move_assignable_v =
+ inline constexpr bool is_trivially_move_assignable_v =
     is_trivially_move_assignable<_Tp>::value;
 
 
@@ -4397,42 +4388,42 @@ template <class _Tp>
  namespace  std { inline namespace __1 {
 
 template <class _Tp, class... _Args>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_trivially_constructible
+struct  is_trivially_constructible
     : integral_constant<bool, __is_trivially_constructible(_Tp, _Args...)> {};
 
 
 template <class _Tp, class... _Args>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_trivially_constructible_v =
+ inline constexpr bool is_trivially_constructible_v =
     __is_trivially_constructible(_Tp, _Args...);
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_trivially_copy_constructible
+struct  is_trivially_copy_constructible
     : public integral_constant<bool, __is_trivially_constructible(_Tp, __add_lvalue_reference_t<const _Tp>)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_trivially_copy_constructible_v =
+ inline constexpr bool is_trivially_copy_constructible_v =
     is_trivially_copy_constructible<_Tp>::value;
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_trivially_move_constructible
+struct  is_trivially_move_constructible
     : public integral_constant<bool, __is_trivially_constructible(_Tp, __add_rvalue_reference_t<_Tp>)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_trivially_move_constructible_v =
+ inline constexpr bool is_trivially_move_constructible_v =
     is_trivially_move_constructible<_Tp>::value;
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_trivially_default_constructible
+struct  is_trivially_default_constructible
     : public integral_constant<bool, __is_trivially_constructible(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_trivially_default_constructible_v =
+ inline constexpr bool is_trivially_default_constructible_v =
     __is_trivially_constructible(_Tp);
 
 
@@ -4663,12 +4654,12 @@ using ::uintmax_t __attribute__((__using_if_exists__));
  namespace  std { inline namespace __1 {
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_trivially_copyable
+struct  is_trivially_copyable
     : public integral_constant<bool, __is_trivially_copyable(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_trivially_copyable_v = __is_trivially_copyable(_Tp);
+ inline constexpr bool is_trivially_copyable_v = __is_trivially_copyable(_Tp);
 
 
 template <class _Tp>
@@ -4689,10 +4680,10 @@ inline const bool __is_cheap_to_copy = __is_trivially_copyable(_Tp) && sizeof(_T
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_trivially_destructible
+struct  is_trivially_destructible
     : public integral_constant<bool, __is_trivially_destructible(_Tp)> {};
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_trivially_destructible_v = is_trivially_destructible<_Tp>::value;
+ inline constexpr bool is_trivially_destructible_v = is_trivially_destructible<_Tp>::value;
 
 
 } }
@@ -4711,11 +4702,11 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_unsigned : _BoolConstant<__is_unsigned(_Tp)> {};
+struct  is_unsigned : _BoolConstant<__is_unsigned(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_unsigned_v = __is_unsigned(_Tp);
+ inline constexpr bool is_unsigned_v = __is_unsigned(_Tp);
 } }
 #pragma clang diagnostic pop
 
@@ -4732,11 +4723,11 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_volatile : _BoolConstant<__is_volatile(_Tp)> {};
+struct  is_volatile : _BoolConstant<__is_volatile(_Tp)> {};
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_volatile_v = __is_volatile(_Tp);
+ inline constexpr bool is_volatile_v = __is_volatile(_Tp);
 } }
 #pragma clang diagnostic pop
 
@@ -4755,7 +4746,7 @@ template <class _Tp>
 template <class _Tp>
 using __make_unsigned_t [[__gnu__::__nodebug__]] = __make_unsigned(_Tp);
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] make_unsigned {
+struct  make_unsigned {
   using type [[__gnu__::__nodebug__]] = __make_unsigned_t<_Tp>;
 };
 
@@ -4784,11 +4775,10 @@ using __copy_unsigned_t [[__gnu__::__nodebug__]] = __conditional_t<is_unsigned<_
 #pragma clang diagnostic ignored "-Wc++23-extensions"
  namespace  std { inline namespace __1 {
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] rank : public integral_constant<size_t, 0> {};
+struct  rank : public integral_constant<size_t, 0> {};
 
 #pragma clang diagnostic push
 
-#pragma clang diagnostic ignored "-Winvalid-specialization"
 
 template <class _Tp>
 struct rank<_Tp[]> : public integral_constant<size_t, rank<_Tp>::value + 1> {};
@@ -4800,7 +4790,7 @@ struct rank<_Tp[_Np]> : public integral_constant<size_t, rank<_Tp>::value + 1> {
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr size_t rank_v = rank<_Tp>::value;
+ inline constexpr size_t rank_v = rank<_Tp>::value;
 
 
 } }
@@ -4821,7 +4811,7 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] remove_pointer {
+struct  remove_pointer {
   using type [[__gnu__::__nodebug__]] = __remove_pointer(_Tp);
 };
 
@@ -4850,7 +4840,7 @@ using remove_pointer_t = __remove_pointer_t<_Tp>;
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] remove_volatile {
+struct  remove_volatile {
   using type [[__gnu__::__nodebug__]] = __remove_volatile(_Tp);
 };
 
@@ -4876,11 +4866,10 @@ using remove_volatile_t = __remove_volatile_t<_Tp>;
 
 
 template <class _Callable>
-struct __attribute__((__deprecated__)) [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] result_of;
+struct __attribute__((__deprecated__))  result_of;
 
 #pragma clang diagnostic push
 
-#pragma clang diagnostic ignored "-Winvalid-specialization"
 
 template <class _Fp, class... _Args>
 struct result_of<_Fp(_Args...)> : __invoke_result<_Fp, _Args...> {};
@@ -4916,7 +4905,7 @@ struct __underlying_type_impl<_Tp, true> {
 };
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] underlying_type : __underlying_type_impl<_Tp, is_enum<_Tp>::value> {};
+struct  underlying_type : __underlying_type_impl<_Tp, is_enum<_Tp>::value> {};
 
 
 template <class _Tp>
@@ -4942,12 +4931,12 @@ struct __libcpp_is_final : public integral_constant<bool, __is_final(_Tp)> {};
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_final : public integral_constant<bool, __is_final(_Tp)> {};
+struct  is_final : public integral_constant<bool, __is_final(_Tp)> {};
 
 
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_final_v = __is_final(_Tp);
+ inline constexpr bool is_final_v = __is_final(_Tp);
 
 
 } }
@@ -4971,7 +4960,7 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] has_unique_object_representations
+struct  has_unique_object_representations
 
 
 
@@ -4980,7 +4969,7 @@ struct [[_Clang::__no_specializations__("Users are not allowed to specialize thi
     : public integral_constant<bool, __has_unique_object_representations(remove_all_extents_t<_Tp>)> {};
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool has_unique_object_representations_v =
+ inline constexpr bool has_unique_object_representations_v =
     __has_unique_object_representations(_Tp);
 
 
@@ -5001,11 +4990,11 @@ template <class _Tp>
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_aggregate
+struct  is_aggregate
     : public integral_constant<bool, __is_aggregate(_Tp)> {};
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_aggregate_v = __is_aggregate(_Tp);
+ inline constexpr bool is_aggregate_v = __is_aggregate(_Tp);
 
 
 
@@ -5068,32 +5057,32 @@ inline const bool __is_nothrow_swappable_with_v<_Tp, _Up, true> =
 
 
 template <class _Tp, class _Up>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_swappable_with_v = __is_swappable_with_v<_Tp, _Up>;
+ inline constexpr bool is_swappable_with_v = __is_swappable_with_v<_Tp, _Up>;
 
 template <class _Tp, class _Up>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_swappable_with
+struct  is_swappable_with
     : bool_constant<is_swappable_with_v<_Tp, _Up>> {};
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_swappable_v =
+ inline constexpr bool is_swappable_v =
     is_swappable_with_v<__add_lvalue_reference_t<_Tp>, __add_lvalue_reference_t<_Tp>>;
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_swappable : bool_constant<is_swappable_v<_Tp>> {};
+struct  is_swappable : bool_constant<is_swappable_v<_Tp>> {};
 
 template <class _Tp, class _Up>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_nothrow_swappable_with_v = __is_nothrow_swappable_with_v<_Tp, _Up>;
+ inline constexpr bool is_nothrow_swappable_with_v = __is_nothrow_swappable_with_v<_Tp, _Up>;
 
 template <class _Tp, class _Up>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_nothrow_swappable_with
+struct  is_nothrow_swappable_with
     : bool_constant<is_nothrow_swappable_with_v<_Tp, _Up>> {};
 
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool is_nothrow_swappable_v =
+ inline constexpr bool is_nothrow_swappable_v =
     is_nothrow_swappable_with_v<__add_lvalue_reference_t<_Tp>, __add_lvalue_reference_t<_Tp>>;
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] is_nothrow_swappable
+struct  is_nothrow_swappable
     : bool_constant<is_nothrow_swappable_v<_Tp>> {};
 
 
@@ -5115,9 +5104,9 @@ struct _Not : _BoolConstant<!_Pred::value> {};
 
 
 template <class _Tp>
-struct [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] negation : _Not<_Tp> {};
+struct  negation : _Not<_Tp> {};
 template <class _Tp>
-[[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] inline constexpr bool negation_v = !_Tp::value;
+ inline constexpr bool negation_v = !_Tp::value;
 
 
 } }
@@ -14509,7 +14498,7 @@ __memberwise_forward_assign(_Dest& __dest, _Source&& __source, __tuple_types<_Up
 }
 
 template <class... _Tp>
-class [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] tuple {
+class  tuple {
   typedef __tuple_impl<typename __make_tuple_indices<sizeof...(_Tp)>::type, _Tp...> _BaseT;
 
   _BaseT __base_;
@@ -14851,8 +14840,6 @@ public:
 
 #pragma clang diagnostic push
 
-#pragma clang diagnostic ignored "-Winvalid-specialization"
-
 template <>
 class tuple<> {
 public:
@@ -14974,17 +14961,6 @@ struct __tuple_equal<0> {
   }
 };
 
-template <class... _Tp, class... _Up>
-inline  constexpr bool
-operator==(const tuple<_Tp...>& __x, const tuple<_Up...>& __y) {
-  static_assert(sizeof...(_Tp) == sizeof...(_Up), "Can't compare tuples of different sizes");
-  return __tuple_equal<sizeof...(_Tp)>()(__x, __y);
-}
-template <class... _Tp, class... _Up>
-inline  constexpr bool
-operator!=(const tuple<_Tp...>& __x, const tuple<_Up...>& __y) {
-  return !(__x == __y);
-}
 
 template <size_t _Ip>
 struct __tuple_less {
@@ -15358,7 +15334,7 @@ struct __type_info_implementations {
 
           __impl;
 };
-class  [[_Clang::__ptrauth_vtable_pointer__( process_independent, no_address_discrimination, no_extra_discrimination)]] type_info {
+class  type_info {
   type_info& operator=(const type_info&);
   type_info(const type_info&);
 
@@ -24629,63 +24605,6 @@ struct logical_or<void> {
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-
-
-template <class... _Types>
-class variant;
-
-template <class _Tp>
-struct variant_size;
-
-template <class _Tp>
-inline constexpr size_t variant_size_v = variant_size<_Tp>::value;
-
-template <size_t _Ip, class _Tp>
-struct variant_alternative;
-
-template <size_t _Ip, class _Tp>
-using variant_alternative_t = typename variant_alternative<_Ip, _Tp>::type;
-
-inline constexpr size_t variant_npos = static_cast<size_t>(-1);
-
-template <size_t _Ip, class... _Types>
-
-                                              constexpr variant_alternative_t<_Ip, variant<_Types...>>&
-get(variant<_Types...>&);
-
-template <size_t _Ip, class... _Types>
-
-                                              constexpr variant_alternative_t<_Ip, variant<_Types...>>&&
-get(variant<_Types...>&&);
-
-template <size_t _Ip, class... _Types>
-
-                                              constexpr const variant_alternative_t<_Ip, variant<_Types...>>&
-get(const variant<_Types...>&);
-
-template <size_t _Ip, class... _Types>
-
-                                              constexpr const variant_alternative_t<_Ip, variant<_Types...>>&&
-get(const variant<_Types...>&&);
-
-template <class _Tp, class... _Types>
- constexpr _Tp& get(variant<_Types...>&);
-
-template <class _Tp, class... _Types>
- constexpr _Tp&& get(variant<_Types...>&&);
-
-template <class _Tp, class... _Types>
- constexpr const _Tp& get(const variant<_Types...>&);
-
-template <class _Tp, class... _Types>
- constexpr const _Tp&&
-get(const variant<_Types...>&&);
-
-
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -24695,12 +24614,6 @@ get(const variant<_Types...>&&);
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Tp, bool>
-struct __dependent_type : public _Tp {};
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -24710,8 +24623,6 @@ struct __dependent_type : public _Tp {};
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
 #pragma clang diagnostic pop
 
 
@@ -24725,40 +24636,6 @@ struct __dependent_type : public _Tp {};
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-
-
-struct monostate {};
-
- inline constexpr bool operator==(monostate, monostate) noexcept { return true; }
- inline constexpr bool operator!=(monostate, monostate) noexcept { return false; }
-
- inline constexpr bool operator<(monostate, monostate) noexcept { return false; }
-
- inline constexpr bool operator>(monostate, monostate) noexcept { return false; }
-
- inline constexpr bool operator<=(monostate, monostate) noexcept { return true; }
-
- inline constexpr bool operator>=(monostate, monostate) noexcept { return true; }
-
-
-
-template <>
-struct hash<monostate> {
-
-  using argument_type __attribute__((__deprecated__)) = monostate;
-  using result_type __attribute__((__deprecated__)) = size_t;
-
-
-  inline  size_t operator()(const monostate&) const noexcept {
-    return 66740831;
-  }
-};
-
-
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -24770,14 +24647,6 @@ struct hash<monostate> {
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std {
-
-class  bad_variant_access : public exception {
-public:
-  const char* what() const noexcept override;
-};
-
-}
 #pragma clang diagnostic pop
 
 #pragma clang diagnostic push
@@ -24786,1109 +24655,6 @@ public:
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-
-
-
-
-template <class _Tp, size_t _Size>
-struct __farray {
-  static_assert(_Size > 0, "N-dimensional array should never be empty in std::visit");
-  _Tp __buf_[_Size] = {};
-
-   constexpr const _Tp& operator[](size_t __n) const noexcept { return __buf_[__n]; }
-};
-
-[[noreturn]] inline  void
-__throw_bad_variant_access() {
-
-  throw bad_variant_access();
-
-
-
-}
-
-
-template <class _Tp>
-struct variant_size<const _Tp> : variant_size<_Tp> {};
-
-template <class _Tp>
-struct variant_size<volatile _Tp> : variant_size<_Tp> {};
-
-template <class _Tp>
-struct variant_size<const volatile _Tp> : variant_size<_Tp> {};
-
-template <class... _Types>
-struct variant_size<variant<_Types...>> : integral_constant<size_t, sizeof...(_Types)> {};
-
-
-template <size_t _Ip, class _Tp>
-struct variant_alternative<_Ip, const _Tp> : add_const<variant_alternative_t<_Ip, _Tp>> {};
-
-template <size_t _Ip, class _Tp>
-struct variant_alternative<_Ip, volatile _Tp> : add_volatile<variant_alternative_t<_Ip, _Tp>> {};
-
-template <size_t _Ip, class _Tp>
-struct variant_alternative<_Ip, const volatile _Tp> : add_cv<variant_alternative_t<_Ip, _Tp>> {};
-
-template <size_t _Ip, class... _Types>
-struct variant_alternative<_Ip, variant<_Types...>> {
-  static_assert(_Ip < sizeof...(_Types), "Index out of bounds in std::variant_alternative<>");
-  using type [[__gnu__::__nodebug__]] = __type_pack_element<_Ip, _Types...>;
-};
-
-template <size_t _NumAlternatives>
- constexpr auto __choose_index_type() {
-
-
-
-
-
-
-
-    return static_cast<unsigned int>(0);
-}
-
-template <size_t _NumAlts>
-using __variant_index_t [[__gnu__::__nodebug__]] = decltype(std::__choose_index_type<_NumAlts>());
-
-template <class _IndexType>
-constexpr _IndexType __variant_npos = static_cast<_IndexType>(-1);
-
-template <class... _Types>
- constexpr variant<_Types...>& __as_variant(variant<_Types...>& __vs) noexcept {
-  return __vs;
-}
-
-template <class... _Types>
- constexpr const variant<_Types...>& __as_variant(const variant<_Types...>& __vs) noexcept {
-  return __vs;
-}
-
-template <class... _Types>
- constexpr variant<_Types...>&& __as_variant(variant<_Types...>&& __vs) noexcept {
-  return std::move(__vs);
-}
-
-template <class... _Types>
- constexpr const variant<_Types...>&& __as_variant(const variant<_Types...>&& __vs) noexcept {
-  return std::move(__vs);
-}
-
-namespace __find_detail {
-
-template <class _Tp, class... _Types>
- constexpr size_t __find_index() {
-  constexpr bool __matches[] = {is_same_v<_Tp, _Types>...};
-  size_t __result = __not_found;
-  for (size_t __i = 0; __i < sizeof...(_Types); ++__i) {
-    if (__matches[__i]) {
-      if (__result != __not_found) {
-        return __ambiguous;
-      }
-      __result = __i;
-    }
-  }
-  return __result;
-}
-
-template <size_t _Index>
-struct __find_unambiguous_index_sfinae_impl : integral_constant<size_t, _Index> {};
-
-template <>
-struct __find_unambiguous_index_sfinae_impl<__not_found> {};
-
-template <>
-struct __find_unambiguous_index_sfinae_impl<__ambiguous> {};
-
-template <class _Tp, class... _Types>
-struct __find_unambiguous_index_sfinae
-    : __find_unambiguous_index_sfinae_impl<__find_detail::__find_index<_Tp, _Types...>()> {};
-
-}
-
-namespace __variant_detail {
-
-struct __valueless_t {};
-
-enum class _Trait { _TriviallyAvailable, _Available, _Unavailable };
-
-template <typename _Tp, template <typename> class _IsTriviallyAvailable, template <typename> class _IsAvailable>
-constexpr _Trait __trait =
-    _IsTriviallyAvailable<_Tp>::value ? _Trait::_TriviallyAvailable
-    : _IsAvailable<_Tp>::value
-        ? _Trait::_Available
-        : _Trait::_Unavailable;
-
- constexpr _Trait __common_trait(initializer_list<_Trait> __traits) {
-  _Trait __result = _Trait::_TriviallyAvailable;
-  for (_Trait __t : __traits) {
-    if (static_cast<int>(__t) > static_cast<int>(__result)) {
-      __result = __t;
-    }
-  }
-  return __result;
-}
-
-template <typename... _Types>
-struct __traits {
-  static constexpr _Trait __copy_constructible_trait =
-      __variant_detail::__common_trait({__trait<_Types, is_trivially_copy_constructible, is_copy_constructible>...});
-
-  static constexpr _Trait __move_constructible_trait =
-      __variant_detail::__common_trait({__trait<_Types, is_trivially_move_constructible, is_move_constructible>...});
-
-  static constexpr _Trait __copy_assignable_trait = __variant_detail::__common_trait(
-      {__copy_constructible_trait, __trait<_Types, is_trivially_copy_assignable, is_copy_assignable>...});
-
-  static constexpr _Trait __move_assignable_trait = __variant_detail::__common_trait(
-      {__move_constructible_trait, __trait<_Types, is_trivially_move_assignable, is_move_assignable>...});
-
-  static constexpr _Trait __destructible_trait =
-      __variant_detail::__common_trait({__trait<_Types, is_trivially_destructible, is_destructible>...});
-};
-
-namespace __access {
-
-struct __union {
-  template <class _Vp>
-   static constexpr auto&& __get_alt(_Vp&& __v, in_place_index_t<0>) {
-    return std::forward<_Vp>(__v).__head;
-  }
-
-  template <class _Vp, size_t _Ip>
-   static constexpr auto&& __get_alt(_Vp&& __v, in_place_index_t<_Ip>) {
-    return __get_alt(std::forward<_Vp>(__v).__tail, in_place_index<_Ip - 1>);
-  }
-};
-
-struct __base {
-  template <size_t _Ip, class _Vp>
-   static constexpr auto&& __get_alt(_Vp&& __v) {
-    return __union::__get_alt(std::forward<_Vp>(__v).__data, in_place_index<_Ip>);
-  }
-};
-
-struct __variant {
-  template <size_t _Ip, class _Vp>
-   static constexpr auto&& __get_alt(_Vp&& __v) {
-    return __base::__get_alt<_Ip>(std::forward<_Vp>(__v).__impl_);
-  }
-};
-
-}
-
-namespace __visitation {
-
-struct __base {
-  template <class _Visitor, class... _Vs>
-   static constexpr decltype(auto)
-  __visit_alt_at(size_t __index, _Visitor&& __visitor, _Vs&&... __vs) {
-    constexpr auto __fdiagonal = __make_fdiagonal<_Visitor&&, decltype(std::forward<_Vs>(__vs).__as_base())...>();
-    return __fdiagonal[__index](std::forward<_Visitor>(__visitor), std::forward<_Vs>(__vs).__as_base()...);
-  }
-
-  template <class _Visitor, class... _Vs>
-   static constexpr decltype(auto) __visit_alt(_Visitor&& __visitor, _Vs&&... __vs) {
-    constexpr auto __fmatrix = __make_fmatrix<_Visitor&&, decltype(std::forward<_Vs>(__vs).__as_base())...>();
-    return __at(__fmatrix, __vs.index()...)(std::forward<_Visitor>(__visitor), std::forward<_Vs>(__vs).__as_base()...);
-  }
-
-private:
-  template <class _Tp>
-   static constexpr const _Tp& __at(const _Tp& __elem) {
-    return __elem;
-  }
-
-  template <class _Tp, size_t _Np, typename... _Indices>
-   static constexpr auto&&
-  __at(const __farray<_Tp, _Np>& __elems, size_t __index, _Indices... __indices) {
-    return __at(__elems[__index], __indices...);
-  }
-
-  template <class _Fp, class... _Fs>
-  static  constexpr void __std_visit_visitor_return_type_check() {
-    static_assert(
-        __all<is_same_v<_Fp, _Fs>...>::value, "`std::visit` requires the visitor to have a single return type.");
-  }
-
-  template <class... _Fs>
-   static constexpr auto __make_farray(_Fs&&... __fs) {
-    __std_visit_visitor_return_type_check<__remove_cvref_t<_Fs>...>();
-    using __result = __farray<common_type_t<__remove_cvref_t<_Fs>...>, sizeof...(_Fs)>;
-    return __result{{std::forward<_Fs>(__fs)...}};
-  }
-
-  template <size_t... _Is>
-  struct __dispatcher {
-    template <class _Fp, class... _Vs>
-     static constexpr decltype(auto) __dispatch(_Fp __f, _Vs... __vs) {
-      return std::__invoke(static_cast<_Fp>(__f), __access::__base::__get_alt<_Is>(static_cast<_Vs>(__vs))...);
-    }
-  };
-
-  template <class _Fp, class... _Vs, size_t... _Is>
-   static constexpr auto __make_dispatch(index_sequence<_Is...>) {
-    return __dispatcher<_Is...>::template __dispatch<_Fp, _Vs...>;
-  }
-
-  template <size_t _Ip, class _Fp, class... _Vs>
-   static constexpr auto __make_fdiagonal_impl() {
-    return __make_dispatch<_Fp, _Vs...>(index_sequence<((void)__type_identity<_Vs>{}, _Ip)...>{});
-  }
-
-  template <class _Fp, class... _Vs, size_t... _Is>
-   static constexpr auto __make_fdiagonal_impl(index_sequence<_Is...>) {
-    return __base::__make_farray(__make_fdiagonal_impl<_Is, _Fp, _Vs...>()...);
-  }
-
-  template <class _Fp, class _Vp, class... _Vs>
-   static constexpr auto __make_fdiagonal() {
-    constexpr size_t __np = __remove_cvref_t<_Vp>::__size();
-    static_assert(__all<(__np == __remove_cvref_t<_Vs>::__size())...>::value);
-    return __make_fdiagonal_impl<_Fp, _Vp, _Vs...>(make_index_sequence<__np>{});
-  }
-
-  template <class _Fp, class... _Vs, size_t... _Is>
-   static constexpr auto __make_fmatrix_impl(index_sequence<_Is...> __is) {
-    return __make_dispatch<_Fp, _Vs...>(__is);
-  }
-
-  template <class _Fp, class... _Vs, size_t... _Is, size_t... _Js, class... _Ls>
-   static constexpr auto
-  __make_fmatrix_impl(index_sequence<_Is...>, index_sequence<_Js...>, _Ls... __ls) {
-    return __base::__make_farray(__make_fmatrix_impl<_Fp, _Vs...>(index_sequence<_Is..., _Js>{}, __ls...)...);
-  }
-
-  template <class _Fp, class... _Vs>
-   static constexpr auto __make_fmatrix() {
-    return __make_fmatrix_impl<_Fp, _Vs...>(
-        index_sequence<>{}, make_index_sequence<__remove_cvref_t<_Vs>::__size()>{}...);
-  }
-};
-
-struct __variant {
-  template <class _Visitor, class... _Vs>
-   static constexpr decltype(auto)
-  __visit_alt_at(size_t __index, _Visitor&& __visitor, _Vs&&... __vs) {
-    return __base::__visit_alt_at(__index, std::forward<_Visitor>(__visitor), std::forward<_Vs>(__vs).__impl_...);
-  }
-
-  template <class _Visitor, class... _Vs>
-   static constexpr decltype(auto) __visit_alt(_Visitor&& __visitor, _Vs&&... __vs) {
-    return __base::__visit_alt(
-        std::forward<_Visitor>(__visitor), std::__as_variant(std::forward<_Vs>(__vs)).__impl_...);
-  }
-
-  template <class _Visitor, class... _Vs>
-   static constexpr decltype(auto)
-  __visit_value_at(size_t __index, _Visitor&& __visitor, _Vs&&... __vs) {
-    return __visit_alt_at(__index, __make_value_visitor(std::forward<_Visitor>(__visitor)), std::forward<_Vs>(__vs)...);
-  }
-
-  template <class _Visitor, class... _Vs>
-   static constexpr decltype(auto) __visit_value(_Visitor&& __visitor, _Vs&&... __vs) {
-    return __visit_alt(__make_value_visitor(std::forward<_Visitor>(__visitor)), std::forward<_Vs>(__vs)...);
-  }
-private:
-  template <class _Visitor, class... _Values>
-  static  constexpr void __std_visit_exhaustive_visitor_check() {
-    static_assert(is_invocable_v<_Visitor, _Values...>, "`std::visit` requires the visitor to be exhaustive.");
-  }
-
-  template <class _Visitor>
-  struct __value_visitor {
-    template <class... _Alts>
-     constexpr decltype(auto) operator()(_Alts&&... __alts) const {
-      __std_visit_exhaustive_visitor_check< _Visitor, decltype((std::forward<_Alts>(__alts).__value))...>();
-      return std::__invoke(std::forward<_Visitor>(__visitor), std::forward<_Alts>(__alts).__value...);
-    }
-    _Visitor&& __visitor;
-  };
-  template <class _Visitor>
-   static constexpr auto __make_value_visitor(_Visitor&& __visitor) {
-    return __value_visitor<_Visitor>{std::forward<_Visitor>(__visitor)};
-  }
-
-
-
-
-
-
-
-};
-
-}
-
-
-
-
-
-template <size_t _Index, class _Tp>
-struct __alt {
-  using __value_type [[__gnu__::__nodebug__]] = _Tp;
-  static constexpr size_t __index = _Index;
-
-  template <class... _Args>
-   explicit constexpr __alt(in_place_t, _Args&&... __args)
-      : __value(std::forward<_Args>(__args)...) {}
-
-  __value_type __value;
-};
-
-template <_Trait _DestructibleTrait, size_t _Index, class... _Types>
-union __union;
-
-template <_Trait _DestructibleTrait, size_t _Index>
-union __union<_DestructibleTrait, _Index> {};
-template <size_t _Index, class _Tp, class... _Types> union __union<_Trait::_TriviallyAvailable, _Index, _Tp, _Types...> { public:  explicit constexpr __union(__valueless_t) noexcept : __dummy{} {} template <class... _Args>  explicit constexpr __union(in_place_index_t<0>, _Args&&... __args) : __head(in_place, std::forward<_Args>(__args)...) {} template <size_t _Ip, class... _Args>  explicit constexpr __union(in_place_index_t<_Ip>, _Args&&... __args) : __tail(in_place_index<_Ip - 1>, std::forward<_Args>(__args)...) {}  __union(const __union&) = default;  __union(__union&&) = default;  __union& operator=(const __union&) = default;  __union& operator=(__union&&) = default;  ~__union() = default; private: char __dummy; __alt<_Index, _Tp> __head; __union<_Trait::_TriviallyAvailable, _Index + 1, _Types...> __tail; friend struct __access::__union; };
-
-template <size_t _Index, class _Tp, class... _Types> union __union<_Trait::_Available, _Index, _Tp, _Types...> { public:  explicit constexpr __union(__valueless_t) noexcept : __dummy{} {} template <class... _Args>  explicit constexpr __union(in_place_index_t<0>, _Args&&... __args) : __head(in_place, std::forward<_Args>(__args)...) {} template <size_t _Ip, class... _Args>  explicit constexpr __union(in_place_index_t<_Ip>, _Args&&... __args) : __tail(in_place_index<_Ip - 1>, std::forward<_Args>(__args)...) {}  __union(const __union&) = default;  __union(__union&&) = default;  __union& operator=(const __union&) = default;  __union& operator=(__union&&) = default;  ~__union() {} static_assert(true, ""); private: char __dummy; __alt<_Index, _Tp> __head; __union<_Trait::_Available, _Index + 1, _Types...> __tail; friend struct __access::__union; };
-
-template <size_t _Index, class _Tp, class... _Types> union __union<_Trait::_Unavailable, _Index, _Tp, _Types...> { public:  explicit constexpr __union(__valueless_t) noexcept : __dummy{} {} template <class... _Args>  explicit constexpr __union(in_place_index_t<0>, _Args&&... __args) : __head(in_place, std::forward<_Args>(__args)...) {} template <size_t _Ip, class... _Args>  explicit constexpr __union(in_place_index_t<_Ip>, _Args&&... __args) : __tail(in_place_index<_Ip - 1>, std::forward<_Args>(__args)...) {}  __union(const __union&) = default;  __union(__union&&) = default;  __union& operator=(const __union&) = default;  __union& operator=(__union&&) = default;  ~__union() = delete; private: char __dummy; __alt<_Index, _Tp> __head; __union<_Trait::_Unavailable, _Index + 1, _Types...> __tail; friend struct __access::__union; };
-
-
-
-template <_Trait _DestructibleTrait, class... _Types>
-class __base {
-public:
-  using __index_t [[__gnu__::__nodebug__]] = __variant_index_t<sizeof...(_Types)>;
-
-   explicit constexpr __base(__valueless_t __tag) noexcept
-      : __data(__tag), __index(__variant_npos<__index_t>) {}
-
-  template <size_t _Ip, class... _Args>
-   explicit constexpr __base(in_place_index_t<_Ip>, _Args&&... __args)
-      : __data(in_place_index<_Ip>, std::forward<_Args>(__args)...), __index(_Ip) {}
-
-   constexpr bool valueless_by_exception() const noexcept { return index() == variant_npos; }
-
-   constexpr size_t index() const noexcept {
-    return __index == __variant_npos<__index_t> ? variant_npos : __index;
-  }
-
-protected:
-   constexpr auto&& __as_base() & { return *this; }
-
-   constexpr auto&& __as_base() && { return std::move(*this); }
-
-   constexpr auto&& __as_base() const& { return *this; }
-
-   constexpr auto&& __as_base() const&& { return std::move(*this); }
-
-   static constexpr size_t __size() { return sizeof...(_Types); }
-
-  __union<_DestructibleTrait, 0, _Types...> __data;
-  __index_t __index;
-
-  friend struct __access::__base;
-  friend struct __visitation::__base;
-};
-
-template <class _Traits, _Trait = _Traits::__destructible_trait>
-class __dtor;
-template <class... _Types> class __dtor<__traits<_Types...>, _Trait::_TriviallyAvailable> : public __base<_Trait::_TriviallyAvailable, _Types...> { using __base_type [[__gnu__::__nodebug__]] = __base<_Trait::_TriviallyAvailable, _Types...>; using __index_t [[__gnu__::__nodebug__]] = typename __base_type::__index_t; public: using __base_type::__base_type; using __base_type::operator=;  __dtor(const __dtor&) = default;  __dtor(__dtor&&) = default;  __dtor& operator=(const __dtor&) = default;  __dtor& operator=(__dtor&&) = default;  ~__dtor() = default; protected:  void __destroy() noexcept { this->__index = __variant_npos<__index_t>; } static_assert(true, ""); };
-
-
-
-
-
-
-template <class... _Types> class __dtor<__traits<_Types...>, _Trait::_Available> : public __base<_Trait::_Available, _Types...> { using __base_type [[__gnu__::__nodebug__]] = __base<_Trait::_Available, _Types...>; using __index_t [[__gnu__::__nodebug__]] = typename __base_type::__index_t; public: using __base_type::__base_type; using __base_type::operator=;  __dtor(const __dtor&) = default;  __dtor(__dtor&&) = default;  __dtor& operator=(const __dtor&) = default;  __dtor& operator=(__dtor&&) = default;  ~__dtor() { __destroy(); } static_assert(true, ""); protected:  void __destroy() noexcept { if (!this->valueless_by_exception()) { __visitation::__base::__visit_alt( [](auto& __alt) noexcept { using __alt_type = __remove_cvref_t<decltype(__alt)>; __alt.~__alt_type(); }, *this); } this->__index = __variant_npos<__index_t>; } static_assert(true, ""); };
-template <class... _Types> class __dtor<__traits<_Types...>, _Trait::_Unavailable> : public __base<_Trait::_Unavailable, _Types...> { using __base_type [[__gnu__::__nodebug__]] = __base<_Trait::_Unavailable, _Types...>; using __index_t [[__gnu__::__nodebug__]] = typename __base_type::__index_t; public: using __base_type::__base_type; using __base_type::operator=;  __dtor(const __dtor&) = default;  __dtor(__dtor&&) = default;  __dtor& operator=(const __dtor&) = default;  __dtor& operator=(__dtor&&) = default;  ~__dtor() = delete; protected:  void __destroy() noexcept = delete; };
-
-
-
-
-
-template <class _Traits>
-class __ctor : public __dtor<_Traits> {
-  using __base_type [[__gnu__::__nodebug__]] = __dtor<_Traits>;
-
-public:
-  using __base_type::__base_type;
-  using __base_type::operator=;
-
-protected:
-  template <class _Rhs>
-   static void __generic_construct(__ctor& __lhs, _Rhs&& __rhs) {
-    __lhs.__destroy();
-    if (!__rhs.valueless_by_exception()) {
-      auto __rhs_index = __rhs.index();
-      __visitation::__base::__visit_alt_at(
-          __rhs_index,
-          [&__lhs](auto&& __rhs_alt) {
-            std::__construct_at(std::addressof(__lhs.__data),
-                                in_place_index<__decay_t<decltype(__rhs_alt)>::__index>,
-                                std::forward<decltype(__rhs_alt)>(__rhs_alt).__value);
-          },
-          std::forward<_Rhs>(__rhs));
-      __lhs.__index = __rhs_index;
-    }
-  }
-};
-
-template <class _Traits, _Trait = _Traits::__move_constructible_trait>
-class __move_constructor;
-template <class... _Types> class __move_constructor<__traits<_Types...>, _Trait::_TriviallyAvailable> : public __ctor<__traits<_Types...>> { using __base_type [[__gnu__::__nodebug__]] = __ctor<__traits<_Types...>>; public: using __base_type::__base_type; using __base_type::operator=;  __move_constructor(const __move_constructor&) = default;  ~__move_constructor() = default;  __move_constructor& operator=(const __move_constructor&) = default;  __move_constructor& operator=(__move_constructor&&) = default;  __move_constructor(__move_constructor&& __that) = default; };
-
-
-
-template <class... _Types> class __move_constructor<__traits<_Types...>, _Trait::_Available> : public __ctor<__traits<_Types...>> { using __base_type [[__gnu__::__nodebug__]] = __ctor<__traits<_Types...>>; public: using __base_type::__base_type; using __base_type::operator=;  __move_constructor(const __move_constructor&) = default;  ~__move_constructor() = default;  __move_constructor& operator=(const __move_constructor&) = default;  __move_constructor& operator=(__move_constructor&&) = default;  __move_constructor(__move_constructor&& __that) noexcept( __all<is_nothrow_move_constructible_v<_Types>...>::value) : __move_constructor(__valueless_t{}) { this->__generic_construct(*this, std::move(__that)); } static_assert(true, ""); };
-
-
-
-
-
-
-
-template <class... _Types> class __move_constructor<__traits<_Types...>, _Trait::_Unavailable> : public __ctor<__traits<_Types...>> { using __base_type [[__gnu__::__nodebug__]] = __ctor<__traits<_Types...>>; public: using __base_type::__base_type; using __base_type::operator=;  __move_constructor(const __move_constructor&) = default;  ~__move_constructor() = default;  __move_constructor& operator=(const __move_constructor&) = default;  __move_constructor& operator=(__move_constructor&&) = default;  __move_constructor(__move_constructor&&) = delete; };
-
-
-
-
-
-template <class _Traits, _Trait = _Traits::__copy_constructible_trait>
-class __copy_constructor;
-template <class... _Types> class __copy_constructor<__traits<_Types...>, _Trait::_TriviallyAvailable> : public __move_constructor<__traits<_Types...>> { using __base_type [[__gnu__::__nodebug__]] = __move_constructor<__traits<_Types...>>; public: using __base_type::__base_type; using __base_type::operator=;  __copy_constructor(__copy_constructor&&) = default;  ~__copy_constructor() = default;  __copy_constructor& operator=(const __copy_constructor&) = default;  __copy_constructor& operator=(__copy_constructor&&) = default;  __copy_constructor(const __copy_constructor& __that) = default; };
-
-
-
-template <class... _Types> class __copy_constructor<__traits<_Types...>, _Trait::_Available> : public __move_constructor<__traits<_Types...>> { using __base_type [[__gnu__::__nodebug__]] = __move_constructor<__traits<_Types...>>; public: using __base_type::__base_type; using __base_type::operator=;  __copy_constructor(__copy_constructor&&) = default;  ~__copy_constructor() = default;  __copy_constructor& operator=(const __copy_constructor&) = default;  __copy_constructor& operator=(__copy_constructor&&) = default;  __copy_constructor(const __copy_constructor& __that) : __copy_constructor(__valueless_t{}) { this->__generic_construct(*this, __that); } static_assert(true, ""); };
-
-
-
-
-template <class... _Types> class __copy_constructor<__traits<_Types...>, _Trait::_Unavailable> : public __move_constructor<__traits<_Types...>> { using __base_type [[__gnu__::__nodebug__]] = __move_constructor<__traits<_Types...>>; public: using __base_type::__base_type; using __base_type::operator=;  __copy_constructor(__copy_constructor&&) = default;  ~__copy_constructor() = default;  __copy_constructor& operator=(const __copy_constructor&) = default;  __copy_constructor& operator=(__copy_constructor&&) = default;  __copy_constructor(const __copy_constructor&) = delete; };
-
-
-
-
-
-template <class _Traits>
-class __assignment : public __copy_constructor<_Traits> {
-  using __base_type [[__gnu__::__nodebug__]] = __copy_constructor<_Traits>;
-
-public:
-  using __base_type::__base_type;
-  using __base_type::operator=;
-
-  template <size_t _Ip, class... _Args>
-   auto& __emplace(_Args&&... __args) {
-    this->__destroy();
-    std::__construct_at(std::addressof(this->__data), in_place_index<_Ip>, std::forward<_Args>(__args)...);
-    this->__index = _Ip;
-    return __access::__base::__get_alt<_Ip>(*this).__value;
-  }
-
-protected:
-  template <size_t _Ip, class _Tp, class _Arg>
-   void __assign_alt(__alt<_Ip, _Tp>& __a, _Arg&& __arg) {
-    if (this->index() == _Ip) {
-      __a.__value = std::forward<_Arg>(__arg);
-    } else {
-      struct {
-        __attribute__((__visibility__("hidden"))) void operator()(true_type) const {
-          __this->__emplace<_Ip>(std::forward<_Arg>(__arg));
-        }
-        __attribute__((__visibility__("hidden"))) void operator()(false_type) const {
-          __this->__emplace<_Ip>(_Tp(std::forward<_Arg>(__arg)));
-        }
-        __assignment* __this;
-        _Arg&& __arg;
-      } __impl{this, std::forward<_Arg>(__arg)};
-      __impl(bool_constant < is_nothrow_constructible_v<_Tp, _Arg> || !is_nothrow_move_constructible_v < _Tp >> {});
-    }
-  }
-
-  template <class _That>
-   void __generic_assign(_That&& __that) {
-    if (this->valueless_by_exception() && __that.valueless_by_exception()) {
-
-    } else if (__that.valueless_by_exception()) {
-      this->__destroy();
-    } else {
-      __visitation::__base::__visit_alt_at(
-          __that.index(),
-          [this](auto& __this_alt, auto&& __that_alt) {
-            this->__assign_alt(__this_alt, std::forward<decltype(__that_alt)>(__that_alt).__value);
-          },
-          *this,
-          std::forward<_That>(__that));
-    }
-  }
-};
-
-template <class _Traits, _Trait = _Traits::__move_assignable_trait>
-class __move_assignment;
-template <class... _Types> class __move_assignment<__traits<_Types...>, _Trait::_TriviallyAvailable> : public __assignment<__traits<_Types...>> { using __base_type [[__gnu__::__nodebug__]] = __assignment<__traits<_Types...>>; public: using __base_type::__base_type; using __base_type::operator=;  __move_assignment(const __move_assignment&) = default;  __move_assignment(__move_assignment&&) = default;  ~__move_assignment() = default;  __move_assignment& operator=(const __move_assignment&) = default;  __move_assignment& operator=( __move_assignment&& __that) = default; };
-
-
-
-template <class... _Types> class __move_assignment<__traits<_Types...>, _Trait::_Available> : public __assignment<__traits<_Types...>> { using __base_type [[__gnu__::__nodebug__]] = __assignment<__traits<_Types...>>; public: using __base_type::__base_type; using __base_type::operator=;  __move_assignment(const __move_assignment&) = default;  __move_assignment(__move_assignment&&) = default;  ~__move_assignment() = default;  __move_assignment& operator=(const __move_assignment&) = default;  __move_assignment& operator=(__move_assignment&& __that) noexcept( __all<(is_nothrow_move_constructible_v<_Types> && is_nothrow_move_assignable_v<_Types>)...>::value) { this->__generic_assign(std::move(__that)); return *this; } static_assert(true, ""); };
-template <class... _Types> class __move_assignment<__traits<_Types...>, _Trait::_Unavailable> : public __assignment<__traits<_Types...>> { using __base_type [[__gnu__::__nodebug__]] = __assignment<__traits<_Types...>>; public: using __base_type::__base_type; using __base_type::operator=;  __move_assignment(const __move_assignment&) = default;  __move_assignment(__move_assignment&&) = default;  ~__move_assignment() = default;  __move_assignment& operator=(const __move_assignment&) = default;  __move_assignment& operator=(__move_assignment&&) = delete; };
-
-
-
-
-
-template <class _Traits, _Trait = _Traits::__copy_assignable_trait>
-class __copy_assignment;
-template <class... _Types> class __copy_assignment<__traits<_Types...>, _Trait::_TriviallyAvailable> : public __move_assignment<__traits<_Types...>> { using __base_type [[__gnu__::__nodebug__]] = __move_assignment<__traits<_Types...>>; public: using __base_type::__base_type; using __base_type::operator=;  __copy_assignment(const __copy_assignment&) = default;  __copy_assignment(__copy_assignment&&) = default;  ~__copy_assignment() = default;  __copy_assignment& operator=(__copy_assignment&&) = default;  __copy_assignment& operator=( const __copy_assignment& __that) = default; };
-
-
-
-template <class... _Types> class __copy_assignment<__traits<_Types...>, _Trait::_Available> : public __move_assignment<__traits<_Types...>> { using __base_type [[__gnu__::__nodebug__]] = __move_assignment<__traits<_Types...>>; public: using __base_type::__base_type; using __base_type::operator=;  __copy_assignment(const __copy_assignment&) = default;  __copy_assignment(__copy_assignment&&) = default;  ~__copy_assignment() = default;  __copy_assignment& operator=(__copy_assignment&&) = default;  __copy_assignment& operator=(const __copy_assignment& __that) { this->__generic_assign(__that); return *this; } static_assert(true, ""); };
-
-
-
-
-
-
-
-template <class... _Types> class __copy_assignment<__traits<_Types...>, _Trait::_Unavailable> : public __move_assignment<__traits<_Types...>> { using __base_type [[__gnu__::__nodebug__]] = __move_assignment<__traits<_Types...>>; public: using __base_type::__base_type; using __base_type::operator=;  __copy_assignment(const __copy_assignment&) = default;  __copy_assignment(__copy_assignment&&) = default;  ~__copy_assignment() = default;  __copy_assignment& operator=(__copy_assignment&&) = default;  __copy_assignment& operator=( const __copy_assignment&) = delete; };
-
-
-
-
-
-template <class... _Types>
-class __impl : public __copy_assignment<__traits<_Types...>> {
-  using __base_type [[__gnu__::__nodebug__]] = __copy_assignment<__traits<_Types...>>;
-
-public:
-  using __base_type::__base_type;
-   __impl(__impl const&) = default;
-   __impl(__impl&&) = default;
-   __impl& operator=(__impl const&) = default;
-   __impl& operator=(__impl&&) = default;
-
-  template <size_t _Ip, class _Arg>
-   void __assign(_Arg&& __arg) {
-    this->__assign_alt(__access::__base::__get_alt<_Ip>(*this), std::forward<_Arg>(__arg));
-  }
-
-  inline  void __swap(__impl& __that) {
-    if (this->valueless_by_exception() && __that.valueless_by_exception()) {
-
-    } else if (this->index() == __that.index()) {
-      __visitation::__base::__visit_alt_at(
-          this->index(),
-          [](auto& __this_alt, auto& __that_alt) {
-            using std::swap;
-            swap(__this_alt.__value, __that_alt.__value);
-          },
-          *this,
-          __that);
-    } else {
-      __impl* __lhs = this;
-      __impl* __rhs = std::addressof(__that);
-      if (__lhs->__move_nothrow() && !__rhs->__move_nothrow()) {
-        std::swap(__lhs, __rhs);
-      }
-      __impl __tmp(std::move(*__rhs));
-
-      if constexpr (__all<is_nothrow_move_constructible_v<_Types>...>::value) {
-        this->__generic_construct(*__rhs, std::move(*__lhs));
-      } else {
-
-
-
-        try {
-          this->__generic_construct(*__rhs, std::move(*__lhs));
-        } catch (...) {
-          if (__tmp.__move_nothrow()) {
-            this->__generic_construct(*__rhs, std::move(__tmp));
-          }
-          throw;
-        }
-      }
-
-
-
-
-
-      this->__generic_construct(*__lhs, std::move(__tmp));
-    }
-  }
-
-private:
-  constexpr inline  bool __move_nothrow() const {
-    constexpr bool __results[] = {is_nothrow_move_constructible_v<_Types>...};
-    return this->valueless_by_exception() || __results[this->index()];
-  }
-};
-
-struct __no_narrowing_check {
-  template <class _Dest, class _Source>
-  using _Apply [[__gnu__::__nodebug__]] = __type_identity<_Dest>;
-};
-
-struct __narrowing_check {
-  template <class _Dest>
-  static auto __test_impl(_Dest (&&)[1]) -> __type_identity<_Dest>;
-  template <class _Dest, class _Source>
-  using _Apply [[__gnu__::__nodebug__]] = decltype(__test_impl<_Dest>({std::declval<_Source>()}));
-};
-
-template <class _Dest, class _Source>
-using __check_for_narrowing [[__gnu__::__nodebug__]] =
-    typename _If< is_arithmetic<_Dest>::value, __narrowing_check, __no_narrowing_check >::template _Apply<_Dest,
-                                                                                                          _Source>;
-
-template <class _Tp, size_t _Idx>
-struct __overload {
-  template <class _Up>
-  auto operator()(_Tp, _Up&&) const -> __check_for_narrowing<_Tp, _Up>;
-};
-
-template <class... _Bases>
-struct __all_overloads : _Bases... {
-  void operator()() const;
-  using _Bases::operator()...;
-};
-
-template <class _IdxSeq>
-struct __make_overloads_imp;
-
-template <size_t... _Idx>
-struct __make_overloads_imp<__tuple_indices<_Idx...> > {
-  template <class... _Types>
-  using _Apply [[__gnu__::__nodebug__]] = __all_overloads<__overload<_Types, _Idx>...>;
-};
-
-template <class... _Types>
-using _MakeOverloads [[__gnu__::__nodebug__]] =
-    typename __make_overloads_imp< __make_indices_imp<sizeof...(_Types), 0> >::template _Apply<_Types...>;
-
-template <class _Tp, class... _Types>
-using __best_match_t [[__gnu__::__nodebug__]] = typename invoke_result_t<_MakeOverloads<_Types...>, _Tp, _Tp>::type;
-
-}
-
-template <class _Visitor, class... _Vs, typename = void_t<decltype(std::__as_variant(std::declval<_Vs>()))...>>
- constexpr decltype(auto)
-visit(_Visitor&& __visitor, _Vs&&... __vs);
-template <class... _Types>
-class [[_Clang::__no_specializations__("Users are not allowed to specialize this standard library entity")]] variant
-    : private __sfinae_ctor_base< __all<is_copy_constructible_v<_Types>...>::value,
-                                  __all<is_move_constructible_v<_Types>...>::value>,
-      private __sfinae_assign_base<
-          __all<(is_copy_constructible_v<_Types> && is_copy_assignable_v<_Types>)...>::value,
-          __all<(is_move_constructible_v<_Types> && is_move_assignable_v<_Types>)...>::value> {
-  static_assert(0 < sizeof...(_Types), "variant must consist of at least one alternative.");
-
-  static_assert(__all<!is_array_v<_Types>...>::value, "variant can not have an array type as an alternative.");
-
-  static_assert(__all<!is_reference_v<_Types>...>::value, "variant can not have a reference type as an alternative.");
-
-  static_assert(__all<!is_void_v<_Types>...>::value, "variant can not have a void type as an alternative.");
-
-  using __first_type [[__gnu__::__nodebug__]] = variant_alternative_t<0, variant>;
-
-public:
-  using __trivially_relocatable [[__gnu__::__nodebug__]] =
-      conditional_t<_And<__libcpp_is_trivially_relocatable<_Types>...>::value, variant, void>;
-
-  template <bool _Dummy = true,
-            enable_if_t<__dependent_type<is_default_constructible<__first_type>, _Dummy>::value, int> = 0>
-   constexpr variant() noexcept(is_nothrow_default_constructible_v<__first_type>)
-      : __impl_(in_place_index<0>) {}
-
-   constexpr variant(const variant&) = default;
-   constexpr variant(variant&&) = default;
-
-  template < class _Arg,
-             enable_if_t<!is_same_v<__remove_cvref_t<_Arg>, variant>, int> = 0,
-             enable_if_t<!__is_inplace_type<__remove_cvref_t<_Arg>>::value, int> = 0,
-             enable_if_t<!__is_inplace_index<__remove_cvref_t<_Arg>>::value, int> = 0,
-             class _Tp = __variant_detail::__best_match_t<_Arg, _Types...>,
-             size_t _Ip = __find_detail::__find_unambiguous_index_sfinae<_Tp, _Types...>::value,
-             enable_if_t<is_constructible_v<_Tp, _Arg>, int> = 0>
-   constexpr variant(_Arg&& __arg) noexcept(is_nothrow_constructible_v<_Tp, _Arg>)
-      : __impl_(in_place_index<_Ip>, std::forward<_Arg>(__arg)) {}
-
-  template <size_t _Ip,
-            class... _Args,
-            class = enable_if_t<(_Ip < sizeof...(_Types)), int>,
-            class _Tp = variant_alternative_t<_Ip, variant<_Types...>>,
-            enable_if_t<is_constructible_v<_Tp, _Args...>, int> = 0>
-   explicit constexpr variant(in_place_index_t<_Ip>, _Args&&... __args) noexcept(
-      is_nothrow_constructible_v<_Tp, _Args...>)
-      : __impl_(in_place_index<_Ip>, std::forward<_Args>(__args)...) {}
-
-  template < size_t _Ip,
-             class _Up,
-             class... _Args,
-             enable_if_t<(_Ip < sizeof...(_Types)), int> = 0,
-             class _Tp = variant_alternative_t<_Ip, variant<_Types...>>,
-             enable_if_t<is_constructible_v<_Tp, initializer_list<_Up>&, _Args...>, int> = 0>
-   explicit constexpr variant(
-      in_place_index_t<_Ip>,
-      initializer_list<_Up> __il,
-      _Args&&... __args) noexcept(is_nothrow_constructible_v<_Tp, initializer_list<_Up>&, _Args...>)
-      : __impl_(in_place_index<_Ip>, __il, std::forward<_Args>(__args)...) {}
-
-  template < class _Tp,
-             class... _Args,
-             size_t _Ip = __find_detail::__find_unambiguous_index_sfinae<_Tp, _Types...>::value,
-             enable_if_t<is_constructible_v<_Tp, _Args...>, int> = 0>
-   explicit constexpr variant(in_place_type_t<_Tp>, _Args&&... __args) noexcept(
-      is_nothrow_constructible_v<_Tp, _Args...>)
-      : __impl_(in_place_index<_Ip>, std::forward<_Args>(__args)...) {}
-
-  template < class _Tp,
-             class _Up,
-             class... _Args,
-             size_t _Ip = __find_detail::__find_unambiguous_index_sfinae<_Tp, _Types...>::value,
-             enable_if_t<is_constructible_v<_Tp, initializer_list<_Up>&, _Args...>, int> = 0>
-   explicit constexpr variant(
-      in_place_type_t<_Tp>,
-      initializer_list<_Up> __il,
-      _Args&&... __args) noexcept(is_nothrow_constructible_v<_Tp, initializer_list< _Up>&, _Args...>)
-      : __impl_(in_place_index<_Ip>, __il, std::forward<_Args>(__args)...) {}
-
-   ~variant() = default;
-
-   constexpr variant& operator=(const variant&) = default;
-   constexpr variant& operator=(variant&&) = default;
-
-  template < class _Arg,
-             enable_if_t<!is_same_v<__remove_cvref_t<_Arg>, variant>, int> = 0,
-             class _Tp = __variant_detail::__best_match_t<_Arg, _Types...>,
-             size_t _Ip = __find_detail::__find_unambiguous_index_sfinae<_Tp, _Types...>::value,
-             enable_if_t<is_assignable_v<_Tp&, _Arg> && is_constructible_v<_Tp, _Arg>, int> = 0>
-   variant&
-  operator=(_Arg&& __arg) noexcept(is_nothrow_assignable_v<_Tp&, _Arg> && is_nothrow_constructible_v<_Tp, _Arg>) {
-    __impl_.template __assign<_Ip>(std::forward<_Arg>(__arg));
-    return *this;
-  }
-
-  template < size_t _Ip,
-             class... _Args,
-             enable_if_t<(_Ip < sizeof...(_Types)), int> = 0,
-             class _Tp = variant_alternative_t<_Ip, variant<_Types...>>,
-             enable_if_t<is_constructible_v<_Tp, _Args...>, int> = 0>
-   _Tp& emplace(_Args&&... __args) {
-    return __impl_.template __emplace<_Ip>(std::forward<_Args>(__args)...);
-  }
-
-  template < size_t _Ip,
-             class _Up,
-             class... _Args,
-             enable_if_t<(_Ip < sizeof...(_Types)), int> = 0,
-             class _Tp = variant_alternative_t<_Ip, variant<_Types...>>,
-             enable_if_t<is_constructible_v<_Tp, initializer_list<_Up>&, _Args...>, int> = 0>
-   _Tp& emplace(initializer_list<_Up> __il, _Args&&... __args) {
-    return __impl_.template __emplace<_Ip>(__il, std::forward<_Args>(__args)...);
-  }
-
-  template < class _Tp,
-             class... _Args,
-             size_t _Ip = __find_detail::__find_unambiguous_index_sfinae<_Tp, _Types...>::value,
-             enable_if_t<is_constructible_v<_Tp, _Args...>, int> = 0>
-   _Tp& emplace(_Args&&... __args) {
-    return __impl_.template __emplace<_Ip>(std::forward<_Args>(__args)...);
-  }
-
-  template < class _Tp,
-             class _Up,
-             class... _Args,
-             size_t _Ip = __find_detail::__find_unambiguous_index_sfinae<_Tp, _Types...>::value,
-             enable_if_t<is_constructible_v<_Tp, initializer_list<_Up>&, _Args...>, int> = 0>
-   _Tp& emplace(initializer_list<_Up> __il, _Args&&... __args) {
-    return __impl_.template __emplace<_Ip>(__il, std::forward<_Args>(__args)...);
-  }
-
-   constexpr bool valueless_by_exception() const noexcept {
-    return __impl_.valueless_by_exception();
-  }
-
-   constexpr size_t index() const noexcept { return __impl_.index(); }
-
-  template < bool _Dummy = true,
-             enable_if_t< __all<(__dependent_type<is_move_constructible<_Types>, _Dummy>::value &&
-                                 __dependent_type<is_swappable<_Types>, _Dummy>::value)...>::value,
-                          int> = 0>
-   void swap(variant& __that) noexcept(
-      __all<(is_nothrow_move_constructible_v<_Types> && is_nothrow_swappable_v<_Types>)...>::value) {
-    __impl_.__swap(__that.__impl_);
-  }
-private:
-  __variant_detail::__impl<_Types...> __impl_;
-
-  friend struct __variant_detail::__access::__variant;
-  friend struct __variant_detail::__visitation::__variant;
-};
-
-template <size_t _Ip, class... _Types>
- constexpr bool __holds_alternative(const variant<_Types...>& __v) noexcept {
-  return __v.index() == _Ip;
-}
-
-template <class _Tp, class... _Types>
- constexpr bool holds_alternative(const variant<_Types...>& __v) noexcept {
-  return std::__holds_alternative<__find_exactly_one_t<_Tp, _Types...>::value>(__v);
-}
-
-template <size_t _Ip, class _Vp>
- constexpr auto&& __generic_get(_Vp&& __v) {
-  using __variant_detail::__access::__variant;
-  if (!std::__holds_alternative<_Ip>(__v)) {
-    std::__throw_bad_variant_access();
-  }
-  return __variant::__get_alt<_Ip>(std::forward<_Vp>(__v)).__value;
-}
-
-template <size_t _Ip, class... _Types>
-
-                                              constexpr variant_alternative_t<_Ip, variant<_Types...>>&
-get(variant<_Types...>& __v) {
-  static_assert(_Ip < sizeof...(_Types));
-  static_assert(!is_void_v<variant_alternative_t<_Ip, variant<_Types...>>>);
-  return std::__generic_get<_Ip>(__v);
-}
-
-template <size_t _Ip, class... _Types>
-
-                                              constexpr variant_alternative_t<_Ip, variant<_Types...>>&&
-get(variant<_Types...>&& __v) {
-  static_assert(_Ip < sizeof...(_Types));
-  static_assert(!is_void_v<variant_alternative_t<_Ip, variant<_Types...>>>);
-  return std::__generic_get<_Ip>(std::move(__v));
-}
-
-template <size_t _Ip, class... _Types>
-
-                                              constexpr const variant_alternative_t<_Ip, variant<_Types...>>&
-get(const variant<_Types...>& __v) {
-  static_assert(_Ip < sizeof...(_Types));
-  static_assert(!is_void_v<variant_alternative_t<_Ip, variant<_Types...>>>);
-  return std::__generic_get<_Ip>(__v);
-}
-
-template <size_t _Ip, class... _Types>
-
-                                              constexpr const variant_alternative_t<_Ip, variant<_Types...>>&&
-get(const variant<_Types...>&& __v) {
-  static_assert(_Ip < sizeof...(_Types));
-  static_assert(!is_void_v<variant_alternative_t<_Ip, variant<_Types...>>>);
-  return std::__generic_get<_Ip>(std::move(__v));
-}
-
-template <class _Tp, class... _Types>
- constexpr _Tp& get(variant<_Types...>& __v) {
-  static_assert(!is_void_v<_Tp>);
-  return std::get<__find_exactly_one_t<_Tp, _Types...>::value>(__v);
-}
-
-template <class _Tp, class... _Types>
- constexpr _Tp&& get(variant<_Types...>&& __v) {
-  static_assert(!is_void_v<_Tp>);
-  return std::get<__find_exactly_one_t<_Tp, _Types...>::value>(std::move(__v));
-}
-
-template <class _Tp, class... _Types>
- constexpr const _Tp&
-get(const variant<_Types...>& __v) {
-  static_assert(!is_void_v<_Tp>);
-  return std::get<__find_exactly_one_t<_Tp, _Types...>::value>(__v);
-}
-
-template <class _Tp, class... _Types>
- constexpr const _Tp&&
-get(const variant<_Types...>&& __v) {
-  static_assert(!is_void_v<_Tp>);
-  return std::get<__find_exactly_one_t<_Tp, _Types...>::value>(std::move(__v));
-}
-
-template <size_t _Ip, class _Vp>
- constexpr auto* __generic_get_if(_Vp* __v) noexcept {
-  using __variant_detail::__access::__variant;
-  return __v && std::__holds_alternative<_Ip>(*__v) ? std::addressof(__variant::__get_alt<_Ip>(*__v).__value) : nullptr;
-}
-
-template <size_t _Ip, class... _Types>
- constexpr add_pointer_t<variant_alternative_t<_Ip, variant<_Types...>>>
-get_if(variant<_Types...>* __v) noexcept {
-  static_assert(_Ip < sizeof...(_Types));
-  static_assert(!is_void_v<variant_alternative_t<_Ip, variant<_Types...>>>);
-  return std::__generic_get_if<_Ip>(__v);
-}
-
-template <size_t _Ip, class... _Types>
- constexpr add_pointer_t<const variant_alternative_t<_Ip, variant<_Types...>>>
-get_if(const variant<_Types...>* __v) noexcept {
-  static_assert(_Ip < sizeof...(_Types));
-  static_assert(!is_void_v<variant_alternative_t<_Ip, variant<_Types...>>>);
-  return std::__generic_get_if<_Ip>(__v);
-}
-
-template <class _Tp, class... _Types>
- constexpr add_pointer_t<_Tp> get_if(variant<_Types...>* __v) noexcept {
-  static_assert(!is_void_v<_Tp>);
-  return std::get_if<__find_exactly_one_t<_Tp, _Types...>::value>(__v);
-}
-
-template <class _Tp, class... _Types>
- constexpr add_pointer_t<const _Tp> get_if(const variant<_Types...>* __v) noexcept {
-  static_assert(!is_void_v<_Tp>);
-  return std::get_if<__find_exactly_one_t<_Tp, _Types...>::value>(__v);
-}
-
-template <class _Operator>
-struct __convert_to_bool {
-  template <class _T1, class _T2>
-   constexpr bool operator()(_T1&& __t1, _T2&& __t2) const {
-    static_assert(is_convertible<decltype(_Operator{}(std::forward<_T1>(__t1), std::forward<_T2>(__t2))), bool>::value,
-                  "the relational operator does not return a type which is implicitly convertible to bool");
-    return _Operator{}(std::forward<_T1>(__t1), std::forward<_T2>(__t2));
-  }
-};
-
-template <class... _Types>
- constexpr bool operator==(const variant<_Types...>& __lhs, const variant<_Types...>& __rhs) {
-  using __variant_detail::__visitation::__variant;
-  if (__lhs.index() != __rhs.index())
-    return false;
-  if (__lhs.valueless_by_exception())
-    return true;
-  return __variant::__visit_value_at(__lhs.index(), __convert_to_bool<equal_to<>>{}, __lhs, __rhs);
-}
-template <class... _Types>
- constexpr bool operator!=(const variant<_Types...>& __lhs, const variant<_Types...>& __rhs) {
-  using __variant_detail::__visitation::__variant;
-  if (__lhs.index() != __rhs.index())
-    return true;
-  if (__lhs.valueless_by_exception())
-    return false;
-  return __variant::__visit_value_at(__lhs.index(), __convert_to_bool<not_equal_to<>>{}, __lhs, __rhs);
-}
-
-template <class... _Types>
- constexpr bool operator<(const variant<_Types...>& __lhs, const variant<_Types...>& __rhs) {
-  using __variant_detail::__visitation::__variant;
-  if (__rhs.valueless_by_exception())
-    return false;
-  if (__lhs.valueless_by_exception())
-    return true;
-  if (__lhs.index() < __rhs.index())
-    return true;
-  if (__lhs.index() > __rhs.index())
-    return false;
-  return __variant::__visit_value_at(__lhs.index(), __convert_to_bool<less<>>{}, __lhs, __rhs);
-}
-
-template <class... _Types>
- constexpr bool operator>(const variant<_Types...>& __lhs, const variant<_Types...>& __rhs) {
-  using __variant_detail::__visitation::__variant;
-  if (__lhs.valueless_by_exception())
-    return false;
-  if (__rhs.valueless_by_exception())
-    return true;
-  if (__lhs.index() > __rhs.index())
-    return true;
-  if (__lhs.index() < __rhs.index())
-    return false;
-  return __variant::__visit_value_at(__lhs.index(), __convert_to_bool<greater<>>{}, __lhs, __rhs);
-}
-
-template <class... _Types>
- constexpr bool operator<=(const variant<_Types...>& __lhs, const variant<_Types...>& __rhs) {
-  using __variant_detail::__visitation::__variant;
-  if (__lhs.valueless_by_exception())
-    return true;
-  if (__rhs.valueless_by_exception())
-    return false;
-  if (__lhs.index() < __rhs.index())
-    return true;
-  if (__lhs.index() > __rhs.index())
-    return false;
-  return __variant::__visit_value_at(__lhs.index(), __convert_to_bool<less_equal<>>{}, __lhs, __rhs);
-}
-
-template <class... _Types>
- constexpr bool operator>=(const variant<_Types...>& __lhs, const variant<_Types...>& __rhs) {
-  using __variant_detail::__visitation::__variant;
-  if (__rhs.valueless_by_exception())
-    return true;
-  if (__lhs.valueless_by_exception())
-    return false;
-  if (__lhs.index() > __rhs.index())
-    return true;
-  if (__lhs.index() < __rhs.index())
-    return false;
-  return __variant::__visit_value_at(__lhs.index(), __convert_to_bool<greater_equal<>>{}, __lhs, __rhs);
-}
-
-template <class... _Vs>
- constexpr void __throw_if_valueless(_Vs&&... __vs) {
-  const bool __valueless = (... || std::__as_variant(__vs).valueless_by_exception());
-  if (__valueless) {
-    std::__throw_bad_variant_access();
-  }
-}
-
-template < class _Visitor, class... _Vs, typename>
- constexpr decltype(auto)
-visit(_Visitor&& __visitor, _Vs&&... __vs) {
-  using __variant_detail::__visitation::__variant;
-  std::__throw_if_valueless(std::forward<_Vs>(__vs)...);
-  return __variant::__visit_value(std::forward<_Visitor>(__visitor), std::forward<_Vs>(__vs)...);
-}
-template <class... _Types>
- auto
-swap(variant<_Types...>& __lhs,
-     variant<_Types...>& __rhs) noexcept(noexcept(__lhs.swap(__rhs))) -> decltype(__lhs.swap(__rhs)) {
-  return __lhs.swap(__rhs);
-}
-
-template <class... _Types>
-struct hash< __enable_hash_helper<variant<_Types...>, remove_const_t<_Types>...>> {
-
-  using argument_type __attribute__((__deprecated__)) = variant<_Types...>;
-  using result_type __attribute__((__deprecated__)) = size_t;
-
-
-   size_t operator()(const variant<_Types...>& __v) const {
-    using __variant_detail::__visitation::__variant;
-    size_t __res =
-        __v.valueless_by_exception()
-            ? 299792458
-            : __variant::__visit_alt(
-                  [](const auto& __alt) {
-                    using __alt_type = __remove_cvref_t<decltype(__alt)>;
-                    using __value_type = remove_const_t< typename __alt_type::__value_type>;
-                    return hash<__value_type>{}(__alt.__value);
-                  },
-                  __v);
-    return std::__hash_combine(__res, hash<size_t>{}(__v.index()));
-  }
-};
-
-
-
-
-template <size_t _Ip, class _Vp>
- constexpr auto&& __unchecked_get(_Vp&& __v) noexcept {
-  using __variant_detail::__access::__variant;
-  return __variant::__get_alt<_Ip>(std::forward<_Vp>(__v)).__value;
-}
-
-template <class _Tp, class... _Types>
- constexpr auto&& __unchecked_get(const variant<_Types...>& __v) noexcept {
-  return std::__unchecked_get<__find_exactly_one_t<_Tp, _Types...>::value>(__v);
-}
-
-template <class _Tp, class... _Types>
- constexpr auto&& __unchecked_get(variant<_Types...>& __v) noexcept {
-  return std::__unchecked_get<__find_exactly_one_t<_Tp, _Types...>::value>(__v);
-}
-
-
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -25899,11 +24665,6 @@ template <class _Tp, class... _Types>
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
- void* align(size_t __align, size_t __sz, void*& __ptr, size_t& __space);
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -25916,8 +24677,6 @@ template <class _Tp, class... _Types>
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
 #pragma clang diagnostic pop
 
 
@@ -25934,210 +24693,6 @@ template <class _Tp, class... _Types>
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Tp>
-struct __has_result_type {
-private:
-  template <class _Up>
-  static false_type __test(...);
-  template <class _Up>
-  static true_type __test(typename _Up::result_type* = 0);
-
-public:
-  static const bool value = decltype(__test<_Tp>(0))::value;
-};
-
-
-
-template <class _Tp>
-struct __derives_from_unary_function {
-private:
-  struct __two {
-    char __lx;
-    char __lxx;
-  };
-  static __two __test(...);
-  template <class _Ap, class _Rp>
-  static __unary_function<_Ap, _Rp> __test(const volatile __unary_function<_Ap, _Rp>*);
-
-public:
-  static const bool value = !is_same<decltype(__test((_Tp*)0)), __two>::value;
-  typedef decltype(__test((_Tp*)0)) type;
-};
-
-template <class _Tp>
-struct __derives_from_binary_function {
-private:
-  struct __two {
-    char __lx;
-    char __lxx;
-  };
-  static __two __test(...);
-  template <class _A1, class _A2, class _Rp>
-  static __binary_function<_A1, _A2, _Rp> __test(const volatile __binary_function<_A1, _A2, _Rp>*);
-
-public:
-  static const bool value = !is_same<decltype(__test((_Tp*)0)), __two>::value;
-  typedef decltype(__test((_Tp*)0)) type;
-};
-
-template <class _Tp, bool = __derives_from_unary_function<_Tp>::value>
-struct __maybe_derive_from_unary_function
-    : public __derives_from_unary_function<_Tp>::type {};
-
-template <class _Tp>
-struct __maybe_derive_from_unary_function<_Tp, false> {};
-
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated"
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-template <class _Tp, bool = __derives_from_binary_function<_Tp>::value>
-struct __maybe_derive_from_binary_function
-    : public __derives_from_binary_function<_Tp>::type {};
-
-template <class _Tp>
-struct __maybe_derive_from_binary_function<_Tp, false> {};
-
-template <class _Tp, bool = __has_result_type<_Tp>::value>
-struct __weak_result_type_imp
-    : public __maybe_derive_from_unary_function<_Tp>,
-      public __maybe_derive_from_binary_function<_Tp> {
-
-  using result_type [[__gnu__::__nodebug__]] __attribute__((__deprecated__)) = typename _Tp::result_type;
-
-};
-
-template <class _Tp>
-struct __weak_result_type_imp<_Tp, false>
-    : public __maybe_derive_from_unary_function<_Tp>, public __maybe_derive_from_binary_function<_Tp> {};
-
-template <class _Tp>
-struct __weak_result_type : public __weak_result_type_imp<_Tp> {};
-#pragma GCC diagnostic pop
-
-
-
-template <class _Rp>
-struct __weak_result_type<_Rp()> {
-
-  using result_type [[__gnu__::__nodebug__]] __attribute__((__deprecated__)) = _Rp;
-
-};
-
-template <class _Rp>
-struct __weak_result_type<_Rp (&)()> {
-
-  using result_type [[__gnu__::__nodebug__]] __attribute__((__deprecated__)) = _Rp;
-
-};
-
-template <class _Rp>
-struct __weak_result_type<_Rp (*)()> {
-
-  using result_type [[__gnu__::__nodebug__]] __attribute__((__deprecated__)) = _Rp;
-
-};
-
-
-
-template <class _Rp, class _A1>
-struct __weak_result_type<_Rp(_A1)> : public __unary_function<_A1, _Rp> {};
-
-template <class _Rp, class _A1>
-struct __weak_result_type<_Rp (&)(_A1)> : public __unary_function<_A1, _Rp> {};
-
-template <class _Rp, class _A1>
-struct __weak_result_type<_Rp (*)(_A1)> : public __unary_function<_A1, _Rp> {};
-
-template <class _Rp, class _Cp>
-struct __weak_result_type<_Rp (_Cp::*)()> : public __unary_function<_Cp*, _Rp> {};
-
-template <class _Rp, class _Cp>
-struct __weak_result_type<_Rp (_Cp::*)() const> : public __unary_function<const _Cp*, _Rp> {};
-
-template <class _Rp, class _Cp>
-struct __weak_result_type<_Rp (_Cp::*)() volatile> : public __unary_function<volatile _Cp*, _Rp> {};
-
-template <class _Rp, class _Cp>
-struct __weak_result_type<_Rp (_Cp::*)() const volatile> : public __unary_function<const volatile _Cp*, _Rp> {};
-
-
-
-template <class _Rp, class _A1, class _A2>
-struct __weak_result_type<_Rp(_A1, _A2)> : public __binary_function<_A1, _A2, _Rp> {};
-
-template <class _Rp, class _A1, class _A2>
-struct __weak_result_type<_Rp (*)(_A1, _A2)> : public __binary_function<_A1, _A2, _Rp> {};
-
-template <class _Rp, class _A1, class _A2>
-struct __weak_result_type<_Rp (&)(_A1, _A2)> : public __binary_function<_A1, _A2, _Rp> {};
-
-template <class _Rp, class _Cp, class _A1>
-struct __weak_result_type<_Rp (_Cp::*)(_A1)> : public __binary_function<_Cp*, _A1, _Rp> {};
-
-template <class _Rp, class _Cp, class _A1>
-struct __weak_result_type<_Rp (_Cp::*)(_A1) const> : public __binary_function<const _Cp*, _A1, _Rp> {};
-
-template <class _Rp, class _Cp, class _A1>
-struct __weak_result_type<_Rp (_Cp::*)(_A1) volatile> : public __binary_function<volatile _Cp*, _A1, _Rp> {};
-
-template <class _Rp, class _Cp, class _A1>
-struct __weak_result_type<_Rp (_Cp::*)(_A1) const volatile> : public __binary_function<const volatile _Cp*, _A1, _Rp> {
-};
-
-
-
-template <class _Rp, class _A1, class _A2, class _A3, class... _A4>
-struct __weak_result_type<_Rp(_A1, _A2, _A3, _A4...)> {
-
-  using result_type [[__gnu__::__nodebug__]] __attribute__((__deprecated__)) = _Rp;
-
-};
-
-template <class _Rp, class _A1, class _A2, class _A3, class... _A4>
-struct __weak_result_type<_Rp (&)(_A1, _A2, _A3, _A4...)> {
-
-  using result_type [[__gnu__::__nodebug__]] __attribute__((__deprecated__)) = _Rp;
-
-};
-
-template <class _Rp, class _A1, class _A2, class _A3, class... _A4>
-struct __weak_result_type<_Rp (*)(_A1, _A2, _A3, _A4...)> {
-
-  using result_type [[__gnu__::__nodebug__]] __attribute__((__deprecated__)) = _Rp;
-
-};
-
-template <class _Rp, class _Cp, class _A1, class _A2, class... _A3>
-struct __weak_result_type<_Rp (_Cp::*)(_A1, _A2, _A3...)> {
-
-  using result_type [[__gnu__::__nodebug__]] __attribute__((__deprecated__)) = _Rp;
-
-};
-
-template <class _Rp, class _Cp, class _A1, class _A2, class... _A3>
-struct __weak_result_type<_Rp (_Cp::*)(_A1, _A2, _A3...) const> {
-
-  using result_type [[__gnu__::__nodebug__]] __attribute__((__deprecated__)) = _Rp;
-
-};
-
-template <class _Rp, class _Cp, class _A1, class _A2, class... _A3>
-struct __weak_result_type<_Rp (_Cp::*)(_A1, _A2, _A3...) volatile> {
-
-  using result_type [[__gnu__::__nodebug__]] __attribute__((__deprecated__)) = _Rp;
-
-};
-
-template <class _Rp, class _Cp, class _A1, class _A2, class... _A3>
-struct __weak_result_type<_Rp (_Cp::*)(_A1, _A2, _A3...) const volatile> {
-
-  using result_type [[__gnu__::__nodebug__]] __attribute__((__deprecated__)) = _Rp;
-
-};
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -26147,86 +24702,6 @@ struct __weak_result_type<_Rp (_Cp::*)(_A1, _A2, _A3...) const volatile> {
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Tp>
-class reference_wrapper : public __weak_result_type<_Tp> {
-public:
-
-  typedef _Tp type;
-
-private:
-  type* __f_;
-
-  static void __fun(_Tp&) noexcept;
-  static void __fun(_Tp&&) = delete;
-
-public:
-  template <class _Up,
-            class = __void_t<decltype(__fun(std::declval<_Up>()))>,
-            __enable_if_t<!__is_same_uncvref<_Up, reference_wrapper>::value, int> = 0>
-   reference_wrapper(_Up&& __u)
-      noexcept(noexcept(__fun(std::declval<_Up>()))) {
-    type& __f = static_cast<_Up&&>(__u);
-    __f_ = std::addressof(__f);
-  }
-
-
-   operator type&() const noexcept { return *__f_; }
-   type& get() const noexcept { return *__f_; }
-
-
-  template <class... _ArgTypes>
-   __invoke_result_t<type&, _ArgTypes...>
-  operator()(_ArgTypes&&... __args) const
-
-
-
-      noexcept(is_nothrow_invocable_v<_Tp&, _ArgTypes...>)
-
-  {
-    return std::__invoke(get(), std::forward<_ArgTypes>(__args)...);
-  }
-};
-
-
-template <class _Tp>
-reference_wrapper(_Tp&) -> reference_wrapper<_Tp>;
-
-
-template <class _Tp>
-inline  reference_wrapper<_Tp> ref(_Tp& __t) noexcept {
-  return reference_wrapper<_Tp>(__t);
-}
-
-template <class _Tp>
-inline  reference_wrapper<_Tp>
-ref(reference_wrapper<_Tp> __t) noexcept {
-  return __t;
-}
-
-template <class _Tp>
-inline  reference_wrapper<const _Tp> cref(const _Tp& __t) noexcept {
-  return reference_wrapper<const _Tp>(__t);
-}
-
-template <class _Tp>
-inline  reference_wrapper<const _Tp>
-cref(reference_wrapper<_Tp> __t) noexcept {
-  return __t;
-}
-
-template <class _Tp>
-void ref(const _Tp&&) = delete;
-template <class _Tp>
-void cref(const _Tp&&) = delete;
-
-
-template <class _CanonicalTag, class _Operation, class... _Args>
-inline const bool __desugars_to_v<_CanonicalTag, reference_wrapper<_Operation>, _Args...> =
-    __desugars_to_v<_CanonicalTag, _Operation, _Args...>;
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -26241,65 +24716,6 @@ inline const bool __desugars_to_v<_CanonicalTag, reference_wrapper<_Operation>, 
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-template <class _Alloc>
-struct __allocation_guard {
-  using _Pointer [[__gnu__::__nodebug__]] = typename allocator_traits<_Alloc>::pointer;
-  using _Size [[__gnu__::__nodebug__]] = typename allocator_traits<_Alloc>::size_type;
-
-  template <class _AllocT>
-   explicit __allocation_guard(_AllocT __alloc, _Size __n)
-      : __alloc_(std::move(__alloc)),
-        __n_(__n),
-        __ptr_(allocator_traits<_Alloc>::allocate(__alloc_, __n_))
-  {}
-
-   ~__allocation_guard() noexcept { __destroy(); }
-
-   __allocation_guard(const __allocation_guard&) = delete;
-   __allocation_guard(__allocation_guard&& __other) noexcept
-      : __alloc_(std::move(__other.__alloc_)),
-        __n_(__other.__n_),
-        __ptr_(__other.__ptr_) {
-    __other.__ptr_ = nullptr;
-  }
-
-   __allocation_guard& operator=(const __allocation_guard& __other) = delete;
-   __allocation_guard& operator=(__allocation_guard&& __other) noexcept {
-    if (std::addressof(__other) != this) {
-      __destroy();
-
-      __alloc_ = std::move(__other.__alloc_);
-      __n_ = __other.__n_;
-      __ptr_ = __other.__ptr_;
-      __other.__ptr_ = nullptr;
-    }
-
-    return *this;
-  }
-
-   _Pointer
-  __release_ptr() noexcept {
-    _Pointer __tmp = __ptr_;
-    __ptr_ = nullptr;
-    return __tmp;
-  }
-
-   _Pointer __get() const noexcept { return __ptr_; }
-
-private:
-   void __destroy() noexcept {
-    if (__ptr_ != nullptr) {
-      allocator_traits<_Alloc>::deallocate(__alloc_, __ptr_, __n_);
-    }
-  }
-
-  _Alloc __alloc_;
-  _Size __n_;
-  _Pointer __ptr_;
-};
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -26310,26 +24726,6 @@ private:
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Alloc>
-class __allocator_destructor {
-  using __alloc_traits [[__gnu__::__nodebug__]] = allocator_traits<_Alloc>;
-
-public:
-  using pointer [[__gnu__::__nodebug__]] = typename __alloc_traits::pointer;
-  using size_type [[__gnu__::__nodebug__]] = typename __alloc_traits::size_type;
-
-private:
-  _Alloc& __alloc_;
-  size_type __s_;
-
-public:
-   __allocator_destructor(_Alloc& __a, size_type __s) noexcept : __alloc_(__a), __s_(__s) {}
-   void operator()(pointer __p) noexcept { __alloc_traits::deallocate(__alloc_, __p, __s_); }
-};
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -26345,49 +24741,6 @@ public:
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _ForwardIterator>
- _ForwardIterator
-__destroy(_ForwardIterator __first, _ForwardIterator __last) {
-  for (; __first != __last; ++__first)
-    std::__destroy_at(std::addressof(*__first));
-  return __first;
-}
-
-template <class _BidirectionalIterator>
- _BidirectionalIterator
-__reverse_destroy(_BidirectionalIterator __first, _BidirectionalIterator __last) {
-  while (__last != __first) {
-    --__last;
-    std::__destroy_at(std::addressof(*__last));
-  }
-  return __last;
-}
-
-
-template <class _Alloc, class _Iter, class _Sent>
- void
-__allocator_destroy(_Alloc& __alloc, _Iter __first, _Sent __last) {
-  for (; __first != __last; ++__first)
-    allocator_traits<_Alloc>::destroy(__alloc, std::addressof(*__first));
-}
-
-
-template <class _ForwardIterator>
- void destroy(_ForwardIterator __first, _ForwardIterator __last) {
-  (void)std::__destroy(std::move(__first), std::move(__last));
-}
-
-template <class _ForwardIterator, class _Size>
- _ForwardIterator destroy_n(_ForwardIterator __first, _Size __n) {
-  for (; __n > 0; (void)++__first, --__n)
-    std::__destroy_at(std::addressof(*__first));
-  return __first;
-}
-
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -26398,110 +24751,6 @@ template <class _ForwardIterator, class _Size>
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-template <class _ValueType>
-inline  _ValueType __libcpp_relaxed_load(_ValueType const* __value) {
-
-
-  return __atomic_load_n(__value, 0);
-
-
-
-}
-
-template <class _ValueType>
-inline  _ValueType __libcpp_acquire_load(_ValueType const* __value) {
-
-
-  return __atomic_load_n(__value, 2);
-
-
-
-}
-
-template <class _Tp>
-inline  _Tp __libcpp_atomic_refcount_increment(_Tp& __t) noexcept {
-
-  return __atomic_add_fetch(std::addressof(__t), 1, 0);
-
-
-
-}
-
-template <class _Tp>
-inline  _Tp __libcpp_atomic_refcount_decrement(_Tp& __t) noexcept {
-
-  return __atomic_add_fetch(std::addressof(__t), -1, 4);
-
-
-
-}
-
-class  __shared_count {
-  __shared_count(const __shared_count&);
-  __shared_count& operator=(const __shared_count&);
-
-protected:
-  long __shared_owners_;
-  virtual ~__shared_count();
-
-private:
-  virtual void __on_zero_shared() noexcept = 0;
-
-public:
-   explicit __shared_count(long __refs = 0) noexcept : __shared_owners_(__refs) {}
-
-
-
-
-
-   void __add_shared() noexcept { __libcpp_atomic_refcount_increment(__shared_owners_); }
-   bool __release_shared() noexcept {
-    if (__libcpp_atomic_refcount_decrement(__shared_owners_) == -1) {
-      __on_zero_shared();
-      return true;
-    }
-    return false;
-  }
-
-   long use_count() const noexcept { return __libcpp_relaxed_load(&__shared_owners_) + 1; }
-};
-
-class  __shared_weak_count : private __shared_count {
-  long __shared_weak_owners_;
-
-public:
-   explicit __shared_weak_count(long __refs = 0) noexcept
-      : __shared_count(__refs),
-        __shared_weak_owners_(__refs) {}
-
-protected:
-  ~__shared_weak_count() override;
-
-public:
-
-
-
-
-
-   void __add_shared() noexcept { __shared_count::__add_shared(); }
-   void __add_weak() noexcept { __libcpp_atomic_refcount_increment(__shared_weak_owners_); }
-   void __release_shared() noexcept {
-    if (__shared_count::__release_shared())
-      __release_weak();
-  }
-
-  void __release_weak() noexcept;
-   long use_count() const noexcept { return __shared_count::use_count(); }
-  __shared_weak_count* lock() noexcept;
-
-  virtual const void* __get_deleter(const type_info&) const noexcept;
-
-private:
-  virtual void __on_zero_shared_weak() noexcept = 0;
-};
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -26522,13 +24771,6 @@ private:
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class>
-inline const bool __is_unbounded_array_v = false;
-template <class _Tp>
-inline const bool __is_unbounded_array_v<_Tp[]> = true;
-} }
 #pragma clang diagnostic pop
 
 
@@ -26540,554 +24782,6 @@ inline const bool __is_unbounded_array_v<_Tp[]> = true;
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-struct __always_false {
-  template <class... _Args>
-   constexpr bool operator()(_Args&&...) const noexcept {
-    return false;
-  }
-};
-
-
-
-template <class _ValueType, class _InputIterator, class _Sentinel1, class _ForwardIterator, class _EndPredicate>
-inline  pair<_InputIterator, _ForwardIterator> __uninitialized_copy(
-    _InputIterator __ifirst, _Sentinel1 __ilast, _ForwardIterator __ofirst, _EndPredicate __stop_copying) {
-  _ForwardIterator __idx = __ofirst;
-
-  try {
-
-    for (; __ifirst != __ilast && !__stop_copying(__idx); ++__ifirst, (void)++__idx)
-      ::new (static_cast<void*>(std::addressof(*__idx))) _ValueType(*__ifirst);
-
-  } catch (...) {
-    std::__destroy(__ofirst, __idx);
-    throw;
-  }
-
-
-  return pair<_InputIterator, _ForwardIterator>(std::move(__ifirst), std::move(__idx));
-}
-
-template <class _InputIterator, class _ForwardIterator>
- _ForwardIterator
-uninitialized_copy(_InputIterator __ifirst, _InputIterator __ilast, _ForwardIterator __ofirst) {
-  typedef typename iterator_traits<_ForwardIterator>::value_type _ValueType;
-  auto __result = std::__uninitialized_copy<_ValueType>(
-      std::move(__ifirst), std::move(__ilast), std::move(__ofirst), __always_false());
-  return std::move(__result.second);
-}
-
-
-
-template <class _ValueType, class _InputIterator, class _Size, class _ForwardIterator, class _EndPredicate>
-inline  pair<_InputIterator, _ForwardIterator>
-__uninitialized_copy_n(_InputIterator __ifirst, _Size __n, _ForwardIterator __ofirst, _EndPredicate __stop_copying) {
-  _ForwardIterator __idx = __ofirst;
-
-  try {
-
-    for (; __n > 0 && !__stop_copying(__idx); ++__ifirst, (void)++__idx, (void)--__n)
-      ::new (static_cast<void*>(std::addressof(*__idx))) _ValueType(*__ifirst);
-
-  } catch (...) {
-    std::__destroy(__ofirst, __idx);
-    throw;
-  }
-
-
-  return pair<_InputIterator, _ForwardIterator>(std::move(__ifirst), std::move(__idx));
-}
-
-template <class _InputIterator, class _Size, class _ForwardIterator>
-inline  _ForwardIterator
-uninitialized_copy_n(_InputIterator __ifirst, _Size __n, _ForwardIterator __ofirst) {
-  typedef typename iterator_traits<_ForwardIterator>::value_type _ValueType;
-  auto __result =
-      std::__uninitialized_copy_n<_ValueType>(std::move(__ifirst), __n, std::move(__ofirst), __always_false());
-  return std::move(__result.second);
-}
-
-
-
-template <class _ValueType, class _ForwardIterator, class _Sentinel, class _Tp>
-inline  _ForwardIterator
-__uninitialized_fill(_ForwardIterator __first, _Sentinel __last, const _Tp& __x) {
-  _ForwardIterator __idx = __first;
-
-  try {
-
-    for (; __idx != __last; ++__idx)
-      ::new (static_cast<void*>(std::addressof(*__idx))) _ValueType(__x);
-
-  } catch (...) {
-    std::__destroy(__first, __idx);
-    throw;
-  }
-
-
-  return __idx;
-}
-
-template <class _ForwardIterator, class _Tp>
-inline  void
-uninitialized_fill(_ForwardIterator __first, _ForwardIterator __last, const _Tp& __x) {
-  typedef typename iterator_traits<_ForwardIterator>::value_type _ValueType;
-  (void)std::__uninitialized_fill<_ValueType>(__first, __last, __x);
-}
-
-
-
-template <class _ValueType, class _ForwardIterator, class _Size, class _Tp>
-inline  _ForwardIterator
-__uninitialized_fill_n(_ForwardIterator __first, _Size __n, const _Tp& __x) {
-  _ForwardIterator __idx = __first;
-
-  try {
-
-    for (; __n > 0; ++__idx, (void)--__n)
-      ::new (static_cast<void*>(std::addressof(*__idx))) _ValueType(__x);
-
-  } catch (...) {
-    std::__destroy(__first, __idx);
-    throw;
-  }
-
-
-  return __idx;
-}
-
-template <class _ForwardIterator, class _Size, class _Tp>
-inline  _ForwardIterator
-uninitialized_fill_n(_ForwardIterator __first, _Size __n, const _Tp& __x) {
-  typedef typename iterator_traits<_ForwardIterator>::value_type _ValueType;
-  return std::__uninitialized_fill_n<_ValueType>(__first, __n, __x);
-}
-
-
-
-
-
-template <class _ValueType, class _ForwardIterator, class _Sentinel>
-inline  _ForwardIterator
-__uninitialized_default_construct(_ForwardIterator __first, _Sentinel __last) {
-  auto __idx = __first;
-
-  try {
-
-    for (; __idx != __last; ++__idx)
-      ::new (static_cast<void*>(std::addressof(*__idx))) _ValueType;
-
-  } catch (...) {
-    std::__destroy(__first, __idx);
-    throw;
-  }
-
-
-  return __idx;
-}
-
-template <class _ForwardIterator>
-inline  void uninitialized_default_construct(_ForwardIterator __first, _ForwardIterator __last) {
-  using _ValueType = typename iterator_traits<_ForwardIterator>::value_type;
-  (void)std::__uninitialized_default_construct<_ValueType>(std::move(__first), std::move(__last));
-}
-
-
-
-template <class _ValueType, class _ForwardIterator, class _Size>
-inline  _ForwardIterator __uninitialized_default_construct_n(_ForwardIterator __first, _Size __n) {
-  auto __idx = __first;
-
-  try {
-
-    for (; __n > 0; ++__idx, (void)--__n)
-      ::new (static_cast<void*>(std::addressof(*__idx))) _ValueType;
-
-  } catch (...) {
-    std::__destroy(__first, __idx);
-    throw;
-  }
-
-
-  return __idx;
-}
-
-template <class _ForwardIterator, class _Size>
-inline  _ForwardIterator uninitialized_default_construct_n(_ForwardIterator __first, _Size __n) {
-  using _ValueType = typename iterator_traits<_ForwardIterator>::value_type;
-  return std::__uninitialized_default_construct_n<_ValueType>(std::move(__first), __n);
-}
-
-
-
-template <class _ValueType, class _ForwardIterator, class _Sentinel>
-inline  _ForwardIterator
-__uninitialized_value_construct(_ForwardIterator __first, _Sentinel __last) {
-  auto __idx = __first;
-
-  try {
-
-    for (; __idx != __last; ++__idx)
-      ::new (static_cast<void*>(std::addressof(*__idx))) _ValueType();
-
-  } catch (...) {
-    std::__destroy(__first, __idx);
-    throw;
-  }
-
-
-  return __idx;
-}
-
-template <class _ForwardIterator>
-inline  void uninitialized_value_construct(_ForwardIterator __first, _ForwardIterator __last) {
-  using _ValueType = typename iterator_traits<_ForwardIterator>::value_type;
-  (void)std::__uninitialized_value_construct<_ValueType>(std::move(__first), std::move(__last));
-}
-
-
-
-template <class _ValueType, class _ForwardIterator, class _Size>
-inline  _ForwardIterator __uninitialized_value_construct_n(_ForwardIterator __first, _Size __n) {
-  auto __idx = __first;
-
-  try {
-
-    for (; __n > 0; ++__idx, (void)--__n)
-      ::new (static_cast<void*>(std::addressof(*__idx))) _ValueType();
-
-  } catch (...) {
-    std::__destroy(__first, __idx);
-    throw;
-  }
-
-
-  return __idx;
-}
-
-template <class _ForwardIterator, class _Size>
-inline  _ForwardIterator uninitialized_value_construct_n(_ForwardIterator __first, _Size __n) {
-  using _ValueType = typename iterator_traits<_ForwardIterator>::value_type;
-  return std::__uninitialized_value_construct_n<_ValueType>(std::move(__first), __n);
-}
-
-
-
-template <class _ValueType,
-          class _InputIterator,
-          class _Sentinel1,
-          class _ForwardIterator,
-          class _EndPredicate,
-          class _IterMove>
-inline  pair<_InputIterator, _ForwardIterator> __uninitialized_move(
-    _InputIterator __ifirst,
-    _Sentinel1 __ilast,
-    _ForwardIterator __ofirst,
-    _EndPredicate __stop_moving,
-    _IterMove __iter_move) {
-  auto __idx = __ofirst;
-
-  try {
-
-    for (; __ifirst != __ilast && !__stop_moving(__idx); ++__idx, (void)++__ifirst) {
-      ::new (static_cast<void*>(std::addressof(*__idx))) _ValueType(__iter_move(__ifirst));
-    }
-
-  } catch (...) {
-    std::__destroy(__ofirst, __idx);
-    throw;
-  }
-
-
-  return {std::move(__ifirst), std::move(__idx)};
-}
-
-template <class _InputIterator, class _ForwardIterator>
-inline  _ForwardIterator
-uninitialized_move(_InputIterator __ifirst, _InputIterator __ilast, _ForwardIterator __ofirst) {
-  using _ValueType = typename iterator_traits<_ForwardIterator>::value_type;
-  auto __iter_move = [](auto&& __iter) -> decltype(auto) { return std::move(*__iter); };
-
-  auto __result = std::__uninitialized_move<_ValueType>(
-      std::move(__ifirst), std::move(__ilast), std::move(__ofirst), __always_false(), __iter_move);
-  return std::move(__result.second);
-}
-
-
-
-template <class _ValueType,
-          class _InputIterator,
-          class _Size,
-          class _ForwardIterator,
-          class _EndPredicate,
-          class _IterMove>
-inline  pair<_InputIterator, _ForwardIterator> __uninitialized_move_n(
-    _InputIterator __ifirst, _Size __n, _ForwardIterator __ofirst, _EndPredicate __stop_moving, _IterMove __iter_move) {
-  auto __idx = __ofirst;
-
-  try {
-
-    for (; __n > 0 && !__stop_moving(__idx); ++__idx, (void)++__ifirst, --__n)
-      ::new (static_cast<void*>(std::addressof(*__idx))) _ValueType(__iter_move(__ifirst));
-
-  } catch (...) {
-    std::__destroy(__ofirst, __idx);
-    throw;
-  }
-
-
-  return {std::move(__ifirst), std::move(__idx)};
-}
-
-template <class _InputIterator, class _Size, class _ForwardIterator>
-inline  pair<_InputIterator, _ForwardIterator>
-uninitialized_move_n(_InputIterator __ifirst, _Size __n, _ForwardIterator __ofirst) {
-  using _ValueType = typename iterator_traits<_ForwardIterator>::value_type;
-  auto __iter_move = [](auto&& __iter) -> decltype(auto) { return std::move(*__iter); };
-
-  return std::__uninitialized_move_n<_ValueType>(
-      std::move(__ifirst), __n, std::move(__ofirst), __always_false(), __iter_move);
-}
-template <class _Alloc,
-          class _BidirIter,
-          __enable_if_t<__has_bidirectional_iterator_category<_BidirIter>::value, int> = 0>
- constexpr void
-__allocator_destroy_multidimensional(_Alloc& __alloc, _BidirIter __first, _BidirIter __last) noexcept {
-  using _ValueType = typename iterator_traits<_BidirIter>::value_type;
-  static_assert(is_same_v<typename allocator_traits<_Alloc>::value_type, _ValueType>,
-                "The allocator should already be rebound to the correct type");
-
-  if (__first == __last)
-    return;
-
-  if constexpr (is_array_v<_ValueType>) {
-    static_assert(!__is_unbounded_array_v<_ValueType>,
-                  "arrays of unbounded arrays don't exist, but if they did we would mess up here");
-
-    using _Element = remove_extent_t<_ValueType>;
-    __allocator_traits_rebind_t<_Alloc, _Element> __elem_alloc(__alloc);
-    do {
-      --__last;
-      decltype(auto) __array = *__last;
-      std::__allocator_destroy_multidimensional(__elem_alloc, __array, __array + extent_v<_ValueType>);
-    } while (__last != __first);
-  } else {
-    do {
-      --__last;
-      allocator_traits<_Alloc>::destroy(__alloc, std::addressof(*__last));
-    } while (__last != __first);
-  }
-}
-template <class _Alloc, class _Tp>
- constexpr void __allocator_construct_at_multidimensional(_Alloc& __alloc, _Tp* __loc) {
-  static_assert(is_same_v<typename allocator_traits<_Alloc>::value_type, _Tp>,
-                "The allocator should already be rebound to the correct type");
-
-  if constexpr (is_array_v<_Tp>) {
-    using _Element = remove_extent_t<_Tp>;
-    __allocator_traits_rebind_t<_Alloc, _Element> __elem_alloc(__alloc);
-    size_t __i = 0;
-    _Tp& __array = *__loc;
-
-
-    auto __guard = std::__make_exception_guard([&]() {
-      std::__allocator_destroy_multidimensional(__elem_alloc, __array, __array + __i);
-    });
-
-    for (; __i != extent_v<_Tp>; ++__i) {
-      std::__allocator_construct_at_multidimensional(__elem_alloc, std::addressof(__array[__i]));
-    }
-    __guard.__complete();
-  } else {
-    allocator_traits<_Alloc>::construct(__alloc, __loc);
-  }
-}
-template <class _Alloc, class _Tp, class _Arg>
- constexpr void
-__allocator_construct_at_multidimensional(_Alloc& __alloc, _Tp* __loc, _Arg const& __arg) {
-  static_assert(is_same_v<typename allocator_traits<_Alloc>::value_type, _Tp>,
-                "The allocator should already be rebound to the correct type");
-
-  if constexpr (is_array_v<_Tp>) {
-    static_assert(is_array_v<_Arg>,
-                  "Provided non-array initialization argument to __allocator_construct_at_multidimensional when "
-                  "trying to construct an array.");
-
-    using _Element = remove_extent_t<_Tp>;
-    __allocator_traits_rebind_t<_Alloc, _Element> __elem_alloc(__alloc);
-    size_t __i = 0;
-    _Tp& __array = *__loc;
-
-
-    auto __guard = std::__make_exception_guard([&]() {
-      std::__allocator_destroy_multidimensional(__elem_alloc, __array, __array + __i);
-    });
-    for (; __i != extent_v<_Tp>; ++__i) {
-      std::__allocator_construct_at_multidimensional(__elem_alloc, std::addressof(__array[__i]), __arg[__i]);
-    }
-    __guard.__complete();
-  } else {
-    allocator_traits<_Alloc>::construct(__alloc, __loc, __arg);
-  }
-}
-template <class _Alloc,
-          class _BidirIter,
-          class _Tp,
-          class _Size = typename iterator_traits<_BidirIter>::difference_type>
- constexpr void
-__uninitialized_allocator_fill_n_multidimensional(_Alloc& __alloc, _BidirIter __it, _Size __n, _Tp const& __value) {
-  using _ValueType = typename iterator_traits<_BidirIter>::value_type;
-  __allocator_traits_rebind_t<_Alloc, _ValueType> __value_alloc(__alloc);
-  _BidirIter __begin = __it;
-
-
-  auto __guard =
-      std::__make_exception_guard([&]() { std::__allocator_destroy_multidimensional(__value_alloc, __begin, __it); });
-  for (; __n != 0; --__n, ++__it) {
-    std::__allocator_construct_at_multidimensional(__value_alloc, std::addressof(*__it), __value);
-  }
-  __guard.__complete();
-}
-
-
-
-template <class _Alloc, class _BidirIter, class _Size = typename iterator_traits<_BidirIter>::difference_type>
- constexpr void
-__uninitialized_allocator_value_construct_n_multidimensional(_Alloc& __alloc, _BidirIter __it, _Size __n) {
-  using _ValueType = typename iterator_traits<_BidirIter>::value_type;
-  __allocator_traits_rebind_t<_Alloc, _ValueType> __value_alloc(__alloc);
-  _BidirIter __begin = __it;
-
-
-  auto __guard =
-      std::__make_exception_guard([&]() { std::__allocator_destroy_multidimensional(__value_alloc, __begin, __it); });
-  for (; __n != 0; --__n, ++__it) {
-    std::__allocator_construct_at_multidimensional(__value_alloc, std::addressof(*__it));
-  }
-  __guard.__complete();
-}
-
-
-
-template <class _Alloc, class _Iter>
-class _AllocatorDestroyRangeReverse {
-public:
-   constexpr
-  _AllocatorDestroyRangeReverse(_Alloc& __alloc, _Iter& __first, _Iter& __last)
-      : __alloc_(__alloc), __first_(__first), __last_(__last) {}
-
-   constexpr void operator()() const {
-    std::__allocator_destroy(__alloc_, std::reverse_iterator<_Iter>(__last_), std::reverse_iterator<_Iter>(__first_));
-  }
-
-private:
-  _Alloc& __alloc_;
-  _Iter& __first_;
-  _Iter& __last_;
-};
-
-
-
-
-
-template <class _Alloc, class _Iter1, class _Sent1, class _Iter2>
- _Iter2
-__uninitialized_allocator_copy_impl(_Alloc& __alloc, _Iter1 __first1, _Sent1 __last1, _Iter2 __first2) {
-  auto __destruct_first = __first2;
-  auto __guard =
-      std::__make_exception_guard(_AllocatorDestroyRangeReverse<_Alloc, _Iter2>(__alloc, __destruct_first, __first2));
-  while (__first1 != __last1) {
-    allocator_traits<_Alloc>::construct(__alloc, std::__to_address(__first2), *__first1);
-    ++__first1;
-    ++__first2;
-  }
-  __guard.__complete();
-  return __first2;
-}
-
-template <class _Alloc, class _Type>
-inline const bool __allocator_has_trivial_copy_construct_v = !__has_construct_v<_Alloc, _Type*, const _Type&>;
-
-template <class _Type>
-inline const bool __allocator_has_trivial_copy_construct_v<allocator<_Type>, _Type> = true;
-
-template <class _Alloc,
-          class _In,
-          class _Out,
-          __enable_if_t<is_trivially_copy_constructible<_In>::value && is_trivially_copy_assignable<_In>::value &&
-                            is_same<__remove_const_t<_In>, __remove_const_t<_Out> >::value &&
-                            __allocator_has_trivial_copy_construct_v<_Alloc, _In>,
-                        int> = 0>
- _Out*
-__uninitialized_allocator_copy_impl(_Alloc&, _In* __first1, _In* __last1, _Out* __first2) {
-  if (__libcpp_is_constant_evaluated()) {
-    while (__first1 != __last1) {
-      std::__construct_at(std::__to_address(__first2), *__first1);
-      ++__first1;
-      ++__first2;
-    }
-    return __first2;
-  } else {
-    return std::copy(__first1, __last1, __first2);
-  }
-}
-
-template <class _Alloc, class _Iter1, class _Sent1, class _Iter2>
- _Iter2
-__uninitialized_allocator_copy(_Alloc& __alloc, _Iter1 __first1, _Sent1 __last1, _Iter2 __first2) {
-  auto __unwrapped_range = std::__unwrap_range(std::move(__first1), std::move(__last1));
-  auto __result = std::__uninitialized_allocator_copy_impl(
-      __alloc, std::move(__unwrapped_range.first), std::move(__unwrapped_range.second), std::__unwrap_iter(__first2));
-  return std::__rewrap_iter(__first2, __result);
-}
-
-template <class _Alloc, class _Type>
-inline const bool __allocator_has_trivial_move_construct_v = !__has_construct_v<_Alloc, _Type*, _Type&&>;
-
-template <class _Type>
-inline const bool __allocator_has_trivial_move_construct_v<allocator<_Type>, _Type> = true;
-
-template <class _Alloc, class _Tp>
-inline const bool __allocator_has_trivial_destroy_v = !__has_destroy_v<_Alloc, _Tp*>;
-
-template <class _Tp, class _Up>
-inline const bool __allocator_has_trivial_destroy_v<allocator<_Tp>, _Up> = true;
-template <class _Alloc, class _ContiguousIterator>
- constexpr void __uninitialized_allocator_relocate(
-    _Alloc& __alloc, _ContiguousIterator __first, _ContiguousIterator __last, _ContiguousIterator __result) {
-  static_assert(__libcpp_is_contiguous_iterator<_ContiguousIterator>::value, "");
-  using _ValueType = typename iterator_traits<_ContiguousIterator>::value_type;
-  static_assert(
-      __is_cpp17_move_insertable_v<_Alloc>, "The specified type does not meet the requirements of Cpp17MoveInsertable");
-  if (__libcpp_is_constant_evaluated() || !__libcpp_is_trivially_relocatable<_ValueType>::value ||
-      !__allocator_has_trivial_move_construct_v<_Alloc, _ValueType> ||
-      !__allocator_has_trivial_destroy_v<_Alloc, _ValueType>) {
-    auto __destruct_first = __result;
-    auto __guard = std::__make_exception_guard(
-        _AllocatorDestroyRangeReverse<_Alloc, _ContiguousIterator>(__alloc, __destruct_first, __result));
-    auto __iter = __first;
-    while (__iter != __last) {
-
-      allocator_traits<_Alloc>::construct(__alloc, std::__to_address(__result), std::move_if_noexcept(*__iter));
-
-
-
-      ++__iter;
-      ++__result;
-    }
-    __guard.__complete();
-    std::__allocator_destroy(__alloc, __first, __last);
-  } else {
-
-    __builtin_memcpy(static_cast<void*>(std::__to_address(__result)),
-                     std::__to_address(__first),
-                     sizeof(_ValueType) * (__last - __first));
-  }
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -27097,24 +24791,6 @@ template <class _Alloc, class _ContiguousIterator>
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-template <class _Tp>
-struct __has_array_cookie : _Not<is_trivially_destructible<_Tp> > {};
-
-
-
-
-
-template <class _Tp>
-
- __attribute__((__no_sanitize__("address"))) size_t __get_array_cookie(_Tp const* __ptr) {
-  static_assert(
-      __has_array_cookie<_Tp>::value, "Trying to access the array cookie of a type that is not guaranteed to have one");
-  size_t const* __cookie = reinterpret_cast<size_t const*>(__ptr) - 1;
-  return *__cookie;
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -27124,13 +24800,7 @@ template <class _Tp>
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
 
-template <class>
-inline const bool __is_bounded_array_v = false;
-template <class _Tp, size_t _Np>
-inline const bool __is_bounded_array_v<_Tp[_Np]> = true;
-} }
 #pragma clang diagnostic pop
 
 
@@ -27140,14 +24810,7 @@ inline const bool __is_bounded_array_v<_Tp[_Np]> = true;
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
 
-
-
-
-struct __private_constructor_tag {};
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -27159,639 +24822,6 @@ struct __private_constructor_tag {};
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Tp>
-struct default_delete {
-  static_assert(!is_function<_Tp>::value, "default_delete cannot be instantiated for function types");
-
-   constexpr default_delete() noexcept = default;
-
-  template <class _Up, __enable_if_t<is_convertible<_Up*, _Tp*>::value, int> = 0>
-   default_delete(const default_delete<_Up>&) noexcept {}
-
-   void operator()(_Tp* __ptr) const noexcept {
-    delete __ptr;
-  }
-};
-
-template <class _Tp>
-struct default_delete<_Tp[]> {
-   constexpr default_delete() noexcept = default;
-
-  template <class _Up, __enable_if_t<is_convertible<_Up (*)[], _Tp (*)[]>::value, int> = 0>
-   default_delete(const default_delete<_Up[]>&) noexcept {}
-
-  template <class _Up, __enable_if_t<is_convertible<_Up (*)[], _Tp (*)[]>::value, int> = 0>
-   void operator()(_Up* __ptr) const noexcept {
-    delete[] __ptr;
-  }
-};
-
-template <class _Deleter>
-inline const bool __is_default_deleter_v = false;
-
-template <class _Tp>
-inline const bool __is_default_deleter_v<default_delete<_Tp> > = true;
-
-template <class _Deleter>
-struct __unique_ptr_deleter_sfinae {
-  static_assert(!is_reference<_Deleter>::value, "incorrect specialization");
-  typedef const _Deleter& __lval_ref_type;
-  typedef _Deleter&& __good_rval_ref_type;
-  typedef true_type __enable_rval_overload;
-};
-
-template <class _Deleter>
-struct __unique_ptr_deleter_sfinae<_Deleter const&> {
-  typedef const _Deleter& __lval_ref_type;
-  typedef const _Deleter&& __bad_rval_ref_type;
-  typedef false_type __enable_rval_overload;
-};
-
-template <class _Deleter>
-struct __unique_ptr_deleter_sfinae<_Deleter&> {
-  typedef _Deleter& __lval_ref_type;
-  typedef _Deleter&& __bad_rval_ref_type;
-  typedef false_type __enable_rval_overload;
-};
-
-
-
-
-
-
-
-template <class _Tp, class _Dp = default_delete<_Tp> >
-class unique_ptr {
-public:
-  typedef _Tp element_type;
-  typedef _Dp deleter_type;
-  using pointer [[__gnu__::__nodebug__]] = __pointer<_Tp, deleter_type>;
-
-  static_assert(!is_rvalue_reference<deleter_type>::value, "the specified deleter type cannot be an rvalue reference");
-
-
-
-
-
-
-
-  using __trivially_relocatable [[__gnu__::__nodebug__]] = __conditional_t<
-      __libcpp_is_trivially_relocatable<pointer>::value && __libcpp_is_trivially_relocatable<deleter_type>::value,
-      unique_ptr,
-      void>;
-
-private:
-  [[__no_unique_address__]] __attribute__((__aligned__(::std::__compressed_pair_alignment<deleter_type>))) pointer __ptr_; [[__no_unique_address__]] ::std::__compressed_pair_padding<pointer> __padding1_149_; [[__no_unique_address__]] deleter_type __deleter_; [[__no_unique_address__]] ::std::__compressed_pair_padding<deleter_type> __padding2_149_;
-
-  using _DeleterSFINAE [[__gnu__::__nodebug__]] = __unique_ptr_deleter_sfinae<_Dp>;
-
-  template <bool _Dummy>
-  using _LValRefType [[__gnu__::__nodebug__]] = typename __dependent_type<_DeleterSFINAE, _Dummy>::__lval_ref_type;
-
-  template <bool _Dummy>
-  using _GoodRValRefType [[__gnu__::__nodebug__]] = typename __dependent_type<_DeleterSFINAE, _Dummy>::__good_rval_ref_type;
-
-  template <bool _Dummy>
-  using _BadRValRefType [[__gnu__::__nodebug__]] = typename __dependent_type<_DeleterSFINAE, _Dummy>::__bad_rval_ref_type;
-
-  template <bool _Dummy, class _Deleter = typename __dependent_type< __type_identity<deleter_type>, _Dummy>::type>
-  using _EnableIfDeleterDefaultConstructible [[__gnu__::__nodebug__]] =
-      __enable_if_t<is_default_constructible<_Deleter>::value && !is_pointer<_Deleter>::value>;
-
-  template <class _ArgType>
-  using _EnableIfDeleterConstructible [[__gnu__::__nodebug__]] = __enable_if_t<is_constructible<deleter_type, _ArgType>::value>;
-
-  template <class _UPtr, class _Up>
-  using _EnableIfMoveConvertible [[__gnu__::__nodebug__]] =
-      __enable_if_t< is_convertible<typename _UPtr::pointer, pointer>::value && !is_array<_Up>::value >;
-
-  template <class _UDel>
-  using _EnableIfDeleterConvertible [[__gnu__::__nodebug__]] =
-      __enable_if_t< (is_reference<_Dp>::value && is_same<_Dp, _UDel>::value) ||
-                     (!is_reference<_Dp>::value && is_convertible<_UDel, _Dp>::value) >;
-
-  template <class _UDel>
-  using _EnableIfDeleterAssignable [[__gnu__::__nodebug__]] = __enable_if_t< is_assignable<_Dp&, _UDel&&>::value >;
-
-public:
-  template <bool _Dummy = true, class = _EnableIfDeleterDefaultConstructible<_Dummy> >
-   constexpr unique_ptr() noexcept : __ptr_(), __deleter_() {}
-
-  template <bool _Dummy = true, class = _EnableIfDeleterDefaultConstructible<_Dummy> >
-   constexpr unique_ptr(nullptr_t) noexcept : __ptr_(), __deleter_() {}
-
-  template <bool _Dummy = true, class = _EnableIfDeleterDefaultConstructible<_Dummy> >
-   explicit unique_ptr(pointer __p) noexcept
-      : __ptr_(__p),
-        __deleter_() {}
-
-  template <bool _Dummy = true, class = _EnableIfDeleterConstructible<_LValRefType<_Dummy> > >
-   unique_ptr(pointer __p, _LValRefType<_Dummy> __d) noexcept
-      : __ptr_(__p),
-        __deleter_(__d) {}
-
-  template <bool _Dummy = true, class = _EnableIfDeleterConstructible<_GoodRValRefType<_Dummy> > >
-   unique_ptr(pointer __p, _GoodRValRefType<_Dummy> __d) noexcept
-      : __ptr_(__p),
-        __deleter_(std::move(__d)) {
-    static_assert(!is_reference<deleter_type>::value, "rvalue deleter bound to reference");
-  }
-
-  template <bool _Dummy = true, class = _EnableIfDeleterConstructible<_BadRValRefType<_Dummy> > >
-   unique_ptr(pointer __p, _BadRValRefType<_Dummy> __d) = delete;
-
-   unique_ptr(unique_ptr&& __u) noexcept
-      : __ptr_(__u.release()),
-        __deleter_(std::forward<deleter_type>(__u.get_deleter())) {}
-
-  template <class _Up,
-            class _Ep,
-            class = _EnableIfMoveConvertible<unique_ptr<_Up, _Ep>, _Up>,
-            class = _EnableIfDeleterConvertible<_Ep> >
-   unique_ptr(unique_ptr<_Up, _Ep>&& __u) noexcept
-      : __ptr_(__u.release()),
-        __deleter_(std::forward<_Ep>(__u.get_deleter())) {}
-
-
-
-
-
-
-
-   unique_ptr& operator=(unique_ptr&& __u) noexcept {
-    reset(__u.release());
-    __deleter_ = std::forward<deleter_type>(__u.get_deleter());
-    return *this;
-  }
-
-  template <class _Up,
-            class _Ep,
-            class = _EnableIfMoveConvertible<unique_ptr<_Up, _Ep>, _Up>,
-            class = _EnableIfDeleterAssignable<_Ep> >
-   unique_ptr& operator=(unique_ptr<_Up, _Ep>&& __u) noexcept {
-    reset(__u.release());
-    __deleter_ = std::forward<_Ep>(__u.get_deleter());
-    return *this;
-  }
-   ~unique_ptr() { reset(); }
-
-   unique_ptr& operator=(nullptr_t) noexcept {
-    reset();
-    return *this;
-  }
-
-   __add_lvalue_reference_t<_Tp> operator*() const
-      noexcept(noexcept(*std::declval<pointer>())) {
-    return *__ptr_;
-  }
-   pointer operator->() const noexcept { return __ptr_; }
-   pointer get() const noexcept { return __ptr_; }
-   deleter_type& get_deleter() noexcept { return __deleter_; }
-   const deleter_type& get_deleter() const noexcept {
-    return __deleter_;
-  }
-   explicit operator bool() const noexcept {
-    return __ptr_ != nullptr;
-  }
-
-   pointer release() noexcept {
-    pointer __t = __ptr_;
-    __ptr_ = pointer();
-    return __t;
-  }
-
-   void reset(pointer __p = pointer()) noexcept {
-    pointer __tmp = __ptr_;
-    __ptr_ = __p;
-    if (__tmp)
-      __deleter_(__tmp);
-  }
-
-   void swap(unique_ptr& __u) noexcept {
-    using std::swap;
-    swap(__ptr_, __u.__ptr_);
-    swap(__deleter_, __u.__deleter_);
-  }
-};
-struct __unique_ptr_array_bounds_stateless {
-  __unique_ptr_array_bounds_stateless() = default;
-   constexpr explicit __unique_ptr_array_bounds_stateless(size_t) {}
-
-  template <class _Deleter,
-            class _Tp,
-            __enable_if_t<__is_default_deleter_v<_Deleter> && __has_array_cookie<_Tp>::value, int> = 0>
-   constexpr bool __in_bounds(_Tp* __ptr, size_t __index) const {
-
-
-    if (__libcpp_is_constant_evaluated())
-      return true;
-    size_t __cookie = std::__get_array_cookie(__ptr);
-    return __index < __cookie;
-  }
-
-  template <class _Deleter,
-            class _Tp,
-            __enable_if_t<!__is_default_deleter_v<_Deleter> || !__has_array_cookie<_Tp>::value, int> = 0>
-   constexpr bool __in_bounds(_Tp*, size_t) const {
-    return true;
-  }
-};
-
-
-
-
-
-
-struct __unique_ptr_array_bounds_stored {
-   constexpr __unique_ptr_array_bounds_stored() : __size_((18446744073709551615UL)) {}
-   constexpr explicit __unique_ptr_array_bounds_stored(size_t __size) : __size_(__size) {}
-
-
-  template <class _Deleter,
-            class _Tp,
-            __enable_if_t<__is_default_deleter_v<_Deleter> && __has_array_cookie<_Tp>::value, int> = 0>
-   constexpr bool __in_bounds(_Tp* __ptr, size_t __index) const {
-    if (__libcpp_is_constant_evaluated())
-      return true;
-    size_t __cookie = std::__get_array_cookie(__ptr);
-    return __index < __cookie;
-  }
-
-
-  template <class _Deleter,
-            class _Tp,
-            __enable_if_t<!__is_default_deleter_v<_Deleter> || !__has_array_cookie<_Tp>::value, int> = 0>
-   constexpr bool __in_bounds(_Tp*, size_t __index) const {
-    return __index < __size_;
-  }
-
-private:
-  size_t __size_;
-};
-
-template <class _Tp, class _Dp>
-class unique_ptr<_Tp[], _Dp> {
-public:
-  typedef _Tp element_type;
-  typedef _Dp deleter_type;
-  using pointer = __pointer<_Tp, deleter_type>;
-  using __trivially_relocatable [[__gnu__::__nodebug__]] = __conditional_t<
-      __libcpp_is_trivially_relocatable<pointer>::value && __libcpp_is_trivially_relocatable<deleter_type>::value,
-      unique_ptr,
-      void>;
-
-private:
-  template <class _Up, class _OtherDeleter>
-  friend class unique_ptr;
-
-  [[__no_unique_address__]] __attribute__((__aligned__(::std::__compressed_pair_alignment<deleter_type>))) pointer __ptr_; [[__no_unique_address__]] ::std::__compressed_pair_padding<pointer> __padding1_418_; [[__no_unique_address__]] deleter_type __deleter_; [[__no_unique_address__]] ::std::__compressed_pair_padding<deleter_type> __padding2_418_;
-
-
-
-  using _BoundsChecker [[__gnu__::__nodebug__]] = __unique_ptr_array_bounds_stateless;
-
-  [[__no_unique_address__]] _BoundsChecker __checker_;
-
-  template <class _From>
-  struct _CheckArrayPointerConversion : is_same<_From, pointer> {};
-
-  template <class _FromElem>
-  struct _CheckArrayPointerConversion<_FromElem*>
-      : integral_constant<bool,
-                          is_same<_FromElem*, pointer>::value ||
-                              (is_same<pointer, element_type*>::value &&
-                               is_convertible<_FromElem (*)[], element_type (*)[]>::value) > {};
-
-  typedef __unique_ptr_deleter_sfinae<_Dp> _DeleterSFINAE;
-
-  template <bool _Dummy>
-  using _LValRefType [[__gnu__::__nodebug__]] = typename __dependent_type<_DeleterSFINAE, _Dummy>::__lval_ref_type;
-
-  template <bool _Dummy>
-  using _GoodRValRefType [[__gnu__::__nodebug__]] = typename __dependent_type<_DeleterSFINAE, _Dummy>::__good_rval_ref_type;
-
-  template <bool _Dummy>
-  using _BadRValRefType [[__gnu__::__nodebug__]] = typename __dependent_type<_DeleterSFINAE, _Dummy>::__bad_rval_ref_type;
-
-  template <bool _Dummy, class _Deleter = typename __dependent_type< __type_identity<deleter_type>, _Dummy>::type>
-  using _EnableIfDeleterDefaultConstructible [[__gnu__::__nodebug__]] =
-      __enable_if_t<is_default_constructible<_Deleter>::value && !is_pointer<_Deleter>::value>;
-
-  template <class _ArgType>
-  using _EnableIfDeleterConstructible [[__gnu__::__nodebug__]] = __enable_if_t<is_constructible<deleter_type, _ArgType>::value>;
-
-  template <class _Pp>
-  using _EnableIfPointerConvertible [[__gnu__::__nodebug__]] = __enable_if_t< _CheckArrayPointerConversion<_Pp>::value >;
-
-  template <class _UPtr, class _Up, class _ElemT = typename _UPtr::element_type>
-  using _EnableIfMoveConvertible [[__gnu__::__nodebug__]] =
-      __enable_if_t< is_array<_Up>::value && is_same<pointer, element_type*>::value &&
-                     is_same<typename _UPtr::pointer, _ElemT*>::value &&
-                     is_convertible<_ElemT (*)[], element_type (*)[]>::value >;
-
-  template <class _UDel>
-  using _EnableIfDeleterConvertible [[__gnu__::__nodebug__]] =
-      __enable_if_t< (is_reference<_Dp>::value && is_same<_Dp, _UDel>::value) ||
-                     (!is_reference<_Dp>::value && is_convertible<_UDel, _Dp>::value) >;
-
-  template <class _UDel>
-  using _EnableIfDeleterAssignable [[__gnu__::__nodebug__]] = __enable_if_t< is_assignable<_Dp&, _UDel&&>::value >;
-
-public:
-  template <bool _Dummy = true, class = _EnableIfDeleterDefaultConstructible<_Dummy> >
-   constexpr unique_ptr() noexcept : __ptr_(), __deleter_() {}
-
-  template <bool _Dummy = true, class = _EnableIfDeleterDefaultConstructible<_Dummy> >
-   constexpr unique_ptr(nullptr_t) noexcept : __ptr_(), __deleter_() {}
-
-  template <class _Pp,
-            bool _Dummy = true,
-            class = _EnableIfDeleterDefaultConstructible<_Dummy>,
-            class = _EnableIfPointerConvertible<_Pp> >
-   explicit unique_ptr(_Pp __ptr) noexcept
-      : __ptr_(__ptr),
-        __deleter_() {}
-
-
-  template <class _Tag, class _Ptr, __enable_if_t<is_same<_Tag, __private_constructor_tag>::value, int> = 0>
-   explicit unique_ptr(_Tag, _Ptr __ptr, size_t __size) noexcept
-      : __ptr_(__ptr),
-        __checker_(__size) {}
-
-  template <class _Pp,
-            bool _Dummy = true,
-            class = _EnableIfDeleterConstructible<_LValRefType<_Dummy> >,
-            class = _EnableIfPointerConvertible<_Pp> >
-   unique_ptr(_Pp __ptr, _LValRefType<_Dummy> __deleter) noexcept
-      : __ptr_(__ptr),
-        __deleter_(__deleter) {}
-
-  template <bool _Dummy = true, class = _EnableIfDeleterConstructible<_LValRefType<_Dummy> > >
-   unique_ptr(nullptr_t, _LValRefType<_Dummy> __deleter) noexcept
-      : __ptr_(nullptr),
-        __deleter_(__deleter) {}
-
-  template <class _Pp,
-            bool _Dummy = true,
-            class = _EnableIfDeleterConstructible<_GoodRValRefType<_Dummy> >,
-            class = _EnableIfPointerConvertible<_Pp> >
-  
-  unique_ptr(_Pp __ptr, _GoodRValRefType<_Dummy> __deleter) noexcept
-      : __ptr_(__ptr),
-        __deleter_(std::move(__deleter)) {
-    static_assert(!is_reference<deleter_type>::value, "rvalue deleter bound to reference");
-  }
-
-  template <bool _Dummy = true, class = _EnableIfDeleterConstructible<_GoodRValRefType<_Dummy> > >
-  
-  unique_ptr(nullptr_t, _GoodRValRefType<_Dummy> __deleter) noexcept
-      : __ptr_(nullptr),
-        __deleter_(std::move(__deleter)) {
-    static_assert(!is_reference<deleter_type>::value, "rvalue deleter bound to reference");
-  }
-
-  template <class _Pp,
-            bool _Dummy = true,
-            class = _EnableIfDeleterConstructible<_BadRValRefType<_Dummy> >,
-            class = _EnableIfPointerConvertible<_Pp> >
-   unique_ptr(_Pp __ptr, _BadRValRefType<_Dummy> __deleter) = delete;
-
-   unique_ptr(unique_ptr&& __u) noexcept
-      : __ptr_(__u.release()),
-        __deleter_(std::forward<deleter_type>(__u.get_deleter())),
-        __checker_(std::move(__u.__checker_)) {}
-
-   unique_ptr& operator=(unique_ptr&& __u) noexcept {
-    reset(__u.release());
-    __deleter_ = std::forward<deleter_type>(__u.get_deleter());
-    __checker_ = std::move(__u.__checker_);
-    return *this;
-  }
-
-  template <class _Up,
-            class _Ep,
-            class = _EnableIfMoveConvertible<unique_ptr<_Up, _Ep>, _Up>,
-            class = _EnableIfDeleterConvertible<_Ep> >
-   unique_ptr(unique_ptr<_Up, _Ep>&& __u) noexcept
-      : __ptr_(__u.release()),
-        __deleter_(std::forward<_Ep>(__u.get_deleter())),
-        __checker_(std::move(__u.__checker_)) {}
-
-  template <class _Up,
-            class _Ep,
-            class = _EnableIfMoveConvertible<unique_ptr<_Up, _Ep>, _Up>,
-            class = _EnableIfDeleterAssignable<_Ep> >
-   unique_ptr& operator=(unique_ptr<_Up, _Ep>&& __u) noexcept {
-    reset(__u.release());
-    __deleter_ = std::forward<_Ep>(__u.get_deleter());
-    __checker_ = std::move(__u.__checker_);
-    return *this;
-  }
-
-
-
-
-
-
-public:
-   ~unique_ptr() { reset(); }
-
-   unique_ptr& operator=(nullptr_t) noexcept {
-    reset();
-    return *this;
-  }
-
-   __add_lvalue_reference_t<_Tp> operator[](size_t __i) const {
-    ((void)0);
-
-    return __ptr_[__i];
-  }
-   pointer get() const noexcept { return __ptr_; }
-
-   deleter_type& get_deleter() noexcept { return __deleter_; }
-
-   const deleter_type& get_deleter() const noexcept {
-    return __deleter_;
-  }
-   explicit operator bool() const noexcept {
-    return __ptr_ != nullptr;
-  }
-
-   pointer release() noexcept {
-    pointer __t = __ptr_;
-    __ptr_ = pointer();
-
-
-    return __t;
-  }
-
-  template <class _Pp, __enable_if_t<_CheckArrayPointerConversion<_Pp>::value, int> = 0>
-   void reset(_Pp __ptr) noexcept {
-    pointer __tmp = __ptr_;
-    __ptr_ = __ptr;
-    __checker_ = _BoundsChecker();
-    if (__tmp)
-      __deleter_(__tmp);
-  }
-
-   void reset(nullptr_t = nullptr) noexcept {
-    pointer __tmp = __ptr_;
-    __ptr_ = nullptr;
-    __checker_ = _BoundsChecker();
-    if (__tmp)
-      __deleter_(__tmp);
-  }
-
-   void swap(unique_ptr& __u) noexcept {
-    using std::swap;
-    swap(__ptr_, __u.__ptr_);
-    swap(__deleter_, __u.__deleter_);
-    swap(__checker_, __u.__checker_);
-  }
-};
-
-template <class _Tp, class _Dp, __enable_if_t<__is_swappable_v<_Dp>, int> = 0>
-inline  void
-swap(unique_ptr<_Tp, _Dp>& __x, unique_ptr<_Tp, _Dp>& __y) noexcept {
-  __x.swap(__y);
-}
-
-template <class _T1, class _D1, class _T2, class _D2>
-inline  bool
-operator==(const unique_ptr<_T1, _D1>& __x, const unique_ptr<_T2, _D2>& __y) {
-  return __x.get() == __y.get();
-}
-
-
-template <class _T1, class _D1, class _T2, class _D2>
-inline  bool operator!=(const unique_ptr<_T1, _D1>& __x, const unique_ptr<_T2, _D2>& __y) {
-  return !(__x == __y);
-}
-
-
-template <class _T1, class _D1, class _T2, class _D2>
-inline  bool operator<(const unique_ptr<_T1, _D1>& __x, const unique_ptr<_T2, _D2>& __y) {
-  typedef typename unique_ptr<_T1, _D1>::pointer _P1;
-  typedef typename unique_ptr<_T2, _D2>::pointer _P2;
-  typedef typename common_type<_P1, _P2>::type _Vp;
-  return less<_Vp>()(__x.get(), __y.get());
-}
-
-template <class _T1, class _D1, class _T2, class _D2>
-inline  bool operator>(const unique_ptr<_T1, _D1>& __x, const unique_ptr<_T2, _D2>& __y) {
-  return __y < __x;
-}
-
-template <class _T1, class _D1, class _T2, class _D2>
-inline  bool operator<=(const unique_ptr<_T1, _D1>& __x, const unique_ptr<_T2, _D2>& __y) {
-  return !(__y < __x);
-}
-
-template <class _T1, class _D1, class _T2, class _D2>
-inline  bool operator>=(const unique_ptr<_T1, _D1>& __x, const unique_ptr<_T2, _D2>& __y) {
-  return !(__x < __y);
-}
-template <class _T1, class _D1>
-inline  bool
-operator==(const unique_ptr<_T1, _D1>& __x, nullptr_t) noexcept {
-  return !__x;
-}
-
-
-template <class _T1, class _D1>
-inline  bool operator==(nullptr_t, const unique_ptr<_T1, _D1>& __x) noexcept {
-  return !__x;
-}
-
-template <class _T1, class _D1>
-inline  bool operator!=(const unique_ptr<_T1, _D1>& __x, nullptr_t) noexcept {
-  return static_cast<bool>(__x);
-}
-
-template <class _T1, class _D1>
-inline  bool operator!=(nullptr_t, const unique_ptr<_T1, _D1>& __x) noexcept {
-  return static_cast<bool>(__x);
-}
-
-
-template <class _T1, class _D1>
-inline  bool operator<(const unique_ptr<_T1, _D1>& __x, nullptr_t) {
-  typedef typename unique_ptr<_T1, _D1>::pointer _P1;
-  return less<_P1>()(__x.get(), nullptr);
-}
-
-template <class _T1, class _D1>
-inline  bool operator<(nullptr_t, const unique_ptr<_T1, _D1>& __x) {
-  typedef typename unique_ptr<_T1, _D1>::pointer _P1;
-  return less<_P1>()(nullptr, __x.get());
-}
-
-template <class _T1, class _D1>
-inline  bool operator>(const unique_ptr<_T1, _D1>& __x, nullptr_t) {
-  return nullptr < __x;
-}
-
-template <class _T1, class _D1>
-inline  bool operator>(nullptr_t, const unique_ptr<_T1, _D1>& __x) {
-  return __x < nullptr;
-}
-
-template <class _T1, class _D1>
-inline  bool operator<=(const unique_ptr<_T1, _D1>& __x, nullptr_t) {
-  return !(nullptr < __x);
-}
-
-template <class _T1, class _D1>
-inline  bool operator<=(nullptr_t, const unique_ptr<_T1, _D1>& __x) {
-  return !(__x < nullptr);
-}
-
-template <class _T1, class _D1>
-inline  bool operator>=(const unique_ptr<_T1, _D1>& __x, nullptr_t) {
-  return !(__x < nullptr);
-}
-
-template <class _T1, class _D1>
-inline  bool operator>=(nullptr_t, const unique_ptr<_T1, _D1>& __x) {
-  return !(nullptr < __x);
-}
-template <class _Tp, class... _Args, enable_if_t<!is_array<_Tp>::value, int> = 0>
-inline  unique_ptr<_Tp> make_unique(_Args&&... __args) {
-  return unique_ptr<_Tp>(new _Tp(std::forward<_Args>(__args)...));
-}
-
-template <class _Tp, enable_if_t<__is_unbounded_array_v<_Tp>, int> = 0>
-inline  unique_ptr<_Tp> make_unique(size_t __n) {
-  typedef __remove_extent_t<_Tp> _Up;
-  return unique_ptr<_Tp>(__private_constructor_tag(), new _Up[__n](), __n);
-}
-
-template <class _Tp, class... _Args, enable_if_t<__is_bounded_array_v<_Tp>, int> = 0>
-void make_unique(_Args&&...) = delete;
-template <class _Tp>
-struct hash;
-
-template <class _Tp, class _Dp>
-
-
-
-struct hash<__enable_hash_helper< unique_ptr<_Tp, _Dp>, typename unique_ptr<_Tp, _Dp>::pointer> >
-
-{
-
-  __attribute__((__deprecated__)) typedef unique_ptr<_Tp, _Dp> argument_type;
-  __attribute__((__deprecated__)) typedef size_t result_type;
-
-
-   size_t operator()(const unique_ptr<_Tp, _Dp>& __ptr) const {
-    typedef typename unique_ptr<_Tp, _Dp>::pointer pointer;
-    return hash<pointer>()(__ptr.get());
-  }
-};
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -27803,1281 +24833,6 @@ struct hash<__enable_hash_helper< unique_ptr<_Tp, _Dp>, typename unique_ptr<_Tp,
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-class  bad_weak_ptr : public std::exception {
-public:
-   bad_weak_ptr() noexcept = default;
-   bad_weak_ptr(const bad_weak_ptr&) noexcept = default;
-   bad_weak_ptr& operator=(const bad_weak_ptr&) noexcept = default;
-  ~bad_weak_ptr() noexcept override;
-  const char* what() const noexcept override;
-};
-
-[[__noreturn__]] inline  void __throw_bad_weak_ptr() {
-
-  throw bad_weak_ptr();
-
-
-
-}
-
-template <class _Tp>
-class weak_ptr;
-
-template <class _Tp, class _Dp, class _Alloc>
-class __shared_ptr_pointer : public __shared_weak_count {
-  [[__no_unique_address__]] __attribute__((__aligned__(::std::__compressed_pair_alignment<_Dp>), __aligned__(::std::__compressed_pair_alignment<_Alloc>))) _Tp __ptr_; [[__no_unique_address__]] ::std::__compressed_pair_padding<_Tp> __padding1_97_; [[__no_unique_address__]] _Dp __deleter_; [[__no_unique_address__]] ::std::__compressed_pair_padding<_Dp> __padding2_97_; [[__no_unique_address__]] _Alloc __alloc_; [[__no_unique_address__]] ::std::__compressed_pair_padding<_Alloc> __padding3_97_;
-
-public:
-   __shared_ptr_pointer(_Tp __p, _Dp __d, _Alloc __a)
-      : __ptr_(__p), __deleter_(std::move(__d)), __alloc_(std::move(__a)) {}
-
-
-  __attribute__((__visibility__("hidden"))) __attribute__((__exclude_from_explicit_instantiation__)) const void* __get_deleter(const type_info&) const noexcept override;
-
-
-private:
-  __attribute__((__visibility__("hidden"))) __attribute__((__exclude_from_explicit_instantiation__)) void __on_zero_shared() noexcept override;
-  __attribute__((__visibility__("hidden"))) __attribute__((__exclude_from_explicit_instantiation__)) void __on_zero_shared_weak() noexcept override;
-};
-
-
-
-template <class _Tp, class _Dp, class _Alloc>
-const void* __shared_ptr_pointer<_Tp, _Dp, _Alloc>::__get_deleter(const type_info& __t) const noexcept {
-  return __t == typeid(_Dp) ? std::addressof(__deleter_) : nullptr;
-}
-
-
-
-template <class _Tp, class _Dp, class _Alloc>
-void __shared_ptr_pointer<_Tp, _Dp, _Alloc>::__on_zero_shared() noexcept {
-  __deleter_(__ptr_);
-  __deleter_.~_Dp();
-}
-
-template <class _Tp, class _Dp, class _Alloc>
-void __shared_ptr_pointer<_Tp, _Dp, _Alloc>::__on_zero_shared_weak() noexcept {
-  typedef typename __allocator_traits_rebind<_Alloc, __shared_ptr_pointer>::type _Al;
-  typedef allocator_traits<_Al> _ATraits;
-  typedef pointer_traits<typename _ATraits::pointer> _PTraits;
-
-  _Al __a(__alloc_);
-  __alloc_.~_Alloc();
-  __a.deallocate(_PTraits::pointer_to(*this), 1);
-}
-
-
-
-
-struct __for_overwrite_tag {};
-
-template <class _Tp, class _Alloc>
-struct __shared_ptr_emplace : __shared_weak_count {
-  using __value_type [[__gnu__::__nodebug__]] = __remove_cv_t<_Tp>;
-
-  template <class... _Args,
-            class _Allocator = _Alloc,
-            __enable_if_t<is_same<typename _Allocator::value_type, __for_overwrite_tag>::value, int> = 0>
-   explicit __shared_ptr_emplace(_Alloc __a, _Args&&...) : __storage_(std::move(__a)) {
-    static_assert(
-        sizeof...(_Args) == 0, "No argument should be provided to the control block when using _for_overwrite");
-    ::new (static_cast<void*>(__get_elem())) __value_type;
-  }
-
-  template <class... _Args,
-            class _Allocator = _Alloc,
-            __enable_if_t<!is_same<typename _Allocator::value_type, __for_overwrite_tag>::value, int> = 0>
-   explicit __shared_ptr_emplace(_Alloc __a, _Args&&... __args) : __storage_(std::move(__a)) {
-    using _TpAlloc = typename __allocator_traits_rebind<_Alloc, __value_type>::type;
-    _TpAlloc __tmp(*__get_alloc());
-    allocator_traits<_TpAlloc>::construct(__tmp, __get_elem(), std::forward<_Args>(__args)...);
-  }
-
-   _Alloc* __get_alloc() noexcept { return __storage_.__get_alloc(); }
-
-   __value_type* __get_elem() noexcept { return __storage_.__get_elem(); }
-
-private:
-  template <class _Allocator = _Alloc,
-            __enable_if_t<is_same<typename _Allocator::value_type, __for_overwrite_tag>::value, int> = 0>
-   void __on_zero_shared_impl() noexcept {
-    __get_elem()->~__value_type();
-  }
-
-  template <class _Allocator = _Alloc,
-            __enable_if_t<!is_same<typename _Allocator::value_type, __for_overwrite_tag>::value, int> = 0>
-   void __on_zero_shared_impl() noexcept {
-    using _TpAlloc = typename __allocator_traits_rebind<_Allocator, __remove_cv_t<_Tp> >::type;
-    _TpAlloc __tmp(*__get_alloc());
-    allocator_traits<_TpAlloc>::destroy(__tmp, __get_elem());
-  }
-
-  __attribute__((__visibility__("hidden"))) __attribute__((__exclude_from_explicit_instantiation__)) void __on_zero_shared() noexcept override { __on_zero_shared_impl(); }
-
-  __attribute__((__visibility__("hidden"))) __attribute__((__exclude_from_explicit_instantiation__)) void __on_zero_shared_weak() noexcept override {
-    using _ControlBlockAlloc = typename __allocator_traits_rebind<_Alloc, __shared_ptr_emplace>::type;
-    using _ControlBlockPointer = typename allocator_traits<_ControlBlockAlloc>::pointer;
-    _ControlBlockAlloc __tmp(*__get_alloc());
-    __storage_.~_Storage();
-    allocator_traits<_ControlBlockAlloc>::deallocate(__tmp, pointer_traits<_ControlBlockPointer>::pointer_to(*this), 1);
-  }
-
-
-
-
-  struct _Storage {
-    struct _Data {
-      [[__no_unique_address__]] __attribute__((__aligned__(::std::__compressed_pair_alignment<__value_type>))) _Alloc __alloc_; [[__no_unique_address__]] ::std::__compressed_pair_padding<_Alloc> __padding1_199_; [[__no_unique_address__]] __value_type __elem_; [[__no_unique_address__]] ::std::__compressed_pair_padding<__value_type> __padding2_199_;
-    };
-
-    alignas(_Data) char __buffer_[sizeof(_Data)];
-
-     explicit _Storage(_Alloc&& __a) { ::new ((void*)__get_alloc()) _Alloc(std::move(__a)); }
-     ~_Storage() { __get_alloc()->~_Alloc(); }
-
-     _Alloc* __get_alloc() noexcept {
-      return std::addressof(reinterpret_cast<_Data*>(__buffer_)->__alloc_);
-    }
-
-     __attribute__((__no_sanitize__("cfi"))) __value_type* __get_elem() noexcept {
-      return std::addressof(reinterpret_cast<_Data*>(__buffer_)->__elem_);
-    }
-  };
-
-  _Storage __storage_;
-};
-
-struct __shared_ptr_dummy_rebind_allocator_type;
-template <>
-class allocator<__shared_ptr_dummy_rebind_allocator_type> {
-public:
-  template <class _Other>
-  struct rebind {
-    typedef allocator<_Other> other;
-  };
-};
-
-template <class _Tp>
-class enable_shared_from_this;
-
-
-
-
-
-template <class _Yp, class _Tp>
-struct __bounded_convertible_to_unbounded : false_type {};
-
-template <class _Up, std::size_t _Np, class _Tp>
-struct __bounded_convertible_to_unbounded<_Up[_Np], _Tp> : is_same<__remove_cv_t<_Tp>, _Up[]> {};
-
-template <class _Yp, class _Tp>
-struct __compatible_with : _Or< is_convertible<_Yp*, _Tp*>, __bounded_convertible_to_unbounded<_Yp, _Tp> > {};
-template <class _Yp, class _Tp, class = void>
-struct __raw_pointer_compatible_with : _And< _Not<is_array<_Tp>>, is_convertible<_Yp*, _Tp*> > {};
-
-template <class _Yp, class _Up, std::size_t _Np>
-struct __raw_pointer_compatible_with<_Yp, _Up[_Np], __enable_if_t< is_convertible<_Yp (*)[_Np], _Up (*)[_Np]>::value> >
-    : true_type {};
-
-template <class _Yp, class _Up>
-struct __raw_pointer_compatible_with<_Yp, _Up[], __enable_if_t< is_convertible<_Yp (*)[], _Up (*)[]>::value> >
-    : true_type {};
-
-
-
-
-
-
-template <class _Ptr, class = void>
-struct __is_deletable : false_type {};
-template <class _Ptr>
-struct __is_deletable<_Ptr, decltype(delete std::declval<_Ptr>())> : true_type {};
-
-template <class _Ptr, class = void>
-struct __is_array_deletable : false_type {};
-template <class _Ptr>
-struct __is_array_deletable<_Ptr, decltype(delete[] std::declval<_Ptr>())> : true_type {};
-
-template <class _Dp, class _Pt, class = decltype(std::declval<_Dp>()(std::declval<_Pt>()))>
-true_type __well_formed_deleter_test(int);
-
-template <class, class>
-false_type __well_formed_deleter_test(...);
-
-template <class _Dp, class _Pt>
-struct __well_formed_deleter : decltype(std::__well_formed_deleter_test<_Dp, _Pt>(0)) {};
-
-template <class _Dp, class _Yp, class _Tp>
-struct __shared_ptr_deleter_ctor_reqs {
-  static const bool value = __raw_pointer_compatible_with<_Yp, _Tp>::value && is_move_constructible<_Dp>::value &&
-                            __well_formed_deleter<_Dp, _Yp*>::value;
-};
-
-template <class _Dp>
-using __shared_ptr_nullptr_deleter_ctor_reqs [[__gnu__::__nodebug__]] =
-    _And<is_move_constructible<_Dp>, __well_formed_deleter<_Dp, nullptr_t> >;
-
-
-
-
-
-
-
-template <class _Tp>
-class shared_ptr {
-  struct __nullptr_sfinae_tag {};
-
-public:
-
-  typedef weak_ptr<_Tp> weak_type;
-  typedef remove_extent_t<_Tp> element_type;
-
-
-
-
-
-
-  using __trivially_relocatable [[__gnu__::__nodebug__]] = shared_ptr;
-
-private:
-  element_type* __ptr_;
-  __shared_weak_count* __cntrl_;
-
-public:
-   constexpr shared_ptr() noexcept : __ptr_(nullptr), __cntrl_(nullptr) {}
-
-   constexpr shared_ptr(nullptr_t) noexcept : __ptr_(nullptr), __cntrl_(nullptr) {}
-
-  template <class _Yp,
-            __enable_if_t< _And< __raw_pointer_compatible_with<_Yp, _Tp>
-
-
-
-
-                                 ,
-                                 _If<is_array<_Tp>::value, __is_array_deletable<_Yp*>, __is_deletable<_Yp*> >
-
-                                 >::value,
-                           int> = 0>
-   explicit shared_ptr(_Yp* __p) : __ptr_(__p) {
-    unique_ptr<_Yp> __hold(__p);
-    typedef typename __shared_ptr_default_allocator<_Yp>::type _AllocT;
-    typedef __shared_ptr_pointer<_Yp*, __shared_ptr_default_delete<_Tp, _Yp>, _AllocT> _CntrlBlk;
-    __cntrl_ = new _CntrlBlk(__p, __shared_ptr_default_delete<_Tp, _Yp>(), _AllocT());
-    __hold.release();
-    __enable_weak_this(__p, __p);
-  }
-
-  template <class _Yp, class _Dp, __enable_if_t<__shared_ptr_deleter_ctor_reqs<_Dp, _Yp, _Tp>::value, int> = 0>
-   shared_ptr(_Yp* __p, _Dp __d) : __ptr_(__p) {
-
-    try {
-
-      typedef typename __shared_ptr_default_allocator<_Yp>::type _AllocT;
-      typedef __shared_ptr_pointer<_Yp*, _Dp, _AllocT> _CntrlBlk;
-
-      __cntrl_ = new _CntrlBlk(__p, std::move(__d), _AllocT());
-
-
-
-      __enable_weak_this(__p, __p);
-
-    } catch (...) {
-      __d(__p);
-      throw;
-    }
-
-  }
-
-  template <class _Yp,
-            class _Dp,
-            class _Alloc,
-            __enable_if_t<__shared_ptr_deleter_ctor_reqs<_Dp, _Yp, _Tp>::value, int> = 0>
-   shared_ptr(_Yp* __p, _Dp __d, _Alloc __a) : __ptr_(__p) {
-
-    try {
-
-      typedef __shared_ptr_pointer<_Yp*, _Dp, _Alloc> _CntrlBlk;
-      typedef typename __allocator_traits_rebind<_Alloc, _CntrlBlk>::type _A2;
-      typedef __allocator_destructor<_A2> _D2;
-      _A2 __a2(__a);
-      unique_ptr<_CntrlBlk, _D2> __hold2(__a2.allocate(1), _D2(__a2, 1));
-      ::new ((void*)std::addressof(*__hold2.get()))
-
-          _CntrlBlk(__p, std::move(__d), __a);
-
-
-
-      __cntrl_ = std::addressof(*__hold2.release());
-      __enable_weak_this(__p, __p);
-
-    } catch (...) {
-      __d(__p);
-      throw;
-    }
-
-  }
-
-  template <class _Dp>
-   shared_ptr(
-      nullptr_t __p,
-      _Dp __d,
-      __enable_if_t<__shared_ptr_nullptr_deleter_ctor_reqs<_Dp>::value, __nullptr_sfinae_tag> = __nullptr_sfinae_tag())
-      : __ptr_(nullptr) {
-
-    try {
-
-      typedef typename __shared_ptr_default_allocator<_Tp>::type _AllocT;
-      typedef __shared_ptr_pointer<nullptr_t, _Dp, _AllocT> _CntrlBlk;
-
-      __cntrl_ = new _CntrlBlk(__p, std::move(__d), _AllocT());
-
-
-
-
-    } catch (...) {
-      __d(__p);
-      throw;
-    }
-
-  }
-
-  template <class _Dp, class _Alloc>
-   shared_ptr(
-      nullptr_t __p,
-      _Dp __d,
-      _Alloc __a,
-      __enable_if_t<__shared_ptr_nullptr_deleter_ctor_reqs<_Dp>::value, __nullptr_sfinae_tag> = __nullptr_sfinae_tag())
-      : __ptr_(nullptr) {
-
-    try {
-
-      typedef __shared_ptr_pointer<nullptr_t, _Dp, _Alloc> _CntrlBlk;
-      typedef typename __allocator_traits_rebind<_Alloc, _CntrlBlk>::type _A2;
-      typedef __allocator_destructor<_A2> _D2;
-      _A2 __a2(__a);
-      unique_ptr<_CntrlBlk, _D2> __hold2(__a2.allocate(1), _D2(__a2, 1));
-      ::new ((void*)std::addressof(*__hold2.get()))
-
-          _CntrlBlk(__p, std::move(__d), __a);
-
-
-
-      __cntrl_ = std::addressof(*__hold2.release());
-
-    } catch (...) {
-      __d(__p);
-      throw;
-    }
-
-  }
-
-  template <class _Yp>
-   shared_ptr(const shared_ptr<_Yp>& __r, element_type* __p) noexcept
-      : __ptr_(__p),
-        __cntrl_(__r.__cntrl_) {
-    if (__cntrl_)
-      __cntrl_->__add_shared();
-  }
-   shared_ptr(const shared_ptr& __r) noexcept : __ptr_(__r.__ptr_), __cntrl_(__r.__cntrl_) {
-    if (__cntrl_)
-      __cntrl_->__add_shared();
-  }
-
-  template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> = 0>
-   shared_ptr(const shared_ptr<_Yp>& __r) noexcept : __ptr_(__r.__ptr_), __cntrl_(__r.__cntrl_) {
-    if (__cntrl_)
-      __cntrl_->__add_shared();
-  }
-
-   shared_ptr(shared_ptr&& __r) noexcept : __ptr_(__r.__ptr_), __cntrl_(__r.__cntrl_) {
-    __r.__ptr_ = nullptr;
-    __r.__cntrl_ = nullptr;
-  }
-
-  template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> = 0>
-   shared_ptr(shared_ptr<_Yp>&& __r) noexcept : __ptr_(__r.__ptr_), __cntrl_(__r.__cntrl_) {
-    __r.__ptr_ = nullptr;
-    __r.__cntrl_ = nullptr;
-  }
-
-  template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> = 0>
-   explicit shared_ptr(const weak_ptr<_Yp>& __r)
-      : __ptr_(__r.__ptr_), __cntrl_(__r.__cntrl_ ? __r.__cntrl_->lock() : __r.__cntrl_) {
-    if (__cntrl_ == nullptr)
-      std::__throw_bad_weak_ptr();
-  }
-  template <class _Yp,
-            class _Dp,
-            __enable_if_t<!is_lvalue_reference<_Dp>::value && __compatible_with<_Yp, _Tp>::value &&
-                              is_convertible<typename unique_ptr<_Yp, _Dp>::pointer, element_type*>::value,
-                          int> = 0>
-   shared_ptr(unique_ptr<_Yp, _Dp>&& __r) : __ptr_(__r.get()) {
-
-    if (__ptr_ == nullptr)
-      __cntrl_ = nullptr;
-    else
-
-    {
-      typedef typename __shared_ptr_default_allocator<_Yp>::type _AllocT;
-      typedef __shared_ptr_pointer<typename unique_ptr<_Yp, _Dp>::pointer, _Dp, _AllocT> _CntrlBlk;
-      __cntrl_ = new _CntrlBlk(__r.get(), std::move(__r.get_deleter()), _AllocT());
-      __enable_weak_this(__r.get(), __r.get());
-    }
-    __r.release();
-  }
-
-  template <class _Yp,
-            class _Dp,
-            class = void,
-            __enable_if_t<is_lvalue_reference<_Dp>::value && __compatible_with<_Yp, _Tp>::value &&
-                              is_convertible<typename unique_ptr<_Yp, _Dp>::pointer, element_type*>::value,
-                          int> = 0>
-   shared_ptr(unique_ptr<_Yp, _Dp>&& __r) : __ptr_(__r.get()) {
-
-    if (__ptr_ == nullptr)
-      __cntrl_ = nullptr;
-    else
-
-    {
-      typedef typename __shared_ptr_default_allocator<_Yp>::type _AllocT;
-      typedef __shared_ptr_pointer<typename unique_ptr<_Yp, _Dp>::pointer,
-                                   reference_wrapper<__libcpp_remove_reference_t<_Dp> >,
-                                   _AllocT>
-          _CntrlBlk;
-      __cntrl_ = new _CntrlBlk(__r.get(), std::ref(__r.get_deleter()), _AllocT());
-      __enable_weak_this(__r.get(), __r.get());
-    }
-    __r.release();
-  }
-
-   ~shared_ptr() {
-    if (__cntrl_)
-      __cntrl_->__release_shared();
-  }
-
-   shared_ptr<_Tp>& operator=(const shared_ptr& __r) noexcept {
-    shared_ptr(__r).swap(*this);
-    return *this;
-  }
-
-  template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> = 0>
-   shared_ptr<_Tp>& operator=(const shared_ptr<_Yp>& __r) noexcept {
-    shared_ptr(__r).swap(*this);
-    return *this;
-  }
-
-   shared_ptr<_Tp>& operator=(shared_ptr&& __r) noexcept {
-    shared_ptr(std::move(__r)).swap(*this);
-    return *this;
-  }
-
-  template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> = 0>
-   shared_ptr<_Tp>& operator=(shared_ptr<_Yp>&& __r) {
-    shared_ptr(std::move(__r)).swap(*this);
-    return *this;
-  }
-  template <class _Yp,
-            class _Dp,
-            __enable_if_t<_And< __compatible_with<_Yp, _Tp>,
-                                is_convertible<typename unique_ptr<_Yp, _Dp>::pointer, element_type*> >::value,
-                          int> = 0>
-   shared_ptr<_Tp>& operator=(unique_ptr<_Yp, _Dp>&& __r) {
-    shared_ptr(std::move(__r)).swap(*this);
-    return *this;
-  }
-
-   void swap(shared_ptr& __r) noexcept {
-    std::swap(__ptr_, __r.__ptr_);
-    std::swap(__cntrl_, __r.__cntrl_);
-  }
-
-   void reset() noexcept { shared_ptr().swap(*this); }
-
-  template <class _Yp, __enable_if_t<__raw_pointer_compatible_with<_Yp, _Tp>::value, int> = 0>
-   void reset(_Yp* __p) {
-    shared_ptr(__p).swap(*this);
-  }
-
-  template <class _Yp, class _Dp, __enable_if_t<__shared_ptr_deleter_ctor_reqs<_Dp, _Yp, _Tp>::value, int> = 0>
-   void reset(_Yp* __p, _Dp __d) {
-    shared_ptr(__p, __d).swap(*this);
-  }
-
-  template <class _Yp,
-            class _Dp,
-            class _Alloc,
-            __enable_if_t<__shared_ptr_deleter_ctor_reqs<_Dp, _Yp, _Tp>::value, int> = 0>
-   void reset(_Yp* __p, _Dp __d, _Alloc __a) {
-    shared_ptr(__p, __d, __a).swap(*this);
-  }
-
-   element_type* get() const noexcept { return __ptr_; }
-
-   __add_lvalue_reference_t<element_type> operator*() const noexcept { return *__ptr_; }
-
-   element_type* operator->() const noexcept {
-    static_assert(!is_array<_Tp>::value, "std::shared_ptr<T>::operator-> is only valid when T is not an array type.");
-    return __ptr_;
-  }
-
-   long use_count() const noexcept { return __cntrl_ ? __cntrl_->use_count() : 0; }
-
-
-  __attribute__((__deprecated__))  bool unique() const noexcept { return use_count() == 1; }
-
-
-   explicit operator bool() const noexcept { return get() != nullptr; }
-
-  template <class _Up>
-   bool owner_before(shared_ptr<_Up> const& __p) const noexcept {
-    return __cntrl_ < __p.__cntrl_;
-  }
-
-  template <class _Up>
-   bool owner_before(weak_ptr<_Up> const& __p) const noexcept {
-    return __cntrl_ < __p.__cntrl_;
-  }
-
-   bool __owner_equivalent(const shared_ptr& __p) const { return __cntrl_ == __p.__cntrl_; }
-
-
-   __add_lvalue_reference_t<element_type> operator[](ptrdiff_t __i) const {
-    static_assert(is_array<_Tp>::value, "std::shared_ptr<T>::operator[] is only valid when T is an array type.");
-    return __ptr_[__i];
-  }
-
-
-
-  template <class _Dp>
-   _Dp* __get_deleter() const noexcept {
-    return static_cast<_Dp*>(__cntrl_ ? const_cast<void*>(__cntrl_->__get_deleter(typeid(_Dp))) : nullptr);
-  }
-
-
-  template <class _Yp, class _CntrlBlk>
-   static shared_ptr<_Tp> __create_with_control_block(_Yp* __p, _CntrlBlk* __cntrl) noexcept {
-    shared_ptr<_Tp> __r;
-    __r.__ptr_ = __p;
-    __r.__cntrl_ = __cntrl;
-    __r.__enable_weak_this(__r.__ptr_, __r.__ptr_);
-    return __r;
-  }
-
-private:
-  template <class _Yp, bool = is_function<_Yp>::value>
-  struct __shared_ptr_default_allocator {
-    typedef allocator<__remove_cv_t<_Yp> > type;
-  };
-
-  template <class _Yp>
-  struct __shared_ptr_default_allocator<_Yp, true> {
-    typedef allocator<__shared_ptr_dummy_rebind_allocator_type> type;
-  };
-
-  template <class _Yp,
-            class _OrigPtr,
-            __enable_if_t<is_convertible<_OrigPtr*, const enable_shared_from_this<_Yp>*>::value, int> = 0>
-   void __enable_weak_this(const enable_shared_from_this<_Yp>* __e, _OrigPtr* __ptr) noexcept {
-    typedef __remove_cv_t<_Yp> _RawYp;
-    if (__e && __e->__weak_this_.expired()) {
-      __e->__weak_this_ = shared_ptr<_RawYp>(*this, const_cast<_RawYp*>(static_cast<const _Yp*>(__ptr)));
-    }
-  }
-
-   void __enable_weak_this(...) noexcept {}
-
-  template <class, class _Yp>
-  struct __shared_ptr_default_delete : default_delete<_Yp> {};
-
-  template <class _Yp, class _Un, size_t _Sz>
-  struct __shared_ptr_default_delete<_Yp[_Sz], _Un> : default_delete<_Yp[]> {};
-
-  template <class _Yp, class _Un>
-  struct __shared_ptr_default_delete<_Yp[], _Un> : default_delete<_Yp[]> {};
-
-  template <class _Up>
-  friend class shared_ptr;
-  template <class _Up>
-  friend class weak_ptr;
-};
-
-
-template <class _Tp>
-shared_ptr(weak_ptr<_Tp>) -> shared_ptr<_Tp>;
-template <class _Tp, class _Dp>
-shared_ptr(unique_ptr<_Tp, _Dp>) -> shared_ptr<_Tp>;
-
-
-
-
-
-template <class _Tp, class _Alloc, class... _Args, __enable_if_t<!is_array<_Tp>::value, int> = 0>
- shared_ptr<_Tp> allocate_shared(const _Alloc& __a, _Args&&... __args) {
-  using _ControlBlock = __shared_ptr_emplace<_Tp, _Alloc>;
-  using _ControlBlockAllocator = typename __allocator_traits_rebind<_Alloc, _ControlBlock>::type;
-  __allocation_guard<_ControlBlockAllocator> __guard(__a, 1);
-  ::new ((void*)std::addressof(*__guard.__get())) _ControlBlock(__a, std::forward<_Args>(__args)...);
-  auto __control_block = __guard.__release_ptr();
-  return shared_ptr<_Tp>::__create_with_control_block(
-      (*__control_block).__get_elem(), std::addressof(*__control_block));
-}
-
-template <class _Tp, class... _Args, __enable_if_t<!is_array<_Tp>::value, int> = 0>
- shared_ptr<_Tp> make_shared(_Args&&... __args) {
-  return std::allocate_shared<_Tp>(allocator<__remove_cv_t<_Tp> >(), std::forward<_Args>(__args)...);
-}
-template <size_t _Alignment>
-struct __sp_aligned_storage {
-  alignas(_Alignment) char __storage[_Alignment];
-};
-
-template <class _Tp, class _Alloc>
-struct __unbounded_array_control_block;
-
-template <class _Tp, class _Alloc>
-struct __unbounded_array_control_block<_Tp[], _Alloc> : __shared_weak_count {
-   constexpr _Tp* __get_data() noexcept { return __data_; }
-
-   explicit __unbounded_array_control_block(
-      _Alloc const& __alloc, size_t __count, _Tp const& __arg)
-      : __alloc_(__alloc), __count_(__count) {
-    std::__uninitialized_allocator_fill_n_multidimensional(__alloc_, std::begin(__data_), __count_, __arg);
-  }
-
-   explicit __unbounded_array_control_block(_Alloc const& __alloc, size_t __count)
-      : __alloc_(__alloc), __count_(__count) {
-    std::__uninitialized_allocator_value_construct_n_multidimensional(__alloc_, std::begin(__data_), __count_);
-
-  }
-
-
-
-   static constexpr size_t __bytes_for(size_t __elements) {
-
-
-
-
-
-
-    size_t __bytes = __elements == 0 ? sizeof(__unbounded_array_control_block)
-                                               : (__elements - 1) * sizeof(_Tp) + sizeof(__unbounded_array_control_block);
-    constexpr size_t __align = alignof(_Tp);
-    return (__bytes + __align - 1) & ~(__align - 1);
-  }
-
-  __attribute__((__visibility__("hidden"))) __attribute__((__exclude_from_explicit_instantiation__))
-  ~__unbounded_array_control_block() override {
-  }
-
-private:
-  __attribute__((__visibility__("hidden"))) __attribute__((__exclude_from_explicit_instantiation__)) void __on_zero_shared() noexcept override {
-    __allocator_traits_rebind_t<_Alloc, _Tp> __value_alloc(__alloc_);
-    std::__allocator_destroy_multidimensional(__value_alloc, __data_, __data_ + __count_);
-
-  }
-
-  __attribute__((__visibility__("hidden"))) __attribute__((__exclude_from_explicit_instantiation__)) void __on_zero_shared_weak() noexcept override {
-    using _AlignedStorage = __sp_aligned_storage<alignof(__unbounded_array_control_block)>;
-    using _StorageAlloc = __allocator_traits_rebind_t<_Alloc, _AlignedStorage>;
-    using _PointerTraits = pointer_traits<typename allocator_traits<_StorageAlloc>::pointer>;
-
-    _StorageAlloc __tmp(__alloc_);
-    __alloc_.~_Alloc();
-    size_t __size = __unbounded_array_control_block::__bytes_for(__count_);
-    _AlignedStorage* __storage = reinterpret_cast<_AlignedStorage*>(this);
-    allocator_traits<_StorageAlloc>::deallocate(
-        __tmp, _PointerTraits::pointer_to(*__storage), __size / sizeof(_AlignedStorage));
-  }
-
-  [[__no_unique_address__]] _Alloc __alloc_;
-  size_t __count_;
-  union {
-    _Tp __data_[1];
-  };
-};
-
-template <class _Array, class _Alloc, class... _Arg>
- shared_ptr<_Array>
-__allocate_shared_unbounded_array(const _Alloc& __a, size_t __n, _Arg&&... __arg) {
-  static_assert(__is_unbounded_array_v<_Array>);
-
-
-
-
-  using _ControlBlock = __unbounded_array_control_block<_Array, _Alloc>;
-  using _AlignedStorage = __sp_aligned_storage<alignof(_ControlBlock)>;
-  using _StorageAlloc = __allocator_traits_rebind_t<_Alloc, _AlignedStorage>;
-  __allocation_guard<_StorageAlloc> __guard(__a, _ControlBlock::__bytes_for(__n) / sizeof(_AlignedStorage));
-  _ControlBlock* __control_block = reinterpret_cast<_ControlBlock*>(std::addressof(*__guard.__get()));
-  std::__construct_at(__control_block, __a, __n, std::forward<_Arg>(__arg)...);
-  __guard.__release_ptr();
-  return shared_ptr<_Array>::__create_with_control_block(__control_block->__get_data(), __control_block);
-}
-
-template <class _Tp, class _Alloc>
-struct __bounded_array_control_block;
-
-template <class _Tp, size_t _Count, class _Alloc>
-struct __bounded_array_control_block<_Tp[_Count], _Alloc> : __shared_weak_count {
-   constexpr _Tp* __get_data() noexcept { return __data_; }
-
-   explicit __bounded_array_control_block(_Alloc const& __alloc, _Tp const& __arg)
-      : __alloc_(__alloc) {
-    std::__uninitialized_allocator_fill_n_multidimensional(__alloc_, std::addressof(__data_[0]), _Count, __arg);
-  }
-
-   explicit __bounded_array_control_block(_Alloc const& __alloc) : __alloc_(__alloc) {
-    std::__uninitialized_allocator_value_construct_n_multidimensional(__alloc_, std::addressof(__data_[0]), _Count);
-
-  }
-
-  __attribute__((__visibility__("hidden"))) __attribute__((__exclude_from_explicit_instantiation__))
-  ~__bounded_array_control_block() override {
-  }
-
-private:
-  __attribute__((__visibility__("hidden"))) __attribute__((__exclude_from_explicit_instantiation__)) void __on_zero_shared() noexcept override {
-    __allocator_traits_rebind_t<_Alloc, _Tp> __value_alloc(__alloc_);
-    std::__allocator_destroy_multidimensional(__value_alloc, __data_, __data_ + _Count);
-
-  }
-
-  __attribute__((__visibility__("hidden"))) __attribute__((__exclude_from_explicit_instantiation__)) void __on_zero_shared_weak() noexcept override {
-    using _ControlBlockAlloc = __allocator_traits_rebind_t<_Alloc, __bounded_array_control_block>;
-    using _PointerTraits = pointer_traits<typename allocator_traits<_ControlBlockAlloc>::pointer>;
-
-    _ControlBlockAlloc __tmp(__alloc_);
-    __alloc_.~_Alloc();
-    allocator_traits<_ControlBlockAlloc>::deallocate(__tmp, _PointerTraits::pointer_to(*this), 1);
-  }
-
-  [[__no_unique_address__]] _Alloc __alloc_;
-  union {
-    _Tp __data_[_Count];
-  };
-};
-
-template <class _Array, class _Alloc, class... _Arg>
- shared_ptr<_Array> __allocate_shared_bounded_array(const _Alloc& __a, _Arg&&... __arg) {
-  static_assert(__is_bounded_array_v<_Array>);
-  using _ControlBlock = __bounded_array_control_block<_Array, _Alloc>;
-  using _ControlBlockAlloc = __allocator_traits_rebind_t<_Alloc, _ControlBlock>;
-
-  __allocation_guard<_ControlBlockAlloc> __guard(__a, 1);
-  _ControlBlock* __control_block = reinterpret_cast<_ControlBlock*>(std::addressof(*__guard.__get()));
-  std::__construct_at(__control_block, __a, std::forward<_Arg>(__arg)...);
-  __guard.__release_ptr();
-  return shared_ptr<_Array>::__create_with_control_block(__control_block->__get_data(), __control_block);
-}
-template <class _Tp, class _Up>
-inline  bool operator==(const shared_ptr<_Tp>& __x, const shared_ptr<_Up>& __y) noexcept {
-  return __x.get() == __y.get();
-}
-
-
-
-template <class _Tp, class _Up>
-inline  bool operator!=(const shared_ptr<_Tp>& __x, const shared_ptr<_Up>& __y) noexcept {
-  return !(__x == __y);
-}
-
-template <class _Tp, class _Up>
-inline  bool operator<(const shared_ptr<_Tp>& __x, const shared_ptr<_Up>& __y) noexcept {
-
-
-
-
-  return less<>()(__x.get(), __y.get());
-
-}
-
-template <class _Tp, class _Up>
-inline  bool operator>(const shared_ptr<_Tp>& __x, const shared_ptr<_Up>& __y) noexcept {
-  return __y < __x;
-}
-
-template <class _Tp, class _Up>
-inline  bool operator<=(const shared_ptr<_Tp>& __x, const shared_ptr<_Up>& __y) noexcept {
-  return !(__y < __x);
-}
-
-template <class _Tp, class _Up>
-inline  bool operator>=(const shared_ptr<_Tp>& __x, const shared_ptr<_Up>& __y) noexcept {
-  return !(__x < __y);
-}
-template <class _Tp>
-inline  bool operator==(const shared_ptr<_Tp>& __x, nullptr_t) noexcept {
-  return !__x;
-}
-
-
-
-template <class _Tp>
-inline  bool operator==(nullptr_t, const shared_ptr<_Tp>& __x) noexcept {
-  return !__x;
-}
-
-template <class _Tp>
-inline  bool operator!=(const shared_ptr<_Tp>& __x, nullptr_t) noexcept {
-  return static_cast<bool>(__x);
-}
-
-template <class _Tp>
-inline  bool operator!=(nullptr_t, const shared_ptr<_Tp>& __x) noexcept {
-  return static_cast<bool>(__x);
-}
-
-template <class _Tp>
-inline  bool operator<(const shared_ptr<_Tp>& __x, nullptr_t) noexcept {
-  return less<typename shared_ptr<_Tp>::element_type*>()(__x.get(), nullptr);
-}
-
-template <class _Tp>
-inline  bool operator<(nullptr_t, const shared_ptr<_Tp>& __x) noexcept {
-  return less<typename shared_ptr<_Tp>::element_type*>()(nullptr, __x.get());
-}
-
-template <class _Tp>
-inline  bool operator>(const shared_ptr<_Tp>& __x, nullptr_t) noexcept {
-  return nullptr < __x;
-}
-
-template <class _Tp>
-inline  bool operator>(nullptr_t, const shared_ptr<_Tp>& __x) noexcept {
-  return __x < nullptr;
-}
-
-template <class _Tp>
-inline  bool operator<=(const shared_ptr<_Tp>& __x, nullptr_t) noexcept {
-  return !(nullptr < __x);
-}
-
-template <class _Tp>
-inline  bool operator<=(nullptr_t, const shared_ptr<_Tp>& __x) noexcept {
-  return !(__x < nullptr);
-}
-
-template <class _Tp>
-inline  bool operator>=(const shared_ptr<_Tp>& __x, nullptr_t) noexcept {
-  return !(__x < nullptr);
-}
-
-template <class _Tp>
-inline  bool operator>=(nullptr_t, const shared_ptr<_Tp>& __x) noexcept {
-  return !(nullptr < __x);
-}
-template <class _Tp>
-inline  void swap(shared_ptr<_Tp>& __x, shared_ptr<_Tp>& __y) noexcept {
-  __x.swap(__y);
-}
-
-template <class _Tp, class _Up>
-inline  shared_ptr<_Tp> static_pointer_cast(const shared_ptr<_Up>& __r) noexcept {
-  return shared_ptr<_Tp>(__r, static_cast< typename shared_ptr<_Tp>::element_type*>(__r.get()));
-}
-template <class _Tp, class _Up>
-inline  shared_ptr<_Tp> dynamic_pointer_cast(const shared_ptr<_Up>& __r) noexcept {
-  typedef typename shared_ptr<_Tp>::element_type _ET;
-  _ET* __p = dynamic_cast<_ET*>(__r.get());
-  return __p ? shared_ptr<_Tp>(__r, __p) : shared_ptr<_Tp>();
-}
-template <class _Tp, class _Up>
- shared_ptr<_Tp> const_pointer_cast(const shared_ptr<_Up>& __r) noexcept {
-  typedef typename shared_ptr<_Tp>::element_type _RTp;
-  return shared_ptr<_Tp>(__r, const_cast<_RTp*>(__r.get()));
-}
-template <class _Tp, class _Up>
- shared_ptr<_Tp> reinterpret_pointer_cast(const shared_ptr<_Up>& __r) noexcept {
-  return shared_ptr<_Tp>(__r, reinterpret_cast< typename shared_ptr<_Tp>::element_type*>(__r.get()));
-}
-template <class _Dp, class _Tp>
-inline  _Dp* get_deleter(const shared_ptr<_Tp>& __p) noexcept {
-  return __p.template __get_deleter<_Dp>();
-}
-
-
-
-template <class _Tp>
-class weak_ptr {
-public:
-
-  typedef remove_extent_t<_Tp> element_type;
-
-
-
-
-
-
-  using __trivially_relocatable [[__gnu__::__nodebug__]] = weak_ptr;
-
-private:
-  element_type* __ptr_;
-  __shared_weak_count* __cntrl_;
-
-public:
-   constexpr weak_ptr() noexcept;
-
-  template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> = 0>
-   weak_ptr(shared_ptr<_Yp> const& __r) noexcept;
-
-   weak_ptr(weak_ptr const& __r) noexcept;
-
-  template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> = 0>
-   weak_ptr(weak_ptr<_Yp> const& __r) noexcept;
-
-   weak_ptr(weak_ptr&& __r) noexcept;
-
-  template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> = 0>
-   weak_ptr(weak_ptr<_Yp>&& __r) noexcept;
-
-   ~weak_ptr();
-
-   weak_ptr& operator=(weak_ptr const& __r) noexcept;
-  template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> = 0>
-   weak_ptr& operator=(weak_ptr<_Yp> const& __r) noexcept;
-
-   weak_ptr& operator=(weak_ptr&& __r) noexcept;
-  template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> = 0>
-   weak_ptr& operator=(weak_ptr<_Yp>&& __r) noexcept;
-
-  template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> = 0>
-   weak_ptr& operator=(shared_ptr<_Yp> const& __r) noexcept;
-
-   void swap(weak_ptr& __r) noexcept;
-   void reset() noexcept;
-
-   long use_count() const noexcept { return __cntrl_ ? __cntrl_->use_count() : 0; }
-   bool expired() const noexcept { return __cntrl_ == nullptr || __cntrl_->use_count() == 0; }
-   shared_ptr<_Tp> lock() const noexcept;
-  template <class _Up>
-   bool owner_before(const shared_ptr<_Up>& __r) const noexcept {
-    return __cntrl_ < __r.__cntrl_;
-  }
-  template <class _Up>
-   bool owner_before(const weak_ptr<_Up>& __r) const noexcept {
-    return __cntrl_ < __r.__cntrl_;
-  }
-
-  template <class _Up>
-  friend class weak_ptr;
-  template <class _Up>
-  friend class shared_ptr;
-};
-
-
-template <class _Tp>
-weak_ptr(shared_ptr<_Tp>) -> weak_ptr<_Tp>;
-
-
-template <class _Tp>
-inline constexpr weak_ptr<_Tp>::weak_ptr() noexcept : __ptr_(nullptr), __cntrl_(nullptr) {}
-
-template <class _Tp>
-inline weak_ptr<_Tp>::weak_ptr(weak_ptr const& __r) noexcept : __ptr_(__r.__ptr_), __cntrl_(__r.__cntrl_) {
-  if (__cntrl_)
-    __cntrl_->__add_weak();
-}
-
-template <class _Tp>
-template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> >
-inline weak_ptr<_Tp>::weak_ptr(shared_ptr<_Yp> const& __r) noexcept : __ptr_(__r.__ptr_), __cntrl_(__r.__cntrl_) {
-  if (__cntrl_)
-    __cntrl_->__add_weak();
-}
-
-template <class _Tp>
-template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> >
-inline weak_ptr<_Tp>::weak_ptr(weak_ptr<_Yp> const& __r) noexcept : __ptr_(nullptr), __cntrl_(nullptr) {
-  shared_ptr<_Yp> __s = __r.lock();
-  *this = weak_ptr<_Tp>(__s);
-}
-
-template <class _Tp>
-inline weak_ptr<_Tp>::weak_ptr(weak_ptr&& __r) noexcept : __ptr_(__r.__ptr_), __cntrl_(__r.__cntrl_) {
-  __r.__ptr_ = nullptr;
-  __r.__cntrl_ = nullptr;
-}
-
-template <class _Tp>
-template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> >
-inline weak_ptr<_Tp>::weak_ptr(weak_ptr<_Yp>&& __r) noexcept : __ptr_(nullptr), __cntrl_(nullptr) {
-  shared_ptr<_Yp> __s = __r.lock();
-  *this = weak_ptr<_Tp>(__s);
-  __r.reset();
-}
-
-template <class _Tp>
-weak_ptr<_Tp>::~weak_ptr() {
-  if (__cntrl_)
-    __cntrl_->__release_weak();
-}
-
-template <class _Tp>
-inline weak_ptr<_Tp>& weak_ptr<_Tp>::operator=(weak_ptr const& __r) noexcept {
-  weak_ptr(__r).swap(*this);
-  return *this;
-}
-
-template <class _Tp>
-template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> >
-inline weak_ptr<_Tp>& weak_ptr<_Tp>::operator=(weak_ptr<_Yp> const& __r) noexcept {
-  weak_ptr(__r).swap(*this);
-  return *this;
-}
-
-template <class _Tp>
-inline weak_ptr<_Tp>& weak_ptr<_Tp>::operator=(weak_ptr&& __r) noexcept {
-  weak_ptr(std::move(__r)).swap(*this);
-  return *this;
-}
-
-template <class _Tp>
-template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> >
-inline weak_ptr<_Tp>& weak_ptr<_Tp>::operator=(weak_ptr<_Yp>&& __r) noexcept {
-  weak_ptr(std::move(__r)).swap(*this);
-  return *this;
-}
-
-template <class _Tp>
-template <class _Yp, __enable_if_t<__compatible_with<_Yp, _Tp>::value, int> >
-inline weak_ptr<_Tp>& weak_ptr<_Tp>::operator=(shared_ptr<_Yp> const& __r) noexcept {
-  weak_ptr(__r).swap(*this);
-  return *this;
-}
-
-template <class _Tp>
-inline void weak_ptr<_Tp>::swap(weak_ptr& __r) noexcept {
-  std::swap(__ptr_, __r.__ptr_);
-  std::swap(__cntrl_, __r.__cntrl_);
-}
-
-template <class _Tp>
-inline  void swap(weak_ptr<_Tp>& __x, weak_ptr<_Tp>& __y) noexcept {
-  __x.swap(__y);
-}
-
-template <class _Tp>
-inline void weak_ptr<_Tp>::reset() noexcept {
-  weak_ptr().swap(*this);
-}
-
-template <class _Tp>
-shared_ptr<_Tp> weak_ptr<_Tp>::lock() const noexcept {
-  shared_ptr<_Tp> __r;
-  __r.__cntrl_ = __cntrl_ ? __cntrl_->lock() : __cntrl_;
-  if (__r.__cntrl_)
-    __r.__ptr_ = __ptr_;
-  return __r;
-}
-
-
-template <class _Tp = void>
-struct owner_less;
-
-
-
-
-
-template <class _Tp>
-struct owner_less<shared_ptr<_Tp> > : __binary_function<shared_ptr<_Tp>, shared_ptr<_Tp>, bool> {
-   bool operator()(shared_ptr<_Tp> const& __x, shared_ptr<_Tp> const& __y) const noexcept {
-    return __x.owner_before(__y);
-  }
-   bool operator()(shared_ptr<_Tp> const& __x, weak_ptr<_Tp> const& __y) const noexcept {
-    return __x.owner_before(__y);
-  }
-   bool operator()(weak_ptr<_Tp> const& __x, shared_ptr<_Tp> const& __y) const noexcept {
-    return __x.owner_before(__y);
-  }
-};
-
-template <class _Tp>
-struct owner_less<weak_ptr<_Tp> > : __binary_function<weak_ptr<_Tp>, weak_ptr<_Tp>, bool> {
-   bool operator()(weak_ptr<_Tp> const& __x, weak_ptr<_Tp> const& __y) const noexcept {
-    return __x.owner_before(__y);
-  }
-   bool operator()(shared_ptr<_Tp> const& __x, weak_ptr<_Tp> const& __y) const noexcept {
-    return __x.owner_before(__y);
-  }
-   bool operator()(weak_ptr<_Tp> const& __x, shared_ptr<_Tp> const& __y) const noexcept {
-    return __x.owner_before(__y);
-  }
-};
-
-
-template <>
-struct owner_less<void> {
-  template <class _Tp, class _Up>
-   bool operator()(shared_ptr<_Tp> const& __x, shared_ptr<_Up> const& __y) const noexcept {
-    return __x.owner_before(__y);
-  }
-  template <class _Tp, class _Up>
-   bool operator()(shared_ptr<_Tp> const& __x, weak_ptr<_Up> const& __y) const noexcept {
-    return __x.owner_before(__y);
-  }
-  template <class _Tp, class _Up>
-   bool operator()(weak_ptr<_Tp> const& __x, shared_ptr<_Up> const& __y) const noexcept {
-    return __x.owner_before(__y);
-  }
-  template <class _Tp, class _Up>
-   bool operator()(weak_ptr<_Tp> const& __x, weak_ptr<_Up> const& __y) const noexcept {
-    return __x.owner_before(__y);
-  }
-  typedef void is_transparent;
-};
-
-
-template <class _Tp>
-class enable_shared_from_this {
-  mutable weak_ptr<_Tp> __weak_this_;
-
-protected:
-   constexpr enable_shared_from_this() noexcept {}
-   enable_shared_from_this(enable_shared_from_this const&) noexcept {}
-   enable_shared_from_this& operator=(enable_shared_from_this const&) noexcept { return *this; }
-   ~enable_shared_from_this() {}
-
-public:
-   shared_ptr<_Tp> shared_from_this() { return shared_ptr<_Tp>(__weak_this_); }
-   shared_ptr<_Tp const> shared_from_this() const { return shared_ptr<const _Tp>(__weak_this_); }
-
-
-   weak_ptr<_Tp> weak_from_this() noexcept { return __weak_this_; }
-
-   weak_ptr<const _Tp> weak_from_this() const noexcept { return __weak_this_; }
-
-
-  template <class _Up>
-  friend class shared_ptr;
-};
-
-template <class _Tp>
-struct hash;
-
-template <class _Tp>
-struct hash<shared_ptr<_Tp> > {
-
-  __attribute__((__deprecated__)) typedef shared_ptr<_Tp> argument_type;
-  __attribute__((__deprecated__)) typedef size_t result_type;
-
-
-   size_t operator()(const shared_ptr<_Tp>& __ptr) const noexcept {
-    return hash<typename shared_ptr<_Tp>::element_type*>()(__ptr.get());
-  }
-};
-
-template <class _CharT, class _Traits, class _Yp>
-inline  basic_ostream<_CharT, _Traits>&
-operator<<(basic_ostream<_CharT, _Traits>& __os, shared_ptr<_Yp> const& __p);
-
-
-
-class  __sp_mut {
-  void* __lx_;
-
-public:
-  void lock() noexcept;
-  void unlock() noexcept;
-
-private:
-  constexpr __sp_mut(void*) noexcept;
-  __sp_mut(const __sp_mut&);
-  __sp_mut& operator=(const __sp_mut&);
-
-  friend  __sp_mut& __get_sp_mut(const void*);
-};
-
- __sp_mut& __get_sp_mut(const void*);
-
-template <class _Tp>
-inline  bool atomic_is_lock_free(const shared_ptr<_Tp>*) {
-  return false;
-}
-
-template <class _Tp>
- shared_ptr<_Tp> atomic_load(const shared_ptr<_Tp>* __p) {
-  __sp_mut& __m = std::__get_sp_mut(__p);
-  __m.lock();
-  shared_ptr<_Tp> __q = *__p;
-  __m.unlock();
-  return __q;
-}
-
-template <class _Tp>
-inline  shared_ptr<_Tp> atomic_load_explicit(const shared_ptr<_Tp>* __p, memory_order) {
-  return std::atomic_load(__p);
-}
-
-template <class _Tp>
- void atomic_store(shared_ptr<_Tp>* __p, shared_ptr<_Tp> __r) {
-  __sp_mut& __m = std::__get_sp_mut(__p);
-  __m.lock();
-  __p->swap(__r);
-  __m.unlock();
-}
-
-template <class _Tp>
-inline  void atomic_store_explicit(shared_ptr<_Tp>* __p, shared_ptr<_Tp> __r, memory_order) {
-  std::atomic_store(__p, __r);
-}
-
-template <class _Tp>
- shared_ptr<_Tp> atomic_exchange(shared_ptr<_Tp>* __p, shared_ptr<_Tp> __r) {
-  __sp_mut& __m = std::__get_sp_mut(__p);
-  __m.lock();
-  __p->swap(__r);
-  __m.unlock();
-  return __r;
-}
-
-template <class _Tp>
-inline  shared_ptr<_Tp>
-atomic_exchange_explicit(shared_ptr<_Tp>* __p, shared_ptr<_Tp> __r, memory_order) {
-  return std::atomic_exchange(__p, __r);
-}
-
-template <class _Tp>
- bool
-atomic_compare_exchange_strong(shared_ptr<_Tp>* __p, shared_ptr<_Tp>* __v, shared_ptr<_Tp> __w) {
-  shared_ptr<_Tp> __temp;
-  __sp_mut& __m = std::__get_sp_mut(__p);
-  __m.lock();
-  if (__p->__owner_equivalent(*__v)) {
-    std::swap(__temp, *__p);
-    *__p = __w;
-    __m.unlock();
-    return true;
-  }
-  std::swap(__temp, *__v);
-  *__v = *__p;
-  __m.unlock();
-  return false;
-}
-
-template <class _Tp>
-inline  bool
-atomic_compare_exchange_weak(shared_ptr<_Tp>* __p, shared_ptr<_Tp>* __v, shared_ptr<_Tp> __w) {
-  return std::atomic_compare_exchange_strong(__p, __v, __w);
-}
-
-template <class _Tp>
-inline  bool atomic_compare_exchange_strong_explicit(
-    shared_ptr<_Tp>* __p, shared_ptr<_Tp>* __v, shared_ptr<_Tp> __w, memory_order, memory_order) {
-  return std::atomic_compare_exchange_strong(__p, __v, __w);
-}
-
-template <class _Tp>
-inline  bool atomic_compare_exchange_weak_explicit(
-    shared_ptr<_Tp>* __p, shared_ptr<_Tp>* __v, shared_ptr<_Tp> __w, memory_order, memory_order) {
-  return std::atomic_compare_exchange_weak(__p, __v, __w);
-}
-
-
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -29090,19 +24845,6 @@ inline  bool atomic_compare_exchange_weak_explicit(
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-
-
-template <class _Tp, template <class...> class _Template>
-inline constexpr bool __is_specialization_v = false;
-
-template <template <class...> class _Template, class... _Args>
-inline constexpr bool __is_specialization_v<_Template<_Args...>, _Template> = true;
-
-
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -29114,8 +24856,6 @@ inline constexpr bool __is_specialization_v<_Template<_Args...>, _Template> = tr
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
 #pragma clang diagnostic pop
 
 
@@ -29127,8 +24867,6 @@ inline constexpr bool __is_specialization_v<_Template<_Args...>, _Template> = tr
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
 #pragma clang diagnostic pop
 
 
@@ -29141,64 +24879,12 @@ inline constexpr bool __is_specialization_v<_Template<_Args...>, _Template> = tr
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
 
 
 
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated"
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-template <class _OutputIterator, class _Tp>
-class __attribute__((__deprecated__)) raw_storage_iterator
-
-    : public iterator<output_iterator_tag, void, void, void, void>
-
-{
-#pragma GCC diagnostic pop
-
-private:
-  _OutputIterator __x_;
-
-public:
-  typedef output_iterator_tag iterator_category;
-  typedef void value_type;
-
-
-
-  typedef void difference_type;
-
-  typedef void pointer;
-  typedef void reference;
-
-   explicit raw_storage_iterator(_OutputIterator __x) : __x_(__x) {}
-   raw_storage_iterator& operator*() { return *this; }
-   raw_storage_iterator& operator=(const _Tp& __element) {
-    ::new ((void*)std::addressof(*__x_)) _Tp(__element);
-    return *this;
-  }
-
-   raw_storage_iterator& operator=(_Tp&& __element) {
-    ::new ((void*)std::addressof(*__x_)) _Tp(std::move(__element));
-    return *this;
-  }
-
-   raw_storage_iterator& operator++() {
-    ++__x_;
-    return *this;
-  }
-   raw_storage_iterator operator++(int) {
-    raw_storage_iterator __t(*this);
-    ++__x_;
-    return __t;
-  }
-
-   _OutputIterator base() const { return __x_; }
-
-};
-
-
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -29209,62 +24895,6 @@ public:
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Tp>
-struct __temporary_buffer_deleter {
-  ptrdiff_t __count_;
-
-   constexpr __temporary_buffer_deleter() noexcept : __count_(0) {}
-  
-  constexpr explicit __temporary_buffer_deleter(ptrdiff_t __count) noexcept : __count_(__count) {}
-
-   void operator()(_Tp* __ptr) noexcept {
-    if (__libcpp_is_constant_evaluated()) {
-      allocator<_Tp>().deallocate(__ptr, __count_);
-      return;
-    }
-
-    std::__libcpp_deallocate_unsized<_Tp>(__ptr);
-  }
-};
-
-template <class _Tp>
-using __unique_temporary_buffer [[__gnu__::__nodebug__]] = unique_ptr<_Tp, __temporary_buffer_deleter<_Tp> >;
-
-template <class _Tp>
-inline  __attribute__((__no_sanitize__("cfi"))) __unique_temporary_buffer<_Tp>
-__allocate_unique_temporary_buffer(ptrdiff_t __count) {
-  using __deleter_type = __temporary_buffer_deleter<_Tp>;
-  using __unique_buffer_type = __unique_temporary_buffer<_Tp>;
-
-  if (__libcpp_is_constant_evaluated()) {
-    return __unique_buffer_type(allocator<_Tp>().allocate(__count), __deleter_type(__count));
-  }
-
-  _Tp* __ptr = nullptr;
-  const ptrdiff_t __max_count =
-      (~ptrdiff_t(0) ^ ptrdiff_t(ptrdiff_t(1) << (sizeof(ptrdiff_t) * 8 - 1))) / sizeof(_Tp);
-  if (__count > __max_count)
-    __count = __max_count;
-  while (__count > 0) {
-
-    if (__is_overaligned_for_new(alignof(_Tp))) {
-      align_val_t __al = align_val_t(alignof(_Tp));
-      __ptr = static_cast<_Tp*>(::operator new(__count * sizeof(_Tp), __al, nothrow));
-    } else {
-      __ptr = static_cast<_Tp*>(::operator new(__count * sizeof(_Tp), nothrow));
-    }
-    if (__ptr) {
-      break;
-    }
-    __count /= 2;
-  }
-
-  return __unique_buffer_type(__ptr, __deleter_type(__count));
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -29276,24 +24906,7 @@ __allocate_unique_temporary_buffer(ptrdiff_t __count) {
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Tp>
-[[__nodiscard__]]  __attribute__((__no_sanitize__("cfi"))) __attribute__((__deprecated__)) pair<_Tp*, ptrdiff_t>
-get_temporary_buffer(ptrdiff_t __n) noexcept {
-  __unique_temporary_buffer<_Tp> __unique_buf = std::__allocate_unique_temporary_buffer<_Tp>(__n);
-  pair<_Tp*, ptrdiff_t> __result(__unique_buf.get(), __unique_buf.get_deleter().__count_);
-  __unique_buf.release();
-  return __result;
-}
 
-template <class _Tp>
-inline  __attribute__((__deprecated__)) void return_temporary_buffer(_Tp* __p) noexcept {
-  __unique_temporary_buffer<_Tp> __unique_buf(__p);
-  (void)__unique_buf;
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -29305,8 +24918,7 @@ inline  __attribute__((__deprecated__)) void return_temporary_buffer(_Tp* __p) n
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
+
 #pragma clang diagnostic pop
 
 
@@ -29318,16 +24930,6 @@ inline  __attribute__((__deprecated__)) void return_temporary_buffer(_Tp* __p) n
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _InputIterator, class _Function>
- _Function
-for_each(_InputIterator __first, _InputIterator __last, _Function __f) {
-  for (; __first != __last; ++__first)
-    __f(*__first);
-  return __f;
-}
-} }
 #pragma clang diagnostic pop
 
 
@@ -29337,16 +24939,7 @@ for_each(_InputIterator __first, _InputIterator __last, _Function __f) {
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
 
-template <class _ForwardIterator, class _Generator>
-inline  void
-generate(_ForwardIterator __first, _ForwardIterator __last, _Generator __gen) {
-  for (; __first != __last; ++__first)
-    *__first = __gen();
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -29356,19 +24949,7 @@ generate(_ForwardIterator __first, _ForwardIterator __last, _Generator __gen) {
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _OutputIterator, class _Size, class _Generator>
-inline  _OutputIterator
-generate_n(_OutputIterator __first, _Size __orig_n, _Generator __gen) {
-  typedef decltype(std::__convert_to_integral(__orig_n)) _IntegralSize;
-  _IntegralSize __n = __orig_n;
-  for (; __n > 0; ++__first, (void)--__n)
-    *__first = __gen();
-  return __first;
-}
 
-} }
 #pragma clang diagnostic pop
 
 
@@ -29380,54 +24961,7 @@ generate_n(_OutputIterator __first, _Size __orig_n, _Generator __gen) {
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Iter1, class _Sent1, class _Iter2, class _Sent2, class _Comp, class _Proj1, class _Proj2>
- bool __includes(
-    _Iter1 __first1,
-    _Sent1 __last1,
-    _Iter2 __first2,
-    _Sent2 __last2,
-    _Comp&& __comp,
-    _Proj1&& __proj1,
-    _Proj2&& __proj2) {
-  for (; __first2 != __last2; ++__first1) {
-    if (__first1 == __last1 ||
-        std::__invoke(__comp, std::__invoke(__proj2, *__first2), std::__invoke(__proj1, *__first1)))
-      return false;
-    if (!std::__invoke(__comp, std::__invoke(__proj1, *__first1), std::__invoke(__proj2, *__first2)))
-      ++__first2;
-  }
-  return true;
-}
-
-template <class _InputIterator1, class _InputIterator2, class _Compare>
-[[__nodiscard__]] inline  bool
-includes(_InputIterator1 __first1,
-         _InputIterator1 __last1,
-         _InputIterator2 __first2,
-         _InputIterator2 __last2,
-         _Compare __comp) {
-  static_assert(
-      __is_callable<_Compare&, decltype(*__first1), decltype(*__first2)>::value, "The comparator has to be callable");
-
-  return std::__includes(
-      std::move(__first1),
-      std::move(__last1),
-      std::move(__first2),
-      std::move(__last2),
-      static_cast<__comp_ref_type<_Compare> >(__comp),
-      __identity(),
-      __identity());
-}
 
-template <class _InputIterator1, class _InputIterator2>
-[[__nodiscard__]] inline  bool
-includes(_InputIterator1 __first1, _InputIterator1 __last1, _InputIterator2 __first2, _InputIterator2 __last2) {
-  return std::includes(std::move(__first1), std::move(__last1), std::move(__first2), std::move(__last2), __less<>());
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -29537,34 +25071,6 @@ includes(_InputIterator1 __first1, _InputIterator1 __last1, _InputIterator2 __fi
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-[[__nodiscard__]] inline  constexpr int __libcpp_clz(unsigned __x) noexcept {
-  return __builtin_clz(__x);
-}
-
-[[__nodiscard__]] inline  constexpr int __libcpp_clz(unsigned long __x) noexcept {
-  return __builtin_clzl(__x);
-}
-
-[[__nodiscard__]] inline  constexpr int __libcpp_clz(unsigned long long __x) noexcept {
-  return __builtin_clzll(__x);
-}
-
-
-inline  constexpr int __libcpp_clz(__uint128_t __x) noexcept {
-
-  return 0;
-}
-
-
-template <class _Tp>
- constexpr int __countl_zero(_Tp __t) noexcept {
-  static_assert(__libcpp_is_unsigned_integer<_Tp>::value, "__countl_zero requires an unsigned integer type");
-
-  return __builtin_clzg(__t, numeric_limits<_Tp>::digits);
-}
-} }
 #pragma clang diagnostic pop
 
 
@@ -29575,104 +25081,6 @@ template <class _Tp>
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Tp>
-inline constexpr bool __can_map_to_integer_v =
-    sizeof(_Tp) == alignof(_Tp) && (sizeof(_Tp) == 1 || sizeof(_Tp) == 2 || sizeof(_Tp) == 4 || sizeof(_Tp) == 8);
-
-template <size_t _TypeSize>
-struct __get_as_integer_type_impl;
-
-template <>
-struct __get_as_integer_type_impl<1> {
-  using type [[__gnu__::__nodebug__]] = uint8_t;
-};
-
-template <>
-struct __get_as_integer_type_impl<2> {
-  using type [[__gnu__::__nodebug__]] = uint16_t;
-};
-template <>
-struct __get_as_integer_type_impl<4> {
-  using type [[__gnu__::__nodebug__]] = uint32_t;
-};
-template <>
-struct __get_as_integer_type_impl<8> {
-  using type [[__gnu__::__nodebug__]] = uint64_t;
-};
-
-template <class _Tp>
-using __get_as_integer_type_t [[__gnu__::__nodebug__]] = typename __get_as_integer_type_impl<sizeof(_Tp)>::type;
-template <class _Tp>
-inline constexpr size_t __native_vector_size = 16 / sizeof(_Tp);
-template <class _ArithmeticT, size_t _Np>
-using __simd_vector __attribute__((__ext_vector_type__(_Np))) [[__gnu__::__nodebug__]] = _ArithmeticT;
-
-template <class _VecT>
-inline constexpr size_t __simd_vector_size_v = []<bool _False = false>() -> size_t {
-  static_assert(_False, "Not a vector!");
-}();
-
-template <class _Tp, size_t _Np>
-inline constexpr size_t __simd_vector_size_v<__simd_vector<_Tp, _Np>> = _Np;
-
-template <class _Tp, size_t _Np>
- _Tp __simd_vector_underlying_type_impl(__simd_vector<_Tp, _Np>) {
-  return _Tp{};
-}
-
-template <class _VecT>
-using __simd_vector_underlying_type_t [[__gnu__::__nodebug__]] = decltype(std::__simd_vector_underlying_type_impl(_VecT{}));
-
-
-template <class _VecT, class _Iter>
-[[__nodiscard__]] __attribute__((__always_inline__))  _VecT __load_vector(_Iter __iter) noexcept {
-  return [=]<size_t... _Indices>(index_sequence<_Indices...>) __attribute__((__always_inline__)) noexcept {
-    return _VecT{__iter[_Indices]...};
-  }(make_index_sequence<__simd_vector_size_v<_VecT>>{});
-}
-
-template <class _Tp, size_t _Np>
-[[__nodiscard__]]  bool __all_of(__simd_vector<_Tp, _Np> __vec) noexcept {
-  return __builtin_reduce_and(__builtin_convertvector(__vec, __simd_vector<bool, _Np>));
-}
-
-template <class _Tp, size_t _Np>
-[[__nodiscard__]]  size_t __find_first_set(__simd_vector<_Tp, _Np> __vec) noexcept {
-  using __mask_vec = __simd_vector<bool, _Np>;
-
-
-  auto __impl = [&]<class _MaskT>(_MaskT) __attribute__((__no_sanitize__("memory"))) noexcept {
-
-
-
-
-    return std::min<size_t>(
-        _Np, std::__countr_zero(__builtin_bit_cast(_MaskT, __builtin_convertvector(__vec, __mask_vec))));
-
-  };
-
-  if constexpr (sizeof(__mask_vec) == sizeof(uint8_t)) {
-    return __impl(uint8_t{});
-  } else if constexpr (sizeof(__mask_vec) == sizeof(uint16_t)) {
-    return __impl(uint16_t{});
-  } else if constexpr (sizeof(__mask_vec) == sizeof(uint32_t)) {
-    return __impl(uint32_t{});
-  } else if constexpr (sizeof(__mask_vec) == sizeof(uint64_t)) {
-    return __impl(uint64_t{});
-  } else {
-    static_assert(sizeof(__mask_vec) == 0, "unexpected required size for mask integer type");
-    return 0;
-  }
-}
-
-template <class _Tp, size_t _Np>
-[[__nodiscard__]]  size_t __find_first_not_set(__simd_vector<_Tp, _Np> __vec) noexcept {
-  return std::__find_first_set(~__vec);
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -29691,105 +25099,6 @@ template <class _Tp, size_t _Np>
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _BaseIter, class _Alias>
-struct __aliasing_iterator_wrapper {
-  class __iterator {
-    _BaseIter __base_ = nullptr;
-
-    using __iter_traits [[__gnu__::__nodebug__]] = iterator_traits<_BaseIter>;
-    using __base_value_type [[__gnu__::__nodebug__]] = typename __iter_traits::value_type;
-
-    static_assert(__has_random_access_iterator_category<_BaseIter>::value,
-                  "The base iterator has to be a random access iterator!");
-
-  public:
-    using iterator_category = random_access_iterator_tag;
-    using value_type = _Alias;
-    using difference_type = ptrdiff_t;
-    using reference = value_type&;
-    using pointer = value_type*;
-
-    static_assert(is_trivial<value_type>::value);
-    static_assert(sizeof(__base_value_type) == sizeof(value_type));
-
-     __iterator() = default;
-     __iterator(_BaseIter __base) noexcept : __base_(__base) {}
-
-     __iterator& operator++() noexcept {
-      ++__base_;
-      return *this;
-    }
-
-     __iterator operator++(int) noexcept {
-      __iterator __tmp(*this);
-      ++__base_;
-      return __tmp;
-    }
-
-     __iterator& operator--() noexcept {
-      --__base_;
-      return *this;
-    }
-
-     __iterator operator--(int) noexcept {
-      __iterator __tmp(*this);
-      --__base_;
-      return __tmp;
-    }
-
-     friend __iterator operator+(__iterator __iter, difference_type __n) noexcept {
-      return __iterator(__iter.__base_ + __n);
-    }
-
-     friend __iterator operator+(difference_type __n, __iterator __iter) noexcept {
-      return __iterator(__n + __iter.__base_);
-    }
-
-     __iterator& operator+=(difference_type __n) noexcept {
-      __base_ += __n;
-      return *this;
-    }
-
-     friend __iterator operator-(__iterator __iter, difference_type __n) noexcept {
-      return __iterator(__iter.__base_ - __n);
-    }
-
-     friend difference_type operator-(__iterator __lhs, __iterator __rhs) noexcept {
-      return __lhs.__base_ - __rhs.__base_;
-    }
-
-     __iterator& operator-=(difference_type __n) noexcept {
-      __base_ -= __n;
-      return *this;
-    }
-
-     _BaseIter __base() const noexcept { return __base_; }
-
-     _Alias operator*() const noexcept {
-      _Alias __val;
-      __builtin_memcpy(std::addressof(__val), std::__to_address(__base_), sizeof(value_type));
-      return __val;
-    }
-
-     value_type operator[](difference_type __n) const noexcept { return *(*this + __n); }
-
-     friend bool operator==(const __iterator& __lhs, const __iterator& __rhs) noexcept {
-      return __lhs.__base_ == __rhs.__base_;
-    }
-
-     friend bool operator!=(const __iterator& __lhs, const __iterator& __rhs) noexcept {
-      return __lhs.__base_ != __rhs.__base_;
-    }
-  };
-};
-
-
-template <class _BaseT, class _Alias>
-using __aliasing_iterator [[__gnu__::__nodebug__]] = typename __aliasing_iterator_wrapper<_BaseT, _Alias>::__iterator;
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -29801,183 +25110,6 @@ using __aliasing_iterator [[__gnu__::__nodebug__]] = typename __aliasing_iterato
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Iter1, class _Sent1, class _Iter2, class _Pred, class _Proj1, class _Proj2>
-[[__nodiscard__]]  pair<_Iter1, _Iter2>
-__mismatch_loop(_Iter1 __first1, _Sent1 __last1, _Iter2 __first2, _Pred& __pred, _Proj1& __proj1, _Proj2& __proj2) {
-  while (__first1 != __last1) {
-    if (!std::__invoke(__pred, std::__invoke(__proj1, *__first1), std::__invoke(__proj2, *__first2)))
-      break;
-    ++__first1;
-    ++__first2;
-  }
-  return std::make_pair(std::move(__first1), std::move(__first2));
-}
-
-template <class _Iter1, class _Sent1, class _Iter2, class _Pred, class _Proj1, class _Proj2>
-[[__nodiscard__]]  pair<_Iter1, _Iter2>
-__mismatch(_Iter1 __first1, _Sent1 __last1, _Iter2 __first2, _Pred& __pred, _Proj1& __proj1, _Proj2& __proj2) {
-  return std::__mismatch_loop(__first1, __last1, __first2, __pred, __proj1, __proj2);
-}
-
-
-
-template <class _Iter>
-[[__nodiscard__]]  pair<_Iter, _Iter>
-__mismatch_vectorized(_Iter __first1, _Iter __last1, _Iter __first2) {
-  using __value_type = __iter_value_type<_Iter>;
-  constexpr size_t __unroll_count = 4;
-  constexpr size_t __vec_size = __native_vector_size<__value_type>;
-  using __vec = __simd_vector<__value_type, __vec_size>;
-
-  if (!__libcpp_is_constant_evaluated()) {
-    auto __orig_first1 = __first1;
-    auto __last2 = __first2 + (__last1 - __first1);
-    while (static_cast<size_t>(__last1 - __first1) >= __unroll_count * __vec_size) [[__unlikely__]] {
-      __vec __lhs[__unroll_count];
-      __vec __rhs[__unroll_count];
-
-      for (size_t __i = 0; __i != __unroll_count; ++__i) {
-        __lhs[__i] = std::__load_vector<__vec>(__first1 + __i * __vec_size);
-        __rhs[__i] = std::__load_vector<__vec>(__first2 + __i * __vec_size);
-      }
-
-      for (size_t __i = 0; __i != __unroll_count; ++__i) {
-        if (auto __cmp_res = __lhs[__i] == __rhs[__i]; !std::__all_of(__cmp_res)) {
-          auto __offset = __i * __vec_size + std::__find_first_not_set(__cmp_res);
-          return {__first1 + __offset, __first2 + __offset};
-        }
-      }
-
-      __first1 += __unroll_count * __vec_size;
-      __first2 += __unroll_count * __vec_size;
-    }
-
-
-    while (static_cast<size_t>(__last1 - __first1) >= __vec_size) {
-      if (auto __cmp_res = std::__load_vector<__vec>(__first1) == std::__load_vector<__vec>(__first2);
-          !std::__all_of(__cmp_res)) {
-        auto __offset = std::__find_first_not_set(__cmp_res);
-        return {__first1 + __offset, __first2 + __offset};
-      }
-      __first1 += __vec_size;
-      __first2 += __vec_size;
-    }
-
-    if (__last1 - __first1 == 0)
-      return {__first1, __first2};
-
-
-
-    if (static_cast<size_t>(__first1 - __orig_first1) >= __vec_size) {
-      __first1 = __last1 - __vec_size;
-      __first2 = __last2 - __vec_size;
-      auto __offset =
-          std::__find_first_not_set(std::__load_vector<__vec>(__first1) == std::__load_vector<__vec>(__first2));
-      return {__first1 + __offset, __first2 + __offset};
-    }
-  }
-
-  __equal_to __pred;
-  __identity __proj;
-  return std::__mismatch_loop(__first1, __last1, __first2, __pred, __proj, __proj);
-}
-
-template <class _Tp,
-          class _Pred,
-          class _Proj1,
-          class _Proj2,
-          __enable_if_t<is_integral<_Tp>::value && __desugars_to_v<__equal_tag, _Pred, _Tp, _Tp> &&
-                            __is_identity<_Proj1>::value && __is_identity<_Proj2>::value,
-                        int> = 0>
-[[__nodiscard__]]  pair<_Tp*, _Tp*>
-__mismatch(_Tp* __first1, _Tp* __last1, _Tp* __first2, _Pred&, _Proj1&, _Proj2&) {
-  return std::__mismatch_vectorized(__first1, __last1, __first2);
-}
-
-template <class _Tp,
-          class _Pred,
-          class _Proj1,
-          class _Proj2,
-          __enable_if_t<!is_integral<_Tp>::value && __desugars_to_v<__equal_tag, _Pred, _Tp, _Tp> &&
-                            __is_identity<_Proj1>::value && __is_identity<_Proj2>::value &&
-                            __can_map_to_integer_v<_Tp> && __libcpp_is_trivially_equality_comparable<_Tp, _Tp>::value,
-                        int> = 0>
-[[__nodiscard__]]  pair<_Tp*, _Tp*>
-__mismatch(_Tp* __first1, _Tp* __last1, _Tp* __first2, _Pred& __pred, _Proj1& __proj1, _Proj2& __proj2) {
-  if (__libcpp_is_constant_evaluated()) {
-    return std::__mismatch_loop(__first1, __last1, __first2, __pred, __proj1, __proj2);
-  } else {
-    using _Iter = __aliasing_iterator<_Tp*, __get_as_integer_type_t<_Tp>>;
-    auto __ret = std::__mismatch_vectorized(_Iter(__first1), _Iter(__last1), _Iter(__first2));
-    return {__ret.first.__base(), __ret.second.__base()};
-  }
-}
-
-
-template <class _InputIterator1, class _InputIterator2, class _BinaryPredicate>
-[[__nodiscard__]] inline  pair<_InputIterator1, _InputIterator2>
-mismatch(_InputIterator1 __first1, _InputIterator1 __last1, _InputIterator2 __first2, _BinaryPredicate __pred) {
-  __identity __proj;
-  auto __res = std::__mismatch(
-      std::__unwrap_iter(__first1), std::__unwrap_iter(__last1), std::__unwrap_iter(__first2), __pred, __proj, __proj);
-  return std::make_pair(std::__rewrap_iter(__first1, __res.first), std::__rewrap_iter(__first2, __res.second));
-}
-
-template <class _InputIterator1, class _InputIterator2>
-[[__nodiscard__]] inline  pair<_InputIterator1, _InputIterator2>
-mismatch(_InputIterator1 __first1, _InputIterator1 __last1, _InputIterator2 __first2) {
-  return std::mismatch(__first1, __last1, __first2, __equal_to());
-}
-
-
-template <class _Iter1, class _Sent1, class _Iter2, class _Sent2, class _Pred, class _Proj1, class _Proj2>
-[[__nodiscard__]]  pair<_Iter1, _Iter2> __mismatch(
-    _Iter1 __first1, _Sent1 __last1, _Iter2 __first2, _Sent2 __last2, _Pred& __pred, _Proj1& __proj1, _Proj2& __proj2) {
-  while (__first1 != __last1 && __first2 != __last2) {
-    if (!std::__invoke(__pred, std::__invoke(__proj1, *__first1), std::__invoke(__proj2, *__first2)))
-      break;
-    ++__first1;
-    ++__first2;
-  }
-  return {std::move(__first1), std::move(__first2)};
-}
-
-template <class _Tp, class _Pred, class _Proj1, class _Proj2>
-[[__nodiscard__]]  pair<_Tp*, _Tp*>
-__mismatch(_Tp* __first1, _Tp* __last1, _Tp* __first2, _Tp* __last2, _Pred& __pred, _Proj1& __proj1, _Proj2& __proj2) {
-  auto __len = std::min(__last1 - __first1, __last2 - __first2);
-  return std::__mismatch(__first1, __first1 + __len, __first2, __pred, __proj1, __proj2);
-}
-
-template <class _InputIterator1, class _InputIterator2, class _BinaryPredicate>
-[[__nodiscard__]] inline  pair<_InputIterator1, _InputIterator2>
-mismatch(_InputIterator1 __first1,
-         _InputIterator1 __last1,
-         _InputIterator2 __first2,
-         _InputIterator2 __last2,
-         _BinaryPredicate __pred) {
-  __identity __proj;
-  auto __res = std::__mismatch(
-      std::__unwrap_iter(__first1),
-      std::__unwrap_iter(__last1),
-      std::__unwrap_iter(__first2),
-      std::__unwrap_iter(__last2),
-      __pred,
-      __proj,
-      __proj);
-  return {std::__rewrap_iter(__first1, __res.first), std::__rewrap_iter(__first2, __res.second)};
-}
-
-template <class _InputIterator1, class _InputIterator2>
-[[__nodiscard__]] inline  pair<_InputIterator1, _InputIterator2>
-mismatch(_InputIterator1 __first1, _InputIterator1 __last1, _InputIterator2 __first2, _InputIterator2 __last2) {
-  return std::mismatch(__first1, __last1, __first2, __last2, __equal_to());
-}
-
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -29989,84 +25121,6 @@ mismatch(_InputIterator1 __first1, _InputIterator1 __last1, _InputIterator2 __fi
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Iter1, class _Sent1, class _Iter2, class _Sent2, class _Proj1, class _Proj2, class _Comp>
- bool __lexicographical_compare(
-    _Iter1 __first1, _Sent1 __last1, _Iter2 __first2, _Sent2 __last2, _Comp& __comp, _Proj1& __proj1, _Proj2& __proj2) {
-  while (__first2 != __last2) {
-    if (__first1 == __last1 ||
-        std::__invoke(__comp, std::__invoke(__proj1, *__first1), std::__invoke(__proj2, *__first2)))
-      return true;
-    if (std::__invoke(__comp, std::__invoke(__proj2, *__first2), std::__invoke(__proj1, *__first1)))
-      return false;
-    ++__first1;
-    ++__first2;
-  }
-  return false;
-}
-template <class _Tp,
-          class _Proj1,
-          class _Proj2,
-          class _Comp,
-          __enable_if_t<__desugars_to_v<__totally_ordered_less_tag, _Comp, _Tp, _Tp> && !is_volatile<_Tp>::value &&
-                            __libcpp_is_trivially_equality_comparable<_Tp, _Tp>::value &&
-                            __is_identity<_Proj1>::value && __is_identity<_Proj2>::value,
-                        int> = 0>
- bool
-__lexicographical_compare(_Tp* __first1, _Tp* __last1, _Tp* __first2, _Tp* __last2, _Comp&, _Proj1&, _Proj2&) {
-  if constexpr (__is_trivially_lexicographically_comparable_v<_Tp, _Tp>) {
-    auto __res =
-        std::__constexpr_memcmp(__first1, __first2, __element_count(std::min(__last1 - __first1, __last2 - __first2)));
-    if (__res == 0)
-      return __last1 - __first1 < __last2 - __first2;
-    return __res < 0;
-  }
-
-  else if constexpr (is_same<__remove_cv_t<_Tp>, wchar_t>::value) {
-    auto __res = std::__constexpr_wmemcmp(__first1, __first2, std::min(__last1 - __first1, __last2 - __first2));
-    if (__res == 0)
-      return __last1 - __first1 < __last2 - __first2;
-    return __res < 0;
-  }
-
-  else {
-    auto __res = std::mismatch(__first1, __last1, __first2, __last2);
-    if (__res.second == __last2)
-      return false;
-    if (__res.first == __last1)
-      return true;
-    return *__res.first < *__res.second;
-  }
-}
-
-
-
-template <class _InputIterator1, class _InputIterator2, class _Compare>
-[[__nodiscard__]] inline  bool lexicographical_compare(
-    _InputIterator1 __first1,
-    _InputIterator1 __last1,
-    _InputIterator2 __first2,
-    _InputIterator2 __last2,
-    _Compare __comp) {
-  __identity __proj;
-  return std::__lexicographical_compare(
-      std::__unwrap_iter(__first1),
-      std::__unwrap_iter(__last1),
-      std::__unwrap_iter(__first2),
-      std::__unwrap_iter(__last2),
-      __comp,
-      __proj,
-      __proj);
-}
-
-template <class _InputIterator1, class _InputIterator2>
-[[__nodiscard__]] inline  bool lexicographical_compare(
-    _InputIterator1 __first1, _InputIterator1 __last1, _InputIterator2 __first2, _InputIterator2 __last2) {
-  return std::lexicographical_compare(__first1, __last1, __first2, __last2, __less<>());
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30102,52 +25156,6 @@ template <class _InputIterator1, class _InputIterator2>
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Compare, class _InputIterator1, class _InputIterator2, class _OutputIterator>
- _OutputIterator __merge(
-    _InputIterator1 __first1,
-    _InputIterator1 __last1,
-    _InputIterator2 __first2,
-    _InputIterator2 __last2,
-    _OutputIterator __result,
-    _Compare __comp) {
-  for (; __first1 != __last1; ++__result) {
-    if (__first2 == __last2)
-      return std::copy(__first1, __last1, __result);
-    if (__comp(*__first2, *__first1)) {
-      *__result = *__first2;
-      ++__first2;
-    } else {
-      *__result = *__first1;
-      ++__first1;
-    }
-  }
-  return std::copy(__first2, __last2, __result);
-}
-
-template <class _InputIterator1, class _InputIterator2, class _OutputIterator, class _Compare>
-inline  _OutputIterator
-merge(_InputIterator1 __first1,
-      _InputIterator1 __last1,
-      _InputIterator2 __first2,
-      _InputIterator2 __last2,
-      _OutputIterator __result,
-      _Compare __comp) {
-  return std::__merge<__comp_ref_type<_Compare> >(__first1, __last1, __first2, __last2, __result, __comp);
-}
-
-template <class _InputIterator1, class _InputIterator2, class _OutputIterator>
-inline  _OutputIterator
-merge(_InputIterator1 __first1,
-      _InputIterator1 __last1,
-      _InputIterator2 __first2,
-      _InputIterator2 __last2,
-      _OutputIterator __result) {
-  return std::merge(__first1, __last1, __first2, __last2, __result, __less<>());
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30159,81 +25167,6 @@ merge(_InputIterator1 __first1,
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Comp, class _Proj>
-class _MinmaxElementLessFunc {
-  _Comp& __comp_;
-  _Proj& __proj_;
-
-public:
-   constexpr _MinmaxElementLessFunc(_Comp& __comp, _Proj& __proj)
-      : __comp_(__comp), __proj_(__proj) {}
-
-  template <class _Iter>
-   constexpr bool operator()(_Iter& __it1, _Iter& __it2) {
-    return std::__invoke(__comp_, std::__invoke(__proj_, *__it1), std::__invoke(__proj_, *__it2));
-  }
-};
-
-template <class _Iter, class _Sent, class _Proj, class _Comp>
- constexpr pair<_Iter, _Iter>
-__minmax_element_impl(_Iter __first, _Sent __last, _Comp& __comp, _Proj& __proj) {
-  auto __less = _MinmaxElementLessFunc<_Comp, _Proj>(__comp, __proj);
-
-  pair<_Iter, _Iter> __result(__first, __first);
-  if (__first == __last || ++__first == __last)
-    return __result;
-
-  if (__less(__first, __result.first))
-    __result.first = __first;
-  else
-    __result.second = __first;
-
-  while (++__first != __last) {
-    _Iter __i = __first;
-    if (++__first == __last) {
-      if (__less(__i, __result.first))
-        __result.first = __i;
-      else if (!__less(__i, __result.second))
-        __result.second = __i;
-      return __result;
-    }
-
-    if (__less(__first, __i)) {
-      if (__less(__first, __result.first))
-        __result.first = __first;
-      if (!__less(__i, __result.second))
-        __result.second = __i;
-    } else {
-      if (__less(__i, __result.first))
-        __result.first = __i;
-      if (!__less(__first, __result.second))
-        __result.second = __first;
-    }
-  }
-
-  return __result;
-}
-
-template <class _ForwardIterator, class _Compare>
-[[__nodiscard__]]  constexpr pair<_ForwardIterator, _ForwardIterator>
-minmax_element(_ForwardIterator __first, _ForwardIterator __last, _Compare __comp) {
-  static_assert(
-      __has_forward_iterator_category<_ForwardIterator>::value, "std::minmax_element requires a ForwardIterator");
-  static_assert(
-      __is_callable<_Compare&, decltype(*__first), decltype(*__first)>::value, "The comparator has to be callable");
-  auto __proj = __identity();
-  return std::__minmax_element_impl(__first, __last, __comp, __proj);
-}
-
-template <class _ForwardIterator>
-[[__nodiscard__]] inline  constexpr pair<_ForwardIterator, _ForwardIterator>
-minmax_element(_ForwardIterator __first, _ForwardIterator __last) {
-  return std::minmax_element(__first, __last, __less<>());
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30243,40 +25176,7 @@ minmax_element(_ForwardIterator __first, _ForwardIterator __last) {
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Tp, class _Compare>
-[[__nodiscard__]] inline  constexpr pair<const _Tp&, const _Tp&>
-minmax([[_Clang::__lifetimebound__]] const _Tp& __a, [[_Clang::__lifetimebound__]] const _Tp& __b, _Compare __comp) {
-  return __comp(__b, __a) ? pair<const _Tp&, const _Tp&>(__b, __a) : pair<const _Tp&, const _Tp&>(__a, __b);
-}
-
-template <class _Tp>
-[[__nodiscard__]] inline  constexpr pair<const _Tp&, const _Tp&>
-minmax([[_Clang::__lifetimebound__]] const _Tp& __a, [[_Clang::__lifetimebound__]] const _Tp& __b) {
-  return std::minmax(__a, __b, __less<>());
-}
-
-
 
-template <class _Tp, class _Compare>
-[[__nodiscard__]] inline  constexpr pair<_Tp, _Tp>
-minmax(initializer_list<_Tp> __t, _Compare __comp) {
-  static_assert(__is_callable<_Compare&, _Tp, _Tp>::value, "The comparator has to be callable");
-  __identity __proj;
-  auto __ret = std::__minmax_element_impl(__t.begin(), __t.end(), __comp, __proj);
-  return pair<_Tp, _Tp>(*__ret.first, *__ret.second);
-}
-
-template <class _Tp>
-[[__nodiscard__]] inline  constexpr pair<_Tp, _Tp>
-minmax(initializer_list<_Tp> __t) {
-  return std::minmax(__t, __less<>());
-}
-
-
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30312,18 +25212,7 @@ minmax(initializer_list<_Tp> __t) {
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _InputIterator, class _Predicate>
-[[__nodiscard__]] inline  bool
-none_of(_InputIterator __first, _InputIterator __last, _Predicate __pred) {
-  for (; __first != __last; ++__first)
-    if (__pred(*__first))
-      return false;
-  return true;
-}
 
-} }
 #pragma clang diagnostic pop
 
 
@@ -30366,16 +25255,7 @@ none_of(_InputIterator __first, _InputIterator __last, _Predicate __pred) {
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
 
-template <class _AlgPolicy, class _Iterator, class _Sentinel>
- constexpr void __debug_randomize_range(_Iterator __first, _Sentinel __last) {
-  (void)__first;
-  (void)__last;
-
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30408,54 +25288,7 @@ template <class _AlgPolicy, class _Iterator, class _Sentinel>
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Pred, class _Proj>
-struct _ProjectedPred {
-  _Pred& __pred;
-  _Proj& __proj;
-
-  constexpr  _ProjectedPred(_Pred& __pred_arg, _Proj& __proj_arg)
-      : __pred(__pred_arg), __proj(__proj_arg) {}
-
-  template <class _Tp>
-  __invoke_result_t<_Pred&, decltype(std::__invoke(std::declval<_Proj&>(), std::declval<_Tp>()))> constexpr
-  
-  operator()(_Tp&& __v) const {
-    return std::__invoke(__pred, std::__invoke(__proj, std::forward<_Tp>(__v)));
-  }
-
-  template <class _T1, class _T2>
-  __invoke_result_t<_Pred&,
-                    decltype(std::__invoke(std::declval<_Proj&>(), std::declval<_T1>())),
-                    decltype(std::__invoke(std::declval<_Proj&>(), std::declval<_T2>()))> constexpr
-  
-  operator()(_T1&& __lhs, _T2&& __rhs) const {
-    return std::__invoke(
-        __pred, std::__invoke(__proj, std::forward<_T1>(__lhs)), std::__invoke(__proj, std::forward<_T2>(__rhs)));
-  }
-};
 
-template <
-    class _Pred,
-    class _Proj,
-    __enable_if_t<!(!is_member_pointer<__decay_t<_Pred> >::value && __is_identity<__decay_t<_Proj> >::value), int> = 0>
- constexpr _ProjectedPred<_Pred, _Proj> __make_projected(_Pred& __pred, _Proj& __proj) {
-  return _ProjectedPred<_Pred, _Proj>(__pred, __proj);
-}
-
-
-
-
-template <
-    class _Pred,
-    class _Proj,
-    __enable_if_t<!is_member_pointer<__decay_t<_Pred> >::value && __is_identity<__decay_t<_Proj> >::value, int> = 0>
- constexpr _Pred& __make_projected(_Pred& __pred, _Proj&) {
-  return __pred;
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30487,28 +25320,7 @@ template <
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
 
-template <class _InputIterator, class _OutputIterator1, class _OutputIterator2, class _Predicate>
- pair<_OutputIterator1, _OutputIterator2> partition_copy(
-    _InputIterator __first,
-    _InputIterator __last,
-    _OutputIterator1 __out_true,
-    _OutputIterator2 __out_false,
-    _Predicate __pred) {
-  for (; __first != __last; ++__first) {
-    if (__pred(*__first)) {
-      *__out_true = *__first;
-      ++__out_true;
-    } else {
-      *__out_false = *__first;
-      ++__out_false;
-    }
-  }
-  return pair<_OutputIterator1, _OutputIterator2>(__out_true, __out_false);
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30518,15 +25330,7 @@ template <class _InputIterator, class _OutputIterator1, class _OutputIterator2, 
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
 
-template <class _ForwardIterator, class _Predicate>
- _ForwardIterator
-partition_point(_ForwardIterator __first, _ForwardIterator __last, _Predicate __pred) {
-  return __first;
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30550,21 +25354,7 @@ partition_point(_ForwardIterator __first, _ForwardIterator __last, _Predicate __
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _InputIterator, class _OutputIterator, class _Tp>
-inline  _OutputIterator
-remove_copy(_InputIterator __first, _InputIterator __last, _OutputIterator __result, const _Tp& __value) {
-  for (; __first != __last; ++__first) {
-    if (!(*__first == __value)) {
-      *__result = *__first;
-      ++__result;
-    }
-  }
-  return __result;
-}
 
-} }
 #pragma clang diagnostic pop
 
 
@@ -30574,21 +25364,7 @@ remove_copy(_InputIterator __first, _InputIterator __last, _OutputIterator __res
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
 
-template <class _InputIterator, class _OutputIterator, class _Predicate>
-inline  _OutputIterator
-remove_copy_if(_InputIterator __first, _InputIterator __last, _OutputIterator __result, _Predicate __pred) {
-  for (; __first != __last; ++__first) {
-    if (!__pred(*__first)) {
-      *__result = *__first;
-      ++__result;
-    }
-  }
-  return __result;
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30599,17 +25375,6 @@ remove_copy_if(_InputIterator __first, _InputIterator __last, _OutputIterator __
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _ForwardIterator, class _Tp>
-inline  void
-replace(_ForwardIterator __first, _ForwardIterator __last, const _Tp& __old_value, const _Tp& __new_value) {
-  for (; __first != __last; ++__first)
-    if (*__first == __old_value)
-      *__first = __new_value;
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30619,24 +25384,6 @@ replace(_ForwardIterator __first, _ForwardIterator __last, const _Tp& __old_valu
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _InputIterator, class _OutputIterator, class _Tp>
-inline  _OutputIterator replace_copy(
-    _InputIterator __first,
-    _InputIterator __last,
-    _OutputIterator __result,
-    const _Tp& __old_value,
-    const _Tp& __new_value) {
-  for (; __first != __last; ++__first, (void)++__result)
-    if (*__first == __old_value)
-      *__result = __new_value;
-    else
-      *__result = *__first;
-  return __result;
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30646,24 +25393,6 @@ inline  _OutputIterator replace_copy(
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _InputIterator, class _OutputIterator, class _Predicate, class _Tp>
-inline  _OutputIterator replace_copy_if(
-    _InputIterator __first,
-    _InputIterator __last,
-    _OutputIterator __result,
-    _Predicate __pred,
-    const _Tp& __new_value) {
-  for (; __first != __last; ++__first, (void)++__result)
-    if (__pred(*__first))
-      *__result = __new_value;
-    else
-      *__result = *__first;
-  return __result;
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30673,17 +25402,6 @@ inline  _OutputIterator replace_copy_if(
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _ForwardIterator, class _Predicate, class _Tp>
-inline  void
-replace_if(_ForwardIterator __first, _ForwardIterator __last, _Predicate __pred, const _Tp& __new_value) {
-  for (; __first != __last; ++__first)
-    if (__pred(*__first))
-      *__first = __new_value;
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30694,17 +25412,6 @@ replace_if(_ForwardIterator __first, _ForwardIterator __last, _Predicate __pred,
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _BidirectionalIterator, class _OutputIterator>
-inline  _OutputIterator
-reverse_copy(_BidirectionalIterator __first, _BidirectionalIterator __last, _OutputIterator __result) {
-  for (; __first != __last; ++__result)
-    *__result = *--__last;
-  return __result;
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30715,15 +25422,6 @@ reverse_copy(_BidirectionalIterator __first, _BidirectionalIterator __last, _Out
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _ForwardIterator, class _OutputIterator>
-inline  _OutputIterator
-rotate_copy(_ForwardIterator __first, _ForwardIterator __middle, _ForwardIterator __last, _OutputIterator __result) {
-  return std::copy(__first, __middle, std::copy(__middle, __last, __result));
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30753,50 +25451,6 @@ rotate_copy(_ForwardIterator __first, _ForwardIterator __middle, _ForwardIterato
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Comp, class _InIter1, class _Sent1, class _InIter2, class _Sent2, class _OutIter>
- pair<__remove_cvref_t<_InIter1>, __remove_cvref_t<_OutIter> >
-__set_difference(
-    _InIter1&& __first1, _Sent1&& __last1, _InIter2&& __first2, _Sent2&& __last2, _OutIter&& __result, _Comp&& __comp) {
-  while (__first1 != __last1 && __first2 != __last2) {
-    if (__comp(*__first1, *__first2)) {
-      *__result = *__first1;
-      ++__first1;
-      ++__result;
-    } else if (__comp(*__first2, *__first1)) {
-      ++__first2;
-    } else {
-      ++__first1;
-      ++__first2;
-    }
-  }
-  return std::__copy(std::move(__first1), std::move(__last1), std::move(__result));
-}
-
-template <class _InputIterator1, class _InputIterator2, class _OutputIterator, class _Compare>
-inline  _OutputIterator set_difference(
-    _InputIterator1 __first1,
-    _InputIterator1 __last1,
-    _InputIterator2 __first2,
-    _InputIterator2 __last2,
-    _OutputIterator __result,
-    _Compare __comp) {
-  return std::__set_difference<__comp_ref_type<_Compare> >(__first1, __last1, __first2, __last2, __result, __comp)
-      .second;
-}
-
-template <class _InputIterator1, class _InputIterator2, class _OutputIterator>
-inline  _OutputIterator set_difference(
-    _InputIterator1 __first1,
-    _InputIterator1 __last1,
-    _InputIterator2 __first2,
-    _InputIterator2 __last2,
-    _OutputIterator __result) {
-  return std::__set_difference(__first1, __last1, __first2, __last2, __result, __less<>()).second;
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30819,84 +25473,6 @@ inline  _OutputIterator set_difference(
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _InIter1, class _InIter2, class _OutIter>
-struct __set_symmetric_difference_result {
-  _InIter1 __in1_;
-  _InIter2 __in2_;
-  _OutIter __out_;
-
-
-  
-  __set_symmetric_difference_result(_InIter1&& __in_iter1, _InIter2&& __in_iter2, _OutIter&& __out_iter)
-      : __in1_(std::move(__in_iter1)), __in2_(std::move(__in_iter2)), __out_(std::move(__out_iter)) {}
-};
-
-template <class _Compare, class _InIter1, class _Sent1, class _InIter2, class _Sent2, class _OutIter>
- __set_symmetric_difference_result<_InIter1, _InIter2, _OutIter>
-__set_symmetric_difference(
-    _InIter1 __first1, _Sent1 __last1, _InIter2 __first2, _Sent2 __last2, _OutIter __result, _Compare&& __comp) {
-  while (__first1 != __last1) {
-    if (__first2 == __last2) {
-      auto __ret1 = std::__copy(std::move(__first1), std::move(__last1), std::move(__result));
-      return __set_symmetric_difference_result<_InIter1, _InIter2, _OutIter>(
-          std::move(__ret1.first), std::move(__first2), std::move((__ret1.second)));
-    }
-    if (__comp(*__first1, *__first2)) {
-      *__result = *__first1;
-      ++__result;
-      ++__first1;
-    } else {
-      if (__comp(*__first2, *__first1)) {
-        *__result = *__first2;
-        ++__result;
-      } else {
-        ++__first1;
-      }
-      ++__first2;
-    }
-  }
-  auto __ret2 = std::__copy(std::move(__first2), std::move(__last2), std::move(__result));
-  return __set_symmetric_difference_result<_InIter1, _InIter2, _OutIter>(
-      std::move(__first1), std::move(__ret2.first), std::move((__ret2.second)));
-}
-
-template <class _InputIterator1, class _InputIterator2, class _OutputIterator, class _Compare>
- _OutputIterator set_symmetric_difference(
-    _InputIterator1 __first1,
-    _InputIterator1 __last1,
-    _InputIterator2 __first2,
-    _InputIterator2 __last2,
-    _OutputIterator __result,
-    _Compare __comp) {
-  return std::__set_symmetric_difference<__comp_ref_type<_Compare> >(
-             std::move(__first1),
-             std::move(__last1),
-             std::move(__first2),
-             std::move(__last2),
-             std::move(__result),
-             __comp)
-      .__out_;
-}
-
-template <class _InputIterator1, class _InputIterator2, class _OutputIterator>
- _OutputIterator set_symmetric_difference(
-    _InputIterator1 __first1,
-    _InputIterator1 __last1,
-    _InputIterator2 __first2,
-    _InputIterator2 __last2,
-    _OutputIterator __result) {
-  return std::set_symmetric_difference(
-      std::move(__first1),
-      std::move(__last1),
-      std::move(__first2),
-      std::move(__last2),
-      std::move(__result),
-      __less<>());
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30908,80 +25484,6 @@ template <class _InputIterator1, class _InputIterator2, class _OutputIterator>
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _InIter1, class _InIter2, class _OutIter>
-struct __set_union_result {
-  _InIter1 __in1_;
-  _InIter2 __in2_;
-  _OutIter __out_;
-
-
-  
-  __set_union_result(_InIter1&& __in_iter1, _InIter2&& __in_iter2, _OutIter&& __out_iter)
-      : __in1_(std::move(__in_iter1)), __in2_(std::move(__in_iter2)), __out_(std::move(__out_iter)) {}
-};
-
-template <class _Compare, class _InIter1, class _Sent1, class _InIter2, class _Sent2, class _OutIter>
- __set_union_result<_InIter1, _InIter2, _OutIter> __set_union(
-    _InIter1 __first1, _Sent1 __last1, _InIter2 __first2, _Sent2 __last2, _OutIter __result, _Compare&& __comp) {
-  for (; __first1 != __last1; ++__result) {
-    if (__first2 == __last2) {
-      auto __ret1 = std::__copy(std::move(__first1), std::move(__last1), std::move(__result));
-      return __set_union_result<_InIter1, _InIter2, _OutIter>(
-          std::move(__ret1.first), std::move(__first2), std::move((__ret1.second)));
-    }
-    if (__comp(*__first2, *__first1)) {
-      *__result = *__first2;
-      ++__first2;
-    } else {
-      if (!__comp(*__first1, *__first2)) {
-        ++__first2;
-      }
-      *__result = *__first1;
-      ++__first1;
-    }
-  }
-  auto __ret2 = std::__copy(std::move(__first2), std::move(__last2), std::move(__result));
-  return __set_union_result<_InIter1, _InIter2, _OutIter>(
-      std::move(__first1), std::move(__ret2.first), std::move((__ret2.second)));
-}
-
-template <class _InputIterator1, class _InputIterator2, class _OutputIterator, class _Compare>
- _OutputIterator set_union(
-    _InputIterator1 __first1,
-    _InputIterator1 __last1,
-    _InputIterator2 __first2,
-    _InputIterator2 __last2,
-    _OutputIterator __result,
-    _Compare __comp) {
-  return std::__set_union<__comp_ref_type<_Compare> >(
-             std::move(__first1),
-             std::move(__last1),
-             std::move(__first2),
-             std::move(__last2),
-             std::move(__result),
-             __comp)
-      .__out_;
-}
-
-template <class _InputIterator1, class _InputIterator2, class _OutputIterator>
- _OutputIterator set_union(
-    _InputIterator1 __first1,
-    _InputIterator1 __last1,
-    _InputIterator2 __first2,
-    _InputIterator2 __last2,
-    _OutputIterator __result) {
-  return std::set_union(
-      std::move(__first1),
-      std::move(__last1),
-      std::move(__first2),
-      std::move(__last2),
-      std::move(__result),
-      __less<>());
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -30991,65 +25493,6 @@ template <class _InputIterator1, class _InputIterator2, class _OutputIterator>
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-
-
-
-
-
-template <class>
-struct __libcpp_random_is_valid_realtype : false_type {};
-template <>
-struct __libcpp_random_is_valid_realtype<float> : true_type {};
-template <>
-struct __libcpp_random_is_valid_realtype<double> : true_type {};
-template <>
-struct __libcpp_random_is_valid_realtype<long double> : true_type {};
-
-
-
-
-
-
-
-template <class>
-struct __libcpp_random_is_valid_inttype : false_type {};
-template <>
-struct __libcpp_random_is_valid_inttype<int8_t> : true_type {};
-template <>
-struct __libcpp_random_is_valid_inttype<short> : true_type {};
-template <>
-struct __libcpp_random_is_valid_inttype<int> : true_type {};
-template <>
-struct __libcpp_random_is_valid_inttype<long> : true_type {};
-template <>
-struct __libcpp_random_is_valid_inttype<long long> : true_type {};
-template <>
-struct __libcpp_random_is_valid_inttype<uint8_t> : true_type {};
-template <>
-struct __libcpp_random_is_valid_inttype<unsigned short> : true_type {};
-template <>
-struct __libcpp_random_is_valid_inttype<unsigned int> : true_type {};
-template <>
-struct __libcpp_random_is_valid_inttype<unsigned long> : true_type {};
-template <>
-struct __libcpp_random_is_valid_inttype<unsigned long long> : true_type {};
-
-
-template <>
-struct __libcpp_random_is_valid_inttype<__int128_t> : true_type {};
-template <>
-struct __libcpp_random_is_valid_inttype<__uint128_t> : true_type {};
-template <class, class = void>
-struct __libcpp_random_is_valid_urng : false_type {};
-template <class _Gp>
-struct __libcpp_random_is_valid_urng<
-    _Gp,
-    __enable_if_t< is_unsigned<typename _Gp::result_type>::value &&
-                   _IsSame<decltype(std::declval<_Gp&>()()), typename _Gp::result_type>::value > > : true_type {};
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -31059,51 +25502,6 @@ struct __libcpp_random_is_valid_urng<
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _UIntType, _UIntType _Xp, size_t _Rp>
-struct __log2_imp;
-
-template <unsigned long long _Xp, size_t _Rp>
-struct __log2_imp<unsigned long long, _Xp, _Rp> {
-  static const size_t value =
-      _Xp & ((unsigned long long)(1) << _Rp) ? _Rp : __log2_imp<unsigned long long, _Xp, _Rp - 1>::value;
-};
-
-template <unsigned long long _Xp>
-struct __log2_imp<unsigned long long, _Xp, 0> {
-  static const size_t value = 0;
-};
-
-template <size_t _Rp>
-struct __log2_imp<unsigned long long, 0, _Rp> {
-  static const size_t value = _Rp + 1;
-};
-
-
-
-template <__uint128_t _Xp, size_t _Rp>
-struct __log2_imp<__uint128_t, _Xp, _Rp> {
-  static const size_t value =
-      (_Xp >> 64) ? (64 + __log2_imp<unsigned long long, (_Xp >> 64), 63>::value)
-                  : __log2_imp<unsigned long long, _Xp, 63>::value;
-};
-
-
-
-template <class _UIntType, _UIntType _Xp>
-struct __log2 {
-  static const size_t value = __log2_imp<
-
-      __conditional_t<sizeof(_UIntType) <= sizeof(unsigned long long), unsigned long long, __uint128_t>,
-
-
-
-      _Xp,
-      sizeof(_UIntType) * 8 - 1>::value;
-};
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -31115,237 +25513,6 @@ struct __log2 {
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Engine, class _UIntType>
-class __independent_bits_engine {
-public:
-
-  typedef _UIntType result_type;
-
-private:
-  typedef typename _Engine::result_type _Engine_result_type;
-  typedef __conditional_t<sizeof(_Engine_result_type) <= sizeof(result_type), result_type, _Engine_result_type>
-      _Working_result_type;
-
-  _Engine& __e_;
-  size_t __w_;
-  size_t __w0_;
-  size_t __n_;
-  size_t __n0_;
-  _Working_result_type __y0_;
-  _Working_result_type __y1_;
-  _Engine_result_type __mask0_;
-  _Engine_result_type __mask1_;
-
-
-
-
-  static constexpr const _Working_result_type _Rp = _Engine::max() - _Engine::min() + _Working_result_type(1);
-
-  static constexpr const size_t __m = __log2<_Working_result_type, _Rp>::value;
-  static constexpr const size_t _WDt = numeric_limits<_Working_result_type>::digits;
-  static constexpr const size_t _EDt = numeric_limits<_Engine_result_type>::digits;
-
-public:
-
-   __independent_bits_engine(_Engine& __e, size_t __w);
-
-
-   result_type operator()() { return __eval(integral_constant<bool, _Rp != 0>()); }
-
-private:
-   result_type __eval(false_type);
-   result_type __eval(true_type);
-};
-
-template <class _Engine, class _UIntType>
-__independent_bits_engine<_Engine, _UIntType>::__independent_bits_engine(_Engine& __e, size_t __w)
-    : __e_(__e), __w_(__w) {
-  __n_ = __w_ / __m + (__w_ % __m != 0);
-  __w0_ = __w_ / __n_;
-  if (_Rp == 0)
-    __y0_ = _Rp;
-  else if (__w0_ < _WDt)
-    __y0_ = (_Rp >> __w0_) << __w0_;
-  else
-    __y0_ = 0;
-  if (_Rp - __y0_ > __y0_ / __n_) {
-    ++__n_;
-    __w0_ = __w_ / __n_;
-    if (__w0_ < _WDt)
-      __y0_ = (_Rp >> __w0_) << __w0_;
-    else
-      __y0_ = 0;
-  }
-  __n0_ = __n_ - __w_ % __n_;
-  if (__w0_ < _WDt - 1)
-    __y1_ = (_Rp >> (__w0_ + 1)) << (__w0_ + 1);
-  else
-    __y1_ = 0;
-  __mask0_ = __w0_ > 0 ? _Engine_result_type(~0) >> (_EDt - __w0_) : _Engine_result_type(0);
-  __mask1_ = __w0_ < _EDt - 1 ? _Engine_result_type(~0) >> (_EDt - (__w0_ + 1)) : _Engine_result_type(~0);
-}
-
-template <class _Engine, class _UIntType>
-inline _UIntType __independent_bits_engine<_Engine, _UIntType>::__eval(false_type) {
-  return static_cast<result_type>(__e_() & __mask0_);
-}
-
-template <class _Engine, class _UIntType>
-_UIntType __independent_bits_engine<_Engine, _UIntType>::__eval(true_type) {
-  const size_t __w_rt = numeric_limits<result_type>::digits;
-  result_type __sp = 0;
-  for (size_t __k = 0; __k < __n0_; ++__k) {
-    _Engine_result_type __u;
-    do {
-      __u = __e_() - _Engine::min();
-    } while (__u >= __y0_);
-    if (__w0_ < __w_rt)
-      __sp <<= __w0_;
-    else
-      __sp = 0;
-    __sp += __u & __mask0_;
-  }
-  for (size_t __k = __n0_; __k < __n_; ++__k) {
-    _Engine_result_type __u;
-    do {
-      __u = __e_() - _Engine::min();
-    } while (__u >= __y1_);
-    if (__w0_ < __w_rt - 1)
-      __sp <<= __w0_ + 1;
-    else
-      __sp = 0;
-    __sp += __u & __mask1_;
-  }
-  return __sp;
-}
-
-template <class _IntType = int>
-class uniform_int_distribution {
-  static_assert(__libcpp_random_is_valid_inttype<_IntType>::value, "IntType must be a supported integer type");
-
-public:
-
-  typedef _IntType result_type;
-
-  class param_type {
-    result_type __a_;
-    result_type __b_;
-
-  public:
-    typedef uniform_int_distribution distribution_type;
-
-     explicit param_type(result_type __a = 0, result_type __b = numeric_limits<result_type>::max())
-        : __a_(__a), __b_(__b) {}
-
-     result_type a() const { return __a_; }
-     result_type b() const { return __b_; }
-
-     friend bool operator==(const param_type& __x, const param_type& __y) {
-      return __x.__a_ == __y.__a_ && __x.__b_ == __y.__b_;
-    }
-     friend bool operator!=(const param_type& __x, const param_type& __y) { return !(__x == __y); }
-  };
-
-private:
-  param_type __p_;
-
-public:
-
-
-   uniform_int_distribution() : uniform_int_distribution(0) {}
-   explicit uniform_int_distribution(
-      result_type __a, result_type __b = numeric_limits<result_type>::max())
-      : __p_(param_type(__a, __b)) {}
-
-
-
-
-   explicit uniform_int_distribution(const param_type& __p) : __p_(__p) {}
-   void reset() {}
-
-
-  template <class _URNG>
-   result_type operator()(_URNG& __g) {
-    return (*this)(__g, __p_);
-  }
-  template <class _URNG>
-   result_type operator()(_URNG& __g, const param_type& __p);
-
-
-   result_type a() const { return __p_.a(); }
-   result_type b() const { return __p_.b(); }
-
-   param_type param() const { return __p_; }
-   void param(const param_type& __p) { __p_ = __p; }
-
-   result_type min() const { return a(); }
-   result_type max() const { return b(); }
-
-   friend bool
-  operator==(const uniform_int_distribution& __x, const uniform_int_distribution& __y) {
-    return __x.__p_ == __y.__p_;
-  }
-   friend bool
-  operator!=(const uniform_int_distribution& __x, const uniform_int_distribution& __y) {
-    return !(__x == __y);
-  }
-};
-
-template <class _IntType>
-template <class _URNG>
-typename uniform_int_distribution<_IntType>::result_type uniform_int_distribution<_IntType>::operator()(
-    _URNG& __g, const param_type& __p) __attribute__((__no_sanitize__("unsigned-integer-overflow"))) {
-  static_assert(__libcpp_random_is_valid_urng<_URNG>::value, "");
-  typedef __conditional_t<sizeof(result_type) <= sizeof(uint32_t), uint32_t, __make_unsigned_t<result_type> > _UIntType;
-  const _UIntType __rp = _UIntType(__p.b()) - _UIntType(__p.a()) + _UIntType(1);
-  if (__rp == 1)
-    return __p.a();
-  const size_t __dt = numeric_limits<_UIntType>::digits;
-  typedef __independent_bits_engine<_URNG, _UIntType> _Eng;
-  if (__rp == 0)
-    return static_cast<result_type>(_Eng(__g, __dt)());
-  size_t __w = __dt - std::__countl_zero(__rp) - 1;
-  if ((__rp & (numeric_limits<_UIntType>::max() >> (__dt - __w))) != 0)
-    ++__w;
-  _Eng __e(__g, __w);
-  _UIntType __u;
-  do {
-    __u = __e();
-  } while (__u >= __rp);
-  return static_cast<result_type>(__u + __p.a());
-}
-
-template <class _CharT, class _Traits, class _IT>
- basic_ostream<_CharT, _Traits>&
-operator<<(basic_ostream<_CharT, _Traits>& __os, const uniform_int_distribution<_IT>& __x) {
-  __save_flags<_CharT, _Traits> __lx(__os);
-  typedef basic_ostream<_CharT, _Traits> _Ostream;
-  __os.flags(_Ostream::dec | _Ostream::left);
-  _CharT __sp = __os.widen(' ');
-  __os.fill(__sp);
-  return __os << __x.a() << __sp << __x.b();
-}
-
-template <class _CharT, class _Traits, class _IT>
- basic_istream<_CharT, _Traits>&
-operator>>(basic_istream<_CharT, _Traits>& __is, uniform_int_distribution<_IT>& __x) {
-  typedef uniform_int_distribution<_IT> _Eng;
-  typedef typename _Eng::result_type result_type;
-  typedef typename _Eng::param_type param_type;
-  __save_flags<_CharT, _Traits> __lx(__is);
-  typedef basic_istream<_CharT, _Traits> _Istream;
-  __is.flags(_Istream::dec | _Istream::skipws);
-  result_type __a;
-  result_type __b;
-  __is >> __a >> __b;
-  if (!__is.fail())
-    __x.param(param_type(__a, __b));
-  return __is;
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -31379,19 +25546,6 @@ operator>>(basic_istream<_CharT, _Traits>& __is, uniform_int_distribution<_IT>& 
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-
-
-template <class _Tp>
- constexpr _Tp __bit_log2(_Tp __t) noexcept {
-  static_assert(__libcpp_is_unsigned_integer<_Tp>::value, "__bit_log2 requires an unsigned integer type");
-  return numeric_limits<_Tp>::digits - 1 - std::__countl_zero(__t);
-}
-
-
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -31403,45 +25557,6 @@ template <class _Tp>
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _InputIterator, class _OutputIterator>
- _OutputIterator
-partial_sum(_InputIterator __first, _InputIterator __last, _OutputIterator __result) {
-  if (__first != __last) {
-    typename iterator_traits<_InputIterator>::value_type __t(*__first);
-    *__result = __t;
-    for (++__first, (void)++__result; __first != __last; ++__first, (void)++__result) {
-
-
-
-      __t = __t + *__first;
-
-      *__result = __t;
-    }
-  }
-  return __result;
-}
-
-template <class _InputIterator, class _OutputIterator, class _BinaryOperation>
- _OutputIterator
-partial_sum(_InputIterator __first, _InputIterator __last, _OutputIterator __result, _BinaryOperation __binary_op) {
-  if (__first != __last) {
-    typename iterator_traits<_InputIterator>::value_type __t(*__first);
-    *__result = __t;
-    for (++__first, (void)++__result; __first != __last; ++__first, (void)++__result) {
-
-
-
-      __t = __binary_op(__t, *__first);
-
-      *__result = __t;
-    }
-  }
-  return __result;
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -31453,229 +25568,6 @@ partial_sum(_InputIterator __first, _InputIterator __last, _OutputIterator __res
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-
-
-template <class _InputIterator, class _OutputIterator>
- constexpr pair<_OutputIterator, __iter_value_type<_InputIterator>>
-__partial_sum_max(_InputIterator __first, _InputIterator __last, _OutputIterator __result) {
-  if (__first == __last)
-    return {__result, 0};
-
-  auto __max = *__first;
-  __iter_value_type<_InputIterator> __sum = *__first;
-  *__result = __sum;
-
-  while (++__first != __last) {
-    if (__max < *__first) {
-      __max = *__first;
-    }
-    __sum = std::move(__sum) + *__first;
-    *++__result = __sum;
-  }
-  return {++__result, __max};
-}
-
-template <class _Value, class _Map, class _Radix>
-struct __radix_sort_traits {
-  using __image_type [[__gnu__::__nodebug__]] = decay_t<__invoke_result_t<_Map, _Value>>;
-  static_assert(is_unsigned<__image_type>::value);
-
-  using __radix_type [[__gnu__::__nodebug__]] = decay_t<__invoke_result_t<_Radix, __image_type>>;
-  static_assert(is_integral<__radix_type>::value);
-
-  static constexpr auto __radix_value_range = numeric_limits<__radix_type>::max() + 1;
-  static constexpr auto __radix_size = std::__bit_log2<uint64_t>(__radix_value_range);
-  static constexpr auto __radix_count = sizeof(__image_type) * 8 / __radix_size;
-};
-
-template <class _Value, class _Map>
-struct __counting_sort_traits {
-  using __image_type [[__gnu__::__nodebug__]] = decay_t<__invoke_result_t<_Map, _Value>>;
-  static_assert(is_unsigned<__image_type>::value);
-
-  static constexpr const auto __value_range = numeric_limits<__image_type>::max() + 1;
-  static constexpr auto __radix_size = std::__bit_log2<uint64_t>(__value_range);
-};
-
-template <class _Radix, class _Integer>
- constexpr auto __nth_radix(size_t __radix_number, _Radix __radix, _Integer __n) {
-  static_assert(is_unsigned<_Integer>::value);
-  using __traits = __counting_sort_traits<_Integer, _Radix>;
-
-  return __radix(static_cast<_Integer>(__n >> __traits::__radix_size * __radix_number));
-}
-
-template <class _ForwardIterator, class _Map, class _RandomAccessIterator>
- constexpr void
-__collect(_ForwardIterator __first, _ForwardIterator __last, _Map __map, _RandomAccessIterator __counters) {
-  using __value_type = __iter_value_type<_ForwardIterator>;
-  using __traits = __counting_sort_traits<__value_type, _Map>;
-
-  std::for_each(__first, __last, [&__counters, &__map](const auto& __preimage) { ++__counters[__map(__preimage)]; });
-
-  const auto __counters_end = __counters + __traits::__value_range;
-  std::partial_sum(__counters, __counters_end, __counters);
-}
-
-template <class _ForwardIterator, class _RandomAccessIterator1, class _Map, class _RandomAccessIterator2>
- constexpr void
-__dispose(_ForwardIterator __first,
-          _ForwardIterator __last,
-          _RandomAccessIterator1 __result,
-          _Map __map,
-          _RandomAccessIterator2 __counters) {
-  std::for_each(__first, __last, [&__result, &__counters, &__map](auto&& __preimage) {
-    auto __index = __counters[__map(__preimage)]++;
-    __result[__index] = std::move(__preimage);
-  });
-}
-
-template <class _ForwardIterator,
-          class _Map,
-          class _Radix,
-          class _RandomAccessIterator1,
-          class _RandomAccessIterator2,
-          size_t... _Radices>
- constexpr bool __collect_impl(
-    _ForwardIterator __first,
-    _ForwardIterator __last,
-    _Map __map,
-    _Radix __radix,
-    _RandomAccessIterator1 __counters,
-    _RandomAccessIterator2 __maximums,
-    index_sequence<_Radices...>) {
-  using __value_type = __iter_value_type<_ForwardIterator>;
-  constexpr auto __radix_value_range = __radix_sort_traits<__value_type, _Map, _Radix>::__radix_value_range;
-
-  auto __previous = numeric_limits<__invoke_result_t<_Map, __value_type>>::min();
-  auto __is_sorted = true;
-  std::for_each(__first, __last, [&__counters, &__map, &__radix, &__previous, &__is_sorted](const auto& __value) {
-    auto __current = __map(__value);
-    __is_sorted &= (__current >= __previous);
-    __previous = __current;
-
-    (++__counters[_Radices][std::__nth_radix(_Radices, __radix, __current)], ...);
-  });
-
-  ((__maximums[_Radices] =
-        std::__partial_sum_max(__counters[_Radices], __counters[_Radices] + __radix_value_range, __counters[_Radices])
-            .second),
-   ...);
-
-  return __is_sorted;
-}
-
-template <class _ForwardIterator, class _Map, class _Radix, class _RandomAccessIterator1, class _RandomAccessIterator2>
- constexpr bool
-__collect(_ForwardIterator __first,
-          _ForwardIterator __last,
-          _Map __map,
-          _Radix __radix,
-          _RandomAccessIterator1 __counters,
-          _RandomAccessIterator2 __maximums) {
-  using __value_type = __iter_value_type<_ForwardIterator>;
-  constexpr auto __radix_count = __radix_sort_traits<__value_type, _Map, _Radix>::__radix_count;
-  return std::__collect_impl(
-      __first, __last, __map, __radix, __counters, __maximums, make_index_sequence<__radix_count>());
-}
-
-template <class _BidirectionalIterator, class _RandomAccessIterator1, class _Map, class _RandomAccessIterator2>
- constexpr void __dispose_backward(
-    _BidirectionalIterator __first,
-    _BidirectionalIterator __last,
-    _RandomAccessIterator1 __result,
-    _Map __map,
-    _RandomAccessIterator2 __counters) {
-  std::for_each(std::make_reverse_iterator(__last),
-                std::make_reverse_iterator(__first),
-                [&__result, &__counters, &__map](auto&& __preimage) {
-                  auto __index = --__counters[__map(__preimage)];
-                  __result[__index] = std::move(__preimage);
-                });
-}
-
-template <class _ForwardIterator, class _RandomAccessIterator, class _Map>
- constexpr _RandomAccessIterator
-__counting_sort_impl(_ForwardIterator __first, _ForwardIterator __last, _RandomAccessIterator __result, _Map __map) {
-  using __value_type = __iter_value_type<_ForwardIterator>;
-  using __traits = __counting_sort_traits<__value_type, _Map>;
-
-  __iter_diff_t<_RandomAccessIterator> __counters[__traits::__value_range + 1] = {0};
-
-  std::__collect(__first, __last, __map, std::next(std::begin(__counters)));
-  std::__dispose(__first, __last, __result, __map, std::begin(__counters));
-
-  return __result + __counters[__traits::__value_range];
-}
-
-template <class _RandomAccessIterator1,
-          class _RandomAccessIterator2,
-          class _Map,
-          class _Radix,
-          enable_if_t< __radix_sort_traits<__iter_value_type<_RandomAccessIterator1>, _Map, _Radix>::__radix_count == 1,
-                       int> = 0>
- constexpr void __radix_sort_impl(
-    _RandomAccessIterator1 __first,
-    _RandomAccessIterator1 __last,
-    _RandomAccessIterator2 __buffer,
-    _Map __map,
-    _Radix __radix) {
-}
-
-template <
-    class _RandomAccessIterator1,
-    class _RandomAccessIterator2,
-    class _Map,
-    class _Radix,
-    enable_if_t< __radix_sort_traits<__iter_value_type<_RandomAccessIterator1>, _Map, _Radix>::__radix_count % 2 == 0,
-                 int> = 0 >
- constexpr void __radix_sort_impl(
-    _RandomAccessIterator1 __first,
-    _RandomAccessIterator1 __last,
-    _RandomAccessIterator2 __buffer_begin,
-    _Map __map,
-    _Radix __radix) {
-}
-
- constexpr auto __shift_to_unsigned(bool __b) { return __b; }
-
-template <class _Ip>
- constexpr auto __shift_to_unsigned(_Ip __n) {
-  constexpr const auto __min_value = numeric_limits<_Ip>::min();
-  return static_cast<make_unsigned_t<_Ip> >(__n ^ __min_value);
-}
-
-struct __low_byte_fn {
-  template <class _Ip>
-   constexpr uint8_t operator()(_Ip __integer) const {
-    static_assert(is_unsigned<_Ip>::value);
-
-    return static_cast<uint8_t>(__integer & 0xff);
-  }
-};
-
-template <class _RandomAccessIterator1, class _RandomAccessIterator2, class _Map, class _Radix>
- constexpr void
-__radix_sort(_RandomAccessIterator1 __first,
-             _RandomAccessIterator1 __last,
-             _RandomAccessIterator2 __buffer,
-             _Map __map,
-             _Radix __radix) {
-  auto __map_to_unsigned = [__map = std::move(__map)](const auto& __x) { return std::__shift_to_unsigned(__map(__x)); };
-  std::__radix_sort_impl(__first, __last, __buffer, __map_to_unsigned, __radix);
-}
-
-template <class _RandomAccessIterator1, class _RandomAccessIterator2>
- constexpr void
-__radix_sort(_RandomAccessIterator1 __first, _RandomAccessIterator1 __last, _RandomAccessIterator2 __buffer) {
-  std::__radix_sort(__first, __last, __buffer, __identity{}, __low_byte_fn{});
-}
-
-
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -31697,29 +25589,6 @@ __radix_sort(_RandomAccessIterator1 __first, _RandomAccessIterator1 __last, _Ran
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _InputIterator, class _OutputIterator, class _UnaryOperation>
-inline  _OutputIterator
-transform(_InputIterator __first, _InputIterator __last, _OutputIterator __result, _UnaryOperation __op) {
-  for (; __first != __last; ++__first, (void)++__result)
-    *__result = __op(*__first);
-  return __result;
-}
-
-template <class _InputIterator1, class _InputIterator2, class _OutputIterator, class _BinaryOperation>
-inline  _OutputIterator transform(
-    _InputIterator1 __first1,
-    _InputIterator1 __last1,
-    _InputIterator2 __first2,
-    _OutputIterator __result,
-    _BinaryOperation __binary_op) {
-  for (; __first1 != __last1; ++__first1, (void)++__first2, ++__result)
-    *__result = __binary_op(*__first1, *__first2);
-  return __result;
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -31755,29 +25624,6 @@ inline  _OutputIterator transform(
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-
-template <class _Tp, class _Compare>
-[[nodiscard]] inline  constexpr const _Tp&
-clamp([[_Clang::__lifetimebound__]] const _Tp& __v,
-      [[_Clang::__lifetimebound__]] const _Tp& __lo,
-      [[_Clang::__lifetimebound__]] const _Tp& __hi,
-      _Compare __comp) {
-  ((void)0);
-  return __comp(__v, __lo) ? __lo : __comp(__hi, __v) ? __hi : __v;
-}
-
-template <class _Tp>
-[[nodiscard]] inline  constexpr const _Tp&
-clamp([[_Clang::__lifetimebound__]] const _Tp& __v,
-      [[_Clang::__lifetimebound__]] const _Tp& __lo,
-      [[_Clang::__lifetimebound__]] const _Tp& __hi) {
-  return std::clamp(__v, __lo, __hi, __less<>());
-}
-
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -31787,26 +25633,6 @@ clamp([[_Clang::__lifetimebound__]] const _Tp& __v,
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-
-
-template <class _InputIterator, class _Size, class _Function>
-inline  _InputIterator
-for_each_n(_InputIterator __first, _Size __orig_n, _Function __f) {
-  typedef decltype(std::__convert_to_integral(__orig_n)) _IntegralSize;
-  _IntegralSize __n = __orig_n;
-  while (__n > 0) {
-    __f(*__first);
-    ++__first;
-    --__n;
-  }
-  return __first;
-}
-
-
-
-} }
 #pragma clang diagnostic pop
 
 
