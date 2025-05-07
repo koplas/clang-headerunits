@@ -21677,20 +21677,8 @@ public:
    allocator(const allocator<_Up>&) noexcept {}
 
   [[__nodiscard__]]  _Tp* allocate(size_t __n) {
-    if (__n > allocator_traits<allocator>::max_size(*this))
-      std::__throw_bad_array_new_length();
-    if (__libcpp_is_constant_evaluated()) {
-      return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
-    } else {
-      return std::__libcpp_allocate<_Tp>(__element_count(__n));
-    }
   }
    void deallocate(_Tp* __p, size_t __n) noexcept {
-    if (__libcpp_is_constant_evaluated()) {
-      ::operator delete(__p);
-    } else {
-      std::__libcpp_deallocate<_Tp>(__p, __element_count(__n));
-    }
   }
 
 
@@ -22693,8 +22681,6 @@ struct __char_traits_base {
 
 
 
-  using pos_type = fpos<mbstate_t>;
-
    static inline constexpr void
   assign(char_type& __lhs, const char_type& __rhs) noexcept {
     __lhs = __rhs;
@@ -22722,7 +22708,6 @@ struct __char_traits_base {
 
    static char_type*
   assign(char_type* __str, size_t __n, char_type __fill_char) noexcept {
-    std::fill_n(__str, __n, __fill_char);
     return __str;
   }
 
@@ -46945,7 +46930,6 @@ public:
   typedef _Traits traits_type;
 
   typedef typename traits_type::int_type int_type;
-  typedef typename traits_type::pos_type pos_type;
   typedef typename traits_type::off_type off_type;
 
   static_assert(is_same<_CharT, typename traits_type::char_type>::value,
@@ -48305,8 +48289,6 @@ __bitset<_N_words, _Size>::to_ullong(true_type, true_type) const {
   unsigned long long __r = __first_[0];
 #pragma clang diagnostic push
 
-  for (size_t __i = 1; __i < sizeof(unsigned long long) / sizeof(__storage_type); ++__i)
-    __r |= static_cast<unsigned long long>(__first_[__i]) << (sizeof(__storage_type) * 8);
 #pragma clang diagnostic pop
   return __r;
 }
@@ -48889,7 +48871,6 @@ public:
   typedef _CharT char_type;
   typedef _Traits traits_type;
   typedef typename traits_type::int_type int_type;
-  typedef typename traits_type::pos_type pos_type;
   typedef typename traits_type::off_type off_type;
 
   static_assert(is_same<_CharT, typename traits_type::char_type>::value,
@@ -48912,15 +48893,6 @@ public:
     return setbuf(__s, __n);
   }
 
-  inline  pos_type
-  pubseekoff(off_type __off, ios_base::seekdir __way, ios_base::openmode __which = ios_base::in | ios_base::out) {
-    return seekoff(__off, __way, __which);
-  }
-
-  inline  pos_type
-  pubseekpos(pos_type __sp, ios_base::openmode __which = ios_base::in | ios_base::out) {
-    return seekpos(__sp, __which);
-  }
 
   inline  int pubsync() { return sync(); }
 
@@ -49046,12 +49018,7 @@ protected:
 
 
   virtual basic_streambuf* setbuf(char_type*, streamsize) { return this; }
-  virtual pos_type seekoff(off_type, ios_base::seekdir, ios_base::openmode = ios_base::in | ios_base::out) {
-    return pos_type(off_type(-1));
-  }
-  virtual pos_type seekpos(pos_type, ios_base::openmode = ios_base::in | ios_base::out) {
-    return pos_type(off_type(-1));
-  }
+
   virtual int sync() { return 0; }
 
 
