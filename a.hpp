@@ -12841,9 +12841,8 @@ template <class _Ep> exception_ptr make_exception_ptr(_Ep __e) noexcept {
   void *__ex = __cxxabiv1::__cxa_allocate_exception(sizeof(_Ep));
 
   (void)__cxxabiv1::__cxa_init_primary_exception(
-      __ex, const_cast<std::type_info *>(&typeid(_Ep)), [](void *__p) {
-        std::__destroy_at(static_cast<_Ep2 *>(__p));
-      });
+      __ex, const_cast<std::type_info *>(&typeid(_Ep)),
+      [](void *__p) { std::__destroy_at(static_cast<_Ep2 *>(__p)); });
 
   try {
     ::new (__ex) _Ep2(__e);
@@ -14101,7 +14100,7 @@ template <class _Tp = void>
 struct logical_or : __binary_function<_Tp, _Tp, bool> {
   typedef bool __result_type;
   constexpr bool operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x || __y;
+    return false;
   }
 };
 template <class... _Tag>
@@ -14112,9 +14111,7 @@ template <> struct logical_or<void> {
   template <class _T1, class _T2>
   constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
       noexcept(noexcept(std::forward<_T1>(__t) || std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) || std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) || std::forward<_T2>(__u);
-  }
+          -> decltype(std::forward<_T1>(__t) || std::forward<_T2>(__u)) {}
   typedef void is_transparent;
 };
 
@@ -14183,17 +14180,6 @@ public:
       __libcpp_is_trivially_relocatable<allocator_type>::value &&
           __libcpp_is_trivially_relocatable<pointer>::value,
       basic_string, void>;
-  static_assert(!is_array<value_type>::value,
-                "Character type of basic_string must not be an array");
-  static_assert(is_standard_layout<value_type>::value,
-                "Character type of basic_string must be standard-layout");
-  static_assert(is_trivial<value_type>::value,
-                "Character type of basic_string must be trivial");
-  static_assert(is_same<_CharT, typename traits_type::char_type>::value,
-                "traits_type::char_type must be the same type as CharT");
-  static_assert(is_same<typename allocator_type::value_type, value_type>::value,
-                "Allocator::value_type must be same type as value_type");
-  static_assert(__check_valid_allocator<allocator_type>::value, "");
   using iterator = __wrap_iter<pointer>;
   using const_iterator = __wrap_iter<const_pointer>;
 
@@ -14255,22 +14241,7 @@ private:
 
   explicit basic_string(__uninitialized_size_tag, size_type __size,
                         const allocator_type &__a)
-      : __alloc_(__a) {
-    if (__size > max_size())
-      this->__throw_length_error();
-    if (__fits_in_sso(__size)) {
-      __rep_ = __rep();
-      __set_short_size(__size);
-    } else {
-      auto __capacity = __recommend(__size) + 1;
-      auto __allocation = __alloc_traits::allocate(__alloc_, __capacity);
-      __begin_lifetime(__allocation, __capacity);
-      __set_long_cap(__capacity);
-      __set_long_pointer(__allocation);
-      __set_long_size(__size);
-    }
-    __annotate_new(__size);
-  }
+      : __alloc_(__a) {}
 
   template <class _Iter, class _Sent>
 
@@ -14292,9 +14263,7 @@ public:
 
   basic_string() noexcept(
       is_nothrow_default_constructible<allocator_type>::value)
-      : __rep_() {
-    __annotate_new(0);
-  }
+      : __rep_() {}
 
   explicit basic_string(const allocator_type &__a)
 
@@ -14316,30 +14285,14 @@ public:
   }
 
   basic_string(const basic_string &__str, const allocator_type &__a)
-      : __alloc_(__a) {
-    if (!__str.__is_long()) {
-      __rep_ = __str.__rep_;
-      __annotate_new(__get_short_size());
-    } else
-      __init_copy_ctor_external(std::__to_address(__str.__get_long_pointer()),
-                                __str.__get_long_size());
-  }
+      : __alloc_(__a) {}
 
   basic_string(basic_string &&__str)
 
       noexcept
 
-      : __rep_([](basic_string &__s) -> decltype(__s.__rep_) && {
-          if (!__s.__is_long())
-            __s.__annotate_delete();
-          return std::move(__s.__rep_);
-        }(__str)),
-        __alloc_(std::move(__str.__alloc_)) {
-    __str.__rep_ = __rep();
-    __str.__annotate_new(0);
-    if (!__is_long())
-      __annotate_new(size());
-  }
+      : __rep_([](basic_string &__s) -> decltype(__s.__rep_) && {}(__str)),
+        __alloc_(std::move(__str.__alloc_)) {}
 
   basic_string(basic_string &&__str, const allocator_type &__a)
       : __alloc_(__a) {
@@ -14386,9 +14339,7 @@ public:
   basic_string(size_type __n, _CharT __c) { __init(__n, __c); }
   template <__enable_if_t<__is_allocator<_Allocator>::value, int> = 0>
   basic_string(size_type __n, _CharT __c, const _Allocator &__a)
-      : __alloc_(__a) {
-    __init(__n, __c);
-  }
+      : __alloc_(__a) {}
 
   basic_string(const basic_string &__str, size_type __pos, size_type __n,
                const _Allocator &__a = _Allocator())
@@ -14411,11 +14362,7 @@ public:
   inline __attribute__((__visibility__("hidden")))
   basic_string(const _Tp &__t, size_type __pos, size_type __n,
                const allocator_type &__a = allocator_type())
-      : __alloc_(__a) {
-    __self_view __sv0 = __t;
-    __self_view __sv = __sv0.substr(__pos, __n);
-    __init(__sv.data(), __sv.size());
-  }
+      : __alloc_(__a) {}
 
   template <class _Tp,
             __enable_if_t<__can_be_converted_to_string_view<_CharT, _Traits,
@@ -14536,20 +14483,7 @@ public:
   }
   size_type length() const noexcept { return size(); }
 
-  size_type max_size() const noexcept {
-    if (size_type __m = __alloc_traits::max_size(__alloc_);
-        __m <= std::numeric_limits<size_type>::max() / 2) {
-      size_type __res = __m - __alignment;
-
-      if (__endian_factor == 2)
-        __res &= ~size_type(1);
-
-      return __res - 1;
-    } else {
-      bool __uses_lsb = __endian_factor == 2;
-      return __uses_lsb ? __m - __alignment - 1 : (__m / 2) - __alignment - 1;
-    }
-  }
+  size_type max_size() const noexcept {}
 
   size_type capacity() const noexcept {
     return (__is_long() ? __get_long_cap()
@@ -14666,32 +14600,18 @@ public:
                     int> = 0>
   inline __attribute__((__visibility__("hidden"))) basic_string &
   append(_ForwardIterator __first, _ForwardIterator __last);
-  basic_string &append(initializer_list<value_type> __il) {
-    return append(__il.begin(), __il.size());
-  }
+  basic_string &append(initializer_list<value_type> __il) {}
 
   void push_back(value_type __c);
   void pop_back();
 
-  reference front() noexcept {
-    ((void)0);
-    return *__get_pointer();
-  }
+  reference front() noexcept {}
 
-  const_reference front() const noexcept {
-    ((void)0);
-    return *data();
-  }
+  const_reference front() const noexcept {}
 
-  reference back() noexcept {
-    ((void)0);
-    return *(__get_pointer() + size() - 1);
-  }
+  reference back() noexcept {}
 
-  const_reference back() const noexcept {
-    ((void)0);
-    return *(data() + size() - 1);
-  }
+  const_reference back() const noexcept {}
 
   template <class _Tp, __enable_if_t<__can_be_converted_to_string_view<
                                          _CharT, _Traits, _Tp>::value,
@@ -14768,11 +14688,7 @@ public:
   basic_string &insert(size_type __pos, const value_type *_Nonnull __s);
   basic_string &insert(size_type __pos, size_type __n, value_type __c);
   iterator insert(const_iterator __pos, value_type __c);
-  iterator insert(const_iterator __pos, size_type __n, value_type __c) {
-    difference_type __p = __pos - begin();
-    insert(static_cast<size_type>(__p), __n, __c);
-    return begin() + __p;
-  }
+  iterator insert(const_iterator __pos, size_type __n, value_type __c) {}
 
   template <class _InputIterator,
             __enable_if_t<
@@ -15167,13 +15083,7 @@ public:
   bool __invariants() const;
 
 private:
-  bool __is_long() const noexcept {
-    if (__libcpp_is_constant_evaluated() &&
-        __builtin_constant_p(__rep_.__l.__is_long_)) {
-      return __rep_.__l.__is_long_;
-    }
-    return __rep_.__s.__is_long_;
-  }
+  bool __is_long() const noexcept {}
 
   static void __begin_lifetime(pointer __begin, size_type __n) {
 
@@ -15194,48 +15104,12 @@ private:
   template <class _ForwardIter, class _Sent>
   constexpr static value_type *
   __copy_non_overlapping_range(_ForwardIter __first, _Sent __last,
-                               value_type *__dest) {
-
-    if constexpr (__libcpp_is_contiguous_iterator<_ForwardIter>::value &&
-                  is_same<value_type,
-                          __remove_cvref_t<decltype(*__first)>>::value &&
-                  is_same<_ForwardIter, _Sent>::value) {
-      ((void)0);
-
-      traits_type::copy(__dest, std::__to_address(__first), __last - __first);
-      return __dest + (__last - __first);
-    }
-
-    for (; __first != __last; ++__first)
-      traits_type::assign(*__dest++, *__first);
-    return __dest;
-  }
+                               value_type *__dest) {}
 
   template <class _ForwardIterator, class _Sentinel>
   constexpr iterator __insert_from_safe_copy(size_type __n, size_type __ip,
                                              _ForwardIterator __first,
-                                             _Sentinel __last) {
-    size_type __sz = size();
-    size_type __cap = capacity();
-    value_type *__p;
-    if (__cap - __sz >= __n) {
-      __annotate_increase(__n);
-      __p = std::__to_address(__get_pointer());
-      size_type __n_move = __sz - __ip;
-      if (__n_move != 0)
-        traits_type::move(__p + __ip + __n, __p + __ip, __n_move);
-    } else {
-      __grow_by_without_replace(__cap, __sz + __n - __cap, __sz, __ip, 0, __n);
-      __p = std::__to_address(__get_long_pointer());
-    }
-    __sz += __n;
-    __set_size(__sz);
-    traits_type::assign(__p[__sz], value_type());
-    __copy_non_overlapping_range(std::move(__first), std::move(__last),
-                                 __p + __ip);
-
-    return begin() + __ip;
-  }
+                                             _Sentinel __last) {}
 
   template <class _Iterator, class _Sentinel>
   iterator __insert_with_size(const_iterator __pos, _Iterator __first,
@@ -15335,24 +15209,10 @@ private:
     basic_string &__str_;
   };
 
-  template <size_type __a> static size_type __align_it(size_type __s) noexcept {
-    return (__s + (__a - 1)) & ~(__a - 1);
-  }
+  template <size_type __a>
+  static size_type __align_it(size_type __s) noexcept {}
   enum { __alignment = 8 };
-  static size_type __recommend(size_type __s) noexcept {
-    if (__s < __min_cap) {
-      return static_cast<size_type>(__min_cap) - 1;
-    }
-    const size_type __boundary = sizeof(value_type) < __alignment
-                                     ? __alignment / sizeof(value_type)
-                                     : __endian_factor;
-    size_type __guess = __align_it<__boundary>(__s + 1) - 1;
-    if (__guess == __min_cap)
-      __guess += __endian_factor;
-
-    ((void)0);
-    return __guess;
-  }
+  static size_type __recommend(size_type __s) noexcept {}
 
   inline void __init(const value_type *__s, size_type __sz);
   inline void __init(size_type __n, value_type __c);
@@ -15408,35 +15268,7 @@ private:
             __alloc_traits::propagate_on_container_copy_assignment::value>());
   }
 
-  void __copy_assign_alloc(const basic_string &__str, true_type) {
-    if (__alloc_ == __str.__alloc_)
-      __alloc_ = __str.__alloc_;
-    else {
-      if (!__str.__is_long()) {
-        if (__is_long()) {
-          __annotate_delete();
-          __alloc_traits::deallocate(__alloc_, __get_long_pointer(),
-                                     __get_long_cap());
-          __rep_ = __rep();
-        }
-        __alloc_ = __str.__alloc_;
-      } else {
-        __annotate_delete();
-        auto __guard = std::__make_scope_guard(__annotate_new_size(*this));
-        allocator_type __a = __str.__alloc_;
-        auto __allocation =
-            std::__allocate_at_least(__a, __str.__get_long_cap());
-        __begin_lifetime(__allocation.ptr, __allocation.count);
-        if (__is_long())
-          __alloc_traits::deallocate(__alloc_, __get_long_pointer(),
-                                     __get_long_cap());
-        __alloc_ = std::move(__a);
-        __set_long_pointer(__allocation.ptr);
-        __set_long_cap(__allocation.count);
-        __set_long_size(__str.__get_long_size());
-      }
-    }
-  }
+  void __copy_assign_alloc(const basic_string &__str, true_type) {}
 
   void __copy_assign_alloc(const basic_string &, false_type) noexcept {}
 
@@ -15471,32 +15303,10 @@ private:
   __assign_external(const value_type *__s, size_type __n);
 
   inline basic_string &__assign_short(const value_type *__s, size_type __n) {
-    size_type __old_size = size();
-    if (__n > __old_size)
-      __annotate_increase(__n - __old_size);
-    pointer __p;
-    if (__is_long()) {
-      __set_long_size(__n);
-      __p = __get_long_pointer();
-    } else {
-      __set_short_size(__n);
-      __p = __get_short_pointer();
-    }
-    traits_type::move(std::__to_address(__p), __s, __n);
-    traits_type::assign(__p[__n], value_type());
-    if (__old_size > __n)
-      __annotate_shrink(__old_size);
     return *this;
   }
 
   basic_string &__null_terminate_at(value_type *__p, size_type __newsz) {
-    size_type __old_size = size();
-    if (__newsz > __old_size)
-      __annotate_increase(__newsz - __old_size);
-    __set_size(__newsz);
-    traits_type::assign(__p[__newsz], value_type());
-    if (__old_size > __newsz)
-      __annotate_shrink(__old_size);
     return *this;
   }
 
