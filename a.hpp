@@ -13482,154 +13482,6 @@ constexpr __scope_guard<_Func> __make_scope_guard(_Func __func) {
 } // namespace std
 #pragma clang diagnostic pop
 
-extern "C" {
-extern long int __sysconf(int __name) noexcept(true);
-}
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-namespace std {
-inline namespace __1 {
-
-class __attribute__((__visibility__("hidden"))) __libcpp_refstring {
-  const char *__imp_;
-
-  bool __uses_refcount() const;
-
-public:
-  explicit __libcpp_refstring(const char *__msg);
-  __libcpp_refstring(const __libcpp_refstring &__s) noexcept;
-  __libcpp_refstring &operator=(const __libcpp_refstring &__s) noexcept;
-  ~__libcpp_refstring();
-
-  const char *c_str() const noexcept { return __imp_; }
-};
-
-} // namespace __1
-} // namespace std
-#pragma clang diagnostic pop
-
-namespace std {
-
-class logic_error : public exception {
-
-private:
-  std::__libcpp_refstring __imp_;
-
-public:
-  explicit logic_error(const string &);
-  explicit logic_error(const char *);
-
-  logic_error(const logic_error &) noexcept;
-  logic_error &operator=(const logic_error &) noexcept;
-
-  ~logic_error() noexcept override;
-
-  const char *what() const noexcept override;
-};
-
-class runtime_error : public exception {
-
-private:
-  std::__libcpp_refstring __imp_;
-
-public:
-  explicit runtime_error(const string &);
-  explicit runtime_error(const char *);
-
-  runtime_error(const runtime_error &) noexcept;
-  runtime_error &operator=(const runtime_error &) noexcept;
-
-  ~runtime_error() noexcept override;
-
-  const char *what() const noexcept override;
-};
-
-class domain_error : public logic_error {
-public:
-  explicit domain_error(const string &__s) : logic_error(__s) {}
-  explicit domain_error(const char *__s) : logic_error(__s) {}
-
-  domain_error(const domain_error &) noexcept = default;
-  domain_error &operator=(const domain_error &) noexcept = default;
-  ~domain_error() noexcept override;
-};
-
-class invalid_argument : public logic_error {
-public:
-  explicit invalid_argument(const string &__s) : logic_error(__s) {}
-  explicit invalid_argument(const char *__s) : logic_error(__s) {}
-
-  invalid_argument(const invalid_argument &) noexcept = default;
-  invalid_argument &operator=(const invalid_argument &) noexcept = default;
-  ~invalid_argument() noexcept override;
-};
-
-class length_error : public logic_error {
-public:
-  explicit length_error(const string &__s) : logic_error(__s) {}
-  explicit length_error(const char *__s) : logic_error(__s) {}
-
-  length_error(const length_error &) noexcept = default;
-  length_error &operator=(const length_error &) noexcept = default;
-  ~length_error() noexcept override;
-};
-
-class out_of_range : public logic_error {
-public:
-  explicit out_of_range(const string &__s) : logic_error(__s) {}
-  explicit out_of_range(const char *__s) : logic_error(__s) {}
-
-  out_of_range(const out_of_range &) noexcept = default;
-  out_of_range &operator=(const out_of_range &) noexcept = default;
-  ~out_of_range() noexcept override;
-};
-
-class range_error : public runtime_error {
-public:
-  explicit range_error(const string &__s) : runtime_error(__s) {}
-  explicit range_error(const char *__s) : runtime_error(__s) {}
-
-  range_error(const range_error &) noexcept = default;
-  range_error &operator=(const range_error &) noexcept = default;
-  ~range_error() noexcept override;
-};
-
-class overflow_error : public runtime_error {
-public:
-  explicit overflow_error(const string &__s) : runtime_error(__s) {}
-  explicit overflow_error(const char *__s) : runtime_error(__s) {}
-
-  overflow_error(const overflow_error &) noexcept = default;
-  overflow_error &operator=(const overflow_error &) noexcept = default;
-  ~overflow_error() noexcept override;
-};
-
-class underflow_error : public runtime_error {
-public:
-  explicit underflow_error(const string &__s) : runtime_error(__s) {}
-  explicit underflow_error(const char *__s) : runtime_error(__s) {}
-
-  underflow_error(const underflow_error &) noexcept = default;
-  underflow_error &operator=(const underflow_error &) noexcept = default;
-  ~underflow_error() noexcept override;
-};
-
-} // namespace std
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wc++11-extensions"
 #pragma clang diagnostic ignored "-Wc++14-extensions"
@@ -13656,464 +13508,6 @@ __attribute__((__preferred_name__(wstring_view)))
 
 __attribute__((__preferred_name__(u16string_view)))
 __attribute__((__preferred_name__(u32string_view))) basic_string_view;
-
-} // namespace __1
-} // namespace std
-#pragma clang diagnostic pop
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-namespace std {
-inline namespace __1 {
-template <class _Arg1, class _Arg2, class _Result>
-struct __binary_function_keep_layout_base {};
-
-template <class _Arg1, class _Arg2, class _Result>
-using __binary_function [[__gnu__::__nodebug__]] =
-    __binary_function_keep_layout_base<_Arg1, _Arg2, _Result>;
-
-} // namespace __1
-} // namespace std
-#pragma clang diagnostic pop
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-namespace std {
-inline namespace __1 {
-
-template <class _Tp = void>
-
-struct plus : __binary_function<_Tp, _Tp, _Tp> {
-  typedef _Tp __result_type;
-  constexpr _Tp operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x + __y;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] plus(typename _Tag::__allow_ctad...) -> plus<_Tag...>;
-
-template <class _Tp>
-inline const bool __desugars_to_v<plus<_Tp>, _Tp, _Tp> = true;
-
-template <class _Tp, class _Up>
-inline const bool __desugars_to_v<plus<void>, _Tp, _Up> = true;
-
-template <> struct plus<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) + std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) + std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) + std::forward<_T2>(__u);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp = void>
-
-struct minus : __binary_function<_Tp, _Tp, _Tp> {
-  typedef _Tp __result_type;
-  constexpr _Tp operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x - __y;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] minus(typename _Tag::__allow_ctad...) -> minus<_Tag...>;
-
-template <> struct minus<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) - std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) - std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) - std::forward<_T2>(__u);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp = void>
-
-struct multiplies : __binary_function<_Tp, _Tp, _Tp> {
-  typedef _Tp __result_type;
-  constexpr _Tp operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x * __y;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] multiplies(typename _Tag::__allow_ctad...)
-    -> multiplies<_Tag...>;
-
-template <> struct multiplies<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) * std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) * std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) * std::forward<_T2>(__u);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp = void>
-
-struct divides : __binary_function<_Tp, _Tp, _Tp> {
-  typedef _Tp __result_type;
-  constexpr _Tp operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x / __y;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] divides(typename _Tag::__allow_ctad...) -> divides<_Tag...>;
-
-template <> struct divides<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) / std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) / std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) / std::forward<_T2>(__u);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp = void>
-
-struct modulus : __binary_function<_Tp, _Tp, _Tp> {
-  typedef _Tp __result_type;
-  constexpr _Tp operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x % __y;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] modulus(typename _Tag::__allow_ctad...) -> modulus<_Tag...>;
-
-template <> struct modulus<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) % std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) % std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) % std::forward<_T2>(__u);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp = void>
-
-struct negate : __unary_function<_Tp, _Tp> {
-  typedef _Tp __result_type;
-  constexpr _Tp operator()(const _Tp &__x) const { return -__x; }
-};
-template <class... _Tag>
-[[maybe_unused]] negate(typename _Tag::__allow_ctad...) -> negate<_Tag...>;
-
-template <> struct negate<void> {
-  template <class _Tp>
-  constexpr auto operator()(_Tp &&__x) const
-      noexcept(noexcept(-std::forward<_Tp>(__x)))
-          -> decltype(-std::forward<_Tp>(__x)) {
-    return -std::forward<_Tp>(__x);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp = void>
-
-struct bit_and : __binary_function<_Tp, _Tp, _Tp> {
-  typedef _Tp __result_type;
-  constexpr _Tp operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x & __y;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] bit_and(typename _Tag::__allow_ctad...) -> bit_and<_Tag...>;
-
-template <> struct bit_and<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) & std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) & std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) & std::forward<_T2>(__u);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp = void> struct bit_not : __unary_function<_Tp, _Tp> {
-  constexpr _Tp operator()(const _Tp &__x) const { return ~__x; }
-};
-template <class... _Tag>
-[[maybe_unused]] bit_not(typename _Tag::__allow_ctad...) -> bit_not<_Tag...>;
-
-template <> struct bit_not<void> {
-  template <class _Tp>
-  constexpr auto operator()(_Tp &&__x) const
-      noexcept(noexcept(~std::forward<_Tp>(__x)))
-          -> decltype(~std::forward<_Tp>(__x)) {
-    return ~std::forward<_Tp>(__x);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp = void>
-
-struct bit_or : __binary_function<_Tp, _Tp, _Tp> {
-  typedef _Tp __result_type;
-  constexpr _Tp operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x | __y;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] bit_or(typename _Tag::__allow_ctad...) -> bit_or<_Tag...>;
-
-template <> struct bit_or<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) | std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) | std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) | std::forward<_T2>(__u);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp = void>
-
-struct bit_xor : __binary_function<_Tp, _Tp, _Tp> {
-  typedef _Tp __result_type;
-  constexpr _Tp operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x ^ __y;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] bit_xor(typename _Tag::__allow_ctad...) -> bit_xor<_Tag...>;
-
-template <> struct bit_xor<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) ^ std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) ^ std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) ^ std::forward<_T2>(__u);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp = void>
-
-struct equal_to : __binary_function<_Tp, _Tp, bool> {
-  typedef bool __result_type;
-  constexpr bool operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x == __y;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] equal_to(typename _Tag::__allow_ctad...) -> equal_to<_Tag...>;
-
-template <> struct equal_to<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) == std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) == std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) == std::forward<_T2>(__u);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp> inline const bool __desugars_to_v<_Tp, _Tp> = true;
-
-template <class _Tp, class _Up>
-inline const bool __desugars_to_v<equal_to<void>, _Tp, _Up> = true;
-
-template <class _Tp = void>
-
-struct not_equal_to : __binary_function<_Tp, _Tp, bool> {
-  typedef bool __result_type;
-  constexpr bool operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x != __y;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] not_equal_to(typename _Tag::__allow_ctad...)
-    -> not_equal_to<_Tag...>;
-
-template <> struct not_equal_to<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) != std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) != std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) != std::forward<_T2>(__u);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp> struct less : __binary_function<_Tp, _Tp, bool> {
-  typedef bool __result_type;
-  constexpr bool operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x < __y;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] less(typename _Tag::__allow_ctad...) -> less<_Tag...>;
-
-template <class _Tp>
-inline const bool __desugars_to_v<less<_Tp>, _Tp, _Tp> = true;
-
-template <class _Tp>
-inline const bool
-    __desugars_to_v<__totally_ordered_less_tag, less<_Tp>, _Tp, _Tp> =
-        is_integral<_Tp>::value;
-
-template <> struct less<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) < std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) < std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) < std::forward<_T2>(__u);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp, class _Up>
-inline const bool __desugars_to_v<less<>, _Tp, _Up> = true;
-
-template <class _Tp>
-inline const bool
-    __desugars_to_v<__totally_ordered_less_tag, less<>, _Tp, _Tp> =
-        is_integral<_Tp>::value;
-
-template <class _Tp = void>
-
-struct less_equal : __binary_function<_Tp, _Tp, bool> {
-  typedef bool __result_type;
-  constexpr bool operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x <= __y;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] less_equal(typename _Tag::__allow_ctad...)
-    -> less_equal<_Tag...>;
-
-template <> struct less_equal<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) <= std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) <= std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) <= std::forward<_T2>(__u);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp = void>
-
-struct greater_equal : __binary_function<_Tp, _Tp, bool> {
-  typedef bool __result_type;
-  constexpr bool operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x >= __y;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] greater_equal(typename _Tag::__allow_ctad...)
-    -> greater_equal<_Tag...>;
-
-template <> struct greater_equal<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) >= std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) >= std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) >= std::forward<_T2>(__u);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp = void>
-
-struct greater : __binary_function<_Tp, _Tp, bool> {
-  typedef bool __result_type;
-  constexpr bool operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x > __y;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] greater(typename _Tag::__allow_ctad...) -> greater<_Tag...>;
-
-template <class _Tp>
-inline const bool __desugars_to_v<greater<_Tp>, _Tp, _Tp> = true;
-
-template <> struct greater<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) > std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) > std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) > std::forward<_T2>(__u);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp, class _Up>
-inline const bool __desugars_to_v<greater<>, _Tp, _Up> = true;
-
-template <class _Tp = void>
-
-struct logical_and : __binary_function<_Tp, _Tp, bool> {
-  typedef bool __result_type;
-  constexpr bool operator()(const _Tp &__x, const _Tp &__y) const {
-    return __x && __y;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] logical_and(typename _Tag::__allow_ctad...)
-    -> logical_and<_Tag...>;
-
-template <> struct logical_and<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) && std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) && std::forward<_T2>(__u)) {
-    return std::forward<_T1>(__t) && std::forward<_T2>(__u);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp = void>
-
-struct logical_not : __unary_function<_Tp, bool> {
-  typedef bool __result_type;
-  constexpr bool operator()(const _Tp &__x) const { return !__x; }
-};
-template <class... _Tag>
-[[maybe_unused]] logical_not(typename _Tag::__allow_ctad...)
-    -> logical_not<_Tag...>;
-
-template <> struct logical_not<void> {
-  template <class _Tp>
-  constexpr auto operator()(_Tp &&__x) const
-      noexcept(noexcept(!std::forward<_Tp>(__x)))
-          -> decltype(!std::forward<_Tp>(__x)) {
-    return !std::forward<_Tp>(__x);
-  }
-  typedef void is_transparent;
-};
-
-template <class _Tp = void>
-
-struct logical_or : __binary_function<_Tp, _Tp, bool> {
-  typedef bool __result_type;
-  constexpr bool operator()(const _Tp &__x, const _Tp &__y) const {
-    return false;
-  }
-};
-template <class... _Tag>
-[[maybe_unused]] logical_or(typename _Tag::__allow_ctad...)
-    -> logical_or<_Tag...>;
-
-template <> struct logical_or<void> {
-  template <class _T1, class _T2>
-  constexpr auto operator()(_T1 &&__t, _T2 &&__u) const
-      noexcept(noexcept(std::forward<_T1>(__t) || std::forward<_T2>(__u)))
-          -> decltype(std::forward<_T1>(__t) || std::forward<_T2>(__u)) {}
-  typedef void is_transparent;
-};
 
 } // namespace __1
 } // namespace std
@@ -14424,11 +13818,6 @@ public:
 
   basic_string &operator=(basic_string &&__str) noexcept(
       __noexcept_move_assign_container<_Allocator, __alloc_traits>::value) {
-    __move_assign(
-        __str,
-        integral_constant<
-            bool,
-            __alloc_traits::propagate_on_container_move_assignment::value>());
     return *this;
   }
 
@@ -14447,36 +13836,26 @@ public:
     return __make_const_iterator(__get_pointer());
   }
   iterator end() noexcept { return __make_iterator(__get_pointer() + size()); }
-  const_iterator end() const noexcept {
-    return __make_const_iterator(__get_pointer() + size());
-  }
+  const_iterator end() const noexcept {}
 
   reverse_iterator rbegin() noexcept { return reverse_iterator(end()); }
-  const_reverse_iterator rbegin() const noexcept {
-    return const_reverse_iterator(end());
-  }
+  const_reverse_iterator rbegin() const noexcept {}
   reverse_iterator rend() noexcept { return reverse_iterator(begin()); }
-  const_reverse_iterator rend() const noexcept {
-    return const_reverse_iterator(begin());
-  }
+  const_reverse_iterator rend() const noexcept {}
 
-  const_iterator cbegin() const noexcept { return begin(); }
-  const_iterator cend() const noexcept { return end(); }
-  const_reverse_iterator crbegin() const noexcept { return rbegin(); }
-  const_reverse_iterator crend() const noexcept { return rend(); }
+  const_iterator cbegin() const noexcept {}
+  const_iterator cend() const noexcept {}
+  const_reverse_iterator crbegin() const noexcept {}
+  const_reverse_iterator crend() const noexcept {}
 
   size_type size() const noexcept {
     return __is_long() ? __get_long_size() : __get_short_size();
   }
-  size_type length() const noexcept { return size(); }
+  size_type length() const noexcept {}
 
   size_type max_size() const noexcept {}
 
-  size_type capacity() const noexcept {
-    return (__is_long() ? __get_long_cap()
-                        : static_cast<size_type>(__min_cap)) -
-           1;
-  }
+  size_type capacity() const noexcept {}
 
   void resize(size_type __n, value_type __c);
   void resize(size_type __n) { resize(__n, value_type()); }
@@ -14717,28 +14096,16 @@ public:
                                          _CharT, _Traits, _Tp>::value,
                                      int> = 0>
   inline __attribute__((__visibility__("hidden"))) basic_string &
-  replace(const_iterator __i1, const_iterator __i2, const _Tp &__t) {
-    __self_view __sv = __t;
-    return replace(__i1 - begin(), __i2 - __i1, __sv);
-  }
+  replace(const_iterator __i1, const_iterator __i2, const _Tp &__t) {}
 
   basic_string &replace(const_iterator __i1, const_iterator __i2,
-                        const value_type *__s, size_type __n) {
-    return replace(static_cast<size_type>(__i1 - begin()),
-                   static_cast<size_type>(__i2 - __i1), __s, __n);
-  }
+                        const value_type *__s, size_type __n) {}
 
   basic_string &replace(const_iterator __i1, const_iterator __i2,
-                        const value_type *__s) {
-    return replace(static_cast<size_type>(__i1 - begin()),
-                   static_cast<size_type>(__i2 - __i1), __s);
-  }
+                        const value_type *__s) {}
 
   basic_string &replace(const_iterator __i1, const_iterator __i2, size_type __n,
-                        value_type __c) {
-    return replace(static_cast<size_type>(__i1 - begin()),
-                   static_cast<size_type>(__i2 - __i1), __n, __c);
-  }
+                        value_type __c) {}
 
   template <class _InputIterator,
             __enable_if_t<__has_input_iterator_category<_InputIterator>::value,
@@ -14747,18 +14114,12 @@ public:
   replace(const_iterator __i1, const_iterator __i2, _InputIterator __j1,
           _InputIterator __j2);
   basic_string &replace(const_iterator __i1, const_iterator __i2,
-                        initializer_list<value_type> __il) {
-    return replace(__i1, __i2, __il.begin(), __il.end());
-  }
+                        initializer_list<value_type> __il) {}
 
 private:
   bool __is_long() const noexcept {}
 
-  static void __begin_lifetime(pointer __begin, size_type __n) {
-
-    (void)__begin;
-    (void)__n;
-  }
+  static void __begin_lifetime(pointer __begin, size_type __n) {}
 
   constexpr static bool __fits_in_sso(size_type __sz) {
     return __sz < __min_cap;
@@ -14784,41 +14145,19 @@ private:
   iterator __insert_with_size(const_iterator __pos, _Iterator __first,
                               _Sentinel __last, size_type __n);
 
-  void __set_short_size(size_type __s) noexcept {
-    ((void)0);
-    __rep_.__s.__size_ = __s;
-    __rep_.__s.__is_long_ = false;
-  }
+  void __set_short_size(size_type __s) noexcept {}
 
-  size_type __get_short_size() const noexcept {
-    ((void)0);
-    return __rep_.__s.__size_;
-  }
+  size_type __get_short_size() const noexcept {}
 
-  void __set_long_size(size_type __s) noexcept { __rep_.__l.__size_ = __s; }
+  void __set_long_size(size_type __s) noexcept {}
 
-  size_type __get_long_size() const noexcept {
-    ((void)0);
-    return __rep_.__l.__size_;
-  }
+  size_type __get_long_size() const noexcept { ((void)0); }
 
-  void __set_size(size_type __s) noexcept {
-    if (__is_long())
-      __set_long_size(__s);
-    else
-      __set_short_size(__s);
-  }
+  void __set_size(size_type __s) noexcept {}
 
-  void __set_long_cap(size_type __s) noexcept {
-    ((void)0);
-    __rep_.__l.__cap_ = __s / __endian_factor;
-    __rep_.__l.__is_long_ = true;
-  }
+  void __set_long_cap(size_type __s) noexcept { ((void)0); }
 
-  size_type __get_long_cap() const noexcept {
-    ((void)0);
-    return __rep_.__l.__cap_ * __endian_factor;
-  }
+  size_type __get_long_cap() const noexcept { ((void)0); }
 
   void __set_long_pointer(pointer __p) noexcept {}
 
