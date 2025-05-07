@@ -489,38 +489,6 @@ template <class _Tp>
 #pragma clang diagnostic pop
 
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-
-
-template <class _Tp>
-struct  is_nothrow_destructible
-    : integral_constant<bool, __is_nothrow_destructible(_Tp)> {};
-template <class _Tp>
- inline constexpr bool is_nothrow_destructible_v = is_nothrow_destructible<_Tp>::value;
-
-
-} }
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
-#pragma clang diagnostic pop
-
-
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wc++11-extensions"
@@ -541,23 +509,6 @@ using __void_t [[__gnu__::__nodebug__]] = void;
 } }
 #pragma clang diagnostic pop
 
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Tp, class = void>
-inline const bool __is_referenceable_v = false;
-
-template <class _Tp>
-inline const bool __is_referenceable_v<_Tp, __void_t<_Tp&> > = true;
-
-} }
-#pragma clang diagnostic pop
 
 
 #pragma clang diagnostic push
