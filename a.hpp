@@ -19,25 +19,6 @@
  namespace  std { inline namespace __1 {
 
 
-
-
-struct __equal_tag {};
-
-
-struct __plus_tag {};
-
-
-struct __less_tag {};
-
-
-struct __greater_tag {};
-
-
-
-
-
-
-
 struct __totally_ordered_less_tag {};
 template <class _CanonicalTag, class _Operation, class... _Args>
 inline const bool __desugars_to_v = false;
@@ -131,34 +112,6 @@ using remove_cv_t = __remove_cv_t<_Tp>;
  namespace  std { inline namespace __1 {
 
 
-template <class _Tp> struct __libcpp_is_integral { enum { value = 0 }; };
-template <> struct __libcpp_is_integral<bool> { enum { value = 1 }; };
-template <> struct __libcpp_is_integral<char> { enum { value = 1 }; };
-template <> struct __libcpp_is_integral<signed char> { enum { value = 1 }; };
-template <> struct __libcpp_is_integral<unsigned char> { enum { value = 1 }; };
-
-template <> struct __libcpp_is_integral<wchar_t> { enum { value = 1 }; };
-
-
-
-
-template <> struct __libcpp_is_integral<char16_t> { enum { value = 1 }; };
-template <> struct __libcpp_is_integral<char32_t> { enum { value = 1 }; };
-template <> struct __libcpp_is_integral<short> { enum { value = 1 }; };
-template <> struct __libcpp_is_integral<unsigned short> { enum { value = 1 }; };
-template <> struct __libcpp_is_integral<int> { enum { value = 1 }; };
-template <> struct __libcpp_is_integral<unsigned int> { enum { value = 1 }; };
-template <> struct __libcpp_is_integral<long> { enum { value = 1 }; };
-template <> struct __libcpp_is_integral<unsigned long> { enum { value = 1 }; };
-template <> struct __libcpp_is_integral<long long> { enum { value = 1 }; };
-template <> struct __libcpp_is_integral<unsigned long long> { enum { value = 1 }; };
-
-template <> struct __libcpp_is_integral<__int128_t> { enum { value = 1 }; };
-template <> struct __libcpp_is_integral<__uint128_t> { enum { value = 1 }; };
-
-
-
-
 
 template <class _Tp>
 struct  is_integral : _BoolConstant<__is_integral(_Tp)> {};
@@ -186,7 +139,7 @@ struct __equal_to {
 };
 
 template <class _Tp, class _Up>
-inline const bool __desugars_to_v<__equal_tag, __equal_to, _Tp, _Up> = true;
+inline const bool __desugars_to_v<_Tp, _Up> = true;
 
 
 
@@ -202,23 +155,11 @@ struct __less<void, void> {
 };
 
 template <class _Tp>
-inline const bool __desugars_to_v<__less_tag, __less<>, _Tp, _Tp> = true;
+inline const bool __desugars_to_v<__less<>, _Tp, _Tp> = true;
 
 template <class _Tp>
 inline const bool __desugars_to_v<__totally_ordered_less_tag, __less<>, _Tp, _Tp> = is_integral<_Tp>::value;
 
-} }
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-[[__noreturn__]]  __attribute__((__format__(__printf__, 1, 2))) void __libcpp_verbose_abort(const char* __format, ...) noexcept;
 } }
 #pragma clang diagnostic pop
 
@@ -409,32 +350,7 @@ template <> struct __libcpp_is_signed_integer<__int128_t> : public true_type {};
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
 
-
-template <class _Tp> struct __libcpp_is_unsigned_integer : public false_type {};
-template <> struct __libcpp_is_unsigned_integer<unsigned char> : public true_type {};
-template <> struct __libcpp_is_unsigned_integer<unsigned short> : public true_type {};
-template <> struct __libcpp_is_unsigned_integer<unsigned int> : public true_type {};
-template <> struct __libcpp_is_unsigned_integer<unsigned long> : public true_type {};
-template <> struct __libcpp_is_unsigned_integer<unsigned long long> : public true_type {};
-
-template <> struct __libcpp_is_unsigned_integer<__uint128_t> : public true_type {};
-
-
-
-} }
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
 #pragma clang diagnostic pop
 
 
@@ -455,17 +371,6 @@ template <class _From, class _To>
  inline constexpr bool is_convertible_v = __is_convertible(_From, _To);
 
 
-} }
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
 } }
 #pragma clang diagnostic pop
 
@@ -1211,17 +1116,6 @@ forward([[_Clang::__lifetimebound__]] __libcpp_remove_reference_t<_Tp>&& __t) no
 #pragma clang diagnostic pop
 
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
-#pragma clang diagnostic pop
-
-
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wc++11-extensions"
@@ -1277,41 +1171,6 @@ template <class _Tp>
  inline constexpr bool is_union_v = __is_union(_Tp);
 
 
-} }
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
-#pragma clang diagnostic pop
-
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-
-
-template <class _Tp, size_t _Dim = 0>
-struct  extent : integral_constant<size_t, __array_extent(_Tp, _Dim)> {};
-
-
-template <class _Tp, unsigned _Ip = 0>
- inline constexpr size_t extent_v = __array_extent(_Tp, _Ip);
 } }
 #pragma clang diagnostic pop
 
@@ -1438,120 +1297,6 @@ move_if_noexcept([[_Clang::__lifetimebound__]] _Tp& __x) noexcept {
   return std::move(__x);
 }
 
-} }
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-
-template <class _T1, class _T2 = _T1>
-inline  _T1 exchange(_T1& __obj, _T2&& __new_value) noexcept(
-    is_nothrow_move_constructible<_T1>::value && is_nothrow_assignable<_T1&, _T2>::value) {
-  _T1 __old_value = std::move(__obj);
-  __obj = std::forward<_T2>(__new_value);
-  return __old_value;
-}
-
-
-} }
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
-#pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Tp>
-struct  is_object : _BoolConstant<__is_object(_Tp)> {};
-
-
-template <class _Tp>
- inline constexpr bool is_object_v = __is_object(_Tp);
-
-
-} }
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
-#pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
 } }
 #pragma clang diagnostic pop
 
@@ -1777,30 +1522,6 @@ using make_signed_t = __make_signed_t<_Tp>;
 
 } }
 #pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-} }
-#pragma clang diagnostic pop
-
-
 
 
 #pragma clang diagnostic push
@@ -2132,24 +1853,6 @@ using __iter_reference [[__gnu__::__nodebug__]] = typename iterator_traits<_Iter
 #pragma clang diagnostic pop
 
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-template <class _Func, class... _Args, class = decltype(std::declval<_Func>()(std::declval<_Args>()...))>
-true_type __is_callable_helper(int);
-template <class...>
-false_type __is_callable_helper(...);
-
-template <class _Func, class... _Args>
-struct __is_callable : decltype(std::__is_callable_helper<_Func, _Args...>(0)) {};
-
-} }
-#pragma clang diagnostic pop
 
 
 #pragma clang diagnostic push
@@ -2177,8 +1880,7 @@ __max_element(_ForwardIterator __first, _ForwardIterator __last, _Compare __comp
 template <class _ForwardIterator, class _Compare>
 [[__nodiscard__]] inline  constexpr _ForwardIterator
 max_element(_ForwardIterator __first, _ForwardIterator __last, _Compare __comp) {
-  static_assert(
-      __is_callable<_Compare&, decltype(*__first), decltype(*__first)>::value, "The comparator has to be callable");
+
   return std::__max_element<__comp_ref_type<_Compare> >(__first, __last, __comp);
 }
 
@@ -2870,46 +2572,7 @@ using invoke_result_t = typename invoke_result<_Fn, _Args...>::type;
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
 
-template <class _Comp, class _Iter, class _Sent, class _Proj>
-inline  constexpr _Iter
-__min_element(_Iter __first, _Sent __last, _Comp& __comp, _Proj& __proj) {
-  if (__first == __last)
-    return __first;
-
-  _Iter __i = __first;
-  while (++__i != __last)
-    if (std::__invoke(__comp, std::__invoke(__proj, *__i), std::__invoke(__proj, *__first)))
-      __first = __i;
-
-  return __first;
-}
-
-template <class _Comp, class _Iter, class _Sent>
- constexpr _Iter __min_element(_Iter __first, _Sent __last, _Comp __comp) {
-  auto __proj = __identity();
-  return std::__min_element<_Comp>(std::move(__first), std::move(__last), __comp, __proj);
-}
-
-template <class _ForwardIterator, class _Compare>
-[[__nodiscard__]] inline  constexpr _ForwardIterator
-min_element(_ForwardIterator __first, _ForwardIterator __last, _Compare __comp) {
-  static_assert(
-      __has_forward_iterator_category<_ForwardIterator>::value, "std::min_element requires a ForwardIterator");
-  static_assert(
-      __is_callable<_Compare&, decltype(*__first), decltype(*__first)>::value, "The comparator has to be callable");
-
-  return std::__min_element<__comp_ref_type<_Compare> >(std::move(__first), std::move(__last), __comp);
-}
-
-template <class _ForwardIterator>
-[[__nodiscard__]] inline  constexpr _ForwardIterator
-min_element(_ForwardIterator __first, _ForwardIterator __last) {
-  return std::min_element(__first, __last, __less<>());
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -2921,36 +2584,7 @@ min_element(_ForwardIterator __first, _ForwardIterator __last) {
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
 
-template <class _Tp, class _Compare>
-[[__nodiscard__]] inline  constexpr const _Tp&
-min([[_Clang::__lifetimebound__]] const _Tp& __a, [[_Clang::__lifetimebound__]] const _Tp& __b, _Compare __comp) {
-  return __comp(__b, __a) ? __b : __a;
-}
-
-template <class _Tp>
-[[__nodiscard__]] inline  constexpr const _Tp&
-min([[_Clang::__lifetimebound__]] const _Tp& __a, [[_Clang::__lifetimebound__]] const _Tp& __b) {
-  return std::min(__a, __b, __less<>());
-}
-
-
-
-template <class _Tp, class _Compare>
-[[__nodiscard__]] inline  constexpr _Tp
-min(initializer_list<_Tp> __t, _Compare __comp) {
-  return *std::__min_element<__comp_ref_type<_Compare> >(__t.begin(), __t.end(), __comp);
-}
-
-template <class _Tp>
-[[__nodiscard__]] inline  constexpr _Tp min(initializer_list<_Tp> __t) {
-  return *std::min_element(__t.begin(), __t.end(), __less<>());
-}
-
-
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -5112,112 +4746,13 @@ template <class _Tp>
 } }
 #pragma clang diagnostic pop
 
-
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wc++11-extensions"
 #pragma clang diagnostic ignored "-Wc++14-extensions"
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
 
-
-
-
-template <class _Tp>
- constexpr _Tp __rotl(_Tp __x, int __s) noexcept {
-  static_assert(__libcpp_is_unsigned_integer<_Tp>::value, "__rotl requires an unsigned integer type");
-  const int __n = numeric_limits<_Tp>::digits;
-  int __r = __s % __n;
-
-  if (__r == 0)
-    return __x;
-
-  if (__r > 0)
-    return (__x << __r) | (__x >> (__n - __r));
-
-  return (__x >> -__r) | (__x << (__n + __r));
-}
-
-template <class _Tp>
- constexpr _Tp __rotr(_Tp __x, int __s) noexcept {
-  static_assert(__libcpp_is_unsigned_integer<_Tp>::value, "__rotr requires an unsigned integer type");
-  const int __n = numeric_limits<_Tp>::digits;
-  int __r = __s % __n;
-
-  if (__r == 0)
-    return __x;
-
-  if (__r > 0)
-    return (__x >> __r) | (__x << (__n - __r));
-
-  return (__x << -__r) | (__x >> (__n + __r));
-}
-} }
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-[[__nodiscard__]] inline  constexpr int __libcpp_ctz(unsigned __x) noexcept {
-  return __builtin_ctz(__x);
-}
-
-[[__nodiscard__]] inline  constexpr int __libcpp_ctz(unsigned long __x) noexcept {
-  return __builtin_ctzl(__x);
-}
-
-[[__nodiscard__]] inline  constexpr int __libcpp_ctz(unsigned long long __x) noexcept {
-  return __builtin_ctzll(__x);
-}
-
-
-
-template <class _Tp>
-[[__nodiscard__]]  constexpr int __countr_zero_impl(_Tp __t) noexcept {
-  ((void)0);
-  static_assert(is_unsigned<_Tp>::value, "__countr_zero_impl only works with unsigned types");
-  if constexpr (sizeof(_Tp) <= sizeof(unsigned int)) {
-    return std::__libcpp_ctz(static_cast<unsigned int>(__t));
-  } else if constexpr (sizeof(_Tp) <= sizeof(unsigned long)) {
-    return std::__libcpp_ctz(static_cast<unsigned long>(__t));
-  } else if constexpr (sizeof(_Tp) <= sizeof(unsigned long long)) {
-    return std::__libcpp_ctz(static_cast<unsigned long long>(__t));
-  } else {
-
-
-
-
-
-    int __ret = 0;
-    const unsigned int __ulldigits = numeric_limits<unsigned long long>::digits;
-    while (static_cast<unsigned long long>(__t) == 0uLL) {
-      __ret += __ulldigits;
-      __t >>= __ulldigits;
-    }
-    return __ret + std::__libcpp_ctz(static_cast<unsigned long long>(__t));
-
-  }
-}
-
-template <class _Tp>
-[[__nodiscard__]]  constexpr int __countr_zero(_Tp __t) noexcept {
-  static_assert(is_unsigned<_Tp>::value, "__countr_zero only works with unsigned types");
-
-  return __builtin_ctzg(__t, numeric_limits<_Tp>::digits);
-
-
-
-}
-} }
 #pragma clang diagnostic pop
 
 
@@ -6954,7 +6489,6 @@ extern size_t wcsftime_l (wchar_t *__restrict __s, size_t __maxsize,
  namespace  std { inline namespace __1 {
 
 using ::mbstate_t __attribute__((__using_if_exists__));
-using ::tm __attribute__((__using_if_exists__));
 using ::wint_t __attribute__((__using_if_exists__));
 using ::FILE __attribute__((__using_if_exists__));
 
@@ -7067,37 +6601,6 @@ __find(_Tp* __first, _Tp* __last, const _Up& __value, _Proj& __proj) {
 template <bool _ToFind, class _Cp, bool _IsConst>
                                __bit_iterator<_Cp, _IsConst>
 __find_bool(__bit_iterator<_Cp, _IsConst> __first, typename __size_difference_type_traits<_Cp>::size_type __n) {
-  using _It = __bit_iterator<_Cp, _IsConst>;
-  using __storage_type = typename _It::__storage_type;
-
-  const int __bits_per_word = _It::__bits_per_word;
-
-  if (__first.__ctz_ != 0) {
-    __storage_type __clz_f = static_cast<__storage_type>(__bits_per_word - __first.__ctz_);
-    __storage_type __dn = std::min(__clz_f, __n);
-    __storage_type __m = std::__middle_mask<__storage_type>(__clz_f - __dn, __first.__ctz_);
-    __storage_type __b = std::__invert_if<!_ToFind>(*__first.__seg_) & __m;
-    if (__b)
-      return _It(__first.__seg_, static_cast<unsigned>(std::__countr_zero(__b)));
-    if (__n == __dn)
-      return __first + __n;
-    __n -= __dn;
-    ++__first.__seg_;
-  }
-
-  for (; __n >= __bits_per_word; ++__first.__seg_, __n -= __bits_per_word) {
-    __storage_type __b = std::__invert_if<!_ToFind>(*__first.__seg_);
-    if (__b)
-      return _It(__first.__seg_, static_cast<unsigned>(std::__countr_zero(__b)));
-  }
-
-  if (__n > 0) {
-    __storage_type __m = std::__trailing_mask<__storage_type>(__bits_per_word - __n);
-    __storage_type __b = std::__invert_if<!_ToFind>(*__first.__seg_) & __m;
-    if (__b)
-      return _It(__first.__seg_, static_cast<unsigned>(std::__countr_zero(__b)));
-  }
-  return _It(__first.__seg_, static_cast<unsigned>(__n));
 }
 
 template <class _Cp, bool _IsConst, class _Tp, class _Proj, __enable_if_t<__is_identity<_Proj>::value, int> = 0>
@@ -16258,39 +15761,12 @@ __fill_n(_OutputIterator __first, _Size __n, const _Tp& __value);
 template <bool _FillVal, class _Cp>
                                void
 __fill_n_bool(__bit_iterator<_Cp, false> __first, typename __size_difference_type_traits<_Cp>::size_type __n) {
-  using _It = __bit_iterator<_Cp, false>;
-  using __storage_type = typename _It::__storage_type;
 
-  const int __bits_per_word = _It::__bits_per_word;
-
-  if (__first.__ctz_ != 0) {
-    __storage_type __clz_f = static_cast<__storage_type>(__bits_per_word - __first.__ctz_);
-    __storage_type __dn = std::min(__clz_f, __n);
-    std::__fill_masked_range(std::__to_address(__first.__seg_), __clz_f - __dn, __first.__ctz_, _FillVal);
-    __n -= __dn;
-    ++__first.__seg_;
-  }
-
-  __storage_type __nw = __n / __bits_per_word;
-  std::__fill_n(std::__to_address(__first.__seg_), __nw, _FillVal ? static_cast<__storage_type>(-1) : 0);
-  __n -= __nw * __bits_per_word;
-
-  if (__n > 0) {
-    __first.__seg_ += __nw;
-    std::__fill_masked_range(std::__to_address(__first.__seg_), __bits_per_word - __n, 0u, _FillVal);
-  }
 }
 
 template <class _Cp, class _Size>
 inline  __bit_iterator<_Cp, false>
 __fill_n(__bit_iterator<_Cp, false> __first, _Size __n, const bool& __value) {
-  if (__n > 0) {
-    if (__value)
-      std::__fill_n_bool<true>(__first, __n);
-    else
-      std::__fill_n_bool<false>(__first, __n);
-  }
-  return __first + __n;
 }
 
 template <class _OutputIterator, class _Size, class _Tp>
@@ -16657,15 +16133,6 @@ __str_rfind(const _CharT* __p, _SizeT __sz, _CharT __c, _SizeT __pos) noexcept {
 template <class _CharT, class _SizeT, class _Traits, _SizeT __npos>
 inline _SizeT constexpr 
 __str_rfind(const _CharT* __p, _SizeT __sz, const _CharT* __s, _SizeT __pos, _SizeT __n) noexcept {
-  __pos = std::min(__pos, __sz);
-  if (__n < __sz - __pos)
-    __pos += __n;
-  else
-    __pos = __sz;
-  const _CharT* __r = nullptr;
-  if (__n > 0 && __r == __p + __pos)
-    return __npos;
-  return static_cast<_SizeT>(__r - __p);
 }
 
 
@@ -17000,76 +16467,7 @@ public:
 #pragma clang diagnostic ignored "-Wc++17-extensions"
 #pragma clang diagnostic ignored "-Wc++20-extensions"
 #pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
 
-
-[[__noreturn__]]  void __throw_runtime_error(const char*);
-
-[[__noreturn__]] inline  void __throw_logic_error(const char* __msg) {
-
-  throw logic_error(__msg);
-
-
-
-}
-
-[[__noreturn__]] inline  void __throw_domain_error(const char* __msg) {
-
-  throw domain_error(__msg);
-
-
-
-}
-
-[[__noreturn__]] inline  void __throw_invalid_argument(const char* __msg) {
-
-  throw invalid_argument(__msg);
-
-
-
-}
-
-[[__noreturn__]] inline  void __throw_length_error(const char* __msg) {
-
-  throw length_error(__msg);
-
-
-
-}
-
-[[__noreturn__]] inline  void __throw_out_of_range(const char* __msg) {
-
-  throw out_of_range(__msg);
-
-
-
-}
-
-[[__noreturn__]] inline  void __throw_range_error(const char* __msg) {
-
-  throw range_error(__msg);
-
-
-
-}
-
-[[__noreturn__]] inline  void __throw_overflow_error(const char* __msg) {
-
-  throw overflow_error(__msg);
-
-
-
-}
-
-[[__noreturn__]] inline  void __throw_underflow_error(const char* __msg) {
-
-  throw underflow_error(__msg);
-
-
-
-}
-
-} }
 #pragma clang diagnostic pop
 
 
@@ -17111,322 +16509,6 @@ class __attribute__((__preferred_name__(string_view)))
 #pragma clang diagnostic pop
 
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-
-
-template <class _Cont>
-constexpr  auto data(_Cont& __c) noexcept(noexcept(__c.data())) -> decltype(__c.data()) {
-  return __c.data();
-}
-
-template <class _Cont>
-constexpr  auto data(const _Cont& __c) noexcept(noexcept(__c.data())) -> decltype(__c.data()) {
-  return __c.data();
-}
-
-template <class _Tp, size_t _Sz>
- constexpr _Tp* data(_Tp (&__array)[_Sz]) noexcept {
-  return __array;
-}
-
-template <class _Ep>
- constexpr const _Ep* data(initializer_list<_Ep> __il) noexcept {
-  return __il.begin();
-}
-
-
-
-} }
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-template <class _Iter>
-class move_iterator
-
-
-
-{
-public:
-  typedef _Iter iterator_type;
-  typedef _If< __has_random_access_iterator_category<_Iter>::value,
-               random_access_iterator_tag,
-               typename iterator_traits<_Iter>::iterator_category >
-      iterator_category;
-  typedef typename iterator_traits<iterator_type>::value_type value_type;
-  typedef typename iterator_traits<iterator_type>::difference_type difference_type;
-  typedef iterator_type pointer;
-
-  typedef typename iterator_traits<iterator_type>::reference __reference;
-  typedef __conditional_t<is_reference<__reference>::value, __libcpp_remove_reference_t<__reference>&&, __reference>
-      reference;
-
-
-   constexpr explicit move_iterator(_Iter __i) : __current_(std::move(__i)) {}
-
-   constexpr move_iterator& operator++() {
-    ++__current_;
-    return *this;
-  }
-
-                               constexpr pointer operator->() const {
-    return __current_;
-  }
-   constexpr move_iterator() : __current_() {}
-
-  template <class _Up, __enable_if_t< !is_same<_Up, _Iter>::value && is_convertible<const _Up&, _Iter>::value, int> = 0>
-   constexpr move_iterator(const move_iterator<_Up>& __u)
-      : __current_(__u.base()) {}
-
-  template <class _Up,
-            __enable_if_t< !is_same<_Up, _Iter>::value && is_convertible<const _Up&, _Iter>::value &&
-                               is_assignable<_Iter&, const _Up&>::value,
-                           int> = 0>
-   constexpr move_iterator& operator=(const move_iterator<_Up>& __u) {
-    __current_ = __u.base();
-    return *this;
-  }
-
-   constexpr _Iter base() const { return __current_; }
-
-   constexpr reference operator*() const {
-    return static_cast<reference>(*__current_);
-  }
-   constexpr reference operator[](difference_type __n) const {
-    return static_cast<reference>(__current_[__n]);
-  }
-
-   constexpr move_iterator operator++(int) {
-    move_iterator __tmp(*this);
-    ++__current_;
-    return __tmp;
-  }
-
-
-   constexpr move_iterator& operator--() {
-    --__current_;
-    return *this;
-  }
-   constexpr move_iterator operator--(int) {
-    move_iterator __tmp(*this);
-    --__current_;
-    return __tmp;
-  }
-   constexpr move_iterator operator+(difference_type __n) const {
-    return move_iterator(__current_ + __n);
-  }
-   constexpr move_iterator& operator+=(difference_type __n) {
-    __current_ += __n;
-    return *this;
-  }
-   constexpr move_iterator operator-(difference_type __n) const {
-    return move_iterator(__current_ - __n);
-  }
-   constexpr move_iterator& operator-=(difference_type __n) {
-    __current_ -= __n;
-    return *this;
-  }
-private:
-  template <class _It2>
-  friend class move_iterator;
-
-  _Iter __current_;
-};
-template <class... _Tag> [[maybe_unused]] move_iterator(typename _Tag::__allow_ctad...)->move_iterator<_Tag...>;
-
-template <class _Iter1, class _Iter2>
-inline  constexpr bool
-operator==(const move_iterator<_Iter1>& __x, const move_iterator<_Iter2>& __y) {
-  return __x.base() == __y.base();
-}
-
-
-template <class _Iter1, class _Iter2>
-inline  constexpr bool
-operator!=(const move_iterator<_Iter1>& __x, const move_iterator<_Iter2>& __y) {
-  return __x.base() != __y.base();
-}
-
-
-template <class _Iter1, class _Iter2>
-inline  constexpr bool
-operator<(const move_iterator<_Iter1>& __x, const move_iterator<_Iter2>& __y) {
-  return __x.base() < __y.base();
-}
-
-template <class _Iter1, class _Iter2>
-inline  constexpr bool
-operator>(const move_iterator<_Iter1>& __x, const move_iterator<_Iter2>& __y) {
-  return __x.base() > __y.base();
-}
-
-template <class _Iter1, class _Iter2>
-inline  constexpr bool
-operator<=(const move_iterator<_Iter1>& __x, const move_iterator<_Iter2>& __y) {
-  return __x.base() <= __y.base();
-}
-
-template <class _Iter1, class _Iter2>
-inline  constexpr bool
-operator>=(const move_iterator<_Iter1>& __x, const move_iterator<_Iter2>& __y) {
-  return __x.base() >= __y.base();
-}
-template <class _Iter1, class _Iter2>
-inline  constexpr auto
-operator-(const move_iterator<_Iter1>& __x, const move_iterator<_Iter2>& __y) -> decltype(__x.base() - __y.base()) {
-  return __x.base() - __y.base();
-}
-template <class _Iter>
-inline  constexpr move_iterator<_Iter>
-operator+(typename move_iterator<_Iter>::difference_type __n, const move_iterator<_Iter>& __x) {
-  return move_iterator<_Iter>(__x.base() + __n);
-}
-template <class _Iter>
-inline  constexpr move_iterator<_Iter> make_move_iterator(_Iter __i) {
-  return move_iterator<_Iter>(std::move(__i));
-}
-
-} }
-#pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated"
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-template <class _Tp, class _CharT = char, class _Traits = char_traits<_CharT> >
-class ostream_iterator
-
-    : public iterator<output_iterator_tag, void, void, void, void>
-
-{
-#pragma GCC diagnostic pop
-
-public:
-  typedef output_iterator_tag iterator_category;
-  typedef void value_type;
-
-
-
-  typedef void difference_type;
-
-  typedef void pointer;
-  typedef void reference;
-  typedef _CharT char_type;
-  typedef _Traits traits_type;
-  typedef basic_ostream<_CharT, _Traits> ostream_type;
-
-private:
-  ostream_type* __out_stream_;
-  const char_type* __delim_;
-
-public:
-   ostream_iterator(ostream_type& __s) noexcept
-      : __out_stream_(std::addressof(__s)),
-        __delim_(nullptr) {}
-   ostream_iterator(ostream_type& __s, const _CharT* __delimiter) noexcept
-      : __out_stream_(std::addressof(__s)),
-        __delim_(__delimiter) {}
-   ostream_iterator& operator=(const _Tp& __value) {
-    *__out_stream_ << __value;
-    if (__delim_)
-      *__out_stream_ << __delim_;
-    return *this;
-  }
-
-   ostream_iterator& operator*() { return *this; }
-   ostream_iterator& operator++() { return *this; }
-   ostream_iterator& operator++(int) { return *this; }
-};
-
-} }
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
- namespace  std { inline namespace __1 {
-
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated"
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-template <class _CharT, class _Traits>
-class ostreambuf_iterator
-
-    : public iterator<output_iterator_tag, void, void, void, void>
-
-{
-#pragma GCC diagnostic pop
-
-public:
-  typedef output_iterator_tag iterator_category;
-  typedef void value_type;
-
-
-
-  typedef void difference_type;
-
-  typedef void pointer;
-  typedef void reference;
-  typedef _CharT char_type;
-  typedef _Traits traits_type;
-  typedef basic_streambuf<_CharT, _Traits> streambuf_type;
-  typedef basic_ostream<_CharT, _Traits> ostream_type;
-
-private:
-  streambuf_type* __sbuf_;
-
-public:
-   ostreambuf_iterator(ostream_type& __s) noexcept : __sbuf_(__s.rdbuf()) {}
-   ostreambuf_iterator(streambuf_type* __s) noexcept : __sbuf_(__s) {}
-   ostreambuf_iterator& operator=(_CharT __c) {
-    if (__sbuf_ && traits_type::eq_int_type(__sbuf_->sputc(__c), traits_type::eof()))
-      __sbuf_ = nullptr;
-    return *this;
-  }
-   ostreambuf_iterator& operator*() { return *this; }
-   ostreambuf_iterator& operator++() { return *this; }
-   ostreambuf_iterator& operator++(int) { return *this; }
-   bool failed() const noexcept { return __sbuf_ == nullptr; }
-
-
-  template <class _Ch, class _Tr>
-  friend  ostreambuf_iterator<_Ch, _Tr> __pad_and_output(
-      ostreambuf_iterator<_Ch, _Tr> __s, const _Ch* __ob, const _Ch* __op, const _Ch* __oe, ios_base& __iob, _Ch __fl);
-
-};
-
-} }
-#pragma clang diagnostic pop
-
-
-
-
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wc++11-extensions"
@@ -17438,9 +16520,6 @@ public:
 template <class _Arg1, class _Arg2, class _Result>
 struct __binary_function_keep_layout_base {
 
-  using first_argument_type __attribute__((__deprecated__)) = _Arg1;
-  using second_argument_type __attribute__((__deprecated__)) = _Arg2;
-  using result_type __attribute__((__deprecated__)) = _Result;
 
 };
 
@@ -17484,10 +16563,10 @@ template <class... _Tag> [[maybe_unused]] plus(typename _Tag::__allow_ctad...)->
 
 
 template <class _Tp>
-inline const bool __desugars_to_v<__plus_tag, plus<_Tp>, _Tp, _Tp> = true;
+inline const bool __desugars_to_v<plus<_Tp>, _Tp, _Tp> = true;
 
 template <class _Tp, class _Up>
-inline const bool __desugars_to_v<__plus_tag, plus<void>, _Tp, _Up> = true;
+inline const bool __desugars_to_v<plus<void>, _Tp, _Up> = true;
 
 
 template <>
@@ -17760,11 +16839,11 @@ struct equal_to<void> {
 
 
 template <class _Tp>
-inline const bool __desugars_to_v<__equal_tag, equal_to<_Tp>, _Tp, _Tp> = true;
+inline const bool __desugars_to_v<_Tp, _Tp> = true;
 
 
 template <class _Tp, class _Up>
-inline const bool __desugars_to_v<__equal_tag, equal_to<void>, _Tp, _Up> = true;
+inline const bool __desugars_to_v<equal_to<void>, _Tp, _Up> = true;
 
 
 template <class _Tp = void>
@@ -17802,7 +16881,7 @@ struct less : __binary_function<_Tp, _Tp, bool> {
 template <class... _Tag> [[maybe_unused]] less(typename _Tag::__allow_ctad...)->less<_Tag...>;
 
 template <class _Tp>
-inline const bool __desugars_to_v<__less_tag, less<_Tp>, _Tp, _Tp> = true;
+inline const bool __desugars_to_v<less<_Tp>, _Tp, _Tp> = true;
 
 template <class _Tp>
 inline const bool __desugars_to_v<__totally_ordered_less_tag, less<_Tp>, _Tp, _Tp> = is_integral<_Tp>::value;
@@ -17820,7 +16899,7 @@ struct less<void> {
 };
 
 template <class _Tp, class _Up>
-inline const bool __desugars_to_v<__less_tag, less<>, _Tp, _Up> = true;
+inline const bool __desugars_to_v<less<>, _Tp, _Up> = true;
 
 template <class _Tp>
 inline const bool __desugars_to_v<__totally_ordered_less_tag, less<>, _Tp, _Tp> = is_integral<_Tp>::value;
@@ -17892,7 +16971,7 @@ struct greater : __binary_function<_Tp, _Tp, bool> {
 template <class... _Tag> [[maybe_unused]] greater(typename _Tag::__allow_ctad...)->greater<_Tag...>;
 
 template <class _Tp>
-inline const bool __desugars_to_v<__greater_tag, greater<_Tp>, _Tp, _Tp> = true;
+inline const bool __desugars_to_v<greater<_Tp>, _Tp, _Tp> = true;
 
 
 template <>
@@ -17907,7 +16986,7 @@ struct greater<void> {
 };
 
 template <class _Tp, class _Up>
-inline const bool __desugars_to_v<__greater_tag, greater<>, _Tp, _Up> = true;
+inline const bool __desugars_to_v<greater<>, _Tp, _Up> = true;
 
 
 
@@ -17990,1067 +17069,6 @@ struct logical_or<void> {
 
 } }
 #pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-
-
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated"
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-
-
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-
-#pragma clang diagnostic pop
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-
-
-
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wc++11-extensions"
-#pragma clang diagnostic ignored "-Wc++14-extensions"
-#pragma clang diagnostic ignored "-Wc++17-extensions"
-#pragma clang diagnostic ignored "-Wc++20-extensions"
-#pragma clang diagnostic ignored "-Wc++23-extensions"
-#pragma clang diagnostic pop
-
-
-
-
-
-
-
-
-
 
 
 #pragma clang diagnostic push
@@ -19339,10 +17357,6 @@ public:
 
   basic_string(const basic_string& __str, size_type __pos, size_type __n, const _Allocator& __a = _Allocator())
       : __alloc_(__a) {
-    size_type __str_sz = __str.size();
-    if (__pos > __str_sz)
-      this->__throw_out_of_range();
-    __init(__str.data() + __pos, std::min(__n, __str_sz - __pos));
   }
 
   
@@ -20462,11 +18476,9 @@ private:
   }
 
   [[__noreturn__]]  static void __throw_length_error() {
-    std::__throw_length_error("basic_string");
   }
 
   [[__noreturn__]]  static void __throw_out_of_range() {
-    std::__throw_out_of_range("basic_string");
   }
 
   friend basic_string

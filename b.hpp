@@ -18214,8 +18214,6 @@ __max_element(_ForwardIterator __first, _ForwardIterator __last, _Compare __comp
 template <class _ForwardIterator, class _Compare>
 [[__nodiscard__]] inline  constexpr _ForwardIterator
 max_element(_ForwardIterator __first, _ForwardIterator __last, _Compare __comp) {
-  static_assert(
-      __is_callable<_Compare&, decltype(*__first), decltype(*__first)>::value, "The comparator has to be callable");
   return std::__max_element<__comp_ref_type<_Compare> >(__first, __last, __comp);
 }
 
@@ -19343,37 +19341,6 @@ __find(_Tp* __first, _Tp* __last, const _Up& __value, _Proj& __proj) {
 template <bool _ToFind, class _Cp, bool _IsConst>
                                __bit_iterator<_Cp, _IsConst>
 __find_bool(__bit_iterator<_Cp, _IsConst> __first, typename __size_difference_type_traits<_Cp>::size_type __n) {
-  using _It = __bit_iterator<_Cp, _IsConst>;
-  using __storage_type = typename _It::__storage_type;
-
-  const int __bits_per_word = _It::__bits_per_word;
-
-  if (__first.__ctz_ != 0) {
-    __storage_type __clz_f = static_cast<__storage_type>(__bits_per_word - __first.__ctz_);
-    __storage_type __dn = std::min(__clz_f, __n);
-    __storage_type __m = std::__middle_mask<__storage_type>(__clz_f - __dn, __first.__ctz_);
-    __storage_type __b = std::__invert_if<!_ToFind>(*__first.__seg_) & __m;
-    if (__b)
-      return _It(__first.__seg_, static_cast<unsigned>(std::__countr_zero(__b)));
-    if (__n == __dn)
-      return __first + __n;
-    __n -= __dn;
-    ++__first.__seg_;
-  }
-
-  for (; __n >= __bits_per_word; ++__first.__seg_, __n -= __bits_per_word) {
-    __storage_type __b = std::__invert_if<!_ToFind>(*__first.__seg_);
-    if (__b)
-      return _It(__first.__seg_, static_cast<unsigned>(std::__countr_zero(__b)));
-  }
-
-  if (__n > 0) {
-    __storage_type __m = std::__trailing_mask<__storage_type>(__bits_per_word - __n);
-    __storage_type __b = std::__invert_if<!_ToFind>(*__first.__seg_) & __m;
-    if (__b)
-      return _It(__first.__seg_, static_cast<unsigned>(std::__countr_zero(__b)));
-  }
-  return _It(__first.__seg_, static_cast<unsigned>(__n));
 }
 
 template <class _Cp, bool _IsConst, class _Tp, class _Proj, __enable_if_t<__is_identity<_Proj>::value, int> = 0>
@@ -22263,39 +22230,11 @@ __fill_n(_OutputIterator __first, _Size __n, const _Tp& __value);
 template <bool _FillVal, class _Cp>
                                void
 __fill_n_bool(__bit_iterator<_Cp, false> __first, typename __size_difference_type_traits<_Cp>::size_type __n) {
-  using _It = __bit_iterator<_Cp, false>;
-  using __storage_type = typename _It::__storage_type;
-
-  const int __bits_per_word = _It::__bits_per_word;
-
-  if (__first.__ctz_ != 0) {
-    __storage_type __clz_f = static_cast<__storage_type>(__bits_per_word - __first.__ctz_);
-    __storage_type __dn = std::min(__clz_f, __n);
-    std::__fill_masked_range(std::__to_address(__first.__seg_), __clz_f - __dn, __first.__ctz_, _FillVal);
-    __n -= __dn;
-    ++__first.__seg_;
-  }
-
-  __storage_type __nw = __n / __bits_per_word;
-  std::__fill_n(std::__to_address(__first.__seg_), __nw, _FillVal ? static_cast<__storage_type>(-1) : 0);
-  __n -= __nw * __bits_per_word;
-
-  if (__n > 0) {
-    __first.__seg_ += __nw;
-    std::__fill_masked_range(std::__to_address(__first.__seg_), __bits_per_word - __n, 0u, _FillVal);
-  }
 }
 
 template <class _Cp, class _Size>
 inline  __bit_iterator<_Cp, false>
 __fill_n(__bit_iterator<_Cp, false> __first, _Size __n, const bool& __value) {
-  if (__n > 0) {
-    if (__value)
-      std::__fill_n_bool<true>(__first, __n);
-    else
-      std::__fill_n_bool<false>(__first, __n);
-  }
-  return __first + __n;
 }
 
 template <class _OutputIterator, class _Size, class _Tp>
@@ -22976,15 +22915,6 @@ __str_rfind(const _CharT* __p, _SizeT __sz, _CharT __c, _SizeT __pos) noexcept {
 template <class _CharT, class _SizeT, class _Traits, _SizeT __npos>
 inline _SizeT constexpr 
 __str_rfind(const _CharT* __p, _SizeT __sz, const _CharT* __s, _SizeT __pos, _SizeT __n) noexcept {
-  __pos = std::min(__pos, __sz);
-  if (__n < __sz - __pos)
-    __pos += __n;
-  else
-    __pos = __sz;
-  const _CharT* __r = nullptr;
-  if (__n > 0 && __r == __p + __pos)
-    return __npos;
-  return static_cast<_SizeT>(__r - __p);
 }
 
 
@@ -30181,11 +30111,6 @@ public:
  namespace  std { inline namespace __1 {
 template <class _Arg1, class _Arg2, class _Result>
 struct __binary_function_keep_layout_base {
-
-  using first_argument_type __attribute__((__deprecated__)) = _Arg1;
-  using second_argument_type __attribute__((__deprecated__)) = _Arg2;
-  using result_type __attribute__((__deprecated__)) = _Result;
-
 };
 
 
@@ -42404,10 +42329,6 @@ public:
 
   basic_string(const basic_string& __str, size_type __pos, size_type __n, const _Allocator& __a = _Allocator())
       : __alloc_(__a) {
-    size_type __str_sz = __str.size();
-    if (__pos > __str_sz)
-      this->__throw_out_of_range();
-    __init(__str.data() + __pos, std::min(__n, __str_sz - __pos));
   }
 
   
@@ -43527,11 +43448,9 @@ private:
   }
 
   [[__noreturn__]]  static void __throw_length_error() {
-    std::__throw_length_error("basic_string");
   }
 
   [[__noreturn__]]  static void __throw_out_of_range() {
-    std::__throw_out_of_range("basic_string");
   }
 
   friend basic_string
