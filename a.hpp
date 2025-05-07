@@ -14347,12 +14347,7 @@ public:
 
   basic_string(const basic_string &__str, size_type __pos,
                const _Allocator &__a = _Allocator())
-      : __alloc_(__a) {
-    size_type __str_sz = __str.size();
-    if (__pos > __str_sz)
-      this->__throw_out_of_range();
-    __init(__str.data() + __pos, __str_sz - __pos);
-  }
+      : __alloc_(__a) {}
 
   template <class _Tp,
             __enable_if_t<__can_be_converted_to_string_view<_CharT, _Traits,
@@ -14370,10 +14365,7 @@ public:
                               !__is_same_uncvref<_Tp, basic_string>::value,
                           int> = 0>
   inline __attribute__((__visibility__("hidden"))) explicit basic_string(
-      const _Tp &__t) {
-    __self_view __sv = __t;
-    __init(__sv.data(), __sv.size());
-  }
+      const _Tp &__t) {}
 
   template <class _Tp,
             __enable_if_t<__can_be_converted_to_string_view<_CharT, _Traits,
@@ -14382,10 +14374,7 @@ public:
                           int> = 0>
   inline __attribute__((__visibility__("hidden"))) explicit basic_string(
       const _Tp &__t, const allocator_type &__a)
-      : __alloc_(__a) {
-    __self_view __sv = __t;
-    __init(__sv.data(), __sv.size());
-  }
+      : __alloc_(__a) {}
 
   template <class _InputIterator,
             __enable_if_t<__has_input_iterator_category<_InputIterator>::value,
@@ -14419,9 +14408,7 @@ public:
                                  __get_long_cap());
   }
 
-  operator __self_view() const noexcept {
-    return __self_view(typename __self_view::__assume_valid(), data(), size());
-  }
+  operator __self_view() const noexcept {}
 
   basic_string &operator=(const basic_string &__str);
 
@@ -14504,13 +14491,7 @@ public:
 
   [[__nodiscard__]] bool empty() const noexcept { return size() == 0; }
 
-  const_reference operator[](size_type __pos) const noexcept {
-    ((void)0);
-    if (__builtin_constant_p(__pos) && !__fits_in_sso(__pos)) {
-      return *(__get_long_pointer() + __pos);
-    }
-    return *(data() + __pos);
-  }
+  const_reference operator[](size_type __pos) const noexcept {}
 
   reference operator[](size_type __pos) noexcept {
     ((void)0);
@@ -14549,9 +14530,7 @@ public:
     return append(__il);
   }
 
-  basic_string &append(const basic_string &__str) {
-    return append(__str.data(), __str.size());
-  }
+  basic_string &append(const basic_string &__str) {}
 
   template <class _Tp,
             __enable_if_t<__can_be_converted_to_string_view<_CharT, _Traits,
@@ -14559,10 +14538,7 @@ public:
                               !__is_same_uncvref<_Tp, basic_string>::value,
                           int> = 0>
   inline __attribute__((__visibility__("hidden"))) basic_string &
-  append(const _Tp &__t) {
-    __self_view __sv = __t;
-    return append(__sv.data(), __sv.size());
-  }
+  append(const _Tp &__t) {}
 
   basic_string &append(const basic_string &__str, size_type __pos,
                        size_type __n = npos);
@@ -14589,8 +14565,6 @@ public:
                 int> = 0>
   inline __attribute__((__visibility__("hidden"))) basic_string &
   append(_InputIterator __first, _InputIterator __last) {
-    const basic_string __temp(__first, __last, __alloc_);
-    append(__temp.data(), __temp.size());
     return *this;
   }
 
@@ -14617,10 +14591,7 @@ public:
                                          _CharT, _Traits, _Tp>::value,
                                      int> = 0>
   inline __attribute__((__visibility__("hidden"))) basic_string &
-  assign(const _Tp &__t) {
-    __self_view __sv = __t;
-    return assign(__sv.data(), __sv.size());
-  }
+  assign(const _Tp &__t) {}
   basic_string &assign(const basic_string &__str) { return *this = __str; }
 
   basic_string &assign(basic_string &&__str) noexcept(
@@ -14660,9 +14631,7 @@ public:
     return assign(__il.begin(), __il.size());
   }
 
-  basic_string &insert(size_type __pos1, const basic_string &__str) {
-    return insert(__pos1, __str.data(), __str.size());
-  }
+  basic_string &insert(size_type __pos1, const basic_string &__str) {}
 
   template <class _Tp, __enable_if_t<__can_be_converted_to_string_view<
                                          _CharT, _Traits, _Tp>::value,
@@ -14670,7 +14639,6 @@ public:
   inline __attribute__((__visibility__("hidden"))) basic_string &
   insert(size_type __pos1, const _Tp &__t) {
     __self_view __sv = __t;
-    return insert(__pos1, __sv.data(), __sv.size());
   }
 
   template <class _Tp,
@@ -14713,9 +14681,7 @@ public:
   iterator erase(const_iterator __first, const_iterator __last);
 
   basic_string &replace(size_type __pos1, size_type __n1,
-                        const basic_string &__str) {
-    return replace(__pos1, __n1, __str.data(), __str.size());
-  }
+                        const basic_string &__str) {}
 
   template <class _Tp, __enable_if_t<__can_be_converted_to_string_view<
                                          _CharT, _Traits, _Tp>::value,
@@ -14723,7 +14689,6 @@ public:
   inline __attribute__((__visibility__("hidden"))) basic_string &
   replace(size_type __pos1, size_type __n1, const _Tp &__t) {
     __self_view __sv = __t;
-    return replace(__pos1, __n1, __sv.data(), __sv.size());
   }
 
   basic_string &replace(size_type __pos1, size_type __n1,
@@ -14746,11 +14711,7 @@ public:
                         value_type __c);
 
   basic_string &replace(const_iterator __i1, const_iterator __i2,
-                        const basic_string &__str) {
-    return replace(static_cast<size_type>(__i1 - begin()),
-                   static_cast<size_type>(__i2 - __i1), __str.data(),
-                   __str.size());
-  }
+                        const basic_string &__str) {}
 
   template <class _Tp, __enable_if_t<__can_be_converted_to_string_view<
                                          _CharT, _Traits, _Tp>::value,
@@ -14789,298 +14750,6 @@ public:
                         initializer_list<value_type> __il) {
     return replace(__i1, __i2, __il.begin(), __il.end());
   }
-
-  size_type copy(value_type *__s, size_type __n, size_type __pos = 0) const;
-
-  basic_string substr(size_type __pos = 0, size_type __n = npos) const {
-    return basic_string(*this, __pos, __n);
-  }
-  void swap(basic_string &__str)
-
-      noexcept;
-
-  const value_type *c_str() const noexcept { return data(); }
-  const value_type *data() const noexcept {
-    return std::__to_address(__get_pointer());
-  }
-
-  value_type *data() noexcept { return std::__to_address(__get_pointer()); }
-
-  allocator_type get_allocator() const noexcept { return __alloc_; }
-
-  size_type find(const basic_string &__str,
-                 size_type __pos = 0) const noexcept {
-    return std::__str_find<value_type, size_type, traits_type, npos>(
-        data(), size(), __str.data(), __pos, __str.size());
-  }
-
-  template <class _Tp, __enable_if_t<__can_be_converted_to_string_view<
-                                         _CharT, _Traits, _Tp>::value,
-                                     int> = 0>
-  inline __attribute__((__visibility__("hidden"))) size_type
-  find(const _Tp &__t, size_type __pos = 0) const noexcept {
-    __self_view __sv = __t;
-    return std::__str_find<value_type, size_type, traits_type, npos>(
-        data(), size(), __sv.data(), __pos, __sv.size());
-  }
-
-  size_type find(const value_type *__s, size_type __pos,
-                 size_type __n) const noexcept {
-    ((void)0);
-    return std::__str_find<value_type, size_type, traits_type, npos>(
-        data(), size(), __s, __pos, __n);
-  }
-
-  size_type find(const value_type *_Nonnull __s,
-                 size_type __pos = 0) const noexcept {
-    ((void)0);
-    return std::__str_find<value_type, size_type, traits_type, npos>(
-        data(), size(), __s, __pos, traits_type::length(__s));
-  }
-
-  size_type find(value_type __c, size_type __pos = 0) const noexcept {
-    return std::__str_find<value_type, size_type, traits_type, npos>(
-        data(), size(), __c, __pos);
-  }
-
-  size_type rfind(const basic_string &__str,
-                  size_type __pos = npos) const noexcept {
-    return std::__str_rfind<value_type, size_type, traits_type, npos>(
-        data(), size(), __str.data(), __pos, __str.size());
-  }
-
-  template <class _Tp, __enable_if_t<__can_be_converted_to_string_view<
-                                         _CharT, _Traits, _Tp>::value,
-                                     int> = 0>
-  inline __attribute__((__visibility__("hidden"))) size_type
-  rfind(const _Tp &__t, size_type __pos = npos) const noexcept {
-    __self_view __sv = __t;
-    return std::__str_rfind<value_type, size_type, traits_type, npos>(
-        data(), size(), __sv.data(), __pos, __sv.size());
-  }
-
-  size_type rfind(const value_type *__s, size_type __pos,
-                  size_type __n) const noexcept {
-    ((void)0);
-    return std::__str_rfind<value_type, size_type, traits_type, npos>(
-        data(), size(), __s, __pos, __n);
-  }
-
-  size_type rfind(const value_type *_Nonnull __s,
-                  size_type __pos = npos) const noexcept {
-    ((void)0);
-    return std::__str_rfind<value_type, size_type, traits_type, npos>(
-        data(), size(), __s, __pos, traits_type::length(__s));
-  }
-
-  size_type rfind(value_type __c, size_type __pos = npos) const noexcept {
-    return std::__str_rfind<value_type, size_type, traits_type, npos>(
-        data(), size(), __c, __pos);
-  }
-
-  size_type find_first_of(const basic_string &__str,
-                          size_type __pos = 0) const noexcept {
-    return std::__str_find_first_of<value_type, size_type, traits_type, npos>(
-        data(), size(), __str.data(), __pos, __str.size());
-  }
-
-  template <class _Tp, __enable_if_t<__can_be_converted_to_string_view<
-                                         _CharT, _Traits, _Tp>::value,
-                                     int> = 0>
-  inline __attribute__((__visibility__("hidden"))) size_type
-  find_first_of(const _Tp &__t, size_type __pos = 0) const noexcept {
-    __self_view __sv = __t;
-    return std::__str_find_first_of<value_type, size_type, traits_type, npos>(
-        data(), size(), __sv.data(), __pos, __sv.size());
-  }
-
-  size_type find_first_of(const value_type *__s, size_type __pos,
-                          size_type __n) const noexcept {
-    ((void)0);
-    return std::__str_find_first_of<value_type, size_type, traits_type, npos>(
-        data(), size(), __s, __pos, __n);
-  }
-
-  size_type find_first_of(const value_type *_Nonnull __s,
-                          size_type __pos = 0) const noexcept {
-    ((void)0);
-    return std::__str_find_first_of<value_type, size_type, traits_type, npos>(
-        data(), size(), __s, __pos, traits_type::length(__s));
-  }
-
-  size_type find_first_of(value_type __c, size_type __pos = 0) const noexcept {
-    return find(__c, __pos);
-  }
-
-  size_type find_last_of(const basic_string &__str,
-                         size_type __pos = npos) const noexcept {
-    return std::__str_find_last_of<value_type, size_type, traits_type, npos>(
-        data(), size(), __str.data(), __pos, __str.size());
-  }
-
-  template <class _Tp, __enable_if_t<__can_be_converted_to_string_view<
-                                         _CharT, _Traits, _Tp>::value,
-                                     int> = 0>
-  inline __attribute__((__visibility__("hidden"))) size_type
-  find_last_of(const _Tp &__t, size_type __pos = npos) const noexcept {
-    __self_view __sv = __t;
-    return std::__str_find_last_of<value_type, size_type, traits_type, npos>(
-        data(), size(), __sv.data(), __pos, __sv.size());
-  }
-
-  size_type find_last_of(const value_type *__s, size_type __pos,
-                         size_type __n) const noexcept {
-    ((void)0);
-    return std::__str_find_last_of<value_type, size_type, traits_type, npos>(
-        data(), size(), __s, __pos, __n);
-  }
-
-  size_type find_last_of(const value_type *_Nonnull __s,
-                         size_type __pos = npos) const noexcept {
-    ((void)0);
-    return std::__str_find_last_of<value_type, size_type, traits_type, npos>(
-        data(), size(), __s, __pos, traits_type::length(__s));
-  }
-
-  size_type find_last_of(value_type __c,
-                         size_type __pos = npos) const noexcept {
-    return rfind(__c, __pos);
-  }
-
-  size_type find_first_not_of(const basic_string &__str,
-                              size_type __pos = 0) const noexcept {
-    return std::__str_find_first_not_of<value_type, size_type, traits_type,
-                                        npos>(data(), size(), __str.data(),
-                                              __pos, __str.size());
-  }
-
-  template <class _Tp, __enable_if_t<__can_be_converted_to_string_view<
-                                         _CharT, _Traits, _Tp>::value,
-                                     int> = 0>
-  inline __attribute__((__visibility__("hidden"))) size_type
-  find_first_not_of(const _Tp &__t, size_type __pos = 0) const noexcept {
-    __self_view __sv = __t;
-    return std::__str_find_first_not_of<value_type, size_type, traits_type,
-                                        npos>(data(), size(), __sv.data(),
-                                              __pos, __sv.size());
-  }
-
-  size_type find_first_not_of(const value_type *__s, size_type __pos,
-                              size_type __n) const noexcept {
-    ((void)0);
-    return std::__str_find_first_not_of<value_type, size_type, traits_type,
-                                        npos>(data(), size(), __s, __pos, __n);
-  }
-
-  size_type find_first_not_of(const value_type *_Nonnull __s,
-                              size_type __pos = 0) const noexcept {
-    ((void)0);
-    return std::__str_find_first_not_of<value_type, size_type, traits_type,
-                                        npos>(data(), size(), __s, __pos,
-                                              traits_type::length(__s));
-  }
-
-  size_type find_first_not_of(value_type __c,
-                              size_type __pos = 0) const noexcept {
-    return std::__str_find_first_not_of<value_type, size_type, traits_type,
-                                        npos>(data(), size(), __c, __pos);
-  }
-
-  size_type find_last_not_of(const basic_string &__str,
-                             size_type __pos = npos) const noexcept {
-    return std::__str_find_last_not_of<value_type, size_type, traits_type,
-                                       npos>(data(), size(), __str.data(),
-                                             __pos, __str.size());
-  }
-
-  template <class _Tp, __enable_if_t<__can_be_converted_to_string_view<
-                                         _CharT, _Traits, _Tp>::value,
-                                     int> = 0>
-  inline __attribute__((__visibility__("hidden"))) size_type
-  find_last_not_of(const _Tp &__t, size_type __pos = npos) const noexcept {
-    __self_view __sv = __t;
-    return std::__str_find_last_not_of<value_type, size_type, traits_type,
-                                       npos>(data(), size(), __sv.data(), __pos,
-                                             __sv.size());
-  }
-
-  size_type find_last_not_of(const value_type *__s, size_type __pos,
-                             size_type __n) const noexcept {
-    ((void)0);
-    return std::__str_find_last_not_of<value_type, size_type, traits_type,
-                                       npos>(data(), size(), __s, __pos, __n);
-  }
-
-  size_type find_last_not_of(const value_type *_Nonnull __s,
-                             size_type __pos = npos) const noexcept {
-    ((void)0);
-    return std::__str_find_last_not_of<value_type, size_type, traits_type,
-                                       npos>(data(), size(), __s, __pos,
-                                             traits_type::length(__s));
-  }
-
-  size_type find_last_not_of(value_type __c,
-                             size_type __pos = npos) const noexcept {
-    return std::__str_find_last_not_of<value_type, size_type, traits_type,
-                                       npos>(data(), size(), __c, __pos);
-  }
-
-  int compare(const basic_string &__str) const noexcept {
-    return compare(__self_view(__str));
-  }
-
-  template <class _Tp, __enable_if_t<__can_be_converted_to_string_view<
-                                         _CharT, _Traits, _Tp>::value,
-                                     int> = 0>
-  inline __attribute__((__visibility__("hidden"))) int
-  compare(const _Tp &__t) const noexcept;
-
-  template <class _Tp, __enable_if_t<__can_be_converted_to_string_view<
-                                         _CharT, _Traits, _Tp>::value,
-                                     int> = 0>
-  inline __attribute__((__visibility__("hidden"))) int
-  compare(size_type __pos1, size_type __n1, const _Tp &__t) const {
-    __self_view __sv = __t;
-    return compare(__pos1, __n1, __sv.data(), __sv.size());
-  }
-
-  int compare(size_type __pos1, size_type __n1,
-              const basic_string &__str) const {
-    return compare(__pos1, __n1, __str.data(), __str.size());
-  }
-
-  int compare(size_type __pos1, size_type __n1, const basic_string &__str,
-              size_type __pos2, size_type __n2 = npos) const {
-    return compare(__pos1, __n1, __self_view(__str), __pos2, __n2);
-  }
-
-  template <class _Tp,
-            __enable_if_t<__can_be_converted_to_string_view<_CharT, _Traits,
-                                                            _Tp>::value &&
-                              !__is_same_uncvref<_Tp, basic_string>::value,
-                          int> = 0>
-  inline int compare(size_type __pos1, size_type __n1, const _Tp &__t,
-                     size_type __pos2, size_type __n2 = npos) const {
-    __self_view __sv = __t;
-    return __self_view(*this)
-        .substr(__pos1, __n1)
-        .compare(__sv.substr(__pos2, __n2));
-  }
-
-  int compare(const value_type *_Nonnull __s) const noexcept {
-    ((void)0);
-    return compare(0, npos, __s, traits_type::length(__s));
-  }
-
-  int compare(size_type __pos1, size_type __n1,
-              const value_type *_Nonnull __s) const {
-    ((void)0);
-    return compare(__pos1, __n1, __s, traits_type::length(__s));
-  }
-
-  int compare(size_type __pos1, size_type __n1, const value_type *__s,
-              size_type __n2) const;
-  bool __invariants() const;
 
 private:
   bool __is_long() const noexcept {}
@@ -15151,25 +14820,15 @@ private:
     return __rep_.__l.__cap_ * __endian_factor;
   }
 
-  void __set_long_pointer(pointer __p) noexcept { __rep_.__l.__data_ = __p; }
+  void __set_long_pointer(pointer __p) noexcept {}
 
-  pointer __get_long_pointer() noexcept {
-    ((void)0);
-    return __rep_.__l.__data_;
-  }
+  pointer __get_long_pointer() noexcept { ((void)0); }
 
-  const_pointer __get_long_pointer() const noexcept {
-    ((void)0);
-    return __rep_.__l.__data_;
-  }
+  const_pointer __get_long_pointer() const noexcept { ((void)0); }
 
-  pointer __get_short_pointer() noexcept {
-    return pointer_traits<pointer>::pointer_to(__rep_.__s.__data_[0]);
-  }
+  pointer __get_short_pointer() noexcept {}
 
-  const_pointer __get_short_pointer() const noexcept {
-    return pointer_traits<const_pointer>::pointer_to(__rep_.__s.__data_[0]);
-  }
+  const_pointer __get_short_pointer() const noexcept {}
 
   pointer __get_pointer() noexcept {
     return __is_long() ? __get_long_pointer() : __get_short_pointer();
@@ -15310,10 +14969,7 @@ private:
     return *this;
   }
 
-  template <class _Tp> bool __addr_in_range(const _Tp &__v) const {
-    return std::__is_pointer_in_range(data(), data() + size() + 1,
-                                      std::addressof(__v));
-  }
+  template <class _Tp> bool __addr_in_range(const _Tp &__v) const {}
 
   [[__noreturn__]] static void __throw_length_error() {}
 
